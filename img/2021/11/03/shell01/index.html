@@ -1,0 +1,208 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>shell01 - Hexo</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="正则表达式，使用若干符号配合某工具实现对文档的过滤、查
+找、修改等功能
+head -5 /etc/passwd &amp;gt; user   //准备素材
+grep bin user   //找有bin的,"> 
+    <meta name="author" content="John Doe"> 
+    <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">Hexo</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://example.com"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">shell01</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">shell01</h1>
+        <div class="stuff">
+            <span>十一月 03, 2021</span>
+            
+
+        </div>
+        <div class="content markdown">
+            <p>正则表达式，使用若干符号配合某工具实现对文档的过滤、查</p>
+<p>找、修改等功能</p>
+<p>head -5 /etc/passwd &gt; user   //准备素材</p>
+<p>grep bin user   //找有bin的行</p>
+<p>grep ^bin user        //找以bin开头的行</p>
+<p>grep bash user   //找有bash的行</p>
+<p>grep bash$ user   //找以bash结尾的行</p>
+<p>vim user     //编辑文档添加空行</p>
+<p>grep  -n  ^$  user   //找空行，加n选项可以显示行号</p>
+<p>grep “[root]” user   //找root四个字符任意一个</p>
+<p>grep “[rot]” user         //效果同上，找rot任意一个字符</p>
+<p>grep “rot” user   //找连续的rot字符串</p>
+<p>grep “[a-z]” user   //找所有小写字母</p>
+<p>grep “[A-Z]” user   //找所有大写字母</p>
+<p>grep “[a-Z]” user   //找所有字母</p>
+<p>grep “[0-9]” user   //找所有数字</p>
+<p>grep “[^a-Z]” user  //找字母之外的内容，^写在[]里是取反效果</p>
+<p>grep “r..t” user   //找rt之间有2个任意字符的行</p>
+<p>grep “r…t” user  //找rt之间有3个任意字符的行，没有匹配内容，就无输出    </p>
+<p>grep “<em>“ user  //错误用法，</em>号是匹配前一个字符任意次，不能单独使用</p>
+<p>grep “ro*t” user  //找rt，中间的o有没有都行，有几次都行</p>
+<p>grep “.” user   //找任意单个字符，文档中每个字符都可以理解为任意字符</p>
+<p>grep “.<em>“ user  //找任意，包括空行 .与</em>的组合在正则中相当于通配符的效果</p>
+<p>grep “ro{2,4}t” user   //找rt，中间的o可以是2~4个</p>
+<p>grep “ro{2,}t” user         //找rt，中间的o可以是2个以及2个以</p>
+<p>上</p>
+<p>grep “ro{3,7}t” user //找rt，中间的o可以是3~7个，没有匹</p>
+<p>配条件就没有任何显示</p>
+<p>grep “ro{3,}t” user  //找rt，中间的o可以是3个以及3个以</p>
+<p>上</p>
+<p>grep “ro{2}t” user  //找rt，中间的o必须是2个</p>
+<p>grep “ro{1,}t” user    //找1次以及1次以上的o</p>
+<p>egrep “ro{1,}t” user   //效果同上,egrep支持扩展正则，或者grep -E</p>
+<p>egrep “ro+t” user     //效果同上，最精简</p>
+<p>grep “roo{0,1}t” user   //第二个o要出现0~1次</p>
+<p>egrep “roo{0,1}t” user  //效果同上</p>
+<p>egrep “roo?t” user   //效果同上，最精简</p>
+<p>grep “ro{2}t” user    //找o出现2次的</p>
+<p>egrep “ro{2}t” user    //效果同上</p>
+<p>egrep “^root|^bin” user   //找root或者以bin开头的行</p>
+<p>egrep “^(root|bin)” user   //效果同上</p>
+<p>egrep “\bthe\b” abc             //找the，前后不允许出现数</p>
+<p>字，字母，下划线</p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+		data-enable='false'
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</html>
