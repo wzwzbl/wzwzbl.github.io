@@ -1,0 +1,363 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>shell03 - Hexo</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="shell中的运算
+2，方法二用$[ ]结构，配合echo输出，同样可以实现加 减 乘 除 取余,另外$(( ))也可以实现相同效果
+echo $[1+1]  或者  echo $((1+1))
+e,"> 
+    <meta name="author" content="John Doe"> 
+    <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">Hexo</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://example.com"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">shell03</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">shell03</h1>
+        <div class="stuff">
+            <span>十一月 03, 2021</span>
+            
+
+        </div>
+        <div class="content markdown">
+            <p>shell中的运算</p>
+<p>2，方法二用$[ ]结构，配合echo输出，同样可以实现加 减 乘 除 取余,另外$(( ))也可以实现相同效果</p>
+<p>echo $[1+1]  或者  echo $((1+1))</p>
+<p>echo $[2-1]</p>
+<p>echo $[2*2]</p>
+<p>echo $[4/2]</p>
+<p>echo $[5%3]</p>
+<p>3，方法三使用let指令，不输出计算结果，专用于创建变量，或者对变量进行自增减</p>
+<p>用法一：创建变量</p>
+<p>let a=1+1   创建变量a</p>
+<p>用法二： 变量的自增减</p>
+<p>常规写法  主流写法</p>
+<p>let a=a+1    let a++    变量的自增减，将变量a的值加1</p>
+<p>let a=a-1  let a–    变量a减1</p>
+<p>let a=a+2        let a+=2   变量a加2</p>
+<p>let a=a-2  let a-=2   变量a减2</p>
+<p>let a=a<em>10  let a</em>=10  变量a乘以10</p>
+<p>4，使用bc 计算器，可以进行小数运算</p>
+<p>echo “1.1+1” | bc    //非交互的方式使用bc工具</p>
+<p>echo “10/3” | bc</p>
+<p>echo “scale=3;10/3” | bc   //scale可以定义小数点</p>
+<p>后面的长度</p>
+<hr>
+<p>条件测试：可以为脚本提供智能判断的效果</p>
+<p>使用方式：test  表达式   或者    [ 表达式 ]</p>
+<p>条件测试种类：</p>
+<p>1， 对字符串进行判断</p>
+<p>可以使用的方式有： == 两边是否相等   != 两边是否不等  </p>
+<p>-z判断变量是否为空  ! -z 判断变量是否非空</p>
+<p>[ a == a ]  判断字符串a是否等于a，如果相等，echo $?的返回值就是0</p>
+<p>[ root == $USER ]   判断当前用户名是否叫root，如果是，返回值就是0</p>
+<p>[ root != $USER ]  判断当前用户名是否不叫root，如果不叫root，返回值就是0</p>
+<p>[ -z $a ] 判断变量a是否为空，如果是，返回值是0</p>
+<p>[ ! -z $a ] 判，返回断变量a是否非空，如果是值是0</p>
+<p>2，逻辑符号，可以连接条件测试或者指令，来决定之后如何操作</p>
+<p>&amp;&amp;  之前任务成功就执行之后任务</p>
+<p>||   之前任务失败就执行之后任务</p>
+<p>[ root == $USER ] || exit   如果当前用户不是管理员，则退出</p>
+<p>ls || ls   只执行第1个ls  </p>
+<p>ls &amp;&amp; ls   连个ls都执行</p>
+<p>编写脚本可以创建用户和配置密码，如果用户没有输入用户名直接敲回车则结束脚本程序</p>
+<p>#!/bin/bash</p>
+<p>read -p “请输入用户名：”  n</p>
+<p>[ -z $n ] &amp;&amp; exit   //如果没有输入用户名就退出脚本，写法一</p>
+<p>[ ! -z $n ] || exit   //如果没有输入用户名就退出脚本，写法二</p>
+<p>useradd $n</p>
+<p>stty -echo</p>
+<p>read -p “请输入密码：” p</p>
+<p>stty echo</p>
+<p>echo $p | passwd –stdin $n</p>
+<p>逻辑符号的组合应用</p>
+<p>当2个逻辑符号连用时，第二个逻辑符号后面的任务是否执行不能只看前面一个任务，要看前面所有任务的组合，比如下列情况：</p>
+<p>touch a b c //创建3个测试文件</p>
+<p>ls a &amp;&amp; ls b &amp;&amp; ls c  //结果是都显示，第一个ls执行成功，然后导致第二个ls也执行，并且可以成功，这样的话第一个和第二个任务都成功了，那么这个组合就算成功，然后会导致第二个逻辑符号&amp;&amp;后面的ls c 也执行并且成功。</p>
+<p>ls a &amp;&amp; ls b || ls c  //结果是显示a和b，第一个ls执行成功，然后导致第二个ls也执行，并且可以成功，这样的话第一个和第二个任务都成功了，那么这个组合就算成功，但是由于第二个逻辑符号是||，就不会执行最后的ls c任务了</p>
+<p>ls a || ls b &amp;&amp; ls c   //结果是显示a和c，第一个ls执行成功，第二个ls就不会执行了，这两个任务中间是|| ，那么只要有一个成功就算这个组合执行成功，所以就会导致第二个逻辑符号&amp;&amp;后面的ls c执行</p>
+<p>ls a || ls b || ls c   //结果是显示a，第一个ls执行成功，第二个ls就不会执行了，这两个任务中间是|| ，那么只要有一个成功就算这个组合执行成功，由于这个组合算成功，所以就不会执行第二个||后面的任务了</p>
+<p>练习</p>
+<p>安装ftp服务时，如果是非管理员执行该脚本则给出”非管理员无法执行</p>
+<p>该脚本”的提示信息并退出</p>
+<p>#!/bin/bash</p>
+<p>#部署ftp服务</p>
+<p>[ $USER != root ] &amp;&amp; echo “非管理员无法执行该脚本”  &amp;&amp; exit</p>
+<p>yum -y install vsftpd  &amp;&gt; /dev/null</p>
+<p>systemctl restart vsftpd</p>
+<p>systemctl enable vsftpd</p>
+<p>3，数字的条件测试</p>
+<p>-eq等于  -ne不等于  -gt大于  -ge大于等于  -lt小于  -le小于等于 </p>
+<p>[ 1 -eq 1 ]  判断1是否等于1，判断成功的话返回值是0，判断失败返回</p>
+<p>值是非0</p>
+<p>a=10    </p>
+<p>b=20</p>
+<p>[ $a -eq $b ]    //判断两个变量是否相等</p>
+<p>编写脚本，每隔2分钟检查登录服务器的账户数量，如果超过3</p>
+<p>人，则发报警邮件给管理员，管理员可以通过mail命令查看邮件</p>
+<p>#!/bin/bash</p>
+<p>n=$(who | wc -l)    //统计登录服务器的账户数量，存在变量n里</p>
+<p>[ $n -gt 3 ] &amp;&amp; echo “有人入侵服务器~，牛老师来了~~~” | mail -s test root</p>
+<p>脚本写完后，执行下列指令：</p>
+<p>rm -rf /var/spool/mail/root   //清空邮箱(非必须)</p>
+<p>[root@svr7 opt]#chmod +x test01.sh   //给脚本添加执行权限</p>
+<p>[root@svr7 opt]# crontab -e   //编写计划任务</p>
+<p>*/2 * * * * /opt/test01.sh     //每2分钟执行脚本</p>
+<p>然后故意多登陆几个账户，每2分钟就可以收到新邮件</p>
+<p>4，文件的条件测试</p>
+<p>-e判断是否存在不关心文件类型   -f判断是否存在且是普通文件  </p>
+<p>-d判断是否存在且是目录  </p>
+<p>-r判断当前用户对文件是否能读 ，对root无效</p>
+<p>-w判断当前用户对文件是否能写 ，对root无效</p>
+<p>-x 判断当前用户对文件是否能执行(文件)，或者进入(目录)</p>
+<p>[  -e  a  ]   当前位置如果有a文件，不关心类型，则测试成功</p>
+<p>[  -f  a  ]   当前位置如果有叫a的普通文件，则测试成功</p>
+<p>[  -d  a  ]   当前位置如果有叫a的目录，则测试成功</p>
+<p>[  -r  a  ]   当前用户如果对a文件有读权限，则测试成功</p>
+<p>[  -w  a  ]   当前用户如果对a文件有写权限，则测试成功</p>
+<p>[  -x  a  ]   当前用户如果对a文件有执行(目录是进入)权限，则测试成功</p>
+<hr>
+<p>虽然&amp;&amp;和||可以实现逻辑组合，但如果情况比较复杂就可能需要n多个&amp;&amp;或者||，会导致脚本难写，可读性差。此时就可以使用if分支</p>
+<p>if分支</p>
+<p>单分支<br>if 条件测试;then   //如果条件测试成功，那就执行下面的所有指令(指令可以有很多)</p>
+<p>执行指令</p>
+<p>执行指令</p>
+<p>执行指令</p>
+<p>。。。</p>
+<p>fi</p>
+<p>双分支<br>if 条件测试;then     //如果条件测试成功，那就执行下面的指令1</p>
+<p>执行指令1</p>
+<p>else       //如果上述条件测试失败，那就执行下面的指令2</p>
+<p>执行指令2</p>
+<p>fi</p>
+<p>ping  -c 定义ping次数   -i 定义ping间隔时间(秒)   </p>
+<p>-W 如果ping不通多久反馈结果(秒)</p>
+<p>练习：编写脚本测试某ip是否能ping通，但不要显示过程，仅仅显示通了或者</p>
+<p>不通即可</p>
+<p>ping -c 3 -i 0.1 -W 1 192.168.4.7 &amp;&gt; /dev/null     //ping的具体过程扔黑洞不看</p>
+<p>if [ $? -eq 0 ];then  //使用$?可以判断上面的任务是否成功，如果等于0就</p>
+<p>是成功</p>
+<p>        echo “通了！”</p>
+<p>    else</p>
+<p>        echo “不通！”</p>
+<p>fi</p>
+<p>多分支，适合更复杂的情况，结果会有很多的情况<br>if 条件测试;then     //如果条件测试成功，那就执行下面的指令1</p>
+<p>执行指令1</p>
+<p>   elif 条件测试;then    //如果条件测试成功，那就执行下面的指令2</p>
+<p>      执行指令2</p>
+<p>else       //如果上述条件测试失败，那就执行下面的指令3</p>
+<p>执行指令3</p>
+<p>fi</p>
+<p>练习：</p>
+<p>#!/bin/bash</p>
+<p>read -p “请输入期末考试成绩：”  n</p>
+<p>if [ $n -ge 90 ];then</p>
+<p>        echo “优秀！”</p>
+<p>elif [ $n -ge 80 ];then</p>
+<p>        echo “良好！”</p>
+<p>elif [ $n -ge 60 ];then</p>
+<p>        echo “及格！”</p>
+<p>else</p>
+<p>        echo “晚上跪键盘~”</p>
+<p>fi</p>
+<p>循环：</p>
+<p>有时我们需要某个或者某群任务反复在服务器中执行很多次，就可以使用循环命令写成脚本，而无需手工一次次执行</p>
+<p>for循环 可以定义循环次数，有限的循环</p>
+<p>基本语法格式：</p>
+<p>for 变量名 in 值1 值2 值3 。。。。     //此处变量名可以自定义，通常习惯用i，值的多少决定了下面do与done之间的任务执行多少次，每个值之间有空格，这里是有3个值，所以就循环执行指令3次</p>
+<p>do</p>
+<p>指令     </p>
+<p>done</p>
+<hr>
+<p>#!/bin/bash</p>
+<p>for i in a b c     //给了abc三个值，下面的echo任务就循环三次</p>
+<p>do</p>
+<p>   echo “abc”</p>
+<p>done</p>
+<hr>
+<p>#!/bin/bash</p>
+<p>for i in {1..100}  //循环100次时无需填写100个值，用此格式即可，代表1到100，一共100个值   </p>
+<p>do</p>
+<p>   echo “abc”</p>
+<p>   echo “$i”    //执行任务时，还可以调用变量，变量的值是所有值的轮询，由于这里给了1到100的值，那第一次循环$i就是1，第二次循环$i就是2，依次类推到第100次循环$i就是100</p>
+<p>done</p>
+<p>编写脚本，使用ping测试192.168.4.1~192.168.4.10，并显示通了或者不通，并且统计多少台通了，多少台不通</p>
+<p>#!/bin/bash</p>
+<p>x=0    //定义通了的数量,没测试之前是0台</p>
+<p>y=0    //定义没通的数量,没测试之前是0台</p>
+<p>for i in {1..10}</p>
+<p>do</p>
+<p>ping -c 3 -i 0.1 -W 1 192.168.4.$i &amp;&gt; /dev/null</p>
+<p>if [ $? -eq 0 ];then</p>
+<p>        echo “192.168.4.$i 通了！”</p>
+<p>        let x++           //每通了一次就把x+1</p>
+<p>else</p>
+<p>        echo “192.168.4.$i 不通！”</p>
+<p>        let y++            //每不通一次就把y+1</p>
+<p>fi</p>
+<p>done</p>
+<p>echo “$x台通了，$y台不通”</p>
+<p>练习：</p>
+<p>1，列出常见的整数值比较操作，并说明各自作用。</p>
+<p>2，运用条件测试操作，检查当前的用户是否为root。</p>
+<p>3，绘图描述if双分支结构的执行流程。</p>
+<p>4，[ -z $abc ] &amp;&amp; echo “yes” || echo “no” 可以实现什么测试效果。</p>
+<p>参考答案</p>
+<p>1，列出常见的整数值比较操作，并说明各自作用。</p>
+<p>-eq 等于</p>
+<p>-ne 不等于</p>
+<p>-ge 大于等于</p>
+<p>-le 小于等于</p>
+<p>-gt 大于</p>
+<p>-lt 小于</p>
+<p>2，运用条件测试操作，检查当前的用户是否为root。</p>
+<p>[ $USER == “root” ] &amp;&amp; echo “yes” || echo no</p>
+<p>3，绘图描述if双分支结构的执行流程。</p>
+<p>if双分支结构判断一次条件，当条件成立时执行分支1、若不成立则执行分支2，如图-1所示。</p>
+<p>   </p>
+<p>图-1</p>
+<p>4，[ -z $abc ] &amp;&amp; echo “yes” || echo “no” 可以实现什么测试效果。</p>
+<p>如果变量abc是空则显示yes，否则显示no</p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+		data-enable='false'
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</html>
