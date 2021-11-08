@@ -1,0 +1,246 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>linuxday6 启动流程，模块管理与loader - Hexo</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="一.linux的启动流程分析1.启动流程：（1）加载bios的硬件信息，（2）读取并执行第一个启动设备内mbr的启动引导程序，（3）根据启动引导加载与加载驱动程序（4）硬件驱动成功后，kernel会,"> 
+    <meta name="author" content="John Doe"> 
+    <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">Hexo</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://example.com"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">linuxday6 启动流程，模块管理与loader</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">linuxday6 启动流程，模块管理与loader</h1>
+        <div class="stuff">
+            <span>十一月 08, 2021</span>
+            
+
+        </div>
+        <div class="content markdown">
+            <p>一.linux的启动流程分析<br>1.启动流程：（1）加载bios的硬件信息，<br>（2）读取并执行第一个启动设备内mbr的启动引导程序，<br>（3）根据启动引导加载与加载驱动程序<br>（4）硬件驱动成功后，kernel会调用systemd程序，并以defult.target程序启动<br>2.boot loader<br>初始化开发板上主要硬件（时钟，内存，硬盘），把操作系统从硬盘拷贝到内存，然后让CPU跳到内存中执行操作系统<br>loader的最主要功能是要识别操作系统的文件格式，并据以加载内核到内存去执行<br>boot loader<br>提供选项：（1）用户可以选择不同的启动选项，这也是多重引导的重要功能<br>（2）加载内核文件<br>（3）转交其他loader<br>3. Kernel（初始化）<br>我们知道kernel是完成探索硬件及加载硬件驱动程序，并以读写的方式挂载根文件系统。<br>kernel初始化：探测硬件-&gt;加载驱动（initrd)-&gt;挂载根文件系统-&gt;rootfs(/sbin/init)<br>4.initrd功能介绍<br>       其实说白了initrd就是一个虚拟的文件系统，里面有/、lib、bin、sbin、usr、proc、sys、var、dev、boot等一些目录<br>5./sbin/init(/etc/inittab)<br>/sbin/init启动会用到/etc/inittab所定义的条目，如：默认登陆级别id:3:initdefault:(这里就是默认启动3级别）<br>下面就来说下/etc/inittab所工作那些内容：<br>/etc/inittab<br>默认运行级别<br>   0：halt系统停机状态<br>   1: single user mode(单用户维护模式)<br>   2：multi user mode, without NFS(多用户，不支持NFS功能）<br>   3: multi user mode, text mode（字符界面）完全的多用户状态(有NFS)，登陆后进入控制台命令行模式<br>   4：reserved （系统保留）系统未使用<br>   5: multi user mode, graphic mode  （图形化界面）：X11控制台，登陆后进入图形GUI模式<br>   6: reboot   （重启）<br>6.init执行/etc/rc.d/rc.local<br>init执行中断机模拟程序mingetty来启动login进程，最后等待用户登录<br>7.启动过程会用到的主要配置文件</p>
+<p>基本上，systemd有自己的配置文件处理方式，读取位于/etc/sysconfig下面的环境配置文件<br>关于模块：/etc/modprobe.d/<em>.conf及/etc/modules-load.d/</em>.conf</p>
+<p>.  /etc/sysconfig/*<br>authconfig   此文件中的内容为主机在进行认证时使用<br>cpupower  启动cpupower.service服务时会读取这个配置文件<br>二.处理忘记密码<br>1.先按e进入编译模式<br>2.在编译模式里添加rd.break  ctrl+x执行<br>3.进入到另外一个模式 ，然后检查mount  ，并添加权限 mount   -o   remount ，rw /sysroot<br>4.chroot  /sysroot<br>然后改密码<br>然后重启<br>tmux</p>
+<p>cron计划任务<br>很多时候，我们计划任务需要精确到秒来执行，根据以下方法，可以很容易地以秒执行任务。<br>以下方法将每10秒执行一次</p>
+<h1 id="crontab-e"><a href="#crontab-e" class="headerlink" title="crontab -e"></a>crontab -e</h1><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li>/bin/date &gt;&gt;/tmp/date.txt</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li>sleep 10; /bin/date &gt;&gt;/tmp/date.txt</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li>sleep 20; /bin/date &gt;&gt;/tmp/date.txt</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li>sleep 30; /bin/date &gt;&gt;/tmp/date.txt</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li>sleep 40; /bin/date &gt;&gt;/tmp/date.txt</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li>sleep 50; /bin/date &gt;&gt;/tmp/date.txt</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+		data-enable='false'
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</html>

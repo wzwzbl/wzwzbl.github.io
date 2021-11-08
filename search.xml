@@ -1047,4 +1047,93 @@
 <p>五.分析日志文件<br>centos默认提供的logwatch<br>他会每天分析一次日志文件，然后通过email 的格式寄给root<br>1.安装<br>yum install /mnt/dvd/Packages/perl-5.*.rpm</p>
 ]]></content>
   </entry>
+  <entry>
+    <title>linuxday6 启动流程，模块管理与loader</title>
+    <url>/2021/11/08/linuxday6/</url>
+    <content><![CDATA[<p>一.linux的启动流程分析<br>1.启动流程：（1）加载bios的硬件信息，<br>（2）读取并执行第一个启动设备内mbr的启动引导程序，<br>（3）根据启动引导加载与加载驱动程序<br>（4）硬件驱动成功后，kernel会调用systemd程序，并以defult.target程序启动<br>2.boot loader<br>初始化开发板上主要硬件（时钟，内存，硬盘），把操作系统从硬盘拷贝到内存，然后让CPU跳到内存中执行操作系统<br>loader的最主要功能是要识别操作系统的文件格式，并据以加载内核到内存去执行<br>boot loader<br>提供选项：（1）用户可以选择不同的启动选项，这也是多重引导的重要功能<br>（2）加载内核文件<br>（3）转交其他loader<br>3. Kernel（初始化）<br>我们知道kernel是完成探索硬件及加载硬件驱动程序，并以读写的方式挂载根文件系统。<br>kernel初始化：探测硬件-&gt;加载驱动（initrd)-&gt;挂载根文件系统-&gt;rootfs(/sbin/init)<br>4.initrd功能介绍<br>       其实说白了initrd就是一个虚拟的文件系统，里面有/、lib、bin、sbin、usr、proc、sys、var、dev、boot等一些目录<br>5./sbin/init(/etc/inittab)<br>/sbin/init启动会用到/etc/inittab所定义的条目，如：默认登陆级别id:3:initdefault:(这里就是默认启动3级别）<br>下面就来说下/etc/inittab所工作那些内容：<br>/etc/inittab<br>默认运行级别<br>   0：halt系统停机状态<br>   1: single user mode(单用户维护模式)<br>   2：multi user mode, without NFS(多用户，不支持NFS功能）<br>   3: multi user mode, text mode（字符界面）完全的多用户状态(有NFS)，登陆后进入控制台命令行模式<br>   4：reserved （系统保留）系统未使用<br>   5: multi user mode, graphic mode  （图形化界面）：X11控制台，登陆后进入图形GUI模式<br>   6: reboot   （重启）<br>6.init执行/etc/rc.d/rc.local<br>init执行中断机模拟程序mingetty来启动login进程，最后等待用户登录<br>7.启动过程会用到的主要配置文件</p>
+<p>基本上，systemd有自己的配置文件处理方式，读取位于/etc/sysconfig下面的环境配置文件<br>关于模块：/etc/modprobe.d/<em>.conf及/etc/modules-load.d/</em>.conf</p>
+<p>.  /etc/sysconfig/*<br>authconfig   此文件中的内容为主机在进行认证时使用<br>cpupower  启动cpupower.service服务时会读取这个配置文件<br>二.处理忘记密码<br>1.先按e进入编译模式<br>2.在编译模式里添加rd.break  ctrl+x执行<br>3.进入到另外一个模式 ，然后检查mount  ，并添加权限 mount   -o   remount ，rw /sysroot<br>4.chroot  /sysroot<br>然后改密码<br>然后重启<br>tmux</p>
+<p>cron计划任务<br>很多时候，我们计划任务需要精确到秒来执行，根据以下方法，可以很容易地以秒执行任务。<br>以下方法将每10秒执行一次</p>
+<h1 id="crontab-e"><a href="#crontab-e" class="headerlink" title="crontab -e"></a>crontab -e</h1><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li>/bin/date &gt;&gt;/tmp/date.txt</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li>sleep 10; /bin/date &gt;&gt;/tmp/date.txt</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li>sleep 20; /bin/date &gt;&gt;/tmp/date.txt</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li>sleep 30; /bin/date &gt;&gt;/tmp/date.txt</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li>sleep 40; /bin/date &gt;&gt;/tmp/date.txt</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li>sleep 50; /bin/date &gt;&gt;/tmp/date.txt</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+]]></content>
+  </entry>
 </search>
