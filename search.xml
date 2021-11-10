@@ -1050,10 +1050,51 @@
   <entry>
     <title>linuxday6 启动流程，模块管理与loader</title>
     <url>/2021/11/08/linuxday6/</url>
-    <content><![CDATA[<p>一.linux的启动流程分析<br>1.启动流程：（1）加载bios的硬件信息，<br>（2）读取并执行第一个启动设备内mbr的启动引导程序，<br>（3）根据启动引导加载与加载驱动程序<br>（4）硬件驱动成功后，kernel会调用systemd程序，并以defult.target程序启动<br>2.boot loader<br>初始化开发板上主要硬件（时钟，内存，硬盘），把操作系统从硬盘拷贝到内存，然后让CPU跳到内存中执行操作系统<br>loader的最主要功能是要识别操作系统的文件格式，并据以加载内核到内存去执行<br>boot loader<br>提供选项：（1）用户可以选择不同的启动选项，这也是多重引导的重要功能<br>（2）加载内核文件<br>（3）转交其他loader<br>3. Kernel（初始化）<br>我们知道kernel是完成探索硬件及加载硬件驱动程序，并以读写的方式挂载根文件系统。<br>kernel初始化：探测硬件-&gt;加载驱动（initrd)-&gt;挂载根文件系统-&gt;rootfs(/sbin/init)<br>4.initrd功能介绍<br>       其实说白了initrd就是一个虚拟的文件系统，里面有/、lib、bin、sbin、usr、proc、sys、var、dev、boot等一些目录<br>5./sbin/init(/etc/inittab)<br>/sbin/init启动会用到/etc/inittab所定义的条目，如：默认登陆级别id:3:initdefault:(这里就是默认启动3级别）<br>下面就来说下/etc/inittab所工作那些内容：<br>/etc/inittab<br>默认运行级别<br>   0：halt系统停机状态<br>   1: single user mode(单用户维护模式)<br>   2：multi user mode, without NFS(多用户，不支持NFS功能）<br>   3: multi user mode, text mode（字符界面）完全的多用户状态(有NFS)，登陆后进入控制台命令行模式<br>   4：reserved （系统保留）系统未使用<br>   5: multi user mode, graphic mode  （图形化界面）：X11控制台，登陆后进入图形GUI模式<br>   6: reboot   （重启）<br>6.init执行/etc/rc.d/rc.local<br>init执行中断机模拟程序mingetty来启动login进程，最后等待用户登录<br>7.启动过程会用到的主要配置文件</p>
-<p>基本上，systemd有自己的配置文件处理方式，读取位于/etc/sysconfig下面的环境配置文件<br>关于模块：/etc/modprobe.d/<em>.conf及/etc/modules-load.d/</em>.conf</p>
-<p>.  /etc/sysconfig/*<br>authconfig   此文件中的内容为主机在进行认证时使用<br>cpupower  启动cpupower.service服务时会读取这个配置文件<br>二.处理忘记密码<br>1.先按e进入编译模式<br>2.在编译模式里添加rd.break  ctrl+x执行<br>3.进入到另外一个模式 ，然后检查mount  ，并添加权限 mount   -o   remount ，rw /sysroot<br>4.chroot  /sysroot<br>然后改密码<br>然后重启<br>tmux</p>
-<p>cron计划任务<br>很多时候，我们计划任务需要精确到秒来执行，根据以下方法，可以很容易地以秒执行任务。<br>以下方法将每10秒执行一次</p>
+    <content><![CDATA[<p>一.linux的启动流程分析<br>1.启动流程：（1）加载bios的硬件信息，<br>（2）读取并执行第一个启动设备内mbr的启动引导程序，<br>（3）根据启动引导加载与加载驱动程序<br>（4）硬件驱动成功后，kernel会调用systemd程序，并以defult.target程序启动<br>2.boot loader<br>初始化开发板上主要硬件（时钟，内存，硬盘），把操作系统从硬盘拷贝到内存，然后让CPU跳到内存中执行操作系统<br>loader的最主要功能是要识别操作系统的文件格式，并据以加载内核到内存去执行<br>boot loader<br>提供选项：（1）用户可以选择不同的启动选项，这也是多重引导的重要功能<br>（2）加载内核文件<br>（3）转交其他loader<br>3. Kernel（初始化）<br>我们知道kernel是完成探索硬件及加载硬件驱动程序，并以读写的方式挂载根文件系统。<br>kernel初始化：探测硬件-&gt;加载驱动（initrd)-&gt;挂载根文件系统-&gt;rootfs(/sbin/init)<br>4.initrd功能介绍<br>       其实说白了initrd就是一个虚拟的文件系统，里面有/、lib、bin、sbin、usr、proc、sys、var、dev、boot等一些目录<br>5./sbin/init(/etc/inittab)<br>/sbin/init启动会用到/etc/inittab所定义的条目，如：默认登陆级别id:3:initdefault:(这里就是默认启动3级别）<br>下面就来说下/etc/inittab所工作那些内容：<br>/etc/inittab<br>默认运行级别<br>   0：halt系统停机状态<br>   1: single user mode(单用户维护模式)<br>   2：multi user mode, without NFS(多用户，不支持NFS功能）<br>   3: multi user mode, text mode（字符界面）完全的多用户状态(有NFS)，登陆后进入控制台命令行模式<br>   4：reserved （系统保留）系统未使用<br>   5: multi user mode, graphic mode  （图形化界面）：X11控制台，登陆后进入图形GUI模式<br>   6: reboot   （重启）<br>6.init执行/etc/rc.d/rc.local<br>init执行中断机模拟程序mingetty来启动login进程，最后等待用户登录<br>7.启动过程会用到的主要配置文件<br>基本上，systemd有自己的配置文件处理方式，读取位于/etc/sysconfig下面的环境配置文件<br>关于模块：/etc/modprobe.d/<em>.conf及/etc/modules-load.d/</em>.conf<br>.  /etc/sysconfig/*<br>authconfig   此文件中的内容为主机在进行认证时使用<br>cpupower  启动cpupower.service服务时会读取这个配置文件</p>
+<p>二.处理忘记密码<br>1.先按e进入编译模式<br>2.在编译模式里【linux16】最后面添加rd.break  ctrl+x执行<br>3.进入到另外一个模式 ，然后检查mount  ，并添加权限 mount   -o   remount ，rw /sysroot<br>4.chroot  /sysroot<br>然后改密码echo “新密码”| passwd  –stdin   root<br>然后touch  /.autorelabel<br>然后重启  redoot<br>三.tmux<br>Tmux 是一个终端复用器（terminal multiplexer），非常有用，属于常用的开发工具。<br>1.安装</p>
+<h1 id="Ubuntu-或-Debian"><a href="#Ubuntu-或-Debian" class="headerlink" title="Ubuntu 或 Debian"></a>Ubuntu 或 Debian</h1><p>$ sudo apt-get install tmux</p>
+<h1 id="CentOS-或-Fedora"><a href="#CentOS-或-Fedora" class="headerlink" title="CentOS 或 Fedora"></a>CentOS 或 Fedora</h1><p>$ sudo yum install tmux</p>
+<h1 id="Mac"><a href="#Mac" class="headerlink" title="Mac"></a>Mac</h1><p>$ brew install tmux</p>
+<p>2.安装完成后，键入tmux命令，就进入了 Tmux 窗口。</p>
+<p>3.按下Ctrl+d或者显式输入exit命令，就可以退出 Tmux 窗口。<br>$ exit</p>
+<p>4.Tmux 窗口有大量的快捷键。所有快捷键都要通过前缀键唤起。默认的前缀键是Ctrl+b，即先按下Ctrl+b，快捷键才会生效。</p>
+<p>5.第一个启动的 Tmux 窗口，编号是0，第二个窗口的编号是1，以此类推。这些窗口对应的会话，就是 0 号会话、1 号会话。</p>
+<p>6.在 Tmux 窗口中，按下Ctrl+b d或者输入tmux detach命令，就会将当前会话与窗口分离。<br>$ tmux detach<br>上面命令执行后，就会退出当前 Tmux 窗口，但是会话和里面的进程仍然在后台运行。</p>
+<p>tmux ls命令可以查看当前所有的 Tmux 会话。<br>$ tmux ls</p>
+<h1 id="or"><a href="#or" class="headerlink" title="or"></a>or</h1><p>$ tmux list-session</p>
+<p>接入会话<br>tmux attach命令用于重新接入某个已存在的会话。</p>
+<h1 id="使用会话编号"><a href="#使用会话编号" class="headerlink" title="使用会话编号"></a>使用会话编号</h1><p>$ tmux attach -t 0</p>
+<h1 id="使用会话名称"><a href="#使用会话名称" class="headerlink" title="使用会话名称"></a>使用会话名称</h1><p>$ tmux attach -t <session-name></p>
+<p>杀死会话<br>tmux kill-session命令用于杀死某个会话。</p>
+<h1 id="使用会话编号-1"><a href="#使用会话编号-1" class="headerlink" title="使用会话编号"></a>使用会话编号</h1><p>$ tmux kill-session -t 0</p>
+<h1 id="使用会话名称-1"><a href="#使用会话名称-1" class="headerlink" title="使用会话名称"></a>使用会话名称</h1><p>$ tmux kill-session -t <session-name></p>
+<p> 切换会话<br>tmux switch命令用于切换会话。</p>
+<h1 id="使用会话编号-2"><a href="#使用会话编号-2" class="headerlink" title="使用会话编号"></a>使用会话编号</h1><p>$ tmux switch -t 0</p>
+<h1 id="使用会话名称-2"><a href="#使用会话名称-2" class="headerlink" title="使用会话名称"></a>使用会话名称</h1><p>$ tmux switch -t <session-name></p>
+<p>重命名会话<br>tmux rename-session命令用于重命名会话。<br>$ tmux rename-session -t 0 <new-name></p>
+<p>快捷键<br>Ctrl+b d：分离当前会话。<br>Ctrl+b s：列出所有会话。<br>Ctrl+b $：重命名当前会话。</p>
+<p>.1 划分窗格<br>tmux split-window命令用来划分窗格。</p>
+<h1 id="划分上下两个窗格"><a href="#划分上下两个窗格" class="headerlink" title="划分上下两个窗格"></a>划分上下两个窗格</h1><p>$ tmux split-window</p>
+<h1 id="划分左右两个窗格"><a href="#划分左右两个窗格" class="headerlink" title="划分左右两个窗格"></a>划分左右两个窗格</h1><p>$ tmux split-window -h</p>
+<p>tmux select-pane命令用来移动光标位置。</p>
+<h1 id="光标切换到上方窗格"><a href="#光标切换到上方窗格" class="headerlink" title="光标切换到上方窗格"></a>光标切换到上方窗格</h1><p>$ tmux select-pane -U</p>
+<h1 id="光标切换到下方窗格"><a href="#光标切换到下方窗格" class="headerlink" title="光标切换到下方窗格"></a>光标切换到下方窗格</h1><p>$ tmux select-pane -D</p>
+<h1 id="光标切换到左边窗格"><a href="#光标切换到左边窗格" class="headerlink" title="光标切换到左边窗格"></a>光标切换到左边窗格</h1><p>$ tmux select-pane -L</p>
+<h1 id="光标切换到右边窗格"><a href="#光标切换到右边窗格" class="headerlink" title="光标切换到右边窗格"></a>光标切换到右边窗格</h1><p>$ tmux select-pane -R</p>
+<p>交换窗格位置<br>tmux swap-pane命令用来交换窗格位置。</p>
+<h1 id="当前窗格上移"><a href="#当前窗格上移" class="headerlink" title="当前窗格上移"></a>当前窗格上移</h1><p>$ tmux swap-pane -U</p>
+<h1 id="当前窗格下移"><a href="#当前窗格下移" class="headerlink" title="当前窗格下移"></a>当前窗格下移</h1><p>$ tmux swap-pane -D</p>
+<p>窗口管理<br>除了将一个窗口划分成多个窗格，Tmux 也允许新建多个窗口。</p>
+<p>6.1 新建窗口<br>tmux new-window命令用来创建新窗口。<br>$ tmux new-window</p>
+<h1 id="新建一个指定名称的窗口"><a href="#新建一个指定名称的窗口" class="headerlink" title="新建一个指定名称的窗口"></a>新建一个指定名称的窗口</h1><p>$ tmux new-window -n <window-name><br>6.2 切换窗口<br>tmux select-window命令用来切换窗口。</p>
+<h1 id="切换到指定编号的窗口"><a href="#切换到指定编号的窗口" class="headerlink" title="切换到指定编号的窗口"></a>切换到指定编号的窗口</h1><p>$ tmux select-window -t <window-number></p>
+<h1 id="切换到指定名称的窗口"><a href="#切换到指定名称的窗口" class="headerlink" title="切换到指定名称的窗口"></a>切换到指定名称的窗口</h1><p>$ tmux select-window -t <window-name><br>6.3 重命名窗口<br>tmux rename-window命令用于为当前窗口起名（或重命名）。</p>
+<p>$ tmux rename-window <new-name><br>6.4 窗口快捷键<br>下面是一些窗口操作的快捷键。</p>
+<p>Ctrl+b c：创建一个新窗口，状态栏会显示多个窗口的信息。<br>Ctrl+b p：切换到上一个窗口（按照状态栏上的顺序）。<br>Ctrl+b n：切换到下一个窗口。<br>Ctrl+b <number>：切换到指定编号的窗口，其中的<number>是状态栏上的窗口编号。<br>Ctrl+b w：从列表中选择窗口。<br>Ctrl+b ,：窗口重命名。<br>其他命令<br>下面是一些其他命令。</p>
+<h1 id="列出所有快捷键，及其对应的-Tmux-命令"><a href="#列出所有快捷键，及其对应的-Tmux-命令" class="headerlink" title="列出所有快捷键，及其对应的 Tmux 命令"></a>列出所有快捷键，及其对应的 Tmux 命令</h1><p>$ tmux list-keys</p>
+<h1 id="列出所有-Tmux-命令及其参数"><a href="#列出所有-Tmux-命令及其参数" class="headerlink" title="列出所有 Tmux 命令及其参数"></a>列出所有 Tmux 命令及其参数</h1><p>$ tmux list-commands</p>
+<h1 id="列出当前所有-Tmux-会话的信息"><a href="#列出当前所有-Tmux-会话的信息" class="headerlink" title="列出当前所有 Tmux 会话的信息"></a>列出当前所有 Tmux 会话的信息</h1><p>$ tmux info</p>
+<h1 id="重新加载当前的-Tmux-配置"><a href="#重新加载当前的-Tmux-配置" class="headerlink" title="重新加载当前的 Tmux 配置"></a>重新加载当前的 Tmux 配置</h1><p>$ tmux source-file ~/.tmux.conf<br>四.cron计划任务<br>很多时候，我们计划任务需要精确到秒来执行，根据以下方法，可以很容易地以秒执行任务。<br>以下方法将每10秒执行一次</p>
 <h1 id="crontab-e"><a href="#crontab-e" class="headerlink" title="crontab -e"></a>crontab -e</h1><ul>
 <li><ul>
 <li><ul>
@@ -1134,6 +1175,13 @@
 </ul>
 </li>
 </ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>linuxday7</title>
+    <url>/2021/11/09/linuxday7/</url>
+    <content><![CDATA[<p>一。内核与内核模块<br>1。内核模块与依赖性<br>内核模板放在：/lib/modules/$(uname -r)/kernel中<br>使用depmod<br>范例一：若我做好一个网卡驱动程序，文件名为a.ko,该跟新内核依赖性<br>cp a.ko /lib/modules/$(uname -r)/kernel/drivers/net<br>depmod<br>2.查看内核模块<br>lsmod<br>列出内核名称。模块大小，此模块是否被其他模块所使用<br>列出模块的相关信息<br>如列出drm的模块信息：modinfo drm<br>3.内核模块的加载与删除<br>加载insmod  删除 rmmod<br>加载：modprobe vfat<br>删除：modprobe  -r vfat<br>4.内核模块的额外参数设置：/etc/modprobe.d/*.conf<br>5.boot loader的俩个stage<br>stage1：执行boot loader 主程序<br>stage2：主程序加载配置文件</p>
+<p>二。基础系统设置与备份策略<br>1.网络设置（手动设置与DHCP自动获取）<br>ipaddr-(ip)<br>netmask子网掩码<br>gateway网关<br>dns主机ip<br>2.命令<br>临时修改本机IP地址ifconfig ens33 192.168.1.200/24<br>永久修改本机IP地址：vim /etc/sysconfig/network-scripts/ifcfg-ens33<br>修改：BOOTPROTO=”static”<br>IPADDR=192.168.1.100<br>NETMASK=255.255.255.0<br>GATEWAY=192.168.1.1<br>修改完后注意重启network服务，使其生效：<br>service network restart<br>numtui 网络管理器<br>3.nmcli<br>查看网卡信息nmcli connection show   网卡名称<br>        启动：nmcli connection up  网卡名称<br>显示所有设配状态# nmcli device status<br>显示所有活动连接# nmcli connection show –active<br>删除一个网卡连接# nmcli connection delete eth0<br>停用：# nmcli connection down eth0<br>设置：nmcli connection modify eth0\<br>          connection.autoconnect yes\  是否开机时启动这个连接<br>          ipv4.method manual（手动）   自动还是手动设置网络参数  auto（自动）<br>          ipv4.addresses 192.168.1.1/24\   ip地址和子网掩码<br>          ipv4.gateway  192.168.200.254    网关<br>          ipv4.dns<br>4.修改主机名<br>hostnamectl   set-hostname  {姓名}<br>cat  /etc/hostname<br>5.日期与时间设置<br>设置时区：tzselect  （Asia亚洲）<br>查看时间：timedatectl<br>修改：timedatectl  set-timezone “Asia/shanghai”<br>timedatectl  list-timezone<br>timedatectl  set-time  “2021-11-10 23：17”<br>使用ntpdate手动网络校时<br>ntpdate s2m.time.edu.cn<br>hwclock  -w<br>语系设置<br>localectl<br>将locale改成en_us.utf8之后，在转化成图形界面<br>localectl  set-locale LANG=en_US.utf8<br>systemctl  isolate  multi-user.target<br>systemctl  isolate  graphicdl.target</p>
 ]]></content>
   </entry>
 </search>
