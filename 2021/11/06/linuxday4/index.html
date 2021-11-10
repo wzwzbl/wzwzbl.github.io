@@ -1,0 +1,163 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>linuxday4 - Hexo</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="一。linux常用的日志文件文件名1./var/log/boot.log 开机启动的时候系统内核会去检测和启动硬件，接下来开始启动各种内核支持的功能2./var/log/cron 计划任务3./va,"> 
+    <meta name="author" content="John Doe"> 
+    <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">Hexo</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://example.com"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">linuxday4</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">linuxday4</h1>
+        <div class="stuff">
+            <span>十一月 06, 2021</span>
+            
+
+        </div>
+        <div class="content markdown">
+            <p>一。linux常用的日志文件文件名<br>1./var/log/boot.log 开机启动的时候系统内核会去检测和启动硬件，接下来开始启动各种内核支持的功能<br>2./var/log/cron 计划任务<br>3./var/log/dmesg 记录系统开机的时候内核检测过程所产生的相关信息<br>4./var/log/lastlog 可以记录系统上面所有账号最近一次登录系统时产生的各项信息<br>5./var/log/maillog 或/var/log/mail/* 记录邮件往来的信息<br><em>重要</em>6./var/log/messages 几乎系统发生的错误信息（重要的信息）都会记到这个文件上。<br><em>重要</em>7./var/log/secure 只要牵涉到【密码和账户】的软件，那么都会记录到这个文件上<br> 8./var/log/wtmp ,/var/log/faillog 记录正确登录系统的账户信息与错误登记用户的账户信息<br>二。日志的一般格式<br><em>事件发生的日期和时间<br><em>发生此事件的主机名<br><em>开启此事件的服务名称或命令或函数名称<br><em>该信息的实际内容<br>列cat  /var/log/secure<br>cat  /var/log/messages<br>三。rsyslog.service<br>1.记录日志文件的服务<br>Linux的日志文件主要由rsyslog.service<br>2.配置文件/etc/rsyslog.conf<br>(1)什么服务（2）什么等级信息（3）需要被记录在哪里<br>rsyslogd主要通过linux内核提供的syslog相关规范来设置数据的分类<br>3.信息等级<br>基本上,在0-6的等级之间，等级数值越高越没事，等级靠近0则代表系统出现致命的问题。<br>4.rsyslog.conf语法练习<br>列:mail.info  /var/log/maillog<br>5.rsyslog.conf内容<br>vim  /etc/rsyslog.conf<br>#kern.</em>                                                    /dev/console<br><em>.info;mail.none;authpriv.none;cron.none      /var/log/messages<br>authpriv.</em>                                    /var/log/secure<br>mail.</em>                                        /var/log/maillog<br>cron.</em>                                        /var/log/cron<br><em>.emerg                                       *<br>uucp,news.crit                                /var/log/spooler<br>local7.</em>                                      /var/log/boot.log<br>6.日志文件的安全性设置<br>如果只能增加，不能删除 可以用lsattr 和chattr这俩个程序<br>列：chattr +a  /var/log/admin.log   lsattr 显示文件的隐藏属性   chattr  配置文件隐藏属性。<br>7.日志文件服务器的设置<br>服务端：<br>vim /etc/rsyslog.conf<br>然后重启服务和查看rsyslogd<br>systemctl restart  rsyslogd.service<br>netstat  -ltnp  |  grep  syslog<br>客户端：<br>vim /etc/rsyslog.conf<br><em>.</em>   @@192.168.1.100   (服务端的ip)<br>#</em>.*   @192.168.1.100 #若用udp传输，设置就变成这样</p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+		data-enable='false'
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</html>
