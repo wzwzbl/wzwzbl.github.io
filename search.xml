@@ -1184,4 +1184,42 @@
 <p>二。基础系统设置与备份策略<br>1.网络设置（手动设置与DHCP自动获取）<br>ipaddr-(ip)<br>netmask子网掩码<br>gateway网关<br>dns主机ip<br>2.命令<br>临时修改本机IP地址ifconfig ens33 192.168.1.200/24<br>永久修改本机IP地址：vim /etc/sysconfig/network-scripts/ifcfg-ens33<br>修改：BOOTPROTO=”static”<br>IPADDR=192.168.1.100<br>NETMASK=255.255.255.0<br>GATEWAY=192.168.1.1<br>修改完后注意重启network服务，使其生效：<br>service network restart<br>numtui 网络管理器<br>3.nmcli<br>查看网卡信息nmcli connection show   网卡名称<br>        启动：nmcli connection up  网卡名称<br>显示所有设配状态# nmcli device status<br>显示所有活动连接# nmcli connection show –active<br>删除一个网卡连接# nmcli connection delete eth0<br>停用：# nmcli connection down eth0<br>设置：nmcli connection modify eth0\<br>          connection.autoconnect yes\  是否开机时启动这个连接<br>          ipv4.method manual（手动）   自动还是手动设置网络参数  auto（自动）<br>          ipv4.addresses 192.168.1.1/24\   ip地址和子网掩码<br>          ipv4.gateway  192.168.200.254    网关<br>          ipv4.dns<br>4.修改主机名<br>hostnamectl   set-hostname  {姓名}<br>cat  /etc/hostname<br>5.日期与时间设置<br>设置时区：tzselect  （Asia亚洲）<br>查看时间：timedatectl<br>修改：timedatectl  set-timezone “Asia/shanghai”<br>timedatectl  list-timezone<br>timedatectl  set-time  “2021-11-10 23：17”<br>使用ntpdate手动网络校时<br>ntpdate s2m.time.edu.cn<br>hwclock  -w<br>语系设置<br>localectl<br>将locale改成en_us.utf8之后，在转化成图形界面<br>localectl  set-locale LANG=en_US.utf8<br>systemctl  isolate  multi-user.target<br>systemctl  isolate  graphicdl.target</p>
 ]]></content>
   </entry>
+  <entry>
+    <title>linuxday8</title>
+    <url>/2021/11/11/linuxday8/</url>
+    <content><![CDATA[<p>一。防火墙<br>1.启动防火墙： systemctl start firewalld<br>查看防火墙状态： systemctl status firewalld<br>停止防火墙： systemctl disable firewalld<br>禁用防火墙： systemctl stop firewalld  ， firewall-cmd –set-default-zone=trusted<br>2.配置firewalld-cmd<br>查看版本： firewall-cmd –version</p>
+<p>查看帮助： firewall-cmd –help</p>
+<p>显示状态： firewall-cmd –state</p>
+<p>查看所有打开的端口： firewall-cmd –zone=public –list-ports</p>
+<p>更新防火墙规则： firewall-cmd –reload</p>
+<p>查看区域信息: firewall-cmd –get-active-zones</p>
+<p>查看指定接口所属区域： firewall-cmd –get-zone-of-interface=eth0</p>
+<p>拒绝所有包：firewall-cmd –panic-on</p>
+<p>取消拒绝状态： firewall-cmd –panic-off</p>
+<p>查看是否拒绝： firewall-cmd –query-panic</p>
+<p>那怎么开启一个端口呢</p>
+<p>添加</p>
+<p>firewall-cmd –zone=public –add-port=80/tcp –permanent （–permanent永久生效，没有此参数重启后失效）</p>
+<p>重新载入</p>
+<p>firewall-cmd –reload</p>
+<p>查看</p>
+<p>firewall-cmd –zone= public –query-port=80/tcp</p>
+<p>删除</p>
+<p>firewall-cmd –zone= public –remove-port=80/tcp –permanent</p>
+<p> 四个基本区域</p>
+<p>  根据所在的网络场所区分,预设保护规则集<br>– public:仅允许访问本机的ssh dhcp ping服务<br>– trusted:允许任何访问<br>– block:阻塞任何来访请求(明确拒绝,有回应客户端)<br>– drop:丢弃任何来访的数据包(没有回应,节省服务端资源)</p>
+<p>基本命令</p>
+<p>  1.查看当前区域</p>
+<pre><code>firewall-cmd --get-default-zone
+</code></pre>
+<p>  2.转换区域</p>
+<pre><code>firewall-cmd --set-default-zone=&#39;区域名&#39;
+</code></pre>
+<p>  3.查看区域规则</p>
+<pre><code>firewall-cmd --zone=&#39;区域名&#39; --list-all
+</code></pre>
+<p>  4.添加源</p>
+<p>   firewall-cmd –zone=’区域名’ –add-source=’ip地址’<br>二。服务器硬件数据的收集<br>1.使用dmidecode查看硬件设备<br>使用dmidecode -t 1 可以查看主板信息(制造商、型号、序列号等等）<br>使用dmidecode -t 4 可以查看CPU信息(CPU数目、型号、大小、频率等等）<br>使用dmidecode -t 17 可以查看内存信息(插槽数目、内存类型、大小、频率等等）<br>使用dmidecode -t  9  可以查看系统相关插槽的格式。<br>2.硬件资源的收集和分析<br>lspci<br>lsusb<br>iostat<br>3.了解磁盘的健康状态<br>用smartctl来显示完整的/dev/sda<br>smartctl -a   /dev/sda<br>三。备份<br>1.那些数据具有备份的意义<br>操作系统本身需要备份的文件<br>【账户与系统配置文件】<br>/etc/passwd , /etc/shadow , /etc/group  , /etc/gshadow以及/home下的用户家目录<br>/etc/整个目录  /home /var/spool/mail   /var/spool/{at|cron}   /boot/  /root/   /var/lib<br>如果安装过其他软件，那么/usr/local  ,/opt也备份<br>网络服务<br>www数据：/var/www 或 /srv/www<br>mariaDB：/var/lib/mysql整个目录<br>2.完整备份<br>（1）累积备份<br>累积备份的原则：系统在进行一次完整备份后，进行一段时间的运行，比较系统与备份文件之间的差异，仅备份有差异的文件<br>而第二次累积备份则是与第一次累积备份的数据比较，也是备份有差异的数据。<br>（2）差异备份<br>原则：也是需要系统进行第一次完整备份后才能进行，每次的备份都是与原始的完整备份比较的结果</p>
+]]></content>
+  </entry>
 </search>
