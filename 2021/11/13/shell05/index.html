@@ -10,14 +10,12 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
     <meta name="keywords" content="Fechin,"> 
-    <meta name="description" content="一。利用循环的嵌套实现以下三行*的输出
-
-
-
-#!/bin/bash
-for i in 1 2 3               //一共输出三行
-do
-    for j in {1..5}   /,"> 
+    <meta name="description" content="1，grep  搜索
+sed   增删改查
+awk   精确搜索2，字符串的替换
+${变量名称/被替换内容/新内容}
+a=1234              //定义素材
+echo ${a/3/6},"> 
     <meta name="author" content="John Doe"> 
     <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -57,34 +55,9 @@ do
 
         </div>
         <div class="content markdown">
-            <p>一。利用循环的嵌套实现以下三行*的输出</p>
-<hr>
-<hr>
-<hr>
-<p>#!/bin/bash</p>
-<p>for i in 1 2 3               //一共输出三行</p>
-<p>do</p>
-<p>    for j in {1..5}   //每行的*要输出5次</p>
-<p>    do</p>
-<p>        echo -n “* “   //执行的输出任务，n选项可以实现不换行输出</p>
-<p>    done</p>
-<p>    echo   //直接使用echo可以得到换行效果</p>
-<p>done<br>使用循环嵌套，得到50个8位长度的随机字符存在pass文件中</p>
-<p>字串截取的用法：</p>
-<p>${变量名:起始位置:长度}</p>
-<p>#!/bin/bash</p>
-<p>x=abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ01                23456789</p>
-<p>for j in {1..50}</p>
-<p>do</p>
-<p>for i in {1..8}</p>
-<p>do</p>
-<p>n=$[RANDOM%62]</p>
-<p>b=${x:n:1}</p>
-<p>pass=$pass$b</p>
-<p>done</p>
-<p>echo $pass &gt;&gt; pass</p>
-<p>pass=</p>
-<p>done<br>2，字符串的替换</p>
+            <p>1，grep  搜索</p>
+<p>sed   增删改查</p>
+<p>awk   精确搜索<br>2，字符串的替换</p>
 <p>${变量名称/被替换内容/新内容}</p>
 <p>a=1234              //定义素材</p>
 <p>echo ${a/3/6}    //把3换成6</p>
@@ -107,12 +80,14 @@ do
 <p>echo ${a%def}   //从右往左删除def</p>
 <p>echo ${a%d*}    //效果同上，更精简</p>
 <p>a=abcdefabcdef</p>
-<p>echo ${a%%d*}   //从右往左删除到最后一个d<br>sed  流式编辑器，可以对文档进行非交互式增删改查，逐行处理</p>
+<p>echo ${a%%d*}   //从右往左删除到最后一个d</p>
+<p>sed  流式编辑器，可以对文档进行非交互式增删改查，逐行处理</p>
 <p>使用方式：</p>
 <p>1，前置指令 | sed 选项 定址符 指令</p>
 <p>2，sed 选项 定址符 指令  被处理的文档</p>
 <p>选项： -n 屏蔽默认输出 -r 支持扩展正则  -i 写入文件</p>
-<p>指令：p输出  d删除  s替换</p>
+<p>指令：p输出  d删除  s替换<br>sed    s 替换   （）粘贴   p  查看 d 删除  n 屏蔽  </p>
+<p>还有 a行下追加   i行上添加   c替换整行</p>
 <p>sed -n ‘1p’ user         //输出第1行</p>
 <p>sed -n ‘2p’ user    //输出第2行</p>
 <p>sed -n ‘3p’ user    //输出第3行</p>

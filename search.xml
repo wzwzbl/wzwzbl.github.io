@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>linuday13</title>
+    <url>/2022/01/04/linuday13/</url>
+    <content><![CDATA[<p>dgAGDHas<br>dahsdad</p>
+]]></content>
+  </entry>
+  <entry>
     <title>Hello World</title>
     <url>/2021/11/02/hello-world/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
@@ -16,136 +22,6 @@
 <h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
 
 <p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>linuxday2进程和selinux</title>
-    <url>/2021/11/03/linuxday2/</url>
-    <content><![CDATA[<p>一。任务管理 （job control）<br>1.&amp;  将命令丢到后台执行<br>2.ctrl+z 将当前命令丢到后台暂停<br>3.jobs 查看目前后台状态<br>4.fg j将后台的任务拿到前台处理：fg<br>5.bg 让后台的任务变成运行中<br>6.kill 管理后台的任务  -9 强制删除<br>7.nohup 让后台任务在你注销后还能执行， nohup 和&amp; 搭配<br>二。查看进程<br>1.ps aux 查看系统所有进程  ps  -lA  查看所有系统的进程   ps  -l 仅查看自己bash相关的进程<br>2.top 查看动态的进程<br>3.pstree 进程树<br>4priority（pri） 和nice ，pri越小执行的越早。当nice为负，那么该进程就会降低pri，即会变的优先处理<br>列： nice  -n  -5 vim &amp;<br>        renice -5  14836  （重新调整进程的nice）<br>三。查看系统资源信息<br>1.free（内存的使用情况）    -m  显示目前系统的内存容量<br>2.uname 查看系统与内核信息<br>uname -a 输出系统的基本信息   内核的版本<br>uptime 查看系统启动的时间和任务负载<br>netstat ：追踪网络和socket<br>*netstat   -tulnp  找出系统上监听的网络连接及pid<br>netstat  -lt   列出所有处于监听状态的tcp端口<br><em>netstat  -tulnp | grep  8080 查看指定端口号的进程情况<br>lsof  -i：8080  查看某一端口的占用情况  （进程使用的文件）<br>dmesg  |  more  输出所有内核启动时的信息。（dmesg 分析内核产生的信息）<br>vmstat  检测系统资源变化<br>四。特殊文件和进程<br>1./proc/</em>  (内存)<br>/proc/version  内核版本<br>2.fuser:借该文件找出正在使用该文件的进程<br>fuser -muv  /proc<br>3.pidof 找出执行进程的pid<br>五。selinux<br>查看系统【进程的selinux相关信息】<br>ps  -eZ<br>selinux 三种模式<br>1.enforcing   强制模式<br>2.permissive  宽松模式<br>3.disabled   关闭模式<br>setenforce  [0|1]   0宽松 1强制<br>getenforce  查看<br>4./etc/selinux/config 是selinux的配置文件<br>5.selinux各个规则的布尔值查询getsebool<br>查询本系统的所有的布尔值的设置情况<br>getsebool  -a     修改布尔值 ：  setsebool  【-p】  【规则名称】  【0|1】<br>6.seinfo  列出selinux在此策略下的统计状态，还有sesearch 是找出进程能读取文件selinux的类型<br>7.使用chcon手动修改（文件）的selinux类型<br>restorecon 恢复正确的selinux类型（文件）<br>semanage 默认目录的安全上下文查询和修改  -a 增加 -m 修改  -d 删除</p>
-]]></content>
-  </entry>
-  <entry>
-    <title>linuxday10Linux的补充知识</title>
-    <url>/2021/11/13/linuxday10/</url>
-    <content><![CDATA[<p>一。linux的安装</p>
-<p>安装VMware Workstation Pro<br>激活码：VMware 10 永久许可证激活密钥<br>JC05J-6U304-2Z1X9-GVAQP-CCUJ1<br>NC6H9-FLJ03-LZMK9-RC8Q2-AAX05<br>JA6HR-2TL15-EZPG9-GKAE0-3352F<br>M109C-N0J5L-08J8A-02ARP-CE64F<br>4F207-8HJ1M-WZCP8-000N0-92Q6G<br>0A6Z5-8H1EJ-WZCL1-PK072-23DJG<br>0F0Q9-8F38L-RZXT9-4U054-ACW5F<br>JA02E-09H47-QZD81-W3A52-A3014<br>4F2AG-A0HEJ-JZWH8-L01N6-8C3Q3<br>===================================<br>VMware 12 Pro 永久许可证激活密钥<br>5A02H-AU243-TZJ49-GTC7K-3C61N<br>VF5XA-FNDDJ-085GZ-4NXZ9-N20E6<br>UC5MR-8NE16-H81WY-R7QGV-QG2D8<br>ZG1WH-ATY96-H80QP-X7PEX-Y30V4<br>AA3E0-0VDE1-0893Z-KGZ59-QGAVF<br>===================================<br>VMware 14 Pro 永久许可证激活密钥<br>FF31K-AHZD1-H8ETZ-8WWEZ-WUUVA<br>CV7T2-6WY5Q-48EWP-ZXY7X-QGUWD<br>===================================<br>VMware 15 Pro 永久许可证激活密钥<br>VF5WH-00ZDH-489KP-0QNXG-WZKRA<br>AA310-6UX0J-H8D1Z-C4ZXZ-MPAD0<br>镜像光盘：CentOS-7.5-x86_64-DVD-1804<br>1 案例1：装机预备技能<br>1.1 问题</p>
-<ol>
-<li>   RHEL与CentOS系统有什么关联？</li>
-<li>   Linux系统中第三块SCSI硬盘如何表示？</li>
-<li></li>
-<li>2 步骤<br>实现此案例需要按照如下步骤进行。<br>步骤一：RHEL系统与CentOS系统的渊源<br>RHEL是红帽公司提供的商业版Linux系统，若要获取DVD镜像、安全更新等技术服务支持，一般需要付费订阅；不过构成RHEL系统的各种软件包都是基于GPL开源协议免费发布的。<br>CentOS是一个社区性质的Linux系统，相当于RHEL的一个克隆版本，它采用了构成RHEL系统的各种软件包重新组装、开发而成，并且在此过程中做了一些优化、必要的Bug修复；CentOS系统的版本会稍晚于同版本的RHEL系统发布，其构成、管理方式与同版本的RHEL系统几乎一模一样，而且能够找到大量开放的软件源，因此受到很多企业的欢迎。<br>目前，CentOS已经被Red Hat公司所收购，仍然可自由使用。<br>步骤二：Linux系统中第三块SCSI硬盘如何表示？<br>在Linux系统中，第三块SCSI硬盘如何表示利用/dev/sdc表示<br>2 案例2：安装一台LINUX虚拟机</li>
-<li>1 问题<br>基于KVM虚拟机环境新安装一各LINUX操作系统，主要完成以下事项：</li>
-<li>   新建一台虚拟机，硬盘20GB，内存2GB</li>
-<li>   为此虚拟机安装LINUX操作系统，采取自动分区方案</li>
-<li>   软件包定制（根据课上要求选取）</li>
-<li>2 方案<br>在虚拟机环境练习装机过程，打开VMware虚拟化的图形管理程序（如图-1所示），添加一台虚拟机，将LINUX系统的ISO镜像文件作为此虚拟机的安装光盘。</li>
-</ol>
-<p>图-1<br>2.3 步骤<br>实现此案例需要按照如下步骤进行。<br>步骤一：新建一台LINUX虚拟机<br>1）启动“新建虚拟机”向导程序<br>安装方式选择“自定义”（如图-2所示），单击“下一步”。<br>/<br>图-2<br>2）VMware软件虚拟功能介绍（如图-3所示），单击“下一步“。<br>/<br>图－3<br>3）选择稍后安装操作系统（如图-4所示），单击“下一步”。</p>
-<p>图－4<br>4）指定虚拟机操作系统版本（如图-5所示），单击“下一步”。</p>
-<p>图－5<br>5）指定虚拟机名称与存放位置，（如图-6所示）单击“下一步”。</p>
-<p>图－6<br>7）指定CPU参数默认即可，（如图-7所示）单击“下一步”。</p>
-<p>图-7<br>8）指定内存大小建议2G，（如图-8所示）单击“下一步”。</p>
-<p>图-8<br>9）指定网络类型默认即可，（如图-9所示）单击“下一步”。</p>
-<p>图-9<br>10）指定控制器类型默认即可，（如图-10所示）单击“下一步”。</p>
-<p>图-10<br>11）指定控制器类型默认即可，（如图-11所示）单击“下一步”。</p>
-<p>图-11<br>12）创建虚拟磁盘默认即可，（如图-12所示）单击“下一步”。</p>
-<p>图-12<br>13）指定虚拟磁盘大小建议20G，（如图-13所示）单击“下一步”。</p>
-<p>图-13<br>13）指定虚拟磁盘文件名称默认即可，（如图-14所示）单击“下一步”。</p>
-<p>图-14<br>14）虚拟机建立完成，（如图-15所示）单击“完成”。</p>
-<p>图-15<br>步骤二：启动虚拟机电源，安装Linux系统<br>1）运行Linux安装程序<br>打开新虚拟机的电源后，会自动从光盘引导主机（因为新磁盘没有引导信息，自动找其他启动设备），进入CentOS系统的安装选择界面。按上箭头键选择第一项“Install CentOS 7”（如图-16所示），然后按Enter键启动安装程序。</p>
-<p>图－16<br>2）选择语言类型<br>建议初学者选择“简体中文（中国）”以降低难度（如图-17所示），单击“继续”。</p>
-<p>图－17<br>3）自定义磁盘分区方案<br>在“安装信息摘要”的列表界面中，单击“系统”–&gt;“安装位置”（如图-18所示）。</p>
-<p>图－18<br>打开“安装目标位置”界面以后，选择“安装位置”下的“自动配置分区” （如图-19所示），单击上方的“完成”按钮。</p>
-<p>图-19<br>4）选择要安装的软件包<br>单击“安装信息摘要”界面中的“软件选择”接下来在“基本环境”下选取“带GUI的服务器”（如图-20所示），单击“完成”按钮返回。</p>
-<p>图－20<br>5）确认并开始安装<br>检查“安装信息摘要界面”，确保所有带叹号的部分都已经完成，然后单击右下方的“开始安装”按钮（如图-21所示），将会执行正式安装。</p>
-<p>图－21<br>在安装执行期间，根据页面提示（如图-22所示）单击“ROOT密码”后为root用户设置一个密码（注意：若密码太简单需要按两次“完成”按钮！！），无需创建其他用户。</p>
-<p>图-22<br>设置好密码以后，只要等待安装结束就行了（如图-23所示）。根据系统性能及选取的软件包不同，安装过程一般需要5~30分钟。</p>
-<p>图-23<br>6）结束安装过程<br>全部安装执行完毕后，会提示重启主机（如图-24所示），根据提示操作即可。</p>
-<p>图－24<br>步骤三：初始化配置<br>完成LINUX系统的安装过程后，第一次启动时会要求进行初始化设置。<br>1）确认许可协议,如图-25与图-26所示，点击“完成”</p>
-<p>图-25</p>
-<p>图-26<br>2）选择“完成配置”（如图-27所示）。</p>
-<p>图-27<br>3）选择语言，如图-28所示，点击“前进”</p>
-<p>图-28<br>4）选择“语言输入”，建议选择“汉语pinyin” （如图-29所示）</p>
-<p>图-29<br>5）隐私如图-30所示，点击“前进”<br>/<br>图-30<br>6）时区如图-31所示，选择“上海”<br>/<br>图-32<br>7）在线账号如图-33所示，选择“跳过”<br>/<br>图-33<br>8）创建用户如图-34所示<br>/<br>图-34<br>9）完成用户密码设置如图-35所示<br>/<br>图-35<br>接下来只要单击“开始使用”即可</p>
-<p>图-36<br>自动登入（以后登录时需要提供密码）到桌面环境（如图-37所示）。</p>
-<p>图-38<br>至此，整个LINUX虚拟机系统的安装就完成了。<br>3 案例3：使用LINUX图形桌面<br>3.1 问题<br>本例要求学员熟悉新装LINUX系统的图形桌面环境，完成下列任务：</p>
-<ol>
-<li>   更改桌面背景图片</li>
-<li>   打开应用程序 “Firefox Web Browser”</li>
-<li>   添加一个普通用户账号（4参考自己姓名的拼音）</li>
-<li>   注销，换新用户登录</li>
-<li>   重启此系统</li>
-<li>2 步骤<br>实现此案例需要按照如下步骤进行。<br>步骤一：以root用户登入到图形桌面<br>将新装的LINUX系统关机、重新开机，启动完毕会看到登录界面（如图-39所示）。</li>
-</ol>
-<p>图-39<br>单击展示的用户列表下方的“未列出？”，然后根据提示输入管理员用户名root（如图-40所示），单击“下一步”。</p>
-<p>图-40<br>接下来再根据提示输入root用户的正确口令（如图-41所示），单击“登录”按钮即成功进入图形桌面环境。</p>
-<p>图-41<br>步骤二：完成简单的桌面操作<br>1）更改桌面背景图片<br>在桌面空白处右击，选择“更改桌面背景”，在弹出的对话框中单击“背景”并选取自己所喜爱的图片即可（如图-42所示）；如果需要更改锁屏图片，可以单击旁边的“锁屏”去选择。</p>
-<p>图-42<br>2）打开Firefox网页浏览器<br>单击桌面菜单组“应用程序”–&gt;“互联网”–&gt;“Firefox Web Browser”（如图-43所示），可以打开火狐网页浏览器程序。</p>
-<p>图-43<br>3）添加一个普通用户账号（参考自己姓名的拼音）<br>单击桌面菜单组“应用程序”–&gt;“系统工具”–&gt;“设置”（如图-44所示），可以打开系统设置平台。</p>
-<p>图-44<br>点击“详细信息”（如图-45所示）。</p>
-<p>图-46<br>然后点击“用户”管理窗口后，可以通过右上方的按钮来添加用户账号。根据自己的姓名拟定一个用户名，添加此账号即可（如图-47所示）。</p>
-<p>图-47<br>4）注销，换新用户登录<br>单击桌面右上角的电源按钮，在弹出窗口中展开用户右侧的下拉列表，根据需要选择“切换用户”或者“注销”（如图-48所示）。</p>
-<p>图-48<br>5）重启此系统<br>单击桌面右上角的电源按钮，在弹出窗口中再单击右下的电源标识（如图-49所示）。</p>
-<p>图-49<br>接下来会提示操作类型，根据需要选择“取消”、“重启”、“关机”即可（如图-50所示）。</p>
-<p>图-50<br>4 案例4：Linux命令行基本操作<br>4.1 问题<br>本例要求熟悉新装LINUX系统中命令行界面的获取方法，并通过命令行完成下列任务：</p>
-<ol>
-<li>   查看内核版本、主机名、IP/MAC地址</li>
-<li>   查看CPU型号/频率、内存大小</li>
-<li>   切换到根目录，确认当前位置、列出有哪些子目录</li>
-<li>   返回到 /root 目录，确认当前位置</li>
-<li>   重启当前系统</li>
-<li>2 步骤<br>实现此案例需要按照如下步骤进行。<br>步骤一：获取命令行界面的不同方法<br>1）虚拟控制台切换<br>LINUX系统默认提供6个虚拟控制台（tty1<del>tty6），每个控制台可以独立登录、执行不同的任务。其中tty1默认开启图形桌面，tty2</del>tty6只开启字符模式。<br>通过组合快捷键Ctrl+Alt+Fn可以在不同的虚拟控制台之间切换，这里的Fn代表F1~F6键中的某一个。例如，当处在正常的图形桌面时，按Ctrl+Alt+F3组合键可以切换到控制台tty3，登录后即进入纯字符模式的命令行界面；如果需要返回之前的图形桌面，则再按键Ctrl+Alt+F1组合键即可。<br>2）桌面右键菜单<br>在桌面空白处右击，或者通过资源管理器浏览文件夹时在空白处右击，可以看到右键菜单中出现“在终端中打开”项（如图-51所示）。</li>
-</ol>
-<p>图-51<br>单击“在终端中打开”项即可获得以图形窗口展现的命令行终端程序（如图-52所示）。</p>
-<p>图-52<br>3）“应用程序”相应菜单<br>通过桌面菜单组“应用程序”–&gt;“工具”–&gt;“终端”，也可以打开以图形窗口展现的命令行终端程序（如图-53所示）。</p>
-<p>步骤二：简单命令行操作练习<br>1）查看内核版本、主机名、IP/MAC地址<br>检查红帽发行信息：</p>
-<ol>
-<li>   [root@svr7 桌面]# cat /etc/redhat-release </li>
-<li>   Red Hat Enterprise Linux Server release 7.5 (Maipo)<br>列出内核版本：</li>
-<li>   [root@svr7 桌面]# uname -r</li>
-<li>   3.10.0-327.el7.x86_64<br>2）查看CPU型号/频率、内存大小<br>列出CPU处理器信息：</li>
-<li>   [root@svr7 桌面]# lscpu</li>
-<li>   Architecture:          x86_64 </li>
-<li>   CPU op-mode(s):        32-bit, 64-bit</li>
-<li>   Byte Order:            Little Endian</li>
-<li>   CPU(s):                1</li>
-<li>   On-line CPU(s) list:   0</li>
-<li>   Thread(s) per core:    1</li>
-<li>   Core(s) per socket:    1</li>
-<li>   座：                 1</li>
-<li>   NUMA 节点：         1</li>
-<li>   厂商 ID：           GenuineIntel </li>
-<li>   CPU 系列：          6</li>
-<li>   型号：              13</li>
-<li>   型号名称：        QEMU Virtual CPU version (cpu64-rhel6)</li>
-<li>   步进：              3</li>
-<li>   CPU MHz：             2693.762</li>
-<li>   BogoMIPS：            5387.52</li>
-<li>   超管理器厂商：  KVM</li>
-<li>   虚拟化类型：     完全</li>
-<li>   L1d 缓存：          32K</li>
-<li>   L1i 缓存：          32K</li>
-<li>   L2 缓存：           4096K</li>
-<li>   NUMA 节点0 CPU：    0<br>检查内存大小、空闲情况</li>
-<li>   [root@svr7 桌面]# cat /proc/meminfo </li>
-<li>   MemTotal:        1016904 kB</li>
-<li>   MemFree:          245364 kB</li>
-<li>   MemAvailable:     566664 kB</li>
-<li>   Buffers:            2116 kB</li>
-<li>   Cached:           417372 kB</li>
-<li>   SwapCached:            0 kB</li>
-<li>   Active:           267272 kB</li>
-<li>   Inactive:         381760 kB</li>
-<li>   .. ..<br>3）切换到根目录，确认当前位置、列出有哪些子目录<br>切换目录、确认当前位置：</li>
-<li>   [root@svr7 桌面]# cd  /</li>
-<li>   [root@svr7 /]# pwd</li>
-<li>   /<br>4）返回到 /root 目录，确认当前位置</li>
-<li>   [root@svr7 /]# cd  /root</li>
-<li>   [root@svr7 ~]# pwd</li>
-<li>   /root<br>5）重启当前系统</li>
-<li>   [root@svr7 ~]# reboot</li>
-<li>   .. ..</li>
-</ol>
 ]]></content>
   </entry>
   <entry>
@@ -350,9 +226,314 @@
 ]]></content>
   </entry>
   <entry>
-    <title>linuxday4日志文件</title>
-    <url>/2021/11/06/linuxday4/</url>
-    <content><![CDATA[<p>一。linux常用的日志文件文件名<br>1./var/log/boot.log 开机启动的时候系统内核会去检测和启动硬件，接下来开始启动各种内核支持的功能<br>2./var/log/cron 计划任务<br>3./var/log/dmesg 记录系统开机的时候内核检测过程所产生的相关信息<br>4./var/log/lastlog 可以记录系统上面所有账号最近一次登录系统时产生的各项信息<br>5./var/log/maillog 或/var/log/mail/* 记录邮件往来的信息<br><em>重要</em>6./var/log/messages 几乎系统发生的错误信息（重要的信息）都会记到这个文件上。<br><em>重要</em>7./var/log/secure 只要牵涉到【密码和账户】的软件，那么都会记录到这个文件上<br> 8./var/log/wtmp ,/var/log/faillog 记录正确登录系统的账户信息与错误登记用户的账户信息<br>二。日志的一般格式<br><em>事件发生的日期和时间<br><em>发生此事件的主机名<br><em>开启此事件的服务名称或命令或函数名称<br><em>该信息的实际内容<br>列cat  /var/log/secure<br>cat  /var/log/messages<br>三。rsyslog.service<br>1.记录日志文件的服务<br>Linux的日志文件主要由rsyslog.service<br>2.配置文件/etc/rsyslog.conf<br>(1)什么服务（2）什么等级信息（3）需要被记录在哪里<br>rsyslogd主要通过linux内核提供的syslog相关规范来设置数据的分类<br>3.信息等级<br>基本上,在0-6的等级之间，等级数值越高越没事，等级靠近0则代表系统出现致命的问题。<br>4.rsyslog.conf语法练习<br>列:mail.info  /var/log/maillog<br>5.rsyslog.conf内容<br>vim  /etc/rsyslog.conf<br>#kern.</em>                                                    /dev/console<br><em>.info;mail.none;authpriv.none;cron.none      /var/log/messages<br>authpriv.</em>                                    /var/log/secure<br>mail.</em>                                        /var/log/maillog<br>cron.</em>                                        /var/log/cron<br><em>.emerg                                       *<br>uucp,news.crit                                /var/log/spooler<br>local7.</em>                                      /var/log/boot.log<br>6.日志文件的安全性设置<br>如果只能增加，不能删除 可以用lsattr 和chattr这俩个程序<br>列：chattr +a  /var/log/admin.log   lsattr 显示文件的隐藏属性   chattr  配置文件隐藏属性。<br>7.日志文件服务器的设置<br>服务端：<br>vim /etc/rsyslog.conf<br>然后重启服务和查看rsyslogd<br>systemctl restart  rsyslogd.service<br>netstat  -ltnp  |  grep  syslog<br>客户端：<br>vim /etc/rsyslog.conf<br><em>.</em>   @@192.168.1.100   (服务端的ip)<br>#</em>.*   @192.168.1.100 #若用udp传输，设置就变成这样</p>
+    <title>linuxday10Linux的补充知识</title>
+    <url>/2021/11/13/linuxday10/</url>
+    <content><![CDATA[<p>一。linux的安装</p>
+<p>安装VMware Workstation Pro<br>激活码：VMware 10 永久许可证激活密钥<br>JC05J-6U304-2Z1X9-GVAQP-CCUJ1<br>NC6H9-FLJ03-LZMK9-RC8Q2-AAX05<br>JA6HR-2TL15-EZPG9-GKAE0-3352F<br>M109C-N0J5L-08J8A-02ARP-CE64F<br>4F207-8HJ1M-WZCP8-000N0-92Q6G<br>0A6Z5-8H1EJ-WZCL1-PK072-23DJG<br>0F0Q9-8F38L-RZXT9-4U054-ACW5F<br>JA02E-09H47-QZD81-W3A52-A3014<br>4F2AG-A0HEJ-JZWH8-L01N6-8C3Q3<br>===================================<br>VMware 12 Pro 永久许可证激活密钥<br>5A02H-AU243-TZJ49-GTC7K-3C61N<br>VF5XA-FNDDJ-085GZ-4NXZ9-N20E6<br>UC5MR-8NE16-H81WY-R7QGV-QG2D8<br>ZG1WH-ATY96-H80QP-X7PEX-Y30V4<br>AA3E0-0VDE1-0893Z-KGZ59-QGAVF<br>===================================<br>VMware 14 Pro 永久许可证激活密钥<br>FF31K-AHZD1-H8ETZ-8WWEZ-WUUVA<br>CV7T2-6WY5Q-48EWP-ZXY7X-QGUWD<br>===================================<br>VMware 15 Pro 永久许可证激活密钥<br>VF5WH-00ZDH-489KP-0QNXG-WZKRA<br>AA310-6UX0J-H8D1Z-C4ZXZ-MPAD0<br>镜像光盘：CentOS-7.5-x86_64-DVD-1804<br>1 案例1：装机预备技能<br>1.1 问题</p>
+<ol>
+<li>   RHEL与CentOS系统有什么关联？</li>
+<li>   Linux系统中第三块SCSI硬盘如何表示？</li>
+<li></li>
+<li>2 步骤<br>实现此案例需要按照如下步骤进行。<br>步骤一：RHEL系统与CentOS系统的渊源<br>RHEL是红帽公司提供的商业版Linux系统，若要获取DVD镜像、安全更新等技术服务支持，一般需要付费订阅；不过构成RHEL系统的各种软件包都是基于GPL开源协议免费发布的。<br>CentOS是一个社区性质的Linux系统，相当于RHEL的一个克隆版本，它采用了构成RHEL系统的各种软件包重新组装、开发而成，并且在此过程中做了一些优化、必要的Bug修复；CentOS系统的版本会稍晚于同版本的RHEL系统发布，其构成、管理方式与同版本的RHEL系统几乎一模一样，而且能够找到大量开放的软件源，因此受到很多企业的欢迎。<br>目前，CentOS已经被Red Hat公司所收购，仍然可自由使用。<br>步骤二：Linux系统中第三块SCSI硬盘如何表示？<br>在Linux系统中，第三块SCSI硬盘如何表示利用/dev/sdc表示<br>2 案例2：安装一台LINUX虚拟机</li>
+<li>1 问题<br>基于KVM虚拟机环境新安装一各LINUX操作系统，主要完成以下事项：</li>
+<li>   新建一台虚拟机，硬盘20GB，内存2GB</li>
+<li>   为此虚拟机安装LINUX操作系统，采取自动分区方案</li>
+<li>   软件包定制（根据课上要求选取）</li>
+<li>2 方案<br>在虚拟机环境练习装机过程，打开VMware虚拟化的图形管理程序（如图-1所示），添加一台虚拟机，将LINUX系统的ISO镜像文件作为此虚拟机的安装光盘。</li>
+</ol>
+<p>图-1<br>2.3 步骤<br>实现此案例需要按照如下步骤进行。<br>步骤一：新建一台LINUX虚拟机<br>1）启动“新建虚拟机”向导程序<br>安装方式选择“自定义”（如图-2所示），单击“下一步”。<br>/<br>图-2<br>2）VMware软件虚拟功能介绍（如图-3所示），单击“下一步“。<br>/<br>图－3<br>3）选择稍后安装操作系统（如图-4所示），单击“下一步”。</p>
+<p>图－4<br>4）指定虚拟机操作系统版本（如图-5所示），单击“下一步”。</p>
+<p>图－5<br>5）指定虚拟机名称与存放位置，（如图-6所示）单击“下一步”。</p>
+<p>图－6<br>7）指定CPU参数默认即可，（如图-7所示）单击“下一步”。</p>
+<p>图-7<br>8）指定内存大小建议2G，（如图-8所示）单击“下一步”。</p>
+<p>图-8<br>9）指定网络类型默认即可，（如图-9所示）单击“下一步”。</p>
+<p>图-9<br>10）指定控制器类型默认即可，（如图-10所示）单击“下一步”。</p>
+<p>图-10<br>11）指定控制器类型默认即可，（如图-11所示）单击“下一步”。</p>
+<p>图-11<br>12）创建虚拟磁盘默认即可，（如图-12所示）单击“下一步”。</p>
+<p>图-12<br>13）指定虚拟磁盘大小建议20G，（如图-13所示）单击“下一步”。</p>
+<p>图-13<br>13）指定虚拟磁盘文件名称默认即可，（如图-14所示）单击“下一步”。</p>
+<p>图-14<br>14）虚拟机建立完成，（如图-15所示）单击“完成”。</p>
+<p>图-15<br>步骤二：启动虚拟机电源，安装Linux系统<br>1）运行Linux安装程序<br>打开新虚拟机的电源后，会自动从光盘引导主机（因为新磁盘没有引导信息，自动找其他启动设备），进入CentOS系统的安装选择界面。按上箭头键选择第一项“Install CentOS 7”（如图-16所示），然后按Enter键启动安装程序。</p>
+<p>图－16<br>2）选择语言类型<br>建议初学者选择“简体中文（中国）”以降低难度（如图-17所示），单击“继续”。</p>
+<p>图－17<br>3）自定义磁盘分区方案<br>在“安装信息摘要”的列表界面中，单击“系统”–&gt;“安装位置”（如图-18所示）。</p>
+<p>图－18<br>打开“安装目标位置”界面以后，选择“安装位置”下的“自动配置分区” （如图-19所示），单击上方的“完成”按钮。</p>
+<p>图-19<br>4）选择要安装的软件包<br>单击“安装信息摘要”界面中的“软件选择”接下来在“基本环境”下选取“带GUI的服务器”（如图-20所示），单击“完成”按钮返回。</p>
+<p>图－20<br>5）确认并开始安装<br>检查“安装信息摘要界面”，确保所有带叹号的部分都已经完成，然后单击右下方的“开始安装”按钮（如图-21所示），将会执行正式安装。</p>
+<p>图－21<br>在安装执行期间，根据页面提示（如图-22所示）单击“ROOT密码”后为root用户设置一个密码（注意：若密码太简单需要按两次“完成”按钮！！），无需创建其他用户。</p>
+<p>图-22<br>设置好密码以后，只要等待安装结束就行了（如图-23所示）。根据系统性能及选取的软件包不同，安装过程一般需要5~30分钟。</p>
+<p>图-23<br>6）结束安装过程<br>全部安装执行完毕后，会提示重启主机（如图-24所示），根据提示操作即可。</p>
+<p>图－24<br>步骤三：初始化配置<br>完成LINUX系统的安装过程后，第一次启动时会要求进行初始化设置。<br>1）确认许可协议,如图-25与图-26所示，点击“完成”</p>
+<p>图-25</p>
+<p>图-26<br>2）选择“完成配置”（如图-27所示）。</p>
+<p>图-27<br>3）选择语言，如图-28所示，点击“前进”</p>
+<p>图-28<br>4）选择“语言输入”，建议选择“汉语pinyin” （如图-29所示）</p>
+<p>图-29<br>5）隐私如图-30所示，点击“前进”<br>/<br>图-30<br>6）时区如图-31所示，选择“上海”<br>/<br>图-32<br>7）在线账号如图-33所示，选择“跳过”<br>/<br>图-33<br>8）创建用户如图-34所示<br>/<br>图-34<br>9）完成用户密码设置如图-35所示<br>/<br>图-35<br>接下来只要单击“开始使用”即可</p>
+<p>图-36<br>自动登入（以后登录时需要提供密码）到桌面环境（如图-37所示）。</p>
+<p>图-38<br>至此，整个LINUX虚拟机系统的安装就完成了。<br>3 案例3：使用LINUX图形桌面<br>3.1 问题<br>本例要求学员熟悉新装LINUX系统的图形桌面环境，完成下列任务：</p>
+<ol>
+<li>   更改桌面背景图片</li>
+<li>   打开应用程序 “Firefox Web Browser”</li>
+<li>   添加一个普通用户账号（4参考自己姓名的拼音）</li>
+<li>   注销，换新用户登录</li>
+<li>   重启此系统</li>
+<li>2 步骤<br>实现此案例需要按照如下步骤进行。<br>步骤一：以root用户登入到图形桌面<br>将新装的LINUX系统关机、重新开机，启动完毕会看到登录界面（如图-39所示）。</li>
+</ol>
+<p>图-39<br>单击展示的用户列表下方的“未列出？”，然后根据提示输入管理员用户名root（如图-40所示），单击“下一步”。</p>
+<p>图-40<br>接下来再根据提示输入root用户的正确口令（如图-41所示），单击“登录”按钮即成功进入图形桌面环境。</p>
+<p>图-41<br>步骤二：完成简单的桌面操作<br>1）更改桌面背景图片<br>在桌面空白处右击，选择“更改桌面背景”，在弹出的对话框中单击“背景”并选取自己所喜爱的图片即可（如图-42所示）；如果需要更改锁屏图片，可以单击旁边的“锁屏”去选择。</p>
+<p>图-42<br>2）打开Firefox网页浏览器<br>单击桌面菜单组“应用程序”–&gt;“互联网”–&gt;“Firefox Web Browser”（如图-43所示），可以打开火狐网页浏览器程序。</p>
+<p>图-43<br>3）添加一个普通用户账号（参考自己姓名的拼音）<br>单击桌面菜单组“应用程序”–&gt;“系统工具”–&gt;“设置”（如图-44所示），可以打开系统设置平台。</p>
+<p>图-44<br>点击“详细信息”（如图-45所示）。</p>
+<p>图-46<br>然后点击“用户”管理窗口后，可以通过右上方的按钮来添加用户账号。根据自己的姓名拟定一个用户名，添加此账号即可（如图-47所示）。</p>
+<p>图-47<br>4）注销，换新用户登录<br>单击桌面右上角的电源按钮，在弹出窗口中展开用户右侧的下拉列表，根据需要选择“切换用户”或者“注销”（如图-48所示）。</p>
+<p>图-48<br>5）重启此系统<br>单击桌面右上角的电源按钮，在弹出窗口中再单击右下的电源标识（如图-49所示）。</p>
+<p>图-49<br>接下来会提示操作类型，根据需要选择“取消”、“重启”、“关机”即可（如图-50所示）。</p>
+<p>图-50<br>4 案例4：Linux命令行基本操作<br>4.1 问题<br>本例要求熟悉新装LINUX系统中命令行界面的获取方法，并通过命令行完成下列任务：</p>
+<ol>
+<li>   查看内核版本、主机名、IP/MAC地址</li>
+<li>   查看CPU型号/频率、内存大小</li>
+<li>   切换到根目录，确认当前位置、列出有哪些子目录</li>
+<li>   返回到 /root 目录，确认当前位置</li>
+<li>   重启当前系统</li>
+<li>2 步骤<br>实现此案例需要按照如下步骤进行。<br>步骤一：获取命令行界面的不同方法<br>1）虚拟控制台切换<br>LINUX系统默认提供6个虚拟控制台（tty1<del>tty6），每个控制台可以独立登录、执行不同的任务。其中tty1默认开启图形桌面，tty2</del>tty6只开启字符模式。<br>通过组合快捷键Ctrl+Alt+Fn可以在不同的虚拟控制台之间切换，这里的Fn代表F1~F6键中的某一个。例如，当处在正常的图形桌面时，按Ctrl+Alt+F3组合键可以切换到控制台tty3，登录后即进入纯字符模式的命令行界面；如果需要返回之前的图形桌面，则再按键Ctrl+Alt+F1组合键即可。<br>2）桌面右键菜单<br>在桌面空白处右击，或者通过资源管理器浏览文件夹时在空白处右击，可以看到右键菜单中出现“在终端中打开”项（如图-51所示）。</li>
+</ol>
+<p>图-51<br>单击“在终端中打开”项即可获得以图形窗口展现的命令行终端程序（如图-52所示）。</p>
+<p>图-52<br>3）“应用程序”相应菜单<br>通过桌面菜单组“应用程序”–&gt;“工具”–&gt;“终端”，也可以打开以图形窗口展现的命令行终端程序（如图-53所示）。</p>
+<p>步骤二：简单命令行操作练习<br>1）查看内核版本、主机名、IP/MAC地址<br>检查红帽发行信息：</p>
+<ol>
+<li>   [root@svr7 桌面]# cat /etc/redhat-release </li>
+<li>   Red Hat Enterprise Linux Server release 7.5 (Maipo)<br>列出内核版本：</li>
+<li>   [root@svr7 桌面]# uname -r</li>
+<li>   3.10.0-327.el7.x86_64<br>2）查看CPU型号/频率、内存大小<br>列出CPU处理器信息：</li>
+<li>   [root@svr7 桌面]# lscpu</li>
+<li>   Architecture:          x86_64 </li>
+<li>   CPU op-mode(s):        32-bit, 64-bit</li>
+<li>   Byte Order:            Little Endian</li>
+<li>   CPU(s):                1</li>
+<li>   On-line CPU(s) list:   0</li>
+<li>   Thread(s) per core:    1</li>
+<li>   Core(s) per socket:    1</li>
+<li>   座：                 1</li>
+<li>   NUMA 节点：         1</li>
+<li>   厂商 ID：           GenuineIntel </li>
+<li>   CPU 系列：          6</li>
+<li>   型号：              13</li>
+<li>   型号名称：        QEMU Virtual CPU version (cpu64-rhel6)</li>
+<li>   步进：              3</li>
+<li>   CPU MHz：             2693.762</li>
+<li>   BogoMIPS：            5387.52</li>
+<li>   超管理器厂商：  KVM</li>
+<li>   虚拟化类型：     完全</li>
+<li>   L1d 缓存：          32K</li>
+<li>   L1i 缓存：          32K</li>
+<li>   L2 缓存：           4096K</li>
+<li>   NUMA 节点0 CPU：    0<br>检查内存大小、空闲情况</li>
+<li>   [root@svr7 桌面]# cat /proc/meminfo </li>
+<li>   MemTotal:        1016904 kB</li>
+<li>   MemFree:          245364 kB</li>
+<li>   MemAvailable:     566664 kB</li>
+<li>   Buffers:            2116 kB</li>
+<li>   Cached:           417372 kB</li>
+<li>   SwapCached:            0 kB</li>
+<li>   Active:           267272 kB</li>
+<li>   Inactive:         381760 kB</li>
+<li>   .. ..<br>3）切换到根目录，确认当前位置、列出有哪些子目录<br>切换目录、确认当前位置：</li>
+<li>   [root@svr7 桌面]# cd  /</li>
+<li>   [root@svr7 /]# pwd</li>
+<li>   /<br>4）返回到 /root 目录，确认当前位置</li>
+<li>   [root@svr7 /]# cd  /root</li>
+<li>   [root@svr7 ~]# pwd</li>
+<li>   /root<br>5）重启当前系统</li>
+<li>   [root@svr7 ~]# reboot</li>
+<li>   .. ..</li>
+</ol>
+]]></content>
+  </entry>
+  <entry>
+    <title>linuxday11权限和（软和硬）连接</title>
+    <url>/2021/11/13/linuxday11/</url>
+    <content><![CDATA[<p>权限</p>
+<p>一、环境准备</p>
+<p> 还原快照，开启CentOS7虚拟机，利用root登录</p>
+<p>二、挂载光驱设备</p>
+<p>1.图形将光盘文件放入，虚拟机光驱设备</p>
+<p>2.mount进行挂载</p>
+<p>]# mkdir  -p   /os/centos</p>
+<p>]# mount    /dev/cdrom       /os/centos</p>
+<p>]# ls     /os/centos</p>
+<p>3.构建Yum仓库</p>
+<p>]# rm  -rf   /etc/yum.repos.d/*</p>
+<p>]# vim   /etc/yum.repos.d/dvd.repo</p>
+<p>[xixi]</p>
+<p>name=haha</p>
+<p>baseurl=file:///os/centos</p>
+<p>enabled=1</p>
+<p>gpgcheck=0</p>
+<p>]# yum   -y   install   gcc     #测试安装软件</p>
+<p>三、命令的补充</p>
+<p>制作连接(链接)文件（快捷方式）<br>软连接：ln  -s   /路径/源数据    /路径/快捷方式名</p>
+<p>]# ls  /etc/sysconfig/network-scripts/</p>
+<p>]# ln -s /etc/sysconfig/network-scripts/     /ns</p>
+<p>]# ls /</p>
+<p>]# ls -l   /ns      #查看快捷方式的详细信息</p>
+<p>]# ls   /ns</p>
+<p>软连接优势：1.可以对目录制作快捷方式   2.可以跨分区</p>
+<p>软连接缺点：源数据消失，快捷方式不可用</p>
+<p>硬链接：ln    /路径/源数据     /路径/快捷方式名</p>
+<p>]# rm -rf   /opt/*</p>
+<p>]# echo 123  &gt;  /opt/A</p>
+<p>]# ln -s  /opt/A    /opt/B   #软连接</p>
+<p>]# ls /opt/</p>
+<p>]# ln   /opt/A     /opt/C    #硬链接</p>
+<p>]# ls   /opt/</p>
+<p>]# cat   /opt/B      #查看软连接    </p>
+<p>]# cat   /opt/C      #查看硬链接    </p>
+<p>]# rm -rf  /opt/A</p>
+<p>]# ls   /opt/</p>
+<p>]# cat   /opt/B      #软连接不可用</p>
+<p>cat: /opt/B: 没有那个文件或目录</p>
+<p>]# cat   /opt/C      #硬链接可用</p>
+<p>硬链接优点：源数据消失，快捷方式仍然可用</p>
+<p>硬链接缺点：1.不可以对目录制作快捷方式   2.不可以跨分区</p>
+<p>zip归档压缩(跨平台压缩格式)<br>归档+压缩操作<br>zip  [-r]  备份文件.zip   被归档的文档…<br>]# zip  -r   /root/test.zip      /home/    /boot/</p>
+<p>]# ls   /root/</p>
+<p>释放归档+解压操作<br>unzip  备份文件.zip  [-d 目标文件夹] <br>]# mkdir   /bh</p>
+<p>]# unzip   /root/test.zip        -d     /bh</p>
+<p>]# ls   /bh</p>
+<p>四、用户相关配置文件</p>
+<p>配置文件来源<br>新建用户时，根据 /etc/skel 模板目录复制<br>]# touch   /etc/skel/hahaxixi.txt</p>
+<p>]# touch   /etc/skel/maohehaozi.txt</p>
+<p>]# touch   /etc/skel/shukehebeita.txt</p>
+<p>]# ls  -A   /etc/skel/</p>
+<p>]# useradd   tom</p>
+<p>]# ls  -A   /home/tom/</p>
+<p>主要的初始配置文件<br>~/.bash_profile：每次登录系统时执行<br>~/.bashrc：每次开启新的命令行终端时执行</p>
+<p>全局配置文件：/etc/bashrc、/etc/profile</p>
+<p>]# vim    /root/.bashrc    #定义永久的别名</p>
+<p>alias    hn=’hostname’</p>
+<p>新开一个终端进行验证</p>
+<p>]# hn</p>
+<p>localhost.localdomain</p>
+<p>]# vim    /etc/bashrc      #影响全体用户</p>
+<p>alias    xixi=’echo    xixihahahehe’</p>
+<p>新开一个终端进行验证            </p>
+<p>[root@localhost ~]# xixi</p>
+<p>[root@localhost ~]# su - tom</p>
+<p>[tom@localhost ~]$ xixi</p>
+<p>[tom@localhost ~]$ exit</p>
+<p>[root@localhost ~]#</p>
+<p>五、基本权限和归属</p>
+<p>基本权限<br>访问权限<br>读取：允许查看内容-read   r<br>写入：允许修改内容-write   w<br>可执行：允许运行和切换-excute  x<br>针对文本文件<br>        r：查看内容cat   less  head  tail  grep</p>
+<p>        w：修改内容vim   &gt;&gt;   &gt;</p>
+<p>        x：Shell脚本  Python脚本</p>
+<p>归属关系<br>所有者：拥有此文件/目录的用户-user<br>所属组：拥有此文件/目录的组-group<br>其他用户：除所有者、所属组以外的用户-other</p>
+<p>zhangsan (所有者)   zhangsan(所属组)        1.txt</p>
+<p>执行 ls  -l .. .. 命令查看<br>权限位   硬连接数   属主   属组   大小   最后修改时间   文件/目录名称</p>
+<p>    以-开头表示文本文件</p>
+<p>    以d开头表示目录</p>
+<p>    以l开头表示快捷方式</p>
+<p>]# ls  -l   /etc/passwd</p>
+<p>]# ls  -l   /etc/shadow</p>
+<p>]# ls  -ld  /etc</p>
+<p>]# ls  -ld   /root</p>
+<p>]# ls  -ld   /tmp    #默认具备特殊权限的目录</p>
+<p>六、权限的设置</p>
+<p>chmod命令<br>格式：chmod  [ugoa] [+-=][rwx]  文件…<br>常用命令选项<br>-R：递归修改权限</p>
+<p>]# mkdir    /nsd01</p>
+<p>]# chmod   u-w  /nsd01   #单独修改所有者权限</p>
+<p>]# ls   -ld   /nsd01</p>
+<p>]# chmod    g+w    /nsd01  #单独修改所属组权限</p>
+<p>]# ls   -ld   /nsd01</p>
+<p>]# chmod   o=—   /nsd01   #单独修改其他人权限</p>
+<p>]# ls   -ld   /nsd01</p>
+<p>]# chmod   u=rwx,g-w,o=rx    /nsd01</p>
+<p>]# ls   -ld   /nsd01</p>
+<p>]# chmod   a=rwx  /nsd01   #所有人赋予rwx权限</p>
+<p>]# ls   -ld   /nsd01</p>
+<p>]# mkdir -p   /opt/aa/bb/cc</p>
+<p>]# ls   -ld   /opt/aa</p>
+<p>]# ls   -ld   /opt/aa/bb/</p>
+<p>]# ls   -ld   /opt/aa/bb/cc</p>
+<p>]# chmod -R  o=—   /opt/aa    #递归设置权限</p>
+<p>]# ls   -ld   /opt/aa</p>
+<p>]# ls   -ld   /opt/aa/bb/</p>
+<p>]# ls   -ld   /opt/aa/bb/cc/</p>
+<p>Linux判断用户具备的权限:  <br>首先判断用户对于该数据，所处的角色(顺序：所有者&gt;所属组&gt;其他人  原则是匹配及停止)<br>查看相应角色的权限位</p>
+<p>对于目录权限的影响：        </p>
+<p>     r：可以查看目录下内容</p>
+<p>     w：可以新建、删除、改名此目录下内容</p>
+<p>     x：可以cd切换到此目录(一个用户能否切换到目录只和x执行权限有关)</p>
+<p>案例1：设置基本权限</p>
+<p>1）以root身份新建/nsddir1/目录，在此目录下新建readme.txt文件</p>
+<p>[root@localhost ~]# mkdir /nsddir1</p>
+<p>[root@localhost ~]# echo 123456 &gt; /nsddir1/readme.txt</p>
+<p>[root@localhost ~]# cat /nsddir1/readme.txt</p>
+<p>2）使用户zhangsan能够修改readme.txt文件内容</p>
+<p>[root@localhost ~]# chmod  o+w  /nsddir1/readme.txt</p>
+<p>3）使用户zhangsan不可以修改readme.txt文件内容</p>
+<p>[root@localhost ~]# chmod  o-w  /nsddir1/readme.txt</p>
+<p>4）使用户zhangsan能够在此目录下创建/删除子目录</p>
+<p>[root@localhost ~]# chmod  o+w   /nsddir1/</p>
+<p>[root@localhost ~]# ls  -ld  /nsddir1/</p>
+<p>5）调整此目录的权限，使任何用户都不能进入，然后测试用户zhangsan是否还能修改readme.txt（测试结果不能，对父目录没有权限）</p>
+<p>[root@localhost ~]# chmod  a-x   /nsddir1/</p>
+<p>6）为此目录及其下所有文档设置权限 rwxr-x—</p>
+<p>[root@localhost ~]# chmod -R u=rwx,g=rx,o=—  /nsddir1/</p>
+<p>七、归属的设置</p>
+<p>chown命令<br>chown  属主  文件…<br>chown  属主:属组  文件…<br>chown  :属组  文件…<br>常用命令选项<br>-R：递归修改归属关系<br>]# mkdir   /nsd04</p>
+<p>]# useradd   kenji         #创建用户kenji</p>
+<p>]# groupadd   tmooc   #创建组tmooc</p>
+<p>]# ls  -ld   /nsd04</p>
+<p>]# chown  kenji:tmooc   /nsd04</p>
+<p>]# ls  -ld   /nsd04</p>
+<p>]# chown   zhangsan   /nsd04   #设置所有者</p>
+<p>]# ls  -ld    /nsd04</p>
+<p>]# chown   :root   /nsd04    #设置所属组</p>
+<p>]# ls  -ld    /nsd04</p>
+<p>案例：</p>
+<p>实现lisi用户可以读取/etc/shadow文件内容，您有几种方法？</p>
+<p>   1.利用其他用户</p>
+<p>    ]# chmod  o+r   /etc/shadow</p>
+<p>   2.利用所属组</p>
+<p>]# chown   :lisi    /etc/shadow</p>
+<p>]# chmod  g+r   /etc/shadow</p>
+<p>   3.利用所有者</p>
+<p>]# chown   lisi    /etc/shadow</p>
+<p>]# chmod  u+r   /etc/shadow</p>
+<p>八、权限数字表示</p>
+<p>权限位的8进制数表示<br>r、w、x分别对应4、2、1，后3组分别求和</p>
+<p>]# mkdir   /nsd06</p>
+<p>]# ls  -ld   /nsd06</p>
+<p>]# chmod   700   /nsd06</p>
+<p>]# ls -ld /nsd06</p>
+<p>]# chmod   750   /nsd06</p>
+<p>]# ls -ld /nsd06</p>
+<p>]# chmod   007   /nsd06</p>
+<p>]# ls -ld /nsd06</p>
+<p>新建文件/目录的默认权限<br>一般文件默认均不给 x 执行权限<br>其他取决于 umask（权限掩码） 设置<br>文件默认权限为644<br>目录默认权限为755</p>
+<p>九、附加权限（特殊权限）</p>
+<p>粘滞位，Sticky Bit 权限<br>占用其他人（Other）的 x 位<br>显示为 t 或 T，取决于其他人是否有 x 权限<br>适用于目录，用来限制用户滥用写入权<br>在设置了粘滞位的文件夹下，即使用户有写入权限，也不能删除或改名其他用户文档</p>
+<p>]# mkdir    /home/public        </p>
+<p>]# chmod   777   /home/public</p>
+<p>]# ls   -ld   /home/public</p>
+<p>]# chmod  o+t  /home/public    #赋予特殊权限</p>
+<p>]# ls  -ld  /home/public</p>
+<p>SGiD权限<br>占用属组（Group）的 x 位<br>显示为 s 或 S，取决于属组是否有 x 权限<br>对目录有效<br>在一个具有SGID权限的目录下，新建的文档会自动继承此目录的属组身份</p>
+<p>]# mkdir    /nsd14</p>
+<p>]# chown   :tmooc    /nsd14</p>
+<p>]# ls   -ld   /nsd14</p>
+<p>]# mkdir    /nsd14/abc01</p>
+<p>]# ls   -ld    /nsd14/abc01    #查看所属组</p>
+<p>]# chmod   g+s   /nsd14     #赋予特殊权限SGID</p>
+<p>]# ls   -ld    /nsd14</p>
+<p>]# mkdir   /nsd14/abc02     </p>
+<p>]# ls   -ld    /nsd14/abc02      #查看所属组</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>linuxday12</title>
+    <url>/2022/01/04/linuxday12/</url>
+    <content><![CDATA[<p>学习开始，asdiqweqwada</p>
 ]]></content>
   </entry>
   <entry>
@@ -363,6 +544,134 @@
 <p>三.logger命令的应用<br>使用 logger 工具，可以直接将信息传入到Journald中，-p 参数指定服务名称，和日志级别<br>logger -p user.info “log test with logger”</p>
 <p>四.保存journal的方式<br>mkdir  /var/log/journal<br>chown  root:systemd-journal  /var/log/journal<br>chmod  2775  /var/log/journal<br>systemctl  restart    systemd-journald.service</p>
 <p>五.分析日志文件<br>centos默认提供的logwatch<br>他会每天分析一次日志文件，然后通过email 的格式寄给root<br>1.安装<br>yum install /mnt/dvd/Packages/perl-5.*.rpm</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>linuxday2进程和selinux</title>
+    <url>/2021/11/03/linuxday2/</url>
+    <content><![CDATA[<p>一。任务管理 （job control）<br>1.&amp;  将命令丢到后台执行<br>2.ctrl+z 将当前命令丢到后台暂停<br>3.jobs 查看目前后台状态<br>4.fg j将后台的任务拿到前台处理：fg<br>5.bg 让后台的任务变成运行中<br>6.kill 管理后台的任务  -9 强制删除<br>7.nohup 让后台任务在你注销后还能执行， nohup 和&amp; 搭配<br>二。查看进程<br>1.ps aux 查看系统所有进程  ps  -lA  查看所有系统的进程   ps  -l 仅查看自己bash相关的进程<br>2.top 查看动态的进程<br>3.pstree 进程树<br>4priority（pri） 和nice ，pri越小执行的越早。当nice为负，那么该进程就会降低pri，即会变的优先处理<br>列： nice  -n  -5 vim &amp;<br>        renice -5  14836  （重新调整进程的nice）<br>三。查看系统资源信息<br>1.free（内存的使用情况）    -m  显示目前系统的内存容量<br>2.uname 查看系统与内核信息<br>uname -a 输出系统的基本信息   内核的版本<br>uptime 查看系统启动的时间和任务负载<br>netstat ：追踪网络和socket<br>*netstat   -tulnp  找出系统上监听的网络连接及pid<br>netstat  -lt   列出所有处于监听状态的tcp端口<br><em>netstat  -tulnp | grep  8080 查看指定端口号的进程情况<br>lsof  -i：8080  查看某一端口的占用情况  （进程使用的文件）<br>dmesg  |  more  输出所有内核启动时的信息。（dmesg 分析内核产生的信息）<br>vmstat  检测系统资源变化<br>四。特殊文件和进程<br>1./proc/</em>  (内存)<br>/proc/version  内核版本<br>2.fuser:借该文件找出正在使用该文件的进程<br>fuser -muv  /proc<br>3.pidof 找出执行进程的pid<br>五。selinux<br>查看系统【进程的selinux相关信息】<br>ps  -eZ<br>selinux 三种模式<br>1.enforcing   强制模式<br>2.permissive  宽松模式<br>3.disabled   关闭模式<br>setenforce  [0|1]   0宽松 1强制<br>getenforce  查看<br>4./etc/selinux/config 是selinux的配置文件<br>5.selinux各个规则的布尔值查询getsebool<br>查询本系统的所有的布尔值的设置情况<br>getsebool  -a     修改布尔值 ：  setsebool  【-p】  【规则名称】  【0|1】<br>6.seinfo  列出selinux在此策略下的统计状态，还有sesearch 是找出进程能读取文件selinux的类型<br>7.使用chcon手动修改（文件）的selinux类型<br>restorecon 恢复正确的selinux类型（文件）<br>semanage 默认目录的安全上下文查询和修改  -a 增加 -m 修改  -d 删除</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>linuxday3 systemctl和日志</title>
+    <url>/2021/11/05/linuxday3/</url>
+    <content><![CDATA[<p>一。实例：通过vsftp这个ftp服务器来读写系统上的文件、<br>1.先创建ftptest用户并设置密码<br>useradd  ftptest<br>echo  ”123“  | passwd  –stdin ftptest<br>2.安装vsftpd这个服务器软件，同时启动，并开机自启。<br>yum  install  /mnt/P{tab}/vsftpd-3*<br>systemctl  start  vsftpd</p>
+<p>二。systemctl管理服务<br>systemctl  【命令】  【服务】<br>start 启动  stop 关闭  restart  重启  enable 开机自启  status 查看</p>
+<p>systemctl   列出系统上面启动的unit（服务）</p>
+<p>systemctl是 Systemd 的主命令，用于管理系统。</p>
+<h1 id="重启系统"><a href="#重启系统" class="headerlink" title="重启系统"></a>重启系统</h1><p>$ sudo systemctl reboot</p>
+<h1 id="关闭系统，切断电源"><a href="#关闭系统，切断电源" class="headerlink" title="关闭系统，切断电源"></a>关闭系统，切断电源</h1><p>$ sudo systemctl poweroff</p>
+<h1 id="CPU停止工作"><a href="#CPU停止工作" class="headerlink" title="CPU停止工作"></a>CPU停止工作</h1><p>$ sudo systemctl halt</p>
+<h1 id="暂停系统"><a href="#暂停系统" class="headerlink" title="暂停系统"></a>暂停系统</h1><p>$ sudo systemctl suspend</p>
+<h1 id="让系统进入冬眠状态"><a href="#让系统进入冬眠状态" class="headerlink" title="让系统进入冬眠状态"></a>让系统进入冬眠状态</h1><p>$ sudo systemctl hibernate</p>
+<h1 id="让系统进入交互式休眠状态"><a href="#让系统进入交互式休眠状态" class="headerlink" title="让系统进入交互式休眠状态"></a>让系统进入交互式休眠状态</h1><p>$ sudo systemctl hybrid-sleep</p>
+<h1 id="启动进入救援状态（单用户状态）"><a href="#启动进入救援状态（单用户状态）" class="headerlink" title="启动进入救援状态（单用户状态）"></a>启动进入救援状态（单用户状态）</h1><p>$ sudo systemctl rescue<br>3.2 systemd-analyze<br>systemd-analyze命令用于查看启动耗时。</p>
+<h1 id="查看启动耗时"><a href="#查看启动耗时" class="headerlink" title="查看启动耗时"></a>查看启动耗时</h1><p>$ systemd-analyze                                                                                       </p>
+<h1 id="查看每个服务的启动耗时"><a href="#查看每个服务的启动耗时" class="headerlink" title="查看每个服务的启动耗时"></a>查看每个服务的启动耗时</h1><p>$ systemd-analyze blame</p>
+<h1 id="显示瀑布状的启动过程流"><a href="#显示瀑布状的启动过程流" class="headerlink" title="显示瀑布状的启动过程流"></a>显示瀑布状的启动过程流</h1><p>$ systemd-analyze critical-chain</p>
+<h1 id="显示指定服务的启动流"><a href="#显示指定服务的启动流" class="headerlink" title="显示指定服务的启动流"></a>显示指定服务的启动流</h1><p>$ systemd-analyze critical-chain atd.service<br> hostnamectl<br>hostnamectl命令用于查看当前主机的信息。</p>
+<h1 id="显示当前主机的信息"><a href="#显示当前主机的信息" class="headerlink" title="显示当前主机的信息"></a>显示当前主机的信息</h1><p>$ hostnamectl</p>
+<h1 id="设置主机名。"><a href="#设置主机名。" class="headerlink" title="设置主机名。"></a>设置主机名。</h1><p>$ sudo hostnamectl set-hostname rhel7<br>3.4 localectl<br>localectl命令用于查看本地化设置。</p>
+<h1 id="查看本地化设置"><a href="#查看本地化设置" class="headerlink" title="查看本地化设置"></a>查看本地化设置</h1><p>$ localectl</p>
+<h1 id="设置本地化参数。"><a href="#设置本地化参数。" class="headerlink" title="设置本地化参数。"></a>设置本地化参数。</h1><p>$ sudo localectl set-locale LANG=en_GB.utf8<br>$ sudo localectl set-keymap en_GB<br>3.5 timedatectl<br>timedatectl命令用于查看当前时区设置。</p>
+<h1 id="查看当前时区设置"><a href="#查看当前时区设置" class="headerlink" title="查看当前时区设置"></a>查看当前时区设置</h1><p>$ timedatectl</p>
+<h1 id="显示所有可用的时区"><a href="#显示所有可用的时区" class="headerlink" title="显示所有可用的时区"></a>显示所有可用的时区</h1><p>$ timedatectl list-timezones                                                                                   </p>
+<h1 id="设置当前时区"><a href="#设置当前时区" class="headerlink" title="设置当前时区"></a>设置当前时区</h1><p>$ sudo timedatectl set-timezone America/New_York<br>$ sudo timedatectl set-time YYYY-MM-DD<br>$ sudo timedatectl set-time HH:MM:SS<br>3.6 loginctl<br>loginctl命令用于查看当前登录的用户。</p>
+<h1 id="列出当前session"><a href="#列出当前session" class="headerlink" title="列出当前session"></a>列出当前session</h1><p>$ loginctl list-sessions</p>
+<h1 id="列出当前登录用户"><a href="#列出当前登录用户" class="headerlink" title="列出当前登录用户"></a>列出当前登录用户</h1><p>$ loginctl list-users</p>
+<h1 id="列出显示指定用户的信息"><a href="#列出显示指定用户的信息" class="headerlink" title="列出显示指定用户的信息"></a>列出显示指定用户的信息</h1><p>$ loginctl show-user ruanyf<br>四、Unit<br>4.1 含义<br>Systemd 可以管理所有系统资源。不同的资源统称为 Unit（单位）。</p>
+<p>Unit 一共分成12种。</p>
+<p>Service unit：系统服务<br>Target unit：多个 Unit 构成的一个组<br>Device Unit：硬件设备<br>Mount Unit：文件系统的挂载点<br>Automount Unit：自动挂载点<br>Path Unit：文件或路径<br>Scope Unit：不是由 Systemd 启动的外部进程<br>Slice Unit：进程组<br>Snapshot Unit：Systemd 快照，可以切回某个快照<br>Socket Unit：进程间通信的 socket<br>Swap Unit：swap 文件<br>Timer Unit：定时器<br>systemctl list-units命令可以查看当前系统的所有 Unit 。</p>
+<h1 id="列出正在运行的-Unit"><a href="#列出正在运行的-Unit" class="headerlink" title="列出正在运行的 Unit"></a>列出正在运行的 Unit</h1><p>$ systemctl list-units</p>
+<h1 id="列出所有Unit，包括没有找到配置文件的或者启动失败的"><a href="#列出所有Unit，包括没有找到配置文件的或者启动失败的" class="headerlink" title="列出所有Unit，包括没有找到配置文件的或者启动失败的"></a>列出所有Unit，包括没有找到配置文件的或者启动失败的</h1><p>$ systemctl list-units –all</p>
+<h1 id="列出所有没有运行的-Unit"><a href="#列出所有没有运行的-Unit" class="headerlink" title="列出所有没有运行的 Unit"></a>列出所有没有运行的 Unit</h1><p>$ systemctl list-units –all –state=inactive</p>
+<h1 id="列出所有加载失败的-Unit"><a href="#列出所有加载失败的-Unit" class="headerlink" title="列出所有加载失败的 Unit"></a>列出所有加载失败的 Unit</h1><p>$ systemctl list-units –failed</p>
+<h1 id="列出所有正在运行的、类型为-service-的-Unit"><a href="#列出所有正在运行的、类型为-service-的-Unit" class="headerlink" title="列出所有正在运行的、类型为 service 的 Unit"></a>列出所有正在运行的、类型为 service 的 Unit</h1><p>$ systemctl list-units –type=service<br>4.2 Unit 的状态<br>systemctl status命令用于查看系统状态和单个 Unit 的状态。</p>
+<h1 id="显示系统状态"><a href="#显示系统状态" class="headerlink" title="显示系统状态"></a>显示系统状态</h1><p>$ systemctl status</p>
+<h1 id="显示单个-Unit-的状态"><a href="#显示单个-Unit-的状态" class="headerlink" title="显示单个 Unit 的状态"></a>显示单个 Unit 的状态</h1><p>$ sysystemctl status bluetooth.service</p>
+<h1 id="显示远程主机的某个-Unit-的状态"><a href="#显示远程主机的某个-Unit-的状态" class="headerlink" title="显示远程主机的某个 Unit 的状态"></a>显示远程主机的某个 Unit 的状态</h1><p>$ systemctl -H <a href="mailto:&#x72;&#x6f;&#111;&#x74;&#64;&#114;&#x68;&#101;&#108;&#55;&#46;&#x65;&#x78;&#97;&#x6d;&#x70;&#108;&#101;&#x2e;&#99;&#x6f;&#109;">&#x72;&#x6f;&#111;&#x74;&#64;&#114;&#x68;&#101;&#108;&#55;&#46;&#x65;&#x78;&#97;&#x6d;&#x70;&#108;&#101;&#x2e;&#99;&#x6f;&#109;</a> status httpd.service<br>除了status命令，systemctl还提供了三个查询状态的简单方法，主要供脚本内部的判断语句使用。</p>
+<h1 id="显示某个-Unit-是否正在运行"><a href="#显示某个-Unit-是否正在运行" class="headerlink" title="显示某个 Unit 是否正在运行"></a>显示某个 Unit 是否正在运行</h1><p>$ systemctl is-active application.service</p>
+<h1 id="显示某个-Unit-是否处于启动失败状态"><a href="#显示某个-Unit-是否处于启动失败状态" class="headerlink" title="显示某个 Unit 是否处于启动失败状态"></a>显示某个 Unit 是否处于启动失败状态</h1><p>$ systemctl is-failed application.service</p>
+<h1 id="显示某个-Unit-服务是否建立了启动链接"><a href="#显示某个-Unit-服务是否建立了启动链接" class="headerlink" title="显示某个 Unit 服务是否建立了启动链接"></a>显示某个 Unit 服务是否建立了启动链接</h1><p>$ systemctl is-enabled application.service<br>4.3 Unit 管理<br>对于用户来说，最常用的是下面这些命令，用于启动和停止 Unit（主要是 service）。</p>
+<h1 id="立即启动一个服务"><a href="#立即启动一个服务" class="headerlink" title="立即启动一个服务"></a>立即启动一个服务</h1><p>$ sudo systemctl start apache.service</p>
+<h1 id="立即停止一个服务"><a href="#立即停止一个服务" class="headerlink" title="立即停止一个服务"></a>立即停止一个服务</h1><p>$ sudo systemctl stop apache.service</p>
+<h1 id="重启一个服务"><a href="#重启一个服务" class="headerlink" title="重启一个服务"></a>重启一个服务</h1><p>$ sudo systemctl restart apache.service</p>
+<h1 id="杀死一个服务的所有子进程"><a href="#杀死一个服务的所有子进程" class="headerlink" title="杀死一个服务的所有子进程"></a>杀死一个服务的所有子进程</h1><p>$ sudo systemctl kill apache.service</p>
+<h1 id="重新加载一个服务的配置文件"><a href="#重新加载一个服务的配置文件" class="headerlink" title="重新加载一个服务的配置文件"></a>重新加载一个服务的配置文件</h1><p>$ sudo systemctl reload apache.service</p>
+<h1 id="重载所有修改过的配置文件"><a href="#重载所有修改过的配置文件" class="headerlink" title="重载所有修改过的配置文件"></a>重载所有修改过的配置文件</h1><p>$ sudo systemctl daemon-reload</p>
+<h1 id="显示某个-Unit-的所有底层参数"><a href="#显示某个-Unit-的所有底层参数" class="headerlink" title="显示某个 Unit 的所有底层参数"></a>显示某个 Unit 的所有底层参数</h1><p>$ systemctl show httpd.service</p>
+<h1 id="显示某个-Unit-的指定属性的值"><a href="#显示某个-Unit-的指定属性的值" class="headerlink" title="显示某个 Unit 的指定属性的值"></a>显示某个 Unit 的指定属性的值</h1><p>$ systemctl show -p CPUShares httpd.service</p>
+<h1 id="设置某个-Unit-的指定属性"><a href="#设置某个-Unit-的指定属性" class="headerlink" title="设置某个 Unit 的指定属性"></a>设置某个 Unit 的指定属性</h1><p>$ sudo systemctl set-property httpd.service CPUShares=500<br>4.4 依赖关系<br>Unit 之间存在依赖关系：A 依赖于 B，就意味着 Systemd 在启动 A 的时候，同时会去启动 B。</p>
+<p>systemctl list-dependencies命令列出一个 Unit 的所有依赖。</p>
+<p>$ systemctl list-dependencies nginx.service<br>上面命令的输出结果之中，有些依赖Target 类型（详见下文），默认不会展开显示。如果要展开 Target，就需要使用–all参数。</p>
+<p>$ systemctl list-dependencies –all nginx.service<br>五、Unit 的配置文件<br>5.1 概述<br>每一个 Unit 都有一个配置文件，告诉 Systemd 怎么启动这个 Unit 。</p>
+<p>Systemd 默认从目录/etc/systemd/system/读取配置文件。但是，里面存放的大部分文件都是符号链接，指向目录/usr/lib/systemd/system/，真正的配置文件存放在那个目录。</p>
+<p>systemctl enable命令用于在上面两个目录之间，建立符号链接关系。<br>$ sudo systemctl enable <a href="mailto:&#99;&#x6c;&#x61;&#x6d;&#x64;&#64;&#115;&#99;&#x61;&#x6e;&#x2e;&#x73;&#x65;&#114;&#x76;&#105;&#99;&#x65;">&#99;&#x6c;&#x61;&#x6d;&#x64;&#64;&#115;&#99;&#x61;&#x6e;&#x2e;&#x73;&#x65;&#114;&#x76;&#105;&#99;&#x65;</a></p>
+<h1 id="等同于"><a href="#等同于" class="headerlink" title="等同于"></a>等同于</h1><p>$ sudo ln -s ‘/usr/lib/systemd/system/<a href="mailto:&#99;&#x6c;&#x61;&#109;&#x64;&#64;&#115;&#x63;&#x61;&#x6e;&#x2e;&#115;&#101;&#x72;&#x76;&#x69;&#99;&#101;">&#99;&#x6c;&#x61;&#109;&#x64;&#64;&#115;&#x63;&#x61;&#x6e;&#x2e;&#115;&#101;&#x72;&#x76;&#x69;&#99;&#101;</a>‘ ‘/etc/systemd/system/multi-user.target.wants/<a href="mailto:&#99;&#x6c;&#97;&#109;&#100;&#64;&#115;&#x63;&#x61;&#110;&#x2e;&#115;&#101;&#114;&#118;&#x69;&#99;&#x65;">&#99;&#x6c;&#97;&#109;&#100;&#64;&#115;&#x63;&#x61;&#110;&#x2e;&#115;&#101;&#114;&#118;&#x69;&#99;&#x65;</a>‘<br>如果配置文件里面设置了开机启动，systemctl enable命令相当于激活开机启动。</p>
+<p>与之对应的，systemctl disable命令用于在两个目录之间，撤销符号链接关系，相当于撤销开机启动。</p>
+<p>$ sudo systemctl disable <a href="mailto:&#99;&#108;&#x61;&#109;&#x64;&#64;&#x73;&#99;&#x61;&#110;&#x2e;&#x73;&#101;&#114;&#118;&#105;&#99;&#x65;">&#99;&#108;&#x61;&#109;&#x64;&#64;&#x73;&#99;&#x61;&#110;&#x2e;&#x73;&#101;&#114;&#118;&#105;&#99;&#x65;</a><br>配置文件的后缀名，就是该 Unit 的种类，比如sshd.socket。如果省略，Systemd 默认后缀名为.service，所以sshd会被理解成sshd.service。</p>
+<p>5.2 配置文件的状态<br>systemctl list-unit-files命令用于列出所有配置文件。</p>
+<h1 id="列出所有配置文件"><a href="#列出所有配置文件" class="headerlink" title="列出所有配置文件"></a>列出所有配置文件</h1><p>$ systemctl list-unit-files</p>
+<h1 id="列出指定类型的配置文件"><a href="#列出指定类型的配置文件" class="headerlink" title="列出指定类型的配置文件"></a>列出指定类型的配置文件</h1><p>$ systemctl list-unit-files –type=service<br>这个命令会输出一个列表。</p>
+<p>$ systemctl list-unit-files</p>
+<p>UNIT FILE              STATE<br>chronyd.service        enabled<br>clamd@.service         static<br><a href="mailto:&#99;&#108;&#97;&#x6d;&#100;&#x40;&#x73;&#x63;&#x61;&#x6e;&#46;&#x73;&#x65;&#x72;&#118;&#105;&#99;&#x65;">&#99;&#108;&#97;&#x6d;&#100;&#x40;&#x73;&#x63;&#x61;&#x6e;&#46;&#x73;&#x65;&#x72;&#118;&#105;&#99;&#x65;</a>     disabled<br>这个列表显示每个配置文件的状态，一共有四种。</p>
+<p>enabled：已建立启动链接<br>disabled：没建立启动链接<br>static：该配置文件没有[Install]部分（无法执行），只能作为其他配置文件的依赖<br>masked：该配置文件被禁止建立启动链接<br>注意，从配置文件的状态无法看出，该 Unit 是否正在运行。这必须执行前面提到的systemctl status命令。</p>
+<p>$ systemctl status bluetooth.service<br>一旦修改配置文件，就要让 SystemD 重新加载配置文件，然后重新启动，否则修改不会生效。</p>
+<p>$ sudo systemctl daemon-reload<br>$ sudo systemctl restart httpd.service<br>5.3 配置文件的格式<br>配置文件就是普通的文本文件，可以用文本编辑器打开。</p>
+<p>systemctl cat命令可以查看配置文件的内容。</p>
+<p>$ systemctl cat atd.service</p>
+<p>[Unit]<br>Description=ATD daemon</p>
+<p>[Service]<br>Type=forking<br>ExecStart=/usr/bin/atd</p>
+<p>[Install]<br>WantedBy=multi-user.target<br>从上面的输出可以看到，配置文件分成几个区块。每个区块的第一行，是用方括号表示的区别名，比如[Unit]。注意，配置文件的区块名和字段名，都是大小写敏感的。</p>
+<p>每个区块内部是一些等号连接的键值对。</p>
+<p>[Section]<br>Directive1=value<br>Directive2=value<br>. . .<br>注意，键值对的等号两侧不能有空格。</p>
+<p>5.4 配置文件的区块<br>[Unit]区块通常是配置文件的第一个区块，用来定义 Unit 的元数据，以及配置与其他 Unit 的关系。它的主要字段如下。</p>
+<p>Description：简短描述<br>Documentation：文档地址<br>Requires：当前 Unit 依赖的其他 Unit，如果它们没有运行，当前 Unit 会启动失败<br>Wants：与当前 Unit 配合的其他 Unit，如果它们没有运行，当前 Unit 不会启动失败<br>BindsTo：与Requires类似，它指定的 Unit 如果退出，会导致当前 Unit 停止运行<br>Before：如果该字段指定的 Unit 也要启动，那么必须在当前 Unit 之后启动<br>After：如果该字段指定的 Unit 也要启动，那么必须在当前 Unit 之前启动<br>Conflicts：这里指定的 Unit 不能与当前 Unit 同时运行<br>Condition…：当前 Unit 运行必须满足的条件，否则不会运行<br>Assert…：当前 Unit 运行必须满足的条件，否则会报启动失败<br>[Install]通常是配置文件的最后一个区块，用来定义如何启动，以及是否开机启动。它的主要字段如下。</p>
+<p>WantedBy：它的值是一个或多个 Target，当前 Unit 激活时（enable）符号链接会放入/etc/systemd/system目录下面以 Target 名 + .wants后缀构成的子目录中<br>RequiredBy：它的值是一个或多个 Target，当前 Unit 激活时，符号链接会放入/etc/systemd/system目录下面以 Target 名 + .required后缀构成的子目录中<br>Alias：当前 Unit 可用于启动的别名<br>Also：当前 Unit 激活（enable）时，会被同时激活的其他 Unit<br>[Service]区块用来 Service 的配置，只有 Service 类型的 Unit 才有这个区块。它的主要字段如下。</p>
+<p>Type：定义启动时的进程行为。它有以下几种值。<br>Type=simple：默认值，执行ExecStart指定的命令，启动主进程<br>Type=forking：以 fork 方式从父进程创建子进程，创建后父进程会立即退出<br>Type=oneshot：一次性进程，Systemd 会等当前服务退出，再继续往下执行<br>Type=dbus：当前服务通过D-Bus启动<br>Type=notify：当前服务启动完毕，会通知Systemd，再继续往下执行<br>Type=idle：若有其他任务执行完毕，当前服务才会运行<br>ExecStart：启动当前服务的命令<br>ExecStartPre：启动当前服务之前执行的命令<br>ExecStartPost：启动当前服务之后执行的命令<br>ExecReload：重启当前服务时执行的命令<br>ExecStop：停止当前服务时执行的命令<br>ExecStopPost：停止当其服务之后执行的命令<br>RestartSec：自动重启当前服务间隔的秒数<br>Restart：定义何种情况 Systemd 会自动重启当前服务，可能的值包括always（总是重启）、on-success、on-failure、on-abnormal、on-abort、on-watchdog<br>TimeoutSec：定义 Systemd 停止当前服务之前等待的秒数<br>Environment：指定环境变量<br>Unit 配置文件的完整字段清单，请参考官方文档。</p>
+<p>六、Target<br>启动计算机的时候，需要启动大量的 Unit。如果每一次启动，都要一一写明本次启动需要哪些 Unit，显然非常不方便。Systemd 的解决方案就是 Target。</p>
+<p>简单说，Target 就是一个 Unit 组，包含许多相关的 Unit 。启动某个 Target 的时候，Systemd 就会启动里面所有的 Unit。从这个意义上说，Target 这个概念类似于”状态点”，启动某个 Target 就好比启动到某种状态。</p>
+<p>传统的init启动模式里面，有 RunLevel 的概念，跟 Target 的作用很类似。不同的是，RunLevel 是互斥的，不可能多个 RunLevel 同时启动，但是多个 Target 可以同时启动。</p>
+<h1 id="查看当前系统的所有-Target"><a href="#查看当前系统的所有-Target" class="headerlink" title="查看当前系统的所有 Target"></a>查看当前系统的所有 Target</h1><p>$ systemctl list-unit-files –type=target</p>
+<h1 id="查看一个-Target-包含的所有-Unit"><a href="#查看一个-Target-包含的所有-Unit" class="headerlink" title="查看一个 Target 包含的所有 Unit"></a>查看一个 Target 包含的所有 Unit</h1><p>$ systemctl list-dependencies multi-user.target</p>
+<h1 id="查看启动时的默认-Target"><a href="#查看启动时的默认-Target" class="headerlink" title="查看启动时的默认 Target"></a>查看启动时的默认 Target</h1><p>$ systemctl get-default</p>
+<h1 id="设置启动时的默认-Target"><a href="#设置启动时的默认-Target" class="headerlink" title="设置启动时的默认 Target"></a>设置启动时的默认 Target</h1><p>$ sudo systemctl set-default multi-user.target</p>
+<h1 id="切换-Target-时，默认不关闭前一个-Target-启动的进程，"><a href="#切换-Target-时，默认不关闭前一个-Target-启动的进程，" class="headerlink" title="切换 Target 时，默认不关闭前一个 Target 启动的进程，"></a>切换 Target 时，默认不关闭前一个 Target 启动的进程，</h1><h1 id="systemctl-isolate-命令改变这种行为，"><a href="#systemctl-isolate-命令改变这种行为，" class="headerlink" title="systemctl isolate 命令改变这种行为，"></a>systemctl isolate 命令改变这种行为，</h1><h1 id="关闭前一个-Target-里面所有不属于后一个-Target-的进程"><a href="#关闭前一个-Target-里面所有不属于后一个-Target-的进程" class="headerlink" title="关闭前一个 Target 里面所有不属于后一个 Target 的进程"></a>关闭前一个 Target 里面所有不属于后一个 Target 的进程</h1><p>$ sudo systemctl isolate multi-user.target<br>Target 与 传统 RunLevel 的对应关系如下。</p>
+<p>Traditional runlevel      New target name     Symbolically linked to…</p>
+<p>Runlevel 0           |    runlevel0.target -&gt; poweroff.target<br>Runlevel 1           |    runlevel1.target -&gt; rescue.target<br>Runlevel 2           |    runlevel2.target -&gt; multi-user.target<br>Runlevel 3           |    runlevel3.target -&gt; multi-user.target<br>Runlevel 4           |    runlevel4.target -&gt; multi-user.target<br>Runlevel 5           |    runlevel5.target -&gt; graphical.target<br>Runlevel 6           |    runlevel6.target -&gt; reboot.target<br>它与init进程的主要差别如下。</p>
+<p>（1）默认的 RunLevel（在/etc/inittab文件设置）现在被默认的 Target 取代，位置是/etc/systemd/system/default.target，通常符号链接到graphical.target（图形界面）或者multi-user.target（多用户命令行）。</p>
+<p>（2）启动脚本的位置，以前是/etc/init.d目录，符号链接到不同的 RunLevel 目录 （比如/etc/rc3.d、/etc/rc5.d等），现在则存放在/lib/systemd/system和/etc/systemd/system目录。</p>
+<p>（3）配置文件的位置，以前init进程的配置文件是/etc/inittab，各种服务的配置文件存放在/etc/sysconfig目录。现在的配置文件主要存放在/lib/systemd目录，在/etc/systemd目录里面的修改可以覆盖原始设置。</p>
+<p>七、日志管理<br>Systemd 统一管理所有 Unit 的启动日志。带来的好处就是，可以只用journalctl一个命令，查看所有日志（内核日志和应用日志）。日志的配置文件是/etc/systemd/journald.conf。</p>
+<p>journalctl功能强大，用法非常多。</p>
+<h1 id="查看所有日志（默认情况下-，只保存本次启动的日志）"><a href="#查看所有日志（默认情况下-，只保存本次启动的日志）" class="headerlink" title="查看所有日志（默认情况下 ，只保存本次启动的日志）"></a>查看所有日志（默认情况下 ，只保存本次启动的日志）</h1><p>$ sudo journalctl</p>
+<h1 id="查看内核日志（不显示应用日志）"><a href="#查看内核日志（不显示应用日志）" class="headerlink" title="查看内核日志（不显示应用日志）"></a>查看内核日志（不显示应用日志）</h1><p>$ sudo journalctl -k</p>
+<h1 id="查看系统本次启动的日志"><a href="#查看系统本次启动的日志" class="headerlink" title="查看系统本次启动的日志"></a>查看系统本次启动的日志</h1><p>$ sudo journalctl -b<br>$ sudo journalctl -b -0</p>
+<h1 id="查看上一次启动的日志（需更改设置）"><a href="#查看上一次启动的日志（需更改设置）" class="headerlink" title="查看上一次启动的日志（需更改设置）"></a>查看上一次启动的日志（需更改设置）</h1><p>$ sudo journalctl -b -1</p>
+<h1 id="查看指定时间的日志"><a href="#查看指定时间的日志" class="headerlink" title="查看指定时间的日志"></a>查看指定时间的日志</h1><p>$ sudo journalctl –since=”2012-10-30 18:17:16”<br>$ sudo journalctl –since “20 min ago”<br>$ sudo journalctl –since yesterday<br>$ sudo journalctl –since “2015-01-10” –until “2015-01-11 03:00”<br>$ sudo journalctl –since 09:00 –until “1 hour ago”</p>
+<h1 id="显示尾部的最新10行日志"><a href="#显示尾部的最新10行日志" class="headerlink" title="显示尾部的最新10行日志"></a>显示尾部的最新10行日志</h1><p>$ sudo journalctl -n</p>
+<h1 id="显示尾部指定行数的日志"><a href="#显示尾部指定行数的日志" class="headerlink" title="显示尾部指定行数的日志"></a>显示尾部指定行数的日志</h1><p>$ sudo journalctl -n 20</p>
+<h1 id="实时滚动显示最新日志"><a href="#实时滚动显示最新日志" class="headerlink" title="实时滚动显示最新日志"></a>实时滚动显示最新日志</h1><p>$ sudo journalctl -f</p>
+<h1 id="查看指定服务的日志"><a href="#查看指定服务的日志" class="headerlink" title="查看指定服务的日志"></a>查看指定服务的日志</h1><p>$ sudo journalctl /usr/lib/systemd/systemd</p>
+<h1 id="查看指定进程的日志"><a href="#查看指定进程的日志" class="headerlink" title="查看指定进程的日志"></a>查看指定进程的日志</h1><p>$ sudo journalctl _PID=1</p>
+<h1 id="查看某个路径的脚本的日志"><a href="#查看某个路径的脚本的日志" class="headerlink" title="查看某个路径的脚本的日志"></a>查看某个路径的脚本的日志</h1><p>$ sudo journalctl /usr/bin/bash</p>
+<h1 id="查看指定用户的日志"><a href="#查看指定用户的日志" class="headerlink" title="查看指定用户的日志"></a>查看指定用户的日志</h1><p>$ sudo journalctl _UID=33 –since today</p>
+<h1 id="查看某个-Unit-的日志"><a href="#查看某个-Unit-的日志" class="headerlink" title="查看某个 Unit 的日志"></a>查看某个 Unit 的日志</h1><p>$ sudo journalctl -u nginx.service<br>$ sudo journalctl -u nginx.service –since today</p>
+<h1 id="实时滚动显示某个-Unit-的最新日志"><a href="#实时滚动显示某个-Unit-的最新日志" class="headerlink" title="实时滚动显示某个 Unit 的最新日志"></a>实时滚动显示某个 Unit 的最新日志</h1><p>$ sudo journalctl -u nginx.service -f</p>
+<h1 id="合并显示多个-Unit-的日志"><a href="#合并显示多个-Unit-的日志" class="headerlink" title="合并显示多个 Unit 的日志"></a>合并显示多个 Unit 的日志</h1><p>$ journalctl -u nginx.service -u php-fpm.service –since today</p>
+<h1 id="查看指定优先级（及其以上级别）的日志，共有8级"><a href="#查看指定优先级（及其以上级别）的日志，共有8级" class="headerlink" title="查看指定优先级（及其以上级别）的日志，共有8级"></a>查看指定优先级（及其以上级别）的日志，共有8级</h1><h1 id="0-emerg"><a href="#0-emerg" class="headerlink" title="0: emerg"></a>0: emerg</h1><h1 id="1-alert"><a href="#1-alert" class="headerlink" title="1: alert"></a>1: alert</h1><h1 id="2-crit"><a href="#2-crit" class="headerlink" title="2: crit"></a>2: crit</h1><h1 id="3-err"><a href="#3-err" class="headerlink" title="3: err"></a>3: err</h1><h1 id="4-warning"><a href="#4-warning" class="headerlink" title="4: warning"></a>4: warning</h1><h1 id="5-notice"><a href="#5-notice" class="headerlink" title="5: notice"></a>5: notice</h1><h1 id="6-info"><a href="#6-info" class="headerlink" title="6: info"></a>6: info</h1><h1 id="7-debug"><a href="#7-debug" class="headerlink" title="7: debug"></a>7: debug</h1><p>$ sudo journalctl -p err -b</p>
+<h1 id="日志默认分页输出，–no-pager-改为正常的标准输出"><a href="#日志默认分页输出，–no-pager-改为正常的标准输出" class="headerlink" title="日志默认分页输出，–no-pager 改为正常的标准输出"></a>日志默认分页输出，–no-pager 改为正常的标准输出</h1><p>$ sudo journalctl –no-pager</p>
+<h1 id="以-JSON-格式（单行）输出"><a href="#以-JSON-格式（单行）输出" class="headerlink" title="以 JSON 格式（单行）输出"></a>以 JSON 格式（单行）输出</h1><p>$ sudo journalctl -b -u nginx.service -o json</p>
+<h1 id="以-JSON-格式（多行）输出，可读性更好"><a href="#以-JSON-格式（多行）输出，可读性更好" class="headerlink" title="以 JSON 格式（多行）输出，可读性更好"></a>以 JSON 格式（多行）输出，可读性更好</h1><p>$ sudo journalctl -b -u nginx.serviceqq<br> -o json-pretty</p>
+<h1 id="显示日志占据的硬盘空间"><a href="#显示日志占据的硬盘空间" class="headerlink" title="显示日志占据的硬盘空间"></a>显示日志占据的硬盘空间</h1><p>$ sudo journalctl –disk-usage</p>
+<h1 id="指定日志文件占据的最大空间"><a href="#指定日志文件占据的最大空间" class="headerlink" title="指定日志文件占据的最大空间"></a>指定日志文件占据的最大空间</h1><p>$ sudo journalctl –vacuum-size=1G</p>
+<h1 id="指定日志文件保存多久"><a href="#指定日志文件保存多久" class="headerlink" title="指定日志文件保存多久"></a>指定日志文件保存多久</h1><p>$ sudo journalctl –vacuum-time=1years</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>linuxday4日志文件</title>
+    <url>/2021/11/06/linuxday4/</url>
+    <content><![CDATA[<p>一。linux常用的日志文件文件名<br>1./var/log/boot.log 开机启动的时候系统内核会去检测和启动硬件，接下来开始启动各种内核支持的功能<br>2./var/log/cron 计划任务<br>3./var/log/dmesg 记录系统开机的时候内核检测过程所产生的相关信息<br>4./var/log/lastlog 可以记录系统上面所有账号最近一次登录系统时产生的各项信息<br>5./var/log/maillog 或/var/log/mail/* 记录邮件往来的信息<br><em>重要</em>6./var/log/messages 几乎系统发生的错误信息（重要的信息）都会记到这个文件上。<br><em>重要</em>7./var/log/secure 只要牵涉到【密码和账户】的软件，那么都会记录到这个文件上<br> 8./var/log/wtmp ,/var/log/faillog 记录正确登录系统的账户信息与错误登记用户的账户信息<br>二。日志的一般格式<br><em>事件发生的日期和时间<br><em>发生此事件的主机名<br><em>开启此事件的服务名称或命令或函数名称<br><em>该信息的实际内容<br>列cat  /var/log/secure<br>cat  /var/log/messages<br>三。rsyslog.service<br>1.记录日志文件的服务<br>Linux的日志文件主要由rsyslog.service<br>2.配置文件/etc/rsyslog.conf<br>(1)什么服务（2）什么等级信息（3）需要被记录在哪里<br>rsyslogd主要通过linux内核提供的syslog相关规范来设置数据的分类<br>3.信息等级<br>基本上,在0-6的等级之间，等级数值越高越没事，等级靠近0则代表系统出现致命的问题。<br>4.rsyslog.conf语法练习<br>列:mail.info  /var/log/maillog<br>5.rsyslog.conf内容<br>vim  /etc/rsyslog.conf<br>#kern.</em>                                                    /dev/console<br><em>.info;mail.none;authpriv.none;cron.none      /var/log/messages<br>authpriv.</em>                                    /var/log/secure<br>mail.</em>                                        /var/log/maillog<br>cron.</em>                                        /var/log/cron<br><em>.emerg                                       *<br>uucp,news.crit                                /var/log/spooler<br>local7.</em>                                      /var/log/boot.log<br>6.日志文件的安全性设置<br>如果只能增加，不能删除 可以用lsattr 和chattr这俩个程序<br>列：chattr +a  /var/log/admin.log   lsattr 显示文件的隐藏属性   chattr  配置文件隐藏属性。<br>7.日志文件服务器的设置<br>服务端：<br>vim /etc/rsyslog.conf<br>然后重启服务和查看rsyslogd<br>systemctl restart  rsyslogd.service<br>netstat  -ltnp  |  grep  syslog<br>客户端：<br>vim /etc/rsyslog.conf<br><em>.</em>   @@192.168.1.100   (服务端的ip)<br>#</em>.*   @192.168.1.100 #若用udp传输，设置就变成这样</p>
 ]]></content>
   </entry>
   <entry>
@@ -496,164 +805,16 @@
 ]]></content>
   </entry>
   <entry>
-    <title>linuxday3 systemctl和日志</title>
-    <url>/2021/11/05/linuxday3/</url>
-    <content><![CDATA[<p>一。实例：通过vsftp这个ftp服务器来读写系统上的文件、<br>1.先创建ftptest用户并设置密码<br>useradd  ftptest<br>echo  ”123“  | passwd  –stdin ftptest<br>2.安装vsftpd这个服务器软件，同时启动，并开机自启。<br>yum  install  /mnt/P{tab}/vsftpd-3*<br>systemctl  start  vsftpd</p>
-<p>二。systemctl管理服务<br>systemctl  【命令】  【服务】<br>start 启动  stop 关闭  restart  重启  enable 开机自启  status 查看</p>
-<p>systemctl   列出系统上面启动的unit（服务）</p>
-<p>systemctl是 Systemd 的主命令，用于管理系统。</p>
-<h1 id="重启系统"><a href="#重启系统" class="headerlink" title="重启系统"></a>重启系统</h1><p>$ sudo systemctl reboot</p>
-<h1 id="关闭系统，切断电源"><a href="#关闭系统，切断电源" class="headerlink" title="关闭系统，切断电源"></a>关闭系统，切断电源</h1><p>$ sudo systemctl poweroff</p>
-<h1 id="CPU停止工作"><a href="#CPU停止工作" class="headerlink" title="CPU停止工作"></a>CPU停止工作</h1><p>$ sudo systemctl halt</p>
-<h1 id="暂停系统"><a href="#暂停系统" class="headerlink" title="暂停系统"></a>暂停系统</h1><p>$ sudo systemctl suspend</p>
-<h1 id="让系统进入冬眠状态"><a href="#让系统进入冬眠状态" class="headerlink" title="让系统进入冬眠状态"></a>让系统进入冬眠状态</h1><p>$ sudo systemctl hibernate</p>
-<h1 id="让系统进入交互式休眠状态"><a href="#让系统进入交互式休眠状态" class="headerlink" title="让系统进入交互式休眠状态"></a>让系统进入交互式休眠状态</h1><p>$ sudo systemctl hybrid-sleep</p>
-<h1 id="启动进入救援状态（单用户状态）"><a href="#启动进入救援状态（单用户状态）" class="headerlink" title="启动进入救援状态（单用户状态）"></a>启动进入救援状态（单用户状态）</h1><p>$ sudo systemctl rescue<br>3.2 systemd-analyze<br>systemd-analyze命令用于查看启动耗时。</p>
-<h1 id="查看启动耗时"><a href="#查看启动耗时" class="headerlink" title="查看启动耗时"></a>查看启动耗时</h1><p>$ systemd-analyze                                                                                       </p>
-<h1 id="查看每个服务的启动耗时"><a href="#查看每个服务的启动耗时" class="headerlink" title="查看每个服务的启动耗时"></a>查看每个服务的启动耗时</h1><p>$ systemd-analyze blame</p>
-<h1 id="显示瀑布状的启动过程流"><a href="#显示瀑布状的启动过程流" class="headerlink" title="显示瀑布状的启动过程流"></a>显示瀑布状的启动过程流</h1><p>$ systemd-analyze critical-chain</p>
-<h1 id="显示指定服务的启动流"><a href="#显示指定服务的启动流" class="headerlink" title="显示指定服务的启动流"></a>显示指定服务的启动流</h1><p>$ systemd-analyze critical-chain atd.service<br> hostnamectl<br>hostnamectl命令用于查看当前主机的信息。</p>
-<h1 id="显示当前主机的信息"><a href="#显示当前主机的信息" class="headerlink" title="显示当前主机的信息"></a>显示当前主机的信息</h1><p>$ hostnamectl</p>
-<h1 id="设置主机名。"><a href="#设置主机名。" class="headerlink" title="设置主机名。"></a>设置主机名。</h1><p>$ sudo hostnamectl set-hostname rhel7<br>3.4 localectl<br>localectl命令用于查看本地化设置。</p>
-<h1 id="查看本地化设置"><a href="#查看本地化设置" class="headerlink" title="查看本地化设置"></a>查看本地化设置</h1><p>$ localectl</p>
-<h1 id="设置本地化参数。"><a href="#设置本地化参数。" class="headerlink" title="设置本地化参数。"></a>设置本地化参数。</h1><p>$ sudo localectl set-locale LANG=en_GB.utf8<br>$ sudo localectl set-keymap en_GB<br>3.5 timedatectl<br>timedatectl命令用于查看当前时区设置。</p>
-<h1 id="查看当前时区设置"><a href="#查看当前时区设置" class="headerlink" title="查看当前时区设置"></a>查看当前时区设置</h1><p>$ timedatectl</p>
-<h1 id="显示所有可用的时区"><a href="#显示所有可用的时区" class="headerlink" title="显示所有可用的时区"></a>显示所有可用的时区</h1><p>$ timedatectl list-timezones                                                                                   </p>
-<h1 id="设置当前时区"><a href="#设置当前时区" class="headerlink" title="设置当前时区"></a>设置当前时区</h1><p>$ sudo timedatectl set-timezone America/New_York<br>$ sudo timedatectl set-time YYYY-MM-DD<br>$ sudo timedatectl set-time HH:MM:SS<br>3.6 loginctl<br>loginctl命令用于查看当前登录的用户。</p>
-<h1 id="列出当前session"><a href="#列出当前session" class="headerlink" title="列出当前session"></a>列出当前session</h1><p>$ loginctl list-sessions</p>
-<h1 id="列出当前登录用户"><a href="#列出当前登录用户" class="headerlink" title="列出当前登录用户"></a>列出当前登录用户</h1><p>$ loginctl list-users</p>
-<h1 id="列出显示指定用户的信息"><a href="#列出显示指定用户的信息" class="headerlink" title="列出显示指定用户的信息"></a>列出显示指定用户的信息</h1><p>$ loginctl show-user ruanyf<br>四、Unit<br>4.1 含义<br>Systemd 可以管理所有系统资源。不同的资源统称为 Unit（单位）。</p>
-<p>Unit 一共分成12种。</p>
-<p>Service unit：系统服务<br>Target unit：多个 Unit 构成的一个组<br>Device Unit：硬件设备<br>Mount Unit：文件系统的挂载点<br>Automount Unit：自动挂载点<br>Path Unit：文件或路径<br>Scope Unit：不是由 Systemd 启动的外部进程<br>Slice Unit：进程组<br>Snapshot Unit：Systemd 快照，可以切回某个快照<br>Socket Unit：进程间通信的 socket<br>Swap Unit：swap 文件<br>Timer Unit：定时器<br>systemctl list-units命令可以查看当前系统的所有 Unit 。</p>
-<h1 id="列出正在运行的-Unit"><a href="#列出正在运行的-Unit" class="headerlink" title="列出正在运行的 Unit"></a>列出正在运行的 Unit</h1><p>$ systemctl list-units</p>
-<h1 id="列出所有Unit，包括没有找到配置文件的或者启动失败的"><a href="#列出所有Unit，包括没有找到配置文件的或者启动失败的" class="headerlink" title="列出所有Unit，包括没有找到配置文件的或者启动失败的"></a>列出所有Unit，包括没有找到配置文件的或者启动失败的</h1><p>$ systemctl list-units –all</p>
-<h1 id="列出所有没有运行的-Unit"><a href="#列出所有没有运行的-Unit" class="headerlink" title="列出所有没有运行的 Unit"></a>列出所有没有运行的 Unit</h1><p>$ systemctl list-units –all –state=inactive</p>
-<h1 id="列出所有加载失败的-Unit"><a href="#列出所有加载失败的-Unit" class="headerlink" title="列出所有加载失败的 Unit"></a>列出所有加载失败的 Unit</h1><p>$ systemctl list-units –failed</p>
-<h1 id="列出所有正在运行的、类型为-service-的-Unit"><a href="#列出所有正在运行的、类型为-service-的-Unit" class="headerlink" title="列出所有正在运行的、类型为 service 的 Unit"></a>列出所有正在运行的、类型为 service 的 Unit</h1><p>$ systemctl list-units –type=service<br>4.2 Unit 的状态<br>systemctl status命令用于查看系统状态和单个 Unit 的状态。</p>
-<h1 id="显示系统状态"><a href="#显示系统状态" class="headerlink" title="显示系统状态"></a>显示系统状态</h1><p>$ systemctl status</p>
-<h1 id="显示单个-Unit-的状态"><a href="#显示单个-Unit-的状态" class="headerlink" title="显示单个 Unit 的状态"></a>显示单个 Unit 的状态</h1><p>$ sysystemctl status bluetooth.service</p>
-<h1 id="显示远程主机的某个-Unit-的状态"><a href="#显示远程主机的某个-Unit-的状态" class="headerlink" title="显示远程主机的某个 Unit 的状态"></a>显示远程主机的某个 Unit 的状态</h1><p>$ systemctl -H <a href="mailto:&#x72;&#x6f;&#x6f;&#116;&#x40;&#114;&#x68;&#x65;&#x6c;&#55;&#x2e;&#x65;&#x78;&#x61;&#109;&#x70;&#x6c;&#101;&#x2e;&#x63;&#x6f;&#x6d;">&#x72;&#x6f;&#x6f;&#116;&#x40;&#114;&#x68;&#x65;&#x6c;&#55;&#x2e;&#x65;&#x78;&#x61;&#109;&#x70;&#x6c;&#101;&#x2e;&#x63;&#x6f;&#x6d;</a> status httpd.service<br>除了status命令，systemctl还提供了三个查询状态的简单方法，主要供脚本内部的判断语句使用。</p>
-<h1 id="显示某个-Unit-是否正在运行"><a href="#显示某个-Unit-是否正在运行" class="headerlink" title="显示某个 Unit 是否正在运行"></a>显示某个 Unit 是否正在运行</h1><p>$ systemctl is-active application.service</p>
-<h1 id="显示某个-Unit-是否处于启动失败状态"><a href="#显示某个-Unit-是否处于启动失败状态" class="headerlink" title="显示某个 Unit 是否处于启动失败状态"></a>显示某个 Unit 是否处于启动失败状态</h1><p>$ systemctl is-failed application.service</p>
-<h1 id="显示某个-Unit-服务是否建立了启动链接"><a href="#显示某个-Unit-服务是否建立了启动链接" class="headerlink" title="显示某个 Unit 服务是否建立了启动链接"></a>显示某个 Unit 服务是否建立了启动链接</h1><p>$ systemctl is-enabled application.service<br>4.3 Unit 管理<br>对于用户来说，最常用的是下面这些命令，用于启动和停止 Unit（主要是 service）。</p>
-<h1 id="立即启动一个服务"><a href="#立即启动一个服务" class="headerlink" title="立即启动一个服务"></a>立即启动一个服务</h1><p>$ sudo systemctl start apache.service</p>
-<h1 id="立即停止一个服务"><a href="#立即停止一个服务" class="headerlink" title="立即停止一个服务"></a>立即停止一个服务</h1><p>$ sudo systemctl stop apache.service</p>
-<h1 id="重启一个服务"><a href="#重启一个服务" class="headerlink" title="重启一个服务"></a>重启一个服务</h1><p>$ sudo systemctl restart apache.service</p>
-<h1 id="杀死一个服务的所有子进程"><a href="#杀死一个服务的所有子进程" class="headerlink" title="杀死一个服务的所有子进程"></a>杀死一个服务的所有子进程</h1><p>$ sudo systemctl kill apache.service</p>
-<h1 id="重新加载一个服务的配置文件"><a href="#重新加载一个服务的配置文件" class="headerlink" title="重新加载一个服务的配置文件"></a>重新加载一个服务的配置文件</h1><p>$ sudo systemctl reload apache.service</p>
-<h1 id="重载所有修改过的配置文件"><a href="#重载所有修改过的配置文件" class="headerlink" title="重载所有修改过的配置文件"></a>重载所有修改过的配置文件</h1><p>$ sudo systemctl daemon-reload</p>
-<h1 id="显示某个-Unit-的所有底层参数"><a href="#显示某个-Unit-的所有底层参数" class="headerlink" title="显示某个 Unit 的所有底层参数"></a>显示某个 Unit 的所有底层参数</h1><p>$ systemctl show httpd.service</p>
-<h1 id="显示某个-Unit-的指定属性的值"><a href="#显示某个-Unit-的指定属性的值" class="headerlink" title="显示某个 Unit 的指定属性的值"></a>显示某个 Unit 的指定属性的值</h1><p>$ systemctl show -p CPUShares httpd.service</p>
-<h1 id="设置某个-Unit-的指定属性"><a href="#设置某个-Unit-的指定属性" class="headerlink" title="设置某个 Unit 的指定属性"></a>设置某个 Unit 的指定属性</h1><p>$ sudo systemctl set-property httpd.service CPUShares=500<br>4.4 依赖关系<br>Unit 之间存在依赖关系：A 依赖于 B，就意味着 Systemd 在启动 A 的时候，同时会去启动 B。</p>
-<p>systemctl list-dependencies命令列出一个 Unit 的所有依赖。</p>
-<p>$ systemctl list-dependencies nginx.service<br>上面命令的输出结果之中，有些依赖Target 类型（详见下文），默认不会展开显示。如果要展开 Target，就需要使用–all参数。</p>
-<p>$ systemctl list-dependencies –all nginx.service<br>五、Unit 的配置文件<br>5.1 概述<br>每一个 Unit 都有一个配置文件，告诉 Systemd 怎么启动这个 Unit 。</p>
-<p>Systemd 默认从目录/etc/systemd/system/读取配置文件。但是，里面存放的大部分文件都是符号链接，指向目录/usr/lib/systemd/system/，真正的配置文件存放在那个目录。</p>
-<p>systemctl enable命令用于在上面两个目录之间，建立符号链接关系。<br>$ sudo systemctl enable <a href="mailto:&#99;&#108;&#x61;&#x6d;&#x64;&#64;&#x73;&#x63;&#97;&#110;&#46;&#115;&#101;&#114;&#x76;&#105;&#x63;&#x65;">&#99;&#108;&#x61;&#x6d;&#x64;&#64;&#x73;&#x63;&#97;&#110;&#46;&#115;&#101;&#114;&#x76;&#105;&#x63;&#x65;</a></p>
-<h1 id="等同于"><a href="#等同于" class="headerlink" title="等同于"></a>等同于</h1><p>$ sudo ln -s ‘/usr/lib/systemd/system/<a href="mailto:&#x63;&#x6c;&#x61;&#109;&#x64;&#x40;&#115;&#x63;&#x61;&#x6e;&#46;&#x73;&#101;&#x72;&#x76;&#x69;&#x63;&#x65;">&#x63;&#x6c;&#x61;&#109;&#x64;&#x40;&#115;&#x63;&#x61;&#x6e;&#46;&#x73;&#101;&#x72;&#x76;&#x69;&#x63;&#x65;</a>‘ ‘/etc/systemd/system/multi-user.target.wants/<a href="mailto:&#99;&#108;&#97;&#x6d;&#x64;&#x40;&#x73;&#99;&#97;&#x6e;&#x2e;&#x73;&#101;&#114;&#118;&#x69;&#99;&#101;">&#99;&#108;&#97;&#x6d;&#x64;&#x40;&#x73;&#99;&#97;&#x6e;&#x2e;&#x73;&#101;&#114;&#118;&#x69;&#99;&#101;</a>‘<br>如果配置文件里面设置了开机启动，systemctl enable命令相当于激活开机启动。</p>
-<p>与之对应的，systemctl disable命令用于在两个目录之间，撤销符号链接关系，相当于撤销开机启动。</p>
-<p>$ sudo systemctl disable <a href="mailto:&#x63;&#x6c;&#x61;&#x6d;&#x64;&#64;&#115;&#99;&#x61;&#x6e;&#x2e;&#115;&#x65;&#114;&#118;&#105;&#99;&#x65;">&#x63;&#x6c;&#x61;&#x6d;&#x64;&#64;&#115;&#99;&#x61;&#x6e;&#x2e;&#115;&#x65;&#114;&#118;&#105;&#99;&#x65;</a><br>配置文件的后缀名，就是该 Unit 的种类，比如sshd.socket。如果省略，Systemd 默认后缀名为.service，所以sshd会被理解成sshd.service。</p>
-<p>5.2 配置文件的状态<br>systemctl list-unit-files命令用于列出所有配置文件。</p>
-<h1 id="列出所有配置文件"><a href="#列出所有配置文件" class="headerlink" title="列出所有配置文件"></a>列出所有配置文件</h1><p>$ systemctl list-unit-files</p>
-<h1 id="列出指定类型的配置文件"><a href="#列出指定类型的配置文件" class="headerlink" title="列出指定类型的配置文件"></a>列出指定类型的配置文件</h1><p>$ systemctl list-unit-files –type=service<br>这个命令会输出一个列表。</p>
-<p>$ systemctl list-unit-files</p>
-<p>UNIT FILE              STATE<br>chronyd.service        enabled<br>clamd@.service         static<br><a href="mailto:&#x63;&#x6c;&#x61;&#109;&#x64;&#x40;&#115;&#x63;&#x61;&#110;&#46;&#x73;&#x65;&#114;&#118;&#x69;&#x63;&#x65;">&#x63;&#x6c;&#x61;&#109;&#x64;&#x40;&#115;&#x63;&#x61;&#110;&#46;&#x73;&#x65;&#114;&#118;&#x69;&#x63;&#x65;</a>     disabled<br>这个列表显示每个配置文件的状态，一共有四种。</p>
-<p>enabled：已建立启动链接<br>disabled：没建立启动链接<br>static：该配置文件没有[Install]部分（无法执行），只能作为其他配置文件的依赖<br>masked：该配置文件被禁止建立启动链接<br>注意，从配置文件的状态无法看出，该 Unit 是否正在运行。这必须执行前面提到的systemctl status命令。</p>
-<p>$ systemctl status bluetooth.service<br>一旦修改配置文件，就要让 SystemD 重新加载配置文件，然后重新启动，否则修改不会生效。</p>
-<p>$ sudo systemctl daemon-reload<br>$ sudo systemctl restart httpd.service<br>5.3 配置文件的格式<br>配置文件就是普通的文本文件，可以用文本编辑器打开。</p>
-<p>systemctl cat命令可以查看配置文件的内容。</p>
-<p>$ systemctl cat atd.service</p>
-<p>[Unit]<br>Description=ATD daemon</p>
-<p>[Service]<br>Type=forking<br>ExecStart=/usr/bin/atd</p>
-<p>[Install]<br>WantedBy=multi-user.target<br>从上面的输出可以看到，配置文件分成几个区块。每个区块的第一行，是用方括号表示的区别名，比如[Unit]。注意，配置文件的区块名和字段名，都是大小写敏感的。</p>
-<p>每个区块内部是一些等号连接的键值对。</p>
-<p>[Section]<br>Directive1=value<br>Directive2=value<br>. . .<br>注意，键值对的等号两侧不能有空格。</p>
-<p>5.4 配置文件的区块<br>[Unit]区块通常是配置文件的第一个区块，用来定义 Unit 的元数据，以及配置与其他 Unit 的关系。它的主要字段如下。</p>
-<p>Description：简短描述<br>Documentation：文档地址<br>Requires：当前 Unit 依赖的其他 Unit，如果它们没有运行，当前 Unit 会启动失败<br>Wants：与当前 Unit 配合的其他 Unit，如果它们没有运行，当前 Unit 不会启动失败<br>BindsTo：与Requires类似，它指定的 Unit 如果退出，会导致当前 Unit 停止运行<br>Before：如果该字段指定的 Unit 也要启动，那么必须在当前 Unit 之后启动<br>After：如果该字段指定的 Unit 也要启动，那么必须在当前 Unit 之前启动<br>Conflicts：这里指定的 Unit 不能与当前 Unit 同时运行<br>Condition…：当前 Unit 运行必须满足的条件，否则不会运行<br>Assert…：当前 Unit 运行必须满足的条件，否则会报启动失败<br>[Install]通常是配置文件的最后一个区块，用来定义如何启动，以及是否开机启动。它的主要字段如下。</p>
-<p>WantedBy：它的值是一个或多个 Target，当前 Unit 激活时（enable）符号链接会放入/etc/systemd/system目录下面以 Target 名 + .wants后缀构成的子目录中<br>RequiredBy：它的值是一个或多个 Target，当前 Unit 激活时，符号链接会放入/etc/systemd/system目录下面以 Target 名 + .required后缀构成的子目录中<br>Alias：当前 Unit 可用于启动的别名<br>Also：当前 Unit 激活（enable）时，会被同时激活的其他 Unit<br>[Service]区块用来 Service 的配置，只有 Service 类型的 Unit 才有这个区块。它的主要字段如下。</p>
-<p>Type：定义启动时的进程行为。它有以下几种值。<br>Type=simple：默认值，执行ExecStart指定的命令，启动主进程<br>Type=forking：以 fork 方式从父进程创建子进程，创建后父进程会立即退出<br>Type=oneshot：一次性进程，Systemd 会等当前服务退出，再继续往下执行<br>Type=dbus：当前服务通过D-Bus启动<br>Type=notify：当前服务启动完毕，会通知Systemd，再继续往下执行<br>Type=idle：若有其他任务执行完毕，当前服务才会运行<br>ExecStart：启动当前服务的命令<br>ExecStartPre：启动当前服务之前执行的命令<br>ExecStartPost：启动当前服务之后执行的命令<br>ExecReload：重启当前服务时执行的命令<br>ExecStop：停止当前服务时执行的命令<br>ExecStopPost：停止当其服务之后执行的命令<br>RestartSec：自动重启当前服务间隔的秒数<br>Restart：定义何种情况 Systemd 会自动重启当前服务，可能的值包括always（总是重启）、on-success、on-failure、on-abnormal、on-abort、on-watchdog<br>TimeoutSec：定义 Systemd 停止当前服务之前等待的秒数<br>Environment：指定环境变量<br>Unit 配置文件的完整字段清单，请参考官方文档。</p>
-<p>六、Target<br>启动计算机的时候，需要启动大量的 Unit。如果每一次启动，都要一一写明本次启动需要哪些 Unit，显然非常不方便。Systemd 的解决方案就是 Target。</p>
-<p>简单说，Target 就是一个 Unit 组，包含许多相关的 Unit 。启动某个 Target 的时候，Systemd 就会启动里面所有的 Unit。从这个意义上说，Target 这个概念类似于”状态点”，启动某个 Target 就好比启动到某种状态。</p>
-<p>传统的init启动模式里面，有 RunLevel 的概念，跟 Target 的作用很类似。不同的是，RunLevel 是互斥的，不可能多个 RunLevel 同时启动，但是多个 Target 可以同时启动。</p>
-<h1 id="查看当前系统的所有-Target"><a href="#查看当前系统的所有-Target" class="headerlink" title="查看当前系统的所有 Target"></a>查看当前系统的所有 Target</h1><p>$ systemctl list-unit-files –type=target</p>
-<h1 id="查看一个-Target-包含的所有-Unit"><a href="#查看一个-Target-包含的所有-Unit" class="headerlink" title="查看一个 Target 包含的所有 Unit"></a>查看一个 Target 包含的所有 Unit</h1><p>$ systemctl list-dependencies multi-user.target</p>
-<h1 id="查看启动时的默认-Target"><a href="#查看启动时的默认-Target" class="headerlink" title="查看启动时的默认 Target"></a>查看启动时的默认 Target</h1><p>$ systemctl get-default</p>
-<h1 id="设置启动时的默认-Target"><a href="#设置启动时的默认-Target" class="headerlink" title="设置启动时的默认 Target"></a>设置启动时的默认 Target</h1><p>$ sudo systemctl set-default multi-user.target</p>
-<h1 id="切换-Target-时，默认不关闭前一个-Target-启动的进程，"><a href="#切换-Target-时，默认不关闭前一个-Target-启动的进程，" class="headerlink" title="切换 Target 时，默认不关闭前一个 Target 启动的进程，"></a>切换 Target 时，默认不关闭前一个 Target 启动的进程，</h1><h1 id="systemctl-isolate-命令改变这种行为，"><a href="#systemctl-isolate-命令改变这种行为，" class="headerlink" title="systemctl isolate 命令改变这种行为，"></a>systemctl isolate 命令改变这种行为，</h1><h1 id="关闭前一个-Target-里面所有不属于后一个-Target-的进程"><a href="#关闭前一个-Target-里面所有不属于后一个-Target-的进程" class="headerlink" title="关闭前一个 Target 里面所有不属于后一个 Target 的进程"></a>关闭前一个 Target 里面所有不属于后一个 Target 的进程</h1><p>$ sudo systemctl isolate multi-user.target<br>Target 与 传统 RunLevel 的对应关系如下。</p>
-<p>Traditional runlevel      New target name     Symbolically linked to…</p>
-<p>Runlevel 0           |    runlevel0.target -&gt; poweroff.target<br>Runlevel 1           |    runlevel1.target -&gt; rescue.target<br>Runlevel 2           |    runlevel2.target -&gt; multi-user.target<br>Runlevel 3           |    runlevel3.target -&gt; multi-user.target<br>Runlevel 4           |    runlevel4.target -&gt; multi-user.target<br>Runlevel 5           |    runlevel5.target -&gt; graphical.target<br>Runlevel 6           |    runlevel6.target -&gt; reboot.target<br>它与init进程的主要差别如下。</p>
-<p>（1）默认的 RunLevel（在/etc/inittab文件设置）现在被默认的 Target 取代，位置是/etc/systemd/system/default.target，通常符号链接到graphical.target（图形界面）或者multi-user.target（多用户命令行）。</p>
-<p>（2）启动脚本的位置，以前是/etc/init.d目录，符号链接到不同的 RunLevel 目录 （比如/etc/rc3.d、/etc/rc5.d等），现在则存放在/lib/systemd/system和/etc/systemd/system目录。</p>
-<p>（3）配置文件的位置，以前init进程的配置文件是/etc/inittab，各种服务的配置文件存放在/etc/sysconfig目录。现在的配置文件主要存放在/lib/systemd目录，在/etc/systemd目录里面的修改可以覆盖原始设置。</p>
-<p>七、日志管理<br>Systemd 统一管理所有 Unit 的启动日志。带来的好处就是，可以只用journalctl一个命令，查看所有日志（内核日志和应用日志）。日志的配置文件是/etc/systemd/journald.conf。</p>
-<p>journalctl功能强大，用法非常多。</p>
-<h1 id="查看所有日志（默认情况下-，只保存本次启动的日志）"><a href="#查看所有日志（默认情况下-，只保存本次启动的日志）" class="headerlink" title="查看所有日志（默认情况下 ，只保存本次启动的日志）"></a>查看所有日志（默认情况下 ，只保存本次启动的日志）</h1><p>$ sudo journalctl</p>
-<h1 id="查看内核日志（不显示应用日志）"><a href="#查看内核日志（不显示应用日志）" class="headerlink" title="查看内核日志（不显示应用日志）"></a>查看内核日志（不显示应用日志）</h1><p>$ sudo journalctl -k</p>
-<h1 id="查看系统本次启动的日志"><a href="#查看系统本次启动的日志" class="headerlink" title="查看系统本次启动的日志"></a>查看系统本次启动的日志</h1><p>$ sudo journalctl -b<br>$ sudo journalctl -b -0</p>
-<h1 id="查看上一次启动的日志（需更改设置）"><a href="#查看上一次启动的日志（需更改设置）" class="headerlink" title="查看上一次启动的日志（需更改设置）"></a>查看上一次启动的日志（需更改设置）</h1><p>$ sudo journalctl -b -1</p>
-<h1 id="查看指定时间的日志"><a href="#查看指定时间的日志" class="headerlink" title="查看指定时间的日志"></a>查看指定时间的日志</h1><p>$ sudo journalctl –since=”2012-10-30 18:17:16”<br>$ sudo journalctl –since “20 min ago”<br>$ sudo journalctl –since yesterday<br>$ sudo journalctl –since “2015-01-10” –until “2015-01-11 03:00”<br>$ sudo journalctl –since 09:00 –until “1 hour ago”</p>
-<h1 id="显示尾部的最新10行日志"><a href="#显示尾部的最新10行日志" class="headerlink" title="显示尾部的最新10行日志"></a>显示尾部的最新10行日志</h1><p>$ sudo journalctl -n</p>
-<h1 id="显示尾部指定行数的日志"><a href="#显示尾部指定行数的日志" class="headerlink" title="显示尾部指定行数的日志"></a>显示尾部指定行数的日志</h1><p>$ sudo journalctl -n 20</p>
-<h1 id="实时滚动显示最新日志"><a href="#实时滚动显示最新日志" class="headerlink" title="实时滚动显示最新日志"></a>实时滚动显示最新日志</h1><p>$ sudo journalctl -f</p>
-<h1 id="查看指定服务的日志"><a href="#查看指定服务的日志" class="headerlink" title="查看指定服务的日志"></a>查看指定服务的日志</h1><p>$ sudo journalctl /usr/lib/systemd/systemd</p>
-<h1 id="查看指定进程的日志"><a href="#查看指定进程的日志" class="headerlink" title="查看指定进程的日志"></a>查看指定进程的日志</h1><p>$ sudo journalctl _PID=1</p>
-<h1 id="查看某个路径的脚本的日志"><a href="#查看某个路径的脚本的日志" class="headerlink" title="查看某个路径的脚本的日志"></a>查看某个路径的脚本的日志</h1><p>$ sudo journalctl /usr/bin/bash</p>
-<h1 id="查看指定用户的日志"><a href="#查看指定用户的日志" class="headerlink" title="查看指定用户的日志"></a>查看指定用户的日志</h1><p>$ sudo journalctl _UID=33 –since today</p>
-<h1 id="查看某个-Unit-的日志"><a href="#查看某个-Unit-的日志" class="headerlink" title="查看某个 Unit 的日志"></a>查看某个 Unit 的日志</h1><p>$ sudo journalctl -u nginx.service<br>$ sudo journalctl -u nginx.service –since today</p>
-<h1 id="实时滚动显示某个-Unit-的最新日志"><a href="#实时滚动显示某个-Unit-的最新日志" class="headerlink" title="实时滚动显示某个 Unit 的最新日志"></a>实时滚动显示某个 Unit 的最新日志</h1><p>$ sudo journalctl -u nginx.service -f</p>
-<h1 id="合并显示多个-Unit-的日志"><a href="#合并显示多个-Unit-的日志" class="headerlink" title="合并显示多个 Unit 的日志"></a>合并显示多个 Unit 的日志</h1><p>$ journalctl -u nginx.service -u php-fpm.service –since today</p>
-<h1 id="查看指定优先级（及其以上级别）的日志，共有8级"><a href="#查看指定优先级（及其以上级别）的日志，共有8级" class="headerlink" title="查看指定优先级（及其以上级别）的日志，共有8级"></a>查看指定优先级（及其以上级别）的日志，共有8级</h1><h1 id="0-emerg"><a href="#0-emerg" class="headerlink" title="0: emerg"></a>0: emerg</h1><h1 id="1-alert"><a href="#1-alert" class="headerlink" title="1: alert"></a>1: alert</h1><h1 id="2-crit"><a href="#2-crit" class="headerlink" title="2: crit"></a>2: crit</h1><h1 id="3-err"><a href="#3-err" class="headerlink" title="3: err"></a>3: err</h1><h1 id="4-warning"><a href="#4-warning" class="headerlink" title="4: warning"></a>4: warning</h1><h1 id="5-notice"><a href="#5-notice" class="headerlink" title="5: notice"></a>5: notice</h1><h1 id="6-info"><a href="#6-info" class="headerlink" title="6: info"></a>6: info</h1><h1 id="7-debug"><a href="#7-debug" class="headerlink" title="7: debug"></a>7: debug</h1><p>$ sudo journalctl -p err -b</p>
-<h1 id="日志默认分页输出，–no-pager-改为正常的标准输出"><a href="#日志默认分页输出，–no-pager-改为正常的标准输出" class="headerlink" title="日志默认分页输出，–no-pager 改为正常的标准输出"></a>日志默认分页输出，–no-pager 改为正常的标准输出</h1><p>$ sudo journalctl –no-pager</p>
-<h1 id="以-JSON-格式（单行）输出"><a href="#以-JSON-格式（单行）输出" class="headerlink" title="以 JSON 格式（单行）输出"></a>以 JSON 格式（单行）输出</h1><p>$ sudo journalctl -b -u nginx.service -o json</p>
-<h1 id="以-JSON-格式（多行）输出，可读性更好"><a href="#以-JSON-格式（多行）输出，可读性更好" class="headerlink" title="以 JSON 格式（多行）输出，可读性更好"></a>以 JSON 格式（多行）输出，可读性更好</h1><p>$ sudo journalctl -b -u nginx.serviceqq<br> -o json-pretty</p>
-<h1 id="显示日志占据的硬盘空间"><a href="#显示日志占据的硬盘空间" class="headerlink" title="显示日志占据的硬盘空间"></a>显示日志占据的硬盘空间</h1><p>$ sudo journalctl –disk-usage</p>
-<h1 id="指定日志文件占据的最大空间"><a href="#指定日志文件占据的最大空间" class="headerlink" title="指定日志文件占据的最大空间"></a>指定日志文件占据的最大空间</h1><p>$ sudo journalctl –vacuum-size=1G</p>
-<h1 id="指定日志文件保存多久"><a href="#指定日志文件保存多久" class="headerlink" title="指定日志文件保存多久"></a>指定日志文件保存多久</h1><p>$ sudo journalctl –vacuum-time=1years</p>
-]]></content>
-  </entry>
-  <entry>
-    <title>linuxday8防火墙以及firewalld</title>
-    <url>/2021/11/11/linuxday8/</url>
-    <content><![CDATA[<p>一。防火墙<br>1.启动防火墙： systemctl start firewalld<br>查看防火墙状态： systemctl status firewalld<br>停止防火墙： systemctl disable firewalld<br>禁用防火墙： systemctl stop firewalld  ， firewall-cmd –set-default-zone=trusted<br>2.配置firewalld-cmd<br>查看版本： firewall-cmd –version</p>
-<p>查看帮助： firewall-cmd –help</p>
-<p>显示状态： firewall-cmd –state</p>
-<p>查看所有打开的端口： firewall-cmd –zone=public –list-ports</p>
-<p>更新防火墙规则： firewall-cmd –reload</p>
-<p>查看区域信息: firewall-cmd –get-active-zones</p>
-<p>查看指定接口所属区域： firewall-cmd –get-zone-of-interface=eth0</p>
-<p>拒绝所有包：firewall-cmd –panic-on</p>
-<p>取消拒绝状态： firewall-cmd –panic-off</p>
-<p>查看是否拒绝： firewall-cmd –query-panic</p>
-<p>那怎么开启一个端口呢</p>
-<p>添加</p>
-<p>firewall-cmd –zone=public –add-port=80/tcp –permanent （–permanent永久生效，没有此参数重启后失效）</p>
-<p>重新载入</p>
-<p>firewall-cmd –reload</p>
-<p>查看</p>
-<p>firewall-cmd –zone= public –query-port=80/tcp</p>
-<p>删除</p>
-<p>firewall-cmd –zone= public –remove-port=80/tcp –permanent</p>
-<p> 四个基本区域</p>
-<p>  根据所在的网络场所区分,预设保护规则集<br>– public:仅允许访问本机的ssh dhcp ping服务<br>– trusted:允许任何访问<br>– block:阻塞任何来访请求(明确拒绝,有回应客户端)<br>– drop:丢弃任何来访的数据包(没有回应,节省服务端资源)</p>
-<p>基本命令</p>
-<p>  1.查看当前区域</p>
-<pre><code>firewall-cmd --get-default-zone
-</code></pre>
-<p>  2.转换区域</p>
-<pre><code>firewall-cmd --set-default-zone=&#39;区域名&#39;
-</code></pre>
-<p>  3.查看区域规则</p>
-<pre><code>firewall-cmd --zone=&#39;区域名&#39; --list-all
-</code></pre>
-<p>  4.添加源</p>
-<p>   firewall-cmd –zone=’区域名’ –add-source=’ip地址’<br>二。服务器硬件数据的收集<br>1.使用dmidecode查看硬件设备<br>使用dmidecode -t 1 可以查看主板信息(制造商、型号、序列号等等）<br>使用dmidecode -t 4 可以查看CPU信息(CPU数目、型号、大小、频率等等）<br>使用dmidecode -t 17 可以查看内存信息(插槽数目、内存类型、大小、频率等等）<br>使用dmidecode -t  9  可以查看系统相关插槽的格式。<br>2.硬件资源的收集和分析<br>lspci<br>lsusb<br>iostat<br>3.了解磁盘的健康状态<br>用smartctl来显示完整的/dev/sda<br>smartctl -a   /dev/sda<br>三。备份<br>1.那些数据具有备份的意义<br>操作系统本身需要备份的文件<br>【账户与系统配置文件】<br>/etc/passwd , /etc/shadow , /etc/group  , /etc/gshadow以及/home下的用户家目录<br>/etc/整个目录  /home /var/spool/mail   /var/spool/{at|cron}   /boot/  /root/   /var/lib<br>如果安装过其他软件，那么/usr/local  ,/opt也备份<br>网络服务<br>www数据：/var/www 或 /srv/www<br>mariaDB：/var/lib/mysql整个目录<br>2.完整备份<br>（1）累积备份<br>累积备份的原则：系统在进行一次完整备份后，进行一段时间的运行，比较系统与备份文件之间的差异，仅备份有差异的文件<br>而第二次累积备份则是与第一次累积备份的数据比较，也是备份有差异的数据。<br>（2）差异备份<br>原则：也是需要系统进行第一次完整备份后才能进行，每次的备份都是与原始的完整备份比较的结果</p>
-]]></content>
-  </entry>
-  <entry>
     <title>linuxday7内核管理</title>
     <url>/2021/11/09/linuxday7/</url>
     <content><![CDATA[<p>一。内核与内核模块<br>1。内核模块与依赖性<br>内核模板放在：/lib/modules/$(uname -r)/kernel中<br>使用depmod<br>范例一：若我做好一个网卡驱动程序，文件名为a.ko,该跟新内核依赖性<br>cp a.ko /lib/modules/$(uname -r)/kernel/drivers/net<br>depmod<br>2.查看内核模块<br>lsmod<br>列出内核名称。模块大小，此模块是否被其他模块所使用<br>列出模块的相关信息<br>如列出drm的模块信息：modinfo drm<br>3.内核模块的加载与删除<br>加载insmod  删除 rmmod<br>加载：modprobe vfat<br>删除：modprobe  -r vfat<br>4.内核模块的额外参数设置：/etc/modprobe.d/*.conf<br>5.boot loader的俩个stage<br>stage1：执行boot loader 主程序<br>stage2：主程序加载配置文件</p>
 <p>二。基础系统设置与备份策略<br>1.网络设置（手动设置与DHCP自动获取）<br>ipaddr-(ip)<br>netmask子网掩码<br>gateway网关<br>dns主机ip<br>2.命令<br>临时修改本机IP地址ifconfig ens33 192.168.1.200/24<br>永久修改本机IP地址：vim /etc/sysconfig/network-scripts/ifcfg-ens33<br>修改：BOOTPROTO=”static”<br>IPADDR=192.168.1.100<br>NETMASK=255.255.255.0<br>GATEWAY=192.168.1.1<br>修改完后注意重启network服务，使其生效：<br>service network restart<br>numtui 网络管理器<br>3.nmcli<br>查看网卡信息nmcli connection show   网卡名称<br>        启动：nmcli connection up  网卡名称<br>显示所有设配状态# nmcli device status<br>显示所有活动连接# nmcli connection show –active<br>删除一个网卡连接# nmcli connection delete eth0<br>停用：# nmcli connection down eth0<br>设置：nmcli connection modify eth0\<br>          connection.autoconnect yes\  是否开机时启动这个连接<br>          ipv4.method manual（手动）   自动还是手动设置网络参数  auto（自动）<br>          ipv4.addresses 192.168.1.1/24\   ip地址和子网掩码<br>          ipv4.gateway  192.168.200.254    网关<br>          ipv4.dns<br>4.修改主机名<br>hostnamectl   set-hostname  {姓名}<br>cat  /etc/hostname<br>5.日期与时间设置<br>设置时区：tzselect  （Asia亚洲）<br>查看时间：timedatectl<br>修改：timedatectl  set-timezone “Asia/shanghai”<br>timedatectl  list-timezone<br>timedatectl  set-time  “2021-11-10 23：17”<br>使用ntpdate手动网络校时<br>ntpdate s2m.time.edu.cn<br>hwclock  -w<br>语系设置<br>localectl<br>将locale改成en_us.utf8之后，在转化成图形界面<br>localectl  set-locale LANG=en_US.utf8<br>systemctl  isolate  multi-user.target<br>systemctl  isolate  graphicdl.target</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>linux安全加固</title>
+    <url>/2021/11/15/linu%E5%8A%A0%E5%9B%BA/</url>
+    <content><![CDATA[<p>Linux文件结构<br>/下面<br>/bin 放置的是在单人维护模式下能够被操作的指令，在/bin底下的指令可以被root和一般账号所使用<br>/boot 这个目录主要是在放开机会使用到的文件，包括linux核心文件以及开机选单与开机所需配置的文件等等<br>/dev 在linux系统上，任何装置与接口设备都是以文件的形态存在于这个目录当中的<br>/etc系统主要的配置文件几乎都放在这个，目录内，列如人员的账号密码文件，各种服务的启动档，系统变量配置等<br>/home系统默认的家目录</p>
 ]]></content>
   </entry>
   <entry>
@@ -834,206 +995,89 @@
 ]]></content>
   </entry>
   <entry>
-    <title>shell03shell中的运算</title>
-    <url>/2021/11/03/shell03/</url>
-    <content><![CDATA[<p>shell中的运算</p>
-<p>2，方法二用$[ ]结构，配合echo输出，同样可以实现加 减 乘 除 取余,另外$(( ))也可以实现相同效果</p>
-<p>echo $[1+1]  或者  echo $((1+1))</p>
-<p>echo $[2-1]</p>
-<p>echo $[2*2]</p>
-<p>echo $[4/2]</p>
-<p>echo $[5%3]</p>
-<p>3，方法三使用let指令，不输出计算结果，专用于创建变量，或者对变量进行自增减</p>
-<p>用法一：创建变量</p>
-<p>let a=1+1   创建变量a</p>
-<p>用法二： 变量的自增减</p>
-<p>常规写法  主流写法</p>
-<p>let a=a+1    let a++    变量的自增减，将变量a的值加1</p>
-<p>let a=a-1  let a–    变量a减1</p>
-<p>let a=a+2        let a+=2   变量a加2</p>
-<p>let a=a-2  let a-=2   变量a减2</p>
-<p>let a=a<em>10  let a</em>=10  变量a乘以10</p>
-<p>4，使用bc 计算器，可以进行小数运算</p>
-<p>echo “1.1+1” | bc    //非交互的方式使用bc工具</p>
-<p>echo “10/3” | bc</p>
-<p>echo “scale=3;10/3” | bc   //scale可以定义小数点</p>
-<p>后面的长度</p>
-<hr>
-<p>条件测试：可以为脚本提供智能判断的效果</p>
-<p>使用方式：test  表达式   或者    [ 表达式 ]</p>
-<p>条件测试种类：</p>
-<p>1， 对字符串进行判断</p>
-<p>可以使用的方式有： == 两边是否相等   != 两边是否不等  </p>
-<p>-z判断变量是否为空  ! -z 判断变量是否非空</p>
-<p>[ a == a ]  判断字符串a是否等于a，如果相等，echo $?的返回值就是0</p>
-<p>[ root == $USER ]   判断当前用户名是否叫root，如果是，返回值就是0</p>
-<p>[ root != $USER ]  判断当前用户名是否不叫root，如果不叫root，返回值就是0</p>
-<p>[ -z $a ] 判断变量a是否为空，如果是，返回值是0</p>
-<p>[ ! -z $a ] 判，返回断变量a是否非空，如果是值是0</p>
-<p>2，逻辑符号，可以连接条件测试或者指令，来决定之后如何操作</p>
-<p>&amp;&amp;  之前任务成功就执行之后任务</p>
-<p>||   之前任务失败就执行之后任务</p>
-<p>[ root == $USER ] || exit   如果当前用户不是管理员，则退出</p>
-<p>ls || ls   只执行第1个ls  </p>
-<p>ls &amp;&amp; ls   连个ls都执行</p>
-<p>编写脚本可以创建用户和配置密码，如果用户没有输入用户名直接敲回车则结束脚本程序</p>
-<p>#!/bin/bash</p>
-<p>read -p “请输入用户名：”  n</p>
-<p>[ -z $n ] &amp;&amp; exit   //如果没有输入用户名就退出脚本，写法一</p>
-<p>[ ! -z $n ] || exit   //如果没有输入用户名就退出脚本，写法二</p>
-<p>useradd $n</p>
-<p>stty -echo</p>
-<p>read -p “请输入密码：” p</p>
-<p>stty echo</p>
-<p>echo $p | passwd –stdin $n</p>
-<p>逻辑符号的组合应用</p>
-<p>当2个逻辑符号连用时，第二个逻辑符号后面的任务是否执行不能只看前面一个任务，要看前面所有任务的组合，比如下列情况：</p>
-<p>touch a b c //创建3个测试文件</p>
-<p>ls a &amp;&amp; ls b &amp;&amp; ls c  //结果是都显示，第一个ls执行成功，然后导致第二个ls也执行，并且可以成功，这样的话第一个和第二个任务都成功了，那么这个组合就算成功，然后会导致第二个逻辑符号&amp;&amp;后面的ls c 也执行并且成功。</p>
-<p>ls a &amp;&amp; ls b || ls c  //结果是显示a和b，第一个ls执行成功，然后导致第二个ls也执行，并且可以成功，这样的话第一个和第二个任务都成功了，那么这个组合就算成功，但是由于第二个逻辑符号是||，就不会执行最后的ls c任务了</p>
-<p>ls a || ls b &amp;&amp; ls c   //结果是显示a和c，第一个ls执行成功，第二个ls就不会执行了，这两个任务中间是|| ，那么只要有一个成功就算这个组合执行成功，所以就会导致第二个逻辑符号&amp;&amp;后面的ls c执行</p>
-<p>ls a || ls b || ls c   //结果是显示a，第一个ls执行成功，第二个ls就不会执行了，这两个任务中间是|| ，那么只要有一个成功就算这个组合执行成功，由于这个组合算成功，所以就不会执行第二个||后面的任务了</p>
-<p>练习</p>
-<p>安装ftp服务时，如果是非管理员执行该脚本则给出”非管理员无法执行</p>
-<p>该脚本”的提示信息并退出</p>
-<p>#!/bin/bash</p>
-<p>#部署ftp服务</p>
-<p>[ $USER != root ] &amp;&amp; echo “非管理员无法执行该脚本”  &amp;&amp; exit</p>
-<p>yum -y install vsftpd  &amp;&gt; /dev/null</p>
-<p>systemctl restart vsftpd</p>
-<p>systemctl enable vsftpd</p>
-<p>3，数字的条件测试</p>
-<p>-eq等于  -ne不等于  -gt大于  -ge大于等于  -lt小于  -le小于等于 </p>
-<p>[ 1 -eq 1 ]  判断1是否等于1，判断成功的话返回值是0，判断失败返回</p>
-<p>值是非0</p>
-<p>a=10    </p>
-<p>b=20</p>
-<p>[ $a -eq $b ]    //判断两个变量是否相等</p>
-<p>编写脚本，每隔2分钟检查登录服务器的账户数量，如果超过3</p>
-<p>人，则发报警邮件给管理员，管理员可以通过mail命令查看邮件</p>
-<p>#!/bin/bash</p>
-<p>n=$(who | wc -l)    //统计登录服务器的账户数量，存在变量n里</p>
-<p>[ $n -gt 3 ] &amp;&amp; echo “有人入侵服务器~，牛老师来了~~~” | mail -s test root</p>
-<p>脚本写完后，执行下列指令：</p>
-<p>rm -rf /var/spool/mail/root   //清空邮箱(非必须)</p>
-<p>[root@svr7 opt]#chmod +x test01.sh   //给脚本添加执行权限</p>
-<p>[root@svr7 opt]# crontab -e   //编写计划任务</p>
-<p>*/2 * * * * /opt/test01.sh     //每2分钟执行脚本</p>
-<p>然后故意多登陆几个账户，每2分钟就可以收到新邮件</p>
-<p>4，文件的条件测试</p>
-<p>-e判断是否存在不关心文件类型   -f判断是否存在且是普通文件  </p>
-<p>-d判断是否存在且是目录  </p>
-<p>-r判断当前用户对文件是否能读 ，对root无效</p>
-<p>-w判断当前用户对文件是否能写 ，对root无效</p>
-<p>-x 判断当前用户对文件是否能执行(文件)，或者进入(目录)</p>
-<p>[  -e  a  ]   当前位置如果有a文件，不关心类型，则测试成功</p>
-<p>[  -f  a  ]   当前位置如果有叫a的普通文件，则测试成功</p>
-<p>[  -d  a  ]   当前位置如果有叫a的目录，则测试成功</p>
-<p>[  -r  a  ]   当前用户如果对a文件有读权限，则测试成功</p>
-<p>[  -w  a  ]   当前用户如果对a文件有写权限，则测试成功</p>
-<p>[  -x  a  ]   当前用户如果对a文件有执行(目录是进入)权限，则测试成功</p>
-<hr>
-<p>虽然&amp;&amp;和||可以实现逻辑组合，但如果情况比较复杂就可能需要n多个&amp;&amp;或者||，会导致脚本难写，可读性差。此时就可以使用if分支</p>
-<p>if分支</p>
-<p>单分支<br>if 条件测试;then   //如果条件测试成功，那就执行下面的所有指令(指令可以有很多)</p>
-<p>执行指令</p>
-<p>执行指令</p>
-<p>执行指令</p>
-<p>。。。</p>
-<p>fi</p>
-<p>双分支<br>if 条件测试;then     //如果条件测试成功，那就执行下面的指令1</p>
-<p>执行指令1</p>
-<p>else       //如果上述条件测试失败，那就执行下面的指令2</p>
-<p>执行指令2</p>
-<p>fi</p>
-<p>ping  -c 定义ping次数   -i 定义ping间隔时间(秒)   </p>
-<p>-W 如果ping不通多久反馈结果(秒)</p>
-<p>练习：编写脚本测试某ip是否能ping通，但不要显示过程，仅仅显示通了或者</p>
-<p>不通即可</p>
-<p>ping -c 3 -i 0.1 -W 1 192.168.4.7 &amp;&gt; /dev/null     //ping的具体过程扔黑洞不看</p>
-<p>if [ $? -eq 0 ];then  //使用$?可以判断上面的任务是否成功，如果等于0就</p>
-<p>是成功</p>
-<p>        echo “通了！”</p>
-<p>    else</p>
-<p>        echo “不通！”</p>
-<p>fi</p>
-<p>多分支，适合更复杂的情况，结果会有很多的情况<br>if 条件测试;then     //如果条件测试成功，那就执行下面的指令1</p>
-<p>执行指令1</p>
-<p>   elif 条件测试;then    //如果条件测试成功，那就执行下面的指令2</p>
-<p>      执行指令2</p>
-<p>else       //如果上述条件测试失败，那就执行下面的指令3</p>
-<p>执行指令3</p>
-<p>fi</p>
-<p>练习：</p>
-<p>#!/bin/bash</p>
-<p>read -p “请输入期末考试成绩：”  n</p>
-<p>if [ $n -ge 90 ];then</p>
-<p>        echo “优秀！”</p>
-<p>elif [ $n -ge 80 ];then</p>
-<p>        echo “良好！”</p>
-<p>elif [ $n -ge 60 ];then</p>
-<p>        echo “及格！”</p>
-<p>else</p>
-<p>        echo “晚上跪键盘~”</p>
-<p>fi</p>
-<p>循环：</p>
-<p>有时我们需要某个或者某群任务反复在服务器中执行很多次，就可以使用循环命令写成脚本，而无需手工一次次执行</p>
-<p>for循环 可以定义循环次数，有限的循环</p>
-<p>基本语法格式：</p>
-<p>for 变量名 in 值1 值2 值3 。。。。     //此处变量名可以自定义，通常习惯用i，值的多少决定了下面do与done之间的任务执行多少次，每个值之间有空格，这里是有3个值，所以就循环执行指令3次</p>
-<p>do</p>
-<p>指令     </p>
-<p>done</p>
-<hr>
-<p>#!/bin/bash</p>
-<p>for i in a b c     //给了abc三个值，下面的echo任务就循环三次</p>
-<p>do</p>
-<p>   echo “abc”</p>
-<p>done</p>
-<hr>
-<p>#!/bin/bash</p>
-<p>for i in {1..100}  //循环100次时无需填写100个值，用此格式即可，代表1到100，一共100个值   </p>
-<p>do</p>
-<p>   echo “abc”</p>
-<p>   echo “$i”    //执行任务时，还可以调用变量，变量的值是所有值的轮询，由于这里给了1到100的值，那第一次循环$i就是1，第二次循环$i就是2，依次类推到第100次循环$i就是100</p>
-<p>done</p>
-<p>编写脚本，使用ping测试192.168.4.1~192.168.4.10，并显示通了或者不通，并且统计多少台通了，多少台不通</p>
-<p>#!/bin/bash</p>
-<p>x=0    //定义通了的数量,没测试之前是0台</p>
-<p>y=0    //定义没通的数量,没测试之前是0台</p>
-<p>for i in {1..10}</p>
-<p>do</p>
-<p>ping -c 3 -i 0.1 -W 1 192.168.4.$i &amp;&gt; /dev/null</p>
-<p>if [ $? -eq 0 ];then</p>
-<p>        echo “192.168.4.$i 通了！”</p>
-<p>        let x++           //每通了一次就把x+1</p>
-<p>else</p>
-<p>        echo “192.168.4.$i 不通！”</p>
-<p>        let y++            //每不通一次就把y+1</p>
-<p>fi</p>
-<p>done</p>
-<p>echo “$x台通了，$y台不通”</p>
-<p>练习：</p>
-<p>1，列出常见的整数值比较操作，并说明各自作用。</p>
-<p>2，运用条件测试操作，检查当前的用户是否为root。</p>
-<p>3，绘图描述if双分支结构的执行流程。</p>
-<p>4，[ -z $abc ] &amp;&amp; echo “yes” || echo “no” 可以实现什么测试效果。</p>
-<p>参考答案</p>
-<p>1，列出常见的整数值比较操作，并说明各自作用。</p>
-<p>-eq 等于</p>
-<p>-ne 不等于</p>
-<p>-ge 大于等于</p>
-<p>-le 小于等于</p>
-<p>-gt 大于</p>
-<p>-lt 小于</p>
-<p>2，运用条件测试操作，检查当前的用户是否为root。</p>
-<p>[ $USER == “root” ] &amp;&amp; echo “yes” || echo no</p>
-<p>3，绘图描述if双分支结构的执行流程。</p>
-<p>if双分支结构判断一次条件，当条件成立时执行分支1、若不成立则执行分支2，如图-1所示。</p>
-<p>   </p>
-<p>图-1</p>
-<p>4，[ -z $abc ] &amp;&amp; echo “yes” || echo “no” 可以实现什么测试效果。</p>
-<p>如果变量abc是空则显示yes，否则显示no</p>
+    <title>linuxday8防火墙以及firewalld</title>
+    <url>/2021/11/11/linuxday8/</url>
+    <content><![CDATA[<p>一。防火墙<br>1.启动防火墙： systemctl start firewalld<br>查看防火墙状态： systemctl status firewalld<br>停止防火墙： systemctl disable firewalld<br>禁用防火墙： systemctl stop firewalld  ， firewall-cmd –set-default-zone=trusted<br>2.配置firewalld-cmd<br>查看版本： firewall-cmd –version</p>
+<p>查看帮助： firewall-cmd –help</p>
+<p>显示状态： firewall-cmd –state</p>
+<p>查看所有打开的端口： firewall-cmd –zone=public –list-ports</p>
+<p>更新防火墙规则： firewall-cmd –reload</p>
+<p>查看区域信息: firewall-cmd –get-active-zones</p>
+<p>查看指定接口所属区域： firewall-cmd –get-zone-of-interface=eth0</p>
+<p>拒绝所有包：firewall-cmd –panic-on</p>
+<p>取消拒绝状态： firewall-cmd –panic-off</p>
+<p>查看是否拒绝： firewall-cmd –query-panic</p>
+<p>那怎么开启一个端口呢</p>
+<p>添加</p>
+<p>firewall-cmd –zone=public –add-port=80/tcp –permanent （–permanent永久生效，没有此参数重启后失效）</p>
+<p>重新载入</p>
+<p>firewall-cmd –reload</p>
+<p>查看</p>
+<p>firewall-cmd –zone= public –query-port=80/tcp</p>
+<p>删除</p>
+<p>firewall-cmd –zone= public –remove-port=80/tcp –permanent</p>
+<p> 四个基本区域</p>
+<p>  根据所在的网络场所区分,预设保护规则集<br>– public:仅允许访问本机的ssh dhcp ping服务<br>– trusted:允许任何访问<br>– block:阻塞任何来访请求(明确拒绝,有回应客户端)<br>– drop:丢弃任何来访的数据包(没有回应,节省服务端资源)</p>
+<p>基本命令</p>
+<p>  1.查看当前区域</p>
+<pre><code>firewall-cmd --get-default-zone
+</code></pre>
+<p>  2.转换区域</p>
+<pre><code>firewall-cmd --set-default-zone=&#39;区域名&#39;
+</code></pre>
+<p>  3.查看区域规则</p>
+<pre><code>firewall-cmd --zone=&#39;区域名&#39; --list-all
+</code></pre>
+<p>  4.添加源</p>
+<p>   firewall-cmd –zone=’区域名’ –add-source=’ip地址’<br>二。服务器硬件数据的收集<br>1.使用dmidecode查看硬件设备<br>使用dmidecode -t 1 可以查看主板信息(制造商、型号、序列号等等）<br>使用dmidecode -t 4 可以查看CPU信息(CPU数目、型号、大小、频率等等）<br>使用dmidecode -t 17 可以查看内存信息(插槽数目、内存类型、大小、频率等等）<br>使用dmidecode -t  9  可以查看系统相关插槽的格式。<br>2.硬件资源的收集和分析<br>lspci<br>lsusb<br>iostat<br>3.了解磁盘的健康状态<br>用smartctl来显示完整的/dev/sda<br>smartctl -a   /dev/sda<br>三。备份<br>1.那些数据具有备份的意义<br>操作系统本身需要备份的文件<br>【账户与系统配置文件】<br>/etc/passwd , /etc/shadow , /etc/group  , /etc/gshadow以及/home下的用户家目录<br>/etc/整个目录  /home /var/spool/mail   /var/spool/{at|cron}   /boot/  /root/   /var/lib<br>如果安装过其他软件，那么/usr/local  ,/opt也备份<br>网络服务<br>www数据：/var/www 或 /srv/www<br>mariaDB：/var/lib/mysql整个目录<br>2.完整备份<br>（1）累积备份<br>累积备份的原则：系统在进行一次完整备份后，进行一段时间的运行，比较系统与备份文件之间的差异，仅备份有差异的文件<br>而第二次累积备份则是与第一次累积备份的数据比较，也是备份有差异的数据。<br>（2）差异备份<br>原则：也是需要系统进行第一次完整备份后才能进行，每次的备份都是与原始的完整备份比较的结果</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>shell01正则表达式</title>
+    <url>/2021/11/03/shell01/</url>
+    <content><![CDATA[<p>正则表达式，使用若干符号配合某工具实现对文档的过滤、查</p>
+<p>找、修改等功能</p>
+<p>head -5 /etc/passwd &gt; user   //准备素材</p>
+<p>grep bin user   //找有bin的行</p>
+<p>grep ^bin user        //找以bin开头的行</p>
+<p>grep bash user   //找有bash的行</p>
+<p>grep bash$ user   //找以bash结尾的行</p>
+<p>vim user     //编辑文档添加空行</p>
+<p>grep  -n  ^$  user   //找空行，加n选项可以显示行号</p>
+<p>grep “[root]” user   //找root四个字符任意一个</p>
+<p>grep “[rot]” user         //效果同上，找rot任意一个字符</p>
+<p>grep “rot” user   //找连续的rot字符串</p>
+<p>grep “[a-z]” user   //找所有小写字母</p>
+<p>grep “[A-Z]” user   //找所有大写字母</p>
+<p>grep “[a-Z]” user   //找所有字母</p>
+<p>grep “[0-9]” user   //找所有数字</p>
+<p>grep “[^a-Z]” user  //找字母之外的内容，^写在[]里是取反效果</p>
+<p>grep “r..t” user   //找rt之间有2个任意字符的行</p>
+<p>grep “r…t” user  //找rt之间有3个任意字符的行，没有匹配内容，就无输出    </p>
+<p>grep “<em>“ user  //错误用法，</em>号是匹配前一个字符任意次，不能单独使用</p>
+<p>grep “ro*t” user  //找rt，中间的o有没有都行，有几次都行</p>
+<p>grep “.” user   //找任意单个字符，文档中每个字符都可以理解为任意字符</p>
+<p>grep “.<em>“ user  //找任意，包括空行 .与</em>的组合在正则中相当于通配符的效果</p>
+<p>grep “ro{2,4}t” user   //找rt，中间的o可以是2~4个</p>
+<p>grep “ro{2,}t” user         //找rt，中间的o可以是2个以及2个以</p>
+<p>上</p>
+<p>grep “ro{3,7}t” user //找rt，中间的o可以是3~7个，没有匹</p>
+<p>配条件就没有任何显示</p>
+<p>grep “ro{3,}t” user  //找rt，中间的o可以是3个以及3个以</p>
+<p>上</p>
+<p>grep “ro{2}t” user  //找rt，中间的o必须是2个</p>
+<p>grep “ro{1,}t” user    //找1次以及1次以上的o</p>
+<p>egrep “ro{1,}t” user   //效果同上,egrep支持扩展正则，或者grep -E</p>
+<p>egrep “ro+t” user     //效果同上，最精简</p>
+<p>grep “roo{0,1}t” user   //第二个o要出现0~1次</p>
+<p>egrep “roo{0,1}t” user  //效果同上</p>
+<p>egrep “roo?t” user   //效果同上，最精简</p>
+<p>grep “ro{2}t” user    //找o出现2次的</p>
+<p>egrep “ro{2}t” user    //效果同上</p>
+<p>egrep “^root|^bin” user   //找root或者以bin开头的行</p>
+<p>egrep “^(root|bin)” user   //效果同上</p>
+<p>egrep “\bthe\b” abc             //找the，前后不允许出现数</p>
+<p>字，字母，下划线</p>
 ]]></content>
   </entry>
   <entry>
@@ -1238,51 +1282,206 @@
 ]]></content>
   </entry>
   <entry>
-    <title>shell01正则表达式</title>
-    <url>/2021/11/03/shell01/</url>
-    <content><![CDATA[<p>正则表达式，使用若干符号配合某工具实现对文档的过滤、查</p>
-<p>找、修改等功能</p>
-<p>head -5 /etc/passwd &gt; user   //准备素材</p>
-<p>grep bin user   //找有bin的行</p>
-<p>grep ^bin user        //找以bin开头的行</p>
-<p>grep bash user   //找有bash的行</p>
-<p>grep bash$ user   //找以bash结尾的行</p>
-<p>vim user     //编辑文档添加空行</p>
-<p>grep  -n  ^$  user   //找空行，加n选项可以显示行号</p>
-<p>grep “[root]” user   //找root四个字符任意一个</p>
-<p>grep “[rot]” user         //效果同上，找rot任意一个字符</p>
-<p>grep “rot” user   //找连续的rot字符串</p>
-<p>grep “[a-z]” user   //找所有小写字母</p>
-<p>grep “[A-Z]” user   //找所有大写字母</p>
-<p>grep “[a-Z]” user   //找所有字母</p>
-<p>grep “[0-9]” user   //找所有数字</p>
-<p>grep “[^a-Z]” user  //找字母之外的内容，^写在[]里是取反效果</p>
-<p>grep “r..t” user   //找rt之间有2个任意字符的行</p>
-<p>grep “r…t” user  //找rt之间有3个任意字符的行，没有匹配内容，就无输出    </p>
-<p>grep “<em>“ user  //错误用法，</em>号是匹配前一个字符任意次，不能单独使用</p>
-<p>grep “ro*t” user  //找rt，中间的o有没有都行，有几次都行</p>
-<p>grep “.” user   //找任意单个字符，文档中每个字符都可以理解为任意字符</p>
-<p>grep “.<em>“ user  //找任意，包括空行 .与</em>的组合在正则中相当于通配符的效果</p>
-<p>grep “ro{2,4}t” user   //找rt，中间的o可以是2~4个</p>
-<p>grep “ro{2,}t” user         //找rt，中间的o可以是2个以及2个以</p>
-<p>上</p>
-<p>grep “ro{3,7}t” user //找rt，中间的o可以是3~7个，没有匹</p>
-<p>配条件就没有任何显示</p>
-<p>grep “ro{3,}t” user  //找rt，中间的o可以是3个以及3个以</p>
-<p>上</p>
-<p>grep “ro{2}t” user  //找rt，中间的o必须是2个</p>
-<p>grep “ro{1,}t” user    //找1次以及1次以上的o</p>
-<p>egrep “ro{1,}t” user   //效果同上,egrep支持扩展正则，或者grep -E</p>
-<p>egrep “ro+t” user     //效果同上，最精简</p>
-<p>grep “roo{0,1}t” user   //第二个o要出现0~1次</p>
-<p>egrep “roo{0,1}t” user  //效果同上</p>
-<p>egrep “roo?t” user   //效果同上，最精简</p>
-<p>grep “ro{2}t” user    //找o出现2次的</p>
-<p>egrep “ro{2}t” user    //效果同上</p>
-<p>egrep “^root|^bin” user   //找root或者以bin开头的行</p>
-<p>egrep “^(root|bin)” user   //效果同上</p>
-<p>egrep “\bthe\b” abc             //找the，前后不允许出现数</p>
-<p>字，字母，下划线</p>
+    <title>shell03shell中的运算</title>
+    <url>/2021/11/03/shell03/</url>
+    <content><![CDATA[<p>shell中的运算</p>
+<p>2，方法二用$[ ]结构，配合echo输出，同样可以实现加 减 乘 除 取余,另外$(( ))也可以实现相同效果</p>
+<p>echo $[1+1]  或者  echo $((1+1))</p>
+<p>echo $[2-1]</p>
+<p>echo $[2*2]</p>
+<p>echo $[4/2]</p>
+<p>echo $[5%3]</p>
+<p>3，方法三使用let指令，不输出计算结果，专用于创建变量，或者对变量进行自增减</p>
+<p>用法一：创建变量</p>
+<p>let a=1+1   创建变量a</p>
+<p>用法二： 变量的自增减</p>
+<p>常规写法  主流写法</p>
+<p>let a=a+1    let a++    变量的自增减，将变量a的值加1</p>
+<p>let a=a-1  let a–    变量a减1</p>
+<p>let a=a+2        let a+=2   变量a加2</p>
+<p>let a=a-2  let a-=2   变量a减2</p>
+<p>let a=a<em>10  let a</em>=10  变量a乘以10</p>
+<p>4，使用bc 计算器，可以进行小数运算</p>
+<p>echo “1.1+1” | bc    //非交互的方式使用bc工具</p>
+<p>echo “10/3” | bc</p>
+<p>echo “scale=3;10/3” | bc   //scale可以定义小数点</p>
+<p>后面的长度</p>
+<hr>
+<p>条件测试：可以为脚本提供智能判断的效果</p>
+<p>使用方式：test  表达式   或者    [ 表达式 ]</p>
+<p>条件测试种类：</p>
+<p>1， 对字符串进行判断</p>
+<p>可以使用的方式有： == 两边是否相等   != 两边是否不等  </p>
+<p>-z判断变量是否为空  ! -z 判断变量是否非空</p>
+<p>[ a == a ]  判断字符串a是否等于a，如果相等，echo $?的返回值就是0</p>
+<p>[ root == $USER ]   判断当前用户名是否叫root，如果是，返回值就是0</p>
+<p>[ root != $USER ]  判断当前用户名是否不叫root，如果不叫root，返回值就是0</p>
+<p>[ -z $a ] 判断变量a是否为空，如果是，返回值是0</p>
+<p>[ ! -z $a ] 判，返回断变量a是否非空，如果是值是0</p>
+<p>2，逻辑符号，可以连接条件测试或者指令，来决定之后如何操作</p>
+<p>&amp;&amp;  之前任务成功就执行之后任务</p>
+<p>||   之前任务失败就执行之后任务</p>
+<p>[ root == $USER ] || exit   如果当前用户不是管理员，则退出</p>
+<p>ls || ls   只执行第1个ls  </p>
+<p>ls &amp;&amp; ls   连个ls都执行</p>
+<p>编写脚本可以创建用户和配置密码，如果用户没有输入用户名直接敲回车则结束脚本程序</p>
+<p>#!/bin/bash</p>
+<p>read -p “请输入用户名：”  n</p>
+<p>[ -z $n ] &amp;&amp; exit   //如果没有输入用户名就退出脚本，写法一</p>
+<p>[ ! -z $n ] || exit   //如果没有输入用户名就退出脚本，写法二</p>
+<p>useradd $n</p>
+<p>stty -echo</p>
+<p>read -p “请输入密码：” p</p>
+<p>stty echo</p>
+<p>echo $p | passwd –stdin $n</p>
+<p>逻辑符号的组合应用</p>
+<p>当2个逻辑符号连用时，第二个逻辑符号后面的任务是否执行不能只看前面一个任务，要看前面所有任务的组合，比如下列情况：</p>
+<p>touch a b c //创建3个测试文件</p>
+<p>ls a &amp;&amp; ls b &amp;&amp; ls c  //结果是都显示，第一个ls执行成功，然后导致第二个ls也执行，并且可以成功，这样的话第一个和第二个任务都成功了，那么这个组合就算成功，然后会导致第二个逻辑符号&amp;&amp;后面的ls c 也执行并且成功。</p>
+<p>ls a &amp;&amp; ls b || ls c  //结果是显示a和b，第一个ls执行成功，然后导致第二个ls也执行，并且可以成功，这样的话第一个和第二个任务都成功了，那么这个组合就算成功，但是由于第二个逻辑符号是||，就不会执行最后的ls c任务了</p>
+<p>ls a || ls b &amp;&amp; ls c   //结果是显示a和c，第一个ls执行成功，第二个ls就不会执行了，这两个任务中间是|| ，那么只要有一个成功就算这个组合执行成功，所以就会导致第二个逻辑符号&amp;&amp;后面的ls c执行</p>
+<p>ls a || ls b || ls c   //结果是显示a，第一个ls执行成功，第二个ls就不会执行了，这两个任务中间是|| ，那么只要有一个成功就算这个组合执行成功，由于这个组合算成功，所以就不会执行第二个||后面的任务了</p>
+<p>练习</p>
+<p>安装ftp服务时，如果是非管理员执行该脚本则给出”非管理员无法执行</p>
+<p>该脚本”的提示信息并退出</p>
+<p>#!/bin/bash</p>
+<p>#部署ftp服务</p>
+<p>[ $USER != root ] &amp;&amp; echo “非管理员无法执行该脚本”  &amp;&amp; exit</p>
+<p>yum -y install vsftpd  &amp;&gt; /dev/null</p>
+<p>systemctl restart vsftpd</p>
+<p>systemctl enable vsftpd</p>
+<p>3，数字的条件测试</p>
+<p>-eq等于  -ne不等于  -gt大于  -ge大于等于  -lt小于  -le小于等于 </p>
+<p>[ 1 -eq 1 ]  判断1是否等于1，判断成功的话返回值是0，判断失败返回</p>
+<p>值是非0</p>
+<p>a=10    </p>
+<p>b=20</p>
+<p>[ $a -eq $b ]    //判断两个变量是否相等</p>
+<p>编写脚本，每隔2分钟检查登录服务器的账户数量，如果超过3</p>
+<p>人，则发报警邮件给管理员，管理员可以通过mail命令查看邮件</p>
+<p>#!/bin/bash</p>
+<p>n=$(who | wc -l)    //统计登录服务器的账户数量，存在变量n里</p>
+<p>[ $n -gt 3 ] &amp;&amp; echo “有人入侵服务器~，牛老师来了~~~” | mail -s test root</p>
+<p>脚本写完后，执行下列指令：</p>
+<p>rm -rf /var/spool/mail/root   //清空邮箱(非必须)</p>
+<p>[root@svr7 opt]#chmod +x test01.sh   //给脚本添加执行权限</p>
+<p>[root@svr7 opt]# crontab -e   //编写计划任务</p>
+<p>*/2 * * * * /opt/test01.sh     //每2分钟执行脚本</p>
+<p>然后故意多登陆几个账户，每2分钟就可以收到新邮件</p>
+<p>4，文件的条件测试</p>
+<p>-e判断是否存在不关心文件类型   -f判断是否存在且是普通文件  </p>
+<p>-d判断是否存在且是目录  </p>
+<p>-r判断当前用户对文件是否能读 ，对root无效</p>
+<p>-w判断当前用户对文件是否能写 ，对root无效</p>
+<p>-x 判断当前用户对文件是否能执行(文件)，或者进入(目录)</p>
+<p>[  -e  a  ]   当前位置如果有a文件，不关心类型，则测试成功</p>
+<p>[  -f  a  ]   当前位置如果有叫a的普通文件，则测试成功</p>
+<p>[  -d  a  ]   当前位置如果有叫a的目录，则测试成功</p>
+<p>[  -r  a  ]   当前用户如果对a文件有读权限，则测试成功</p>
+<p>[  -w  a  ]   当前用户如果对a文件有写权限，则测试成功</p>
+<p>[  -x  a  ]   当前用户如果对a文件有执行(目录是进入)权限，则测试成功</p>
+<hr>
+<p>虽然&amp;&amp;和||可以实现逻辑组合，但如果情况比较复杂就可能需要n多个&amp;&amp;或者||，会导致脚本难写，可读性差。此时就可以使用if分支</p>
+<p>if分支</p>
+<p>单分支<br>if 条件测试;then   //如果条件测试成功，那就执行下面的所有指令(指令可以有很多)</p>
+<p>执行指令</p>
+<p>执行指令</p>
+<p>执行指令</p>
+<p>。。。</p>
+<p>fi</p>
+<p>双分支<br>if 条件测试;then     //如果条件测试成功，那就执行下面的指令1</p>
+<p>执行指令1</p>
+<p>else       //如果上述条件测试失败，那就执行下面的指令2</p>
+<p>执行指令2</p>
+<p>fi</p>
+<p>ping  -c 定义ping次数   -i 定义ping间隔时间(秒)   </p>
+<p>-W 如果ping不通多久反馈结果(秒)</p>
+<p>练习：编写脚本测试某ip是否能ping通，但不要显示过程，仅仅显示通了或者</p>
+<p>不通即可</p>
+<p>ping -c 3 -i 0.1 -W 1 192.168.4.7 &amp;&gt; /dev/null     //ping的具体过程扔黑洞不看</p>
+<p>if [ $? -eq 0 ];then  //使用$?可以判断上面的任务是否成功，如果等于0就</p>
+<p>是成功</p>
+<p>        echo “通了！”</p>
+<p>    else</p>
+<p>        echo “不通！”</p>
+<p>fi</p>
+<p>多分支，适合更复杂的情况，结果会有很多的情况<br>if 条件测试;then     //如果条件测试成功，那就执行下面的指令1</p>
+<p>执行指令1</p>
+<p>   elif 条件测试;then    //如果条件测试成功，那就执行下面的指令2</p>
+<p>      执行指令2</p>
+<p>else       //如果上述条件测试失败，那就执行下面的指令3</p>
+<p>执行指令3</p>
+<p>fi</p>
+<p>练习：</p>
+<p>#!/bin/bash</p>
+<p>read -p “请输入期末考试成绩：”  n</p>
+<p>if [ $n -ge 90 ];then</p>
+<p>        echo “优秀！”</p>
+<p>elif [ $n -ge 80 ];then</p>
+<p>        echo “良好！”</p>
+<p>elif [ $n -ge 60 ];then</p>
+<p>        echo “及格！”</p>
+<p>else</p>
+<p>        echo “晚上跪键盘~”</p>
+<p>fi</p>
+<p>循环：</p>
+<p>有时我们需要某个或者某群任务反复在服务器中执行很多次，就可以使用循环命令写成脚本，而无需手工一次次执行</p>
+<p>for循环 可以定义循环次数，有限的循环</p>
+<p>基本语法格式：</p>
+<p>for 变量名 in 值1 值2 值3 。。。。     //此处变量名可以自定义，通常习惯用i，值的多少决定了下面do与done之间的任务执行多少次，每个值之间有空格，这里是有3个值，所以就循环执行指令3次</p>
+<p>do</p>
+<p>指令     </p>
+<p>done</p>
+<hr>
+<p>#!/bin/bash</p>
+<p>for i in a b c     //给了abc三个值，下面的echo任务就循环三次</p>
+<p>do</p>
+<p>   echo “abc”</p>
+<p>done</p>
+<hr>
+<p>#!/bin/bash</p>
+<p>for i in {1..100}  //循环100次时无需填写100个值，用此格式即可，代表1到100，一共100个值   </p>
+<p>do</p>
+<p>   echo “abc”</p>
+<p>   echo “$i”    //执行任务时，还可以调用变量，变量的值是所有值的轮询，由于这里给了1到100的值，那第一次循环$i就是1，第二次循环$i就是2，依次类推到第100次循环$i就是100</p>
+<p>done</p>
+<p>编写脚本，使用ping测试192.168.4.1~192.168.4.10，并显示通了或者不通，并且统计多少台通了，多少台不通</p>
+<p>#!/bin/bash</p>
+<p>x=0    //定义通了的数量,没测试之前是0台</p>
+<p>y=0    //定义没通的数量,没测试之前是0台</p>
+<p>for i in {1..10}</p>
+<p>do</p>
+<p>ping -c 3 -i 0.1 -W 1 192.168.4.$i &amp;&gt; /dev/null</p>
+<p>if [ $? -eq 0 ];then</p>
+<p>        echo “192.168.4.$i 通了！”</p>
+<p>        let x++           //每通了一次就把x+1</p>
+<p>else</p>
+<p>        echo “192.168.4.$i 不通！”</p>
+<p>        let y++            //每不通一次就把y+1</p>
+<p>fi</p>
+<p>done</p>
+<p>echo “$x台通了，$y台不通”</p>
+<p>练习：</p>
+<p>1，列出常见的整数值比较操作，并说明各自作用。</p>
+<p>2，运用条件测试操作，检查当前的用户是否为root。</p>
+<p>3，绘图描述if双分支结构的执行流程。</p>
+<p>4，[ -z $abc ] &amp;&amp; echo “yes” || echo “no” 可以实现什么测试效果。</p>
+<p>参考答案</p>
+<p>1，列出常见的整数值比较操作，并说明各自作用。</p>
+<p>-eq 等于</p>
+<p>-ne 不等于</p>
+<p>-ge 大于等于</p>
+<p>-le 小于等于</p>
+<p>-gt 大于</p>
+<p>-lt 小于</p>
+<p>2，运用条件测试操作，检查当前的用户是否为root。</p>
+<p>[ $USER == “root” ] &amp;&amp; echo “yes” || echo no</p>
+<p>3，绘图描述if双分支结构的执行流程。</p>
+<p>if双分支结构判断一次条件，当条件成立时执行分支1、若不成立则执行分支2，如图-1所示。</p>
+<p>   </p>
+<p>图-1</p>
+<p>4，[ -z $abc ] &amp;&amp; echo “yes” || echo “no” 可以实现什么测试效果。</p>
+<p>如果变量abc是空则显示yes，否则显示no</p>
 ]]></content>
   </entry>
   <entry>
@@ -1524,217 +1723,11 @@
 ]]></content>
   </entry>
   <entry>
-    <title>linuxday11</title>
-    <url>/2021/11/13/linuxday11/</url>
-    <content><![CDATA[<p>权限</p>
-<p>一、环境准备</p>
-<p> 还原快照，开启CentOS7虚拟机，利用root登录</p>
-<p>二、挂载光驱设备</p>
-<p>1.图形将光盘文件放入，虚拟机光驱设备</p>
-<p>2.mount进行挂载</p>
-<p>]# mkdir  -p   /os/centos</p>
-<p>]# mount    /dev/cdrom       /os/centos</p>
-<p>]# ls     /os/centos</p>
-<p>3.构建Yum仓库</p>
-<p>]# rm  -rf   /etc/yum.repos.d/*</p>
-<p>]# vim   /etc/yum.repos.d/dvd.repo</p>
-<p>[xixi]</p>
-<p>name=haha</p>
-<p>baseurl=file:///os/centos</p>
-<p>enabled=1</p>
-<p>gpgcheck=0</p>
-<p>]# yum   -y   install   gcc     #测试安装软件</p>
-<p>三、命令的补充</p>
-<p>制作连接(链接)文件（快捷方式）<br>软连接：ln  -s   /路径/源数据    /路径/快捷方式名</p>
-<p>]# ls  /etc/sysconfig/network-scripts/</p>
-<p>]# ln -s /etc/sysconfig/network-scripts/     /ns</p>
-<p>]# ls /</p>
-<p>]# ls -l   /ns      #查看快捷方式的详细信息</p>
-<p>]# ls   /ns</p>
-<p>软连接优势：1.可以对目录制作快捷方式   2.可以跨分区</p>
-<p>软连接缺点：源数据消失，快捷方式不可用</p>
-<p>硬链接：ln    /路径/源数据     /路径/快捷方式名</p>
-<p>]# rm -rf   /opt/*</p>
-<p>]# echo 123  &gt;  /opt/A</p>
-<p>]# ln -s  /opt/A    /opt/B   #软连接</p>
-<p>]# ls /opt/</p>
-<p>]# ln   /opt/A     /opt/C    #硬链接</p>
-<p>]# ls   /opt/</p>
-<p>]# cat   /opt/B      #查看软连接    </p>
-<p>]# cat   /opt/C      #查看硬链接    </p>
-<p>]# rm -rf  /opt/A</p>
-<p>]# ls   /opt/</p>
-<p>]# cat   /opt/B      #软连接不可用</p>
-<p>cat: /opt/B: 没有那个文件或目录</p>
-<p>]# cat   /opt/C      #硬链接可用</p>
-<p>硬链接优点：源数据消失，快捷方式仍然可用</p>
-<p>硬链接缺点：1.不可以对目录制作快捷方式   2.不可以跨分区</p>
-<p>zip归档压缩(跨平台压缩格式)<br>归档+压缩操作<br>zip  [-r]  备份文件.zip   被归档的文档…<br>]# zip  -r   /root/test.zip      /home/    /boot/</p>
-<p>]# ls   /root/</p>
-<p>释放归档+解压操作<br>unzip  备份文件.zip  [-d 目标文件夹] <br>]# mkdir   /bh</p>
-<p>]# unzip   /root/test.zip        -d     /bh</p>
-<p>]# ls   /bh</p>
-<p>四、用户相关配置文件</p>
-<p>配置文件来源<br>新建用户时，根据 /etc/skel 模板目录复制<br>]# touch   /etc/skel/hahaxixi.txt</p>
-<p>]# touch   /etc/skel/maohehaozi.txt</p>
-<p>]# touch   /etc/skel/shukehebeita.txt</p>
-<p>]# ls  -A   /etc/skel/</p>
-<p>]# useradd   tom</p>
-<p>]# ls  -A   /home/tom/</p>
-<p>主要的初始配置文件<br>~/.bash_profile：每次登录系统时执行<br>~/.bashrc：每次开启新的命令行终端时执行</p>
-<p>全局配置文件：/etc/bashrc、/etc/profile</p>
-<p>]# vim    /root/.bashrc    #定义永久的别名</p>
-<p>alias    hn=’hostname’</p>
-<p>新开一个终端进行验证</p>
-<p>]# hn</p>
-<p>localhost.localdomain</p>
-<p>]# vim    /etc/bashrc      #影响全体用户</p>
-<p>alias    xixi=’echo    xixihahahehe’</p>
-<p>新开一个终端进行验证            </p>
-<p>[root@localhost ~]# xixi</p>
-<p>[root@localhost ~]# su - tom</p>
-<p>[tom@localhost ~]$ xixi</p>
-<p>[tom@localhost ~]$ exit</p>
-<p>[root@localhost ~]#</p>
-<p>五、基本权限和归属</p>
-<p>基本权限<br>访问权限<br>读取：允许查看内容-read   r<br>写入：允许修改内容-write   w<br>可执行：允许运行和切换-excute  x<br>针对文本文件<br>        r：查看内容cat   less  head  tail  grep</p>
-<p>        w：修改内容vim   &gt;&gt;   &gt;</p>
-<p>        x：Shell脚本  Python脚本</p>
-<p>归属关系<br>所有者：拥有此文件/目录的用户-user<br>所属组：拥有此文件/目录的组-group<br>其他用户：除所有者、所属组以外的用户-other</p>
-<p>zhangsan (所有者)   zhangsan(所属组)        1.txt</p>
-<p>执行 ls  -l .. .. 命令查看<br>权限位   硬连接数   属主   属组   大小   最后修改时间   文件/目录名称</p>
-<p>    以-开头表示文本文件</p>
-<p>    以d开头表示目录</p>
-<p>    以l开头表示快捷方式</p>
-<p>]# ls  -l   /etc/passwd</p>
-<p>]# ls  -l   /etc/shadow</p>
-<p>]# ls  -ld  /etc</p>
-<p>]# ls  -ld   /root</p>
-<p>]# ls  -ld   /tmp    #默认具备特殊权限的目录</p>
-<p>六、权限的设置</p>
-<p>chmod命令<br>格式：chmod  [ugoa] [+-=][rwx]  文件…<br>常用命令选项<br>-R：递归修改权限</p>
-<p>]# mkdir    /nsd01</p>
-<p>]# chmod   u-w  /nsd01   #单独修改所有者权限</p>
-<p>]# ls   -ld   /nsd01</p>
-<p>]# chmod    g+w    /nsd01  #单独修改所属组权限</p>
-<p>]# ls   -ld   /nsd01</p>
-<p>]# chmod   o=—   /nsd01   #单独修改其他人权限</p>
-<p>]# ls   -ld   /nsd01</p>
-<p>]# chmod   u=rwx,g-w,o=rx    /nsd01</p>
-<p>]# ls   -ld   /nsd01</p>
-<p>]# chmod   a=rwx  /nsd01   #所有人赋予rwx权限</p>
-<p>]# ls   -ld   /nsd01</p>
-<p>]# mkdir -p   /opt/aa/bb/cc</p>
-<p>]# ls   -ld   /opt/aa</p>
-<p>]# ls   -ld   /opt/aa/bb/</p>
-<p>]# ls   -ld   /opt/aa/bb/cc</p>
-<p>]# chmod -R  o=—   /opt/aa    #递归设置权限</p>
-<p>]# ls   -ld   /opt/aa</p>
-<p>]# ls   -ld   /opt/aa/bb/</p>
-<p>]# ls   -ld   /opt/aa/bb/cc/</p>
-<p>Linux判断用户具备的权限:  <br>首先判断用户对于该数据，所处的角色(顺序：所有者&gt;所属组&gt;其他人  原则是匹配及停止)<br>查看相应角色的权限位</p>
-<p>对于目录权限的影响：        </p>
-<p>     r：可以查看目录下内容</p>
-<p>     w：可以新建、删除、改名此目录下内容</p>
-<p>     x：可以cd切换到此目录(一个用户能否切换到目录只和x执行权限有关)</p>
-<p>案例1：设置基本权限</p>
-<p>1）以root身份新建/nsddir1/目录，在此目录下新建readme.txt文件</p>
-<p>[root@localhost ~]# mkdir /nsddir1</p>
-<p>[root@localhost ~]# echo 123456 &gt; /nsddir1/readme.txt</p>
-<p>[root@localhost ~]# cat /nsddir1/readme.txt</p>
-<p>2）使用户zhangsan能够修改readme.txt文件内容</p>
-<p>[root@localhost ~]# chmod  o+w  /nsddir1/readme.txt</p>
-<p>3）使用户zhangsan不可以修改readme.txt文件内容</p>
-<p>[root@localhost ~]# chmod  o-w  /nsddir1/readme.txt</p>
-<p>4）使用户zhangsan能够在此目录下创建/删除子目录</p>
-<p>[root@localhost ~]# chmod  o+w   /nsddir1/</p>
-<p>[root@localhost ~]# ls  -ld  /nsddir1/</p>
-<p>5）调整此目录的权限，使任何用户都不能进入，然后测试用户zhangsan是否还能修改readme.txt（测试结果不能，对父目录没有权限）</p>
-<p>[root@localhost ~]# chmod  a-x   /nsddir1/</p>
-<p>6）为此目录及其下所有文档设置权限 rwxr-x—</p>
-<p>[root@localhost ~]# chmod -R u=rwx,g=rx,o=—  /nsddir1/</p>
-<p>七、归属的设置</p>
-<p>chown命令<br>chown  属主  文件…<br>chown  属主:属组  文件…<br>chown  :属组  文件…<br>常用命令选项<br>-R：递归修改归属关系<br>]# mkdir   /nsd04</p>
-<p>]# useradd   kenji         #创建用户kenji</p>
-<p>]# groupadd   tmooc   #创建组tmooc</p>
-<p>]# ls  -ld   /nsd04</p>
-<p>]# chown  kenji:tmooc   /nsd04</p>
-<p>]# ls  -ld   /nsd04</p>
-<p>]# chown   zhangsan   /nsd04   #设置所有者</p>
-<p>]# ls  -ld    /nsd04</p>
-<p>]# chown   :root   /nsd04    #设置所属组</p>
-<p>]# ls  -ld    /nsd04</p>
-<p>案例：</p>
-<p>实现lisi用户可以读取/etc/shadow文件内容，您有几种方法？</p>
-<p>   1.利用其他用户</p>
-<p>    ]# chmod  o+r   /etc/shadow</p>
-<p>   2.利用所属组</p>
-<p>]# chown   :lisi    /etc/shadow</p>
-<p>]# chmod  g+r   /etc/shadow</p>
-<p>   3.利用所有者</p>
-<p>]# chown   lisi    /etc/shadow</p>
-<p>]# chmod  u+r   /etc/shadow</p>
-<p>八、权限数字表示</p>
-<p>权限位的8进制数表示<br>r、w、x分别对应4、2、1，后3组分别求和</p>
-<p>]# mkdir   /nsd06</p>
-<p>]# ls  -ld   /nsd06</p>
-<p>]# chmod   700   /nsd06</p>
-<p>]# ls -ld /nsd06</p>
-<p>]# chmod   750   /nsd06</p>
-<p>]# ls -ld /nsd06</p>
-<p>]# chmod   007   /nsd06</p>
-<p>]# ls -ld /nsd06</p>
-<p>新建文件/目录的默认权限<br>一般文件默认均不给 x 执行权限<br>其他取决于 umask（权限掩码） 设置<br>文件默认权限为644<br>目录默认权限为755</p>
-<p>九、附加权限（特殊权限）</p>
-<p>粘滞位，Sticky Bit 权限<br>占用其他人（Other）的 x 位<br>显示为 t 或 T，取决于其他人是否有 x 权限<br>适用于目录，用来限制用户滥用写入权<br>在设置了粘滞位的文件夹下，即使用户有写入权限，也不能删除或改名其他用户文档</p>
-<p>]# mkdir    /home/public        </p>
-<p>]# chmod   777   /home/public</p>
-<p>]# ls   -ld   /home/public</p>
-<p>]# chmod  o+t  /home/public    #赋予特殊权限</p>
-<p>]# ls  -ld  /home/public</p>
-<p>SGiD权限<br>占用属组（Group）的 x 位<br>显示为 s 或 S，取决于属组是否有 x 权限<br>对目录有效<br>在一个具有SGID权限的目录下，新建的文档会自动继承此目录的属组身份</p>
-<p>]# mkdir    /nsd14</p>
-<p>]# chown   :tmooc    /nsd14</p>
-<p>]# ls   -ld   /nsd14</p>
-<p>]# mkdir    /nsd14/abc01</p>
-<p>]# ls   -ld    /nsd14/abc01    #查看所属组</p>
-<p>]# chmod   g+s   /nsd14     #赋予特殊权限SGID</p>
-<p>]# ls   -ld    /nsd14</p>
-<p>]# mkdir   /nsd14/abc02     </p>
-<p>]# ls   -ld    /nsd14/abc02      #查看所属组</p>
-]]></content>
-  </entry>
-  <entry>
     <title>shell05 awk和sed</title>
     <url>/2021/11/13/shell05/</url>
-    <content><![CDATA[<p>一。利用循环的嵌套实现以下三行*的输出</p>
-<hr>
-<hr>
-<hr>
-<p>#!/bin/bash</p>
-<p>for i in 1 2 3               //一共输出三行</p>
-<p>do</p>
-<p>    for j in {1..5}   //每行的*要输出5次</p>
-<p>    do</p>
-<p>        echo -n “* “   //执行的输出任务，n选项可以实现不换行输出</p>
-<p>    done</p>
-<p>    echo   //直接使用echo可以得到换行效果</p>
-<p>done<br>使用循环嵌套，得到50个8位长度的随机字符存在pass文件中</p>
-<p>字串截取的用法：</p>
-<p>${变量名:起始位置:长度}</p>
-<p>#!/bin/bash</p>
-<p>x=abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ01                23456789</p>
-<p>for j in {1..50}</p>
-<p>do</p>
-<p>for i in {1..8}</p>
-<p>do</p>
-<p>n=$[RANDOM%62]</p>
-<p>b=${x:n:1}</p>
-<p>pass=$pass$b</p>
-<p>done</p>
-<p>echo $pass &gt;&gt; pass</p>
-<p>pass=</p>
-<p>done<br>2，字符串的替换</p>
+    <content><![CDATA[<p>1，grep  搜索</p>
+<p>sed   增删改查</p>
+<p>awk   精确搜索<br>2，字符串的替换</p>
 <p>${变量名称/被替换内容/新内容}</p>
 <p>a=1234              //定义素材</p>
 <p>echo ${a/3/6}    //把3换成6</p>
@@ -1757,12 +1750,14 @@
 <p>echo ${a%def}   //从右往左删除def</p>
 <p>echo ${a%d*}    //效果同上，更精简</p>
 <p>a=abcdefabcdef</p>
-<p>echo ${a%%d*}   //从右往左删除到最后一个d<br>sed  流式编辑器，可以对文档进行非交互式增删改查，逐行处理</p>
+<p>echo ${a%%d*}   //从右往左删除到最后一个d</p>
+<p>sed  流式编辑器，可以对文档进行非交互式增删改查，逐行处理</p>
 <p>使用方式：</p>
 <p>1，前置指令 | sed 选项 定址符 指令</p>
 <p>2，sed 选项 定址符 指令  被处理的文档</p>
 <p>选项： -n 屏蔽默认输出 -r 支持扩展正则  -i 写入文件</p>
-<p>指令：p输出  d删除  s替换</p>
+<p>指令：p输出  d删除  s替换<br>sed    s 替换   （）粘贴   p  查看 d 删除  n 屏蔽  </p>
+<p>还有 a行下追加   i行上添加   c替换整行</p>
 <p>sed -n ‘1p’ user         //输出第1行</p>
 <p>sed -n ‘2p’ user    //输出第2行</p>
 <p>sed -n ‘3p’ user    //输出第3行</p>
