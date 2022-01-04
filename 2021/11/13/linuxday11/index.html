@@ -1,0 +1,344 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>linuxday11 - Hexo</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="权限
+一、环境准备
+ 还原快照，开启CentOS7虚拟机，利用root登录
+二、挂载光驱设备
+1.图形将光盘文件放入，虚拟机光驱设备
+2.mount进行挂载
+]# mkdir  -p   /os/c,"> 
+    <meta name="author" content="John Doe"> 
+    <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">Hexo</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://example.com"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">linuxday11</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">linuxday11</h1>
+        <div class="stuff">
+            <span>十一月 13, 2021</span>
+            
+
+        </div>
+        <div class="content markdown">
+            <p>权限</p>
+<p>一、环境准备</p>
+<p> 还原快照，开启CentOS7虚拟机，利用root登录</p>
+<p>二、挂载光驱设备</p>
+<p>1.图形将光盘文件放入，虚拟机光驱设备</p>
+<p>2.mount进行挂载</p>
+<p>]# mkdir  -p   /os/centos</p>
+<p>]# mount    /dev/cdrom       /os/centos</p>
+<p>]# ls     /os/centos</p>
+<p>3.构建Yum仓库</p>
+<p>]# rm  -rf   /etc/yum.repos.d/*</p>
+<p>]# vim   /etc/yum.repos.d/dvd.repo</p>
+<p>[xixi]</p>
+<p>name=haha</p>
+<p>baseurl=file:///os/centos</p>
+<p>enabled=1</p>
+<p>gpgcheck=0</p>
+<p>]# yum   -y   install   gcc     #测试安装软件</p>
+<p>三、命令的补充</p>
+<p>制作连接(链接)文件（快捷方式）<br>软连接：ln  -s   /路径/源数据    /路径/快捷方式名</p>
+<p>]# ls  /etc/sysconfig/network-scripts/</p>
+<p>]# ln -s /etc/sysconfig/network-scripts/     /ns</p>
+<p>]# ls /</p>
+<p>]# ls -l   /ns      #查看快捷方式的详细信息</p>
+<p>]# ls   /ns</p>
+<p>软连接优势：1.可以对目录制作快捷方式   2.可以跨分区</p>
+<p>软连接缺点：源数据消失，快捷方式不可用</p>
+<p>硬链接：ln    /路径/源数据     /路径/快捷方式名</p>
+<p>]# rm -rf   /opt/*</p>
+<p>]# echo 123  &gt;  /opt/A</p>
+<p>]# ln -s  /opt/A    /opt/B   #软连接</p>
+<p>]# ls /opt/</p>
+<p>]# ln   /opt/A     /opt/C    #硬链接</p>
+<p>]# ls   /opt/</p>
+<p>]# cat   /opt/B      #查看软连接    </p>
+<p>]# cat   /opt/C      #查看硬链接    </p>
+<p>]# rm -rf  /opt/A</p>
+<p>]# ls   /opt/</p>
+<p>]# cat   /opt/B      #软连接不可用</p>
+<p>cat: /opt/B: 没有那个文件或目录</p>
+<p>]# cat   /opt/C      #硬链接可用</p>
+<p>硬链接优点：源数据消失，快捷方式仍然可用</p>
+<p>硬链接缺点：1.不可以对目录制作快捷方式   2.不可以跨分区</p>
+<p>zip归档压缩(跨平台压缩格式)<br>归档+压缩操作<br>zip  [-r]  备份文件.zip   被归档的文档…<br>]# zip  -r   /root/test.zip      /home/    /boot/</p>
+<p>]# ls   /root/</p>
+<p>释放归档+解压操作<br>unzip  备份文件.zip  [-d 目标文件夹] <br>]# mkdir   /bh</p>
+<p>]# unzip   /root/test.zip        -d     /bh</p>
+<p>]# ls   /bh</p>
+<p>四、用户相关配置文件</p>
+<p>配置文件来源<br>新建用户时，根据 /etc/skel 模板目录复制<br>]# touch   /etc/skel/hahaxixi.txt</p>
+<p>]# touch   /etc/skel/maohehaozi.txt</p>
+<p>]# touch   /etc/skel/shukehebeita.txt</p>
+<p>]# ls  -A   /etc/skel/</p>
+<p>]# useradd   tom</p>
+<p>]# ls  -A   /home/tom/</p>
+<p>主要的初始配置文件<br>~/.bash_profile：每次登录系统时执行<br>~/.bashrc：每次开启新的命令行终端时执行</p>
+<p>全局配置文件：/etc/bashrc、/etc/profile</p>
+<p>]# vim    /root/.bashrc    #定义永久的别名</p>
+<p>alias    hn=’hostname’</p>
+<p>新开一个终端进行验证</p>
+<p>]# hn</p>
+<p>localhost.localdomain</p>
+<p>]# vim    /etc/bashrc      #影响全体用户</p>
+<p>alias    xixi=’echo    xixihahahehe’</p>
+<p>新开一个终端进行验证            </p>
+<p>[root@localhost ~]# xixi</p>
+<p>[root@localhost ~]# su - tom</p>
+<p>[tom@localhost ~]$ xixi</p>
+<p>[tom@localhost ~]$ exit</p>
+<p>[root@localhost ~]#</p>
+<p>五、基本权限和归属</p>
+<p>基本权限<br>访问权限<br>读取：允许查看内容-read   r<br>写入：允许修改内容-write   w<br>可执行：允许运行和切换-excute  x<br>针对文本文件<br>        r：查看内容cat   less  head  tail  grep</p>
+<p>        w：修改内容vim   &gt;&gt;   &gt;</p>
+<p>        x：Shell脚本  Python脚本</p>
+<p>归属关系<br>所有者：拥有此文件/目录的用户-user<br>所属组：拥有此文件/目录的组-group<br>其他用户：除所有者、所属组以外的用户-other</p>
+<p>zhangsan (所有者)   zhangsan(所属组)        1.txt</p>
+<p>执行 ls  -l .. .. 命令查看<br>权限位   硬连接数   属主   属组   大小   最后修改时间   文件/目录名称</p>
+<p>    以-开头表示文本文件</p>
+<p>    以d开头表示目录</p>
+<p>    以l开头表示快捷方式</p>
+<p>]# ls  -l   /etc/passwd</p>
+<p>]# ls  -l   /etc/shadow</p>
+<p>]# ls  -ld  /etc</p>
+<p>]# ls  -ld   /root</p>
+<p>]# ls  -ld   /tmp    #默认具备特殊权限的目录</p>
+<p>六、权限的设置</p>
+<p>chmod命令<br>格式：chmod  [ugoa] [+-=][rwx]  文件…<br>常用命令选项<br>-R：递归修改权限</p>
+<p>]# mkdir    /nsd01</p>
+<p>]# chmod   u-w  /nsd01   #单独修改所有者权限</p>
+<p>]# ls   -ld   /nsd01</p>
+<p>]# chmod    g+w    /nsd01  #单独修改所属组权限</p>
+<p>]# ls   -ld   /nsd01</p>
+<p>]# chmod   o=—   /nsd01   #单独修改其他人权限</p>
+<p>]# ls   -ld   /nsd01</p>
+<p>]# chmod   u=rwx,g-w,o=rx    /nsd01</p>
+<p>]# ls   -ld   /nsd01</p>
+<p>]# chmod   a=rwx  /nsd01   #所有人赋予rwx权限</p>
+<p>]# ls   -ld   /nsd01</p>
+<p>]# mkdir -p   /opt/aa/bb/cc</p>
+<p>]# ls   -ld   /opt/aa</p>
+<p>]# ls   -ld   /opt/aa/bb/</p>
+<p>]# ls   -ld   /opt/aa/bb/cc</p>
+<p>]# chmod -R  o=—   /opt/aa    #递归设置权限</p>
+<p>]# ls   -ld   /opt/aa</p>
+<p>]# ls   -ld   /opt/aa/bb/</p>
+<p>]# ls   -ld   /opt/aa/bb/cc/</p>
+<p>Linux判断用户具备的权限:  <br>首先判断用户对于该数据，所处的角色(顺序：所有者&gt;所属组&gt;其他人  原则是匹配及停止)<br>查看相应角色的权限位</p>
+<p>对于目录权限的影响：        </p>
+<p>     r：可以查看目录下内容</p>
+<p>     w：可以新建、删除、改名此目录下内容</p>
+<p>     x：可以cd切换到此目录(一个用户能否切换到目录只和x执行权限有关)</p>
+<p>案例1：设置基本权限</p>
+<p>1）以root身份新建/nsddir1/目录，在此目录下新建readme.txt文件</p>
+<p>[root@localhost ~]# mkdir /nsddir1</p>
+<p>[root@localhost ~]# echo 123456 &gt; /nsddir1/readme.txt</p>
+<p>[root@localhost ~]# cat /nsddir1/readme.txt</p>
+<p>2）使用户zhangsan能够修改readme.txt文件内容</p>
+<p>[root@localhost ~]# chmod  o+w  /nsddir1/readme.txt</p>
+<p>3）使用户zhangsan不可以修改readme.txt文件内容</p>
+<p>[root@localhost ~]# chmod  o-w  /nsddir1/readme.txt</p>
+<p>4）使用户zhangsan能够在此目录下创建/删除子目录</p>
+<p>[root@localhost ~]# chmod  o+w   /nsddir1/</p>
+<p>[root@localhost ~]# ls  -ld  /nsddir1/</p>
+<p>5）调整此目录的权限，使任何用户都不能进入，然后测试用户zhangsan是否还能修改readme.txt（测试结果不能，对父目录没有权限）</p>
+<p>[root@localhost ~]# chmod  a-x   /nsddir1/</p>
+<p>6）为此目录及其下所有文档设置权限 rwxr-x—</p>
+<p>[root@localhost ~]# chmod -R u=rwx,g=rx,o=—  /nsddir1/</p>
+<p>七、归属的设置</p>
+<p>chown命令<br>chown  属主  文件…<br>chown  属主:属组  文件…<br>chown  :属组  文件…<br>常用命令选项<br>-R：递归修改归属关系<br>]# mkdir   /nsd04</p>
+<p>]# useradd   kenji         #创建用户kenji</p>
+<p>]# groupadd   tmooc   #创建组tmooc</p>
+<p>]# ls  -ld   /nsd04</p>
+<p>]# chown  kenji:tmooc   /nsd04</p>
+<p>]# ls  -ld   /nsd04</p>
+<p>]# chown   zhangsan   /nsd04   #设置所有者</p>
+<p>]# ls  -ld    /nsd04</p>
+<p>]# chown   :root   /nsd04    #设置所属组</p>
+<p>]# ls  -ld    /nsd04</p>
+<p>案例：</p>
+<p>实现lisi用户可以读取/etc/shadow文件内容，您有几种方法？</p>
+<p>   1.利用其他用户</p>
+<p>    ]# chmod  o+r   /etc/shadow</p>
+<p>   2.利用所属组</p>
+<p>]# chown   :lisi    /etc/shadow</p>
+<p>]# chmod  g+r   /etc/shadow</p>
+<p>   3.利用所有者</p>
+<p>]# chown   lisi    /etc/shadow</p>
+<p>]# chmod  u+r   /etc/shadow</p>
+<p>八、权限数字表示</p>
+<p>权限位的8进制数表示<br>r、w、x分别对应4、2、1，后3组分别求和</p>
+<p>]# mkdir   /nsd06</p>
+<p>]# ls  -ld   /nsd06</p>
+<p>]# chmod   700   /nsd06</p>
+<p>]# ls -ld /nsd06</p>
+<p>]# chmod   750   /nsd06</p>
+<p>]# ls -ld /nsd06</p>
+<p>]# chmod   007   /nsd06</p>
+<p>]# ls -ld /nsd06</p>
+<p>新建文件/目录的默认权限<br>一般文件默认均不给 x 执行权限<br>其他取决于 umask（权限掩码） 设置<br>文件默认权限为644<br>目录默认权限为755</p>
+<p>九、附加权限（特殊权限）</p>
+<p>粘滞位，Sticky Bit 权限<br>占用其他人（Other）的 x 位<br>显示为 t 或 T，取决于其他人是否有 x 权限<br>适用于目录，用来限制用户滥用写入权<br>在设置了粘滞位的文件夹下，即使用户有写入权限，也不能删除或改名其他用户文档</p>
+<p>]# mkdir    /home/public        </p>
+<p>]# chmod   777   /home/public</p>
+<p>]# ls   -ld   /home/public</p>
+<p>]# chmod  o+t  /home/public    #赋予特殊权限</p>
+<p>]# ls  -ld  /home/public</p>
+<p>SGiD权限<br>占用属组（Group）的 x 位<br>显示为 s 或 S，取决于属组是否有 x 权限<br>对目录有效<br>在一个具有SGID权限的目录下，新建的文档会自动继承此目录的属组身份</p>
+<p>]# mkdir    /nsd14</p>
+<p>]# chown   :tmooc    /nsd14</p>
+<p>]# ls   -ld   /nsd14</p>
+<p>]# mkdir    /nsd14/abc01</p>
+<p>]# ls   -ld    /nsd14/abc01    #查看所属组</p>
+<p>]# chmod   g+s   /nsd14     #赋予特殊权限SGID</p>
+<p>]# ls   -ld    /nsd14</p>
+<p>]# mkdir   /nsd14/abc02     </p>
+<p>]# ls   -ld    /nsd14/abc02      #查看所属组</p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+		data-enable='false'
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</html>

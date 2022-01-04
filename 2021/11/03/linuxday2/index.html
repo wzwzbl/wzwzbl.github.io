@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>linuxday2 - Hexo</title>
+    <title>linuxday2进程和selinux - Hexo</title>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
@@ -28,7 +28,7 @@
     <div class="bar" style="width: 0;"></div>
     <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://example.com"></a>
     <div title="播放/暂停" class="iconfont icon-play"></div>
-    <h3 class="subtitle">linuxday2</h3>
+    <h3 class="subtitle">linuxday2进程和selinux</h3>
     <div class="social">
         <div>
             <div class="share">
@@ -43,14 +43,14 @@
     <div class="section">
         <div class="article">
     <div class='main'>
-        <h1 class="title">linuxday2</h1>
+        <h1 class="title">linuxday2进程和selinux</h1>
         <div class="stuff">
             <span>十一月 03, 2021</span>
             
 
         </div>
         <div class="content markdown">
-            <p>一。任务管理 （job control）<br>1.&amp;  将命令丢到后台执行<br>2.ctrl+z 将当前命令丢到后台暂停<br>3.jobs 查看目前后台状态<br>4.fg j将后台的任务拿到前台处理：fg<br>5.bg 让后台的任务变成运行中<br>6.kill 管理后台的任务  -9 强制删除<br>7.nohup 让后台任务在你注销后还能执行， nohup 和&amp; 搭配<br>二。查看进程<br>1.ps aux 查看系统所有进程  ps  -lA  查看所有系统的进程   ps  -l 仅查看自己bash相关的进程<br>2.top 查看动态的进程<br>3.pstree 进程树<br>4priority（pri） 和nice ，pri越小执行的越早。当nice为负，那么该进程就会降低pri，即会变的优先处理<br>列： nice  -n  -5 vim &amp;<br>        renice -5  14836  （重新调整进程的nice）<br>三。查看系统资源信息<br>1.free（内存的使用情况）    -m  显示目前系统的内存容量<br>2.uname 查看系统与内核信息<br>uname -a 输出系统的基本信息   内核的版本<br>uptime 查看系统启动的时间和任务负载<br>netstat ：追踪网络和socket<br>netstat   -tulnp  找出系统上监听的网络连接及pid<br>netstat  -lt   列出所有处于监听状态的tcp端口<br>netstat  -tulnp | grep  8080 查看指定端口号的进程情况<br>lsof  -i：8080  查看某一端口的占用情况  （进程使用的文件）<br>dmesg  |  more  输出所有内核启动时的信息。（dmesg 分析内核产生的信息）<br>vmstat  检测系统资源变化<br>四。特殊文件和进程<br>1./proc/*  (内存)<br>/proc/version  内核版本<br>2.fuser:借该文件找出正在使用该文件的进程<br>fuser -muv  /proc<br>3.pidof 找出执行进程的pid<br>五。selinux<br>查看系统【进程的selinux相关信息】<br>ps  -eZ<br>selinux 三种模式<br>1.enforcing   强制模式<br>2.permissive  宽松模式<br>3.disabled   关闭模式<br>setenforce  [0|1]   0宽松 1强制<br>getenforce  查看<br>4./etc/selinux/config 是selinux的配置文件<br>5.selinux各个规则的布尔值查询getsebool<br>查询本系统的所有的布尔值的设置情况<br>getsebool  -a     修改布尔值 ：  setsebool  【-p】  【规则名称】  【0|1】<br>6.seinfo  列出selinux在此策略下的统计状态，还有sesearch 是找出进程能读取文件selinux的类型<br>7.使用chcon手动修改（文件）的selinux类型<br>restorecon 恢复正确的selinux类型（文件）<br>semanage 默认目录的安全上下文查询和修改  -a 增加 -m 修改  -d 删除</p>
+            <p>一。任务管理 （job control）<br>1.&amp;  将命令丢到后台执行<br>2.ctrl+z 将当前命令丢到后台暂停<br>3.jobs 查看目前后台状态<br>4.fg j将后台的任务拿到前台处理：fg<br>5.bg 让后台的任务变成运行中<br>6.kill 管理后台的任务  -9 强制删除<br>7.nohup 让后台任务在你注销后还能执行， nohup 和&amp; 搭配<br>二。查看进程<br>1.ps aux 查看系统所有进程  ps  -lA  查看所有系统的进程   ps  -l 仅查看自己bash相关的进程<br>2.top 查看动态的进程<br>3.pstree 进程树<br>4priority（pri） 和nice ，pri越小执行的越早。当nice为负，那么该进程就会降低pri，即会变的优先处理<br>列： nice  -n  -5 vim &amp;<br>        renice -5  14836  （重新调整进程的nice）<br>三。查看系统资源信息<br>1.free（内存的使用情况）    -m  显示目前系统的内存容量<br>2.uname 查看系统与内核信息<br>uname -a 输出系统的基本信息   内核的版本<br>uptime 查看系统启动的时间和任务负载<br>netstat ：追踪网络和socket<br>*netstat   -tulnp  找出系统上监听的网络连接及pid<br>netstat  -lt   列出所有处于监听状态的tcp端口<br><em>netstat  -tulnp | grep  8080 查看指定端口号的进程情况<br>lsof  -i：8080  查看某一端口的占用情况  （进程使用的文件）<br>dmesg  |  more  输出所有内核启动时的信息。（dmesg 分析内核产生的信息）<br>vmstat  检测系统资源变化<br>四。特殊文件和进程<br>1./proc/</em>  (内存)<br>/proc/version  内核版本<br>2.fuser:借该文件找出正在使用该文件的进程<br>fuser -muv  /proc<br>3.pidof 找出执行进程的pid<br>五。selinux<br>查看系统【进程的selinux相关信息】<br>ps  -eZ<br>selinux 三种模式<br>1.enforcing   强制模式<br>2.permissive  宽松模式<br>3.disabled   关闭模式<br>setenforce  [0|1]   0宽松 1强制<br>getenforce  查看<br>4./etc/selinux/config 是selinux的配置文件<br>5.selinux各个规则的布尔值查询getsebool<br>查询本系统的所有的布尔值的设置情况<br>getsebool  -a     修改布尔值 ：  setsebool  【-p】  【规则名称】  【0|1】<br>6.seinfo  列出selinux在此策略下的统计状态，还有sesearch 是找出进程能读取文件selinux的类型<br>7.使用chcon手动修改（文件）的selinux类型<br>restorecon 恢复正确的selinux类型（文件）<br>semanage 默认目录的安全上下文查询和修改  -a 增加 -m 修改  -d 删除</p>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
