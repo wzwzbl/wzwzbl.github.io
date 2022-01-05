@@ -5,12 +5,14 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>linuxday12 - Hexo</title>
+    <title>linux应急实战 - Hexo</title>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
     <meta name="keywords" content="Fechin,"> 
-    
+    <meta name="description" content="                                                           Linux入侵排查
+
+当企业发生黑客入侵、系统崩溃或其它影响业务正常运行的安全事,"> 
     <meta name="author" content="John Doe"> 
     <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -28,7 +30,7 @@
     <div class="bar" style="width: 0;"></div>
     <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://example.com"></a>
     <div title="播放/暂停" class="iconfont icon-play"></div>
-    <h3 class="subtitle">linuxday12</h3>
+    <h3 class="subtitle">linux应急实战</h3>
     <div class="social">
         <div>
             <div class="share">
@@ -43,14 +45,18 @@
     <div class="section">
         <div class="article">
     <div class='main'>
-        <h1 class="title">linuxday12</h1>
+        <h1 class="title">linux应急实战</h1>
         <div class="stuff">
             <span>一月 04, 2022</span>
             
 
         </div>
         <div class="content markdown">
-            
+            <pre><code>                                                           Linux入侵排查
+</code></pre>
+<p>当企业发生黑客入侵、系统崩溃或其它影响业务正常运行的安全事件时，急需第一时间进行处理，使企业的网络信息系<br>统在最短时间内恢复正常工作，进一步查找入侵来源，还原入侵事故过程，同时给出解决方案与防范措施，为企业挽回<br>或减少经济损失。<br>针对常见的攻击事件，结合工作中应急响应事件分析和解决的方法，总结了一些Linux服务器入侵排查的思路。<br>1.入侵思路排察<br>1.1账户安全<br>1./etc/passwd<br>root:x:0:0:root:/root:/bin/bash<br>account:password:UID:GID:GECOS:directory:shell<br>用户名：密码：用户ID：组ID：用户说明：家目录：登陆之后shell<br>注意：无密码只允许本机登陆，远程不允许登陆<br>2、影子文件/etc/shadow<br>root:$6$oGs1PqhL2p3ZetrE$X7o7bzoouHQVSEmSgsYN5UD4.kMHx6qgbTqwNVC5oOAouXvcjQSt.Ft7ql1WpkopY0UV<br>9ajBwUt1DpYxTCVvI/:16809:0:99999:7:::<br>用户名：加密密码：密码最后一次修改日期：两次密码的修改时间间隔：密码有效期：密码修改到期到的警告天数：密码过期之<br>后的宽限天数：账号失效时间：保留<br>who 查看当前登录用户（tty本地登陆 pts远程登录）<br>w 查看系统信息，想知道某一时刻用户的行为<br>uptime 查看登陆多久、多少用户，负载<br>入侵排查<br>1.查询特权用户（uid为0）<br> awk -F: ‘$3==0{print $1}’   /etc/passwd<br>2、查询可以远程登录的帐号信息<br> awk   ‘/$1|$6/{print $1}’   /etc/shadow<br>3、除root帐号外，其他帐号是否存在sudo权限。如非管理需要，普通帐号应删除sudo权限<br> more /etc/sudoers | grep -v “^#|^$” | grep “ALL=(ALL)”<br>4、禁用或删除多余及可疑的帐号<br>usermod -L user 禁用帐号，帐号无法登录，/etc/shadow第二栏为!开头<br>userdel user 删除user用户<br>userdel -r user 将删除user用户，并且将/home目录下的user目录一并删除</p>
+<p>通过.bash_history查看帐号执行过的系统命令<br>1、root的历史命令<br>histroy<br>2、打开/home各帐号目录下的.bash_history，查看普通帐号的历史命令<br>为历史的命令增加登录的IP地址、执行命令时间等信息：<br>1）保存1万条命令<br>sed -i ‘s/^HISTSIZE=1000/HISTSIZE=10000/g’ /etc/profile<br>2）在/etc/profile的文件尾部添加如下行数配置信息：<br>######jiagu history xianshi#########<br>USER_IP=<code>who -u am i 2&gt;/dev/null | awk &#39;&#123;print $NF&#125;&#39; | sed -e &#39;s/[()]//g&#39;</code><br>if [ “$USER_IP” = “” ]<br>then<br>USER_IP=<code>hostname</code><br>fi<br>export HISTTIMEFORMAT=”%F %T $USER_IP <code>whoami</code> “<br>shopt -s histappend<br>export PROMPT_COMMAND=”history -a”<br>######### jiagu history xianshi ##########<br>3）source /etc/profile让配置生效<br>生成效果： 1 2018-07-10 19:45:39 192.168.204.1 root source /etc/profile<br>3、历史操作命令的清除：history -c<br>但此命令并不会清除保存在文件中的记录，因此需要手动删除.bash_profile文件中的记录。<br>PID 代表进程标识号，它在大多数操作系统内核（如 Linux、Unix、macOS 和 Windows）中使用。</p>
+
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
                 <source type="audio/mpeg" src="">
