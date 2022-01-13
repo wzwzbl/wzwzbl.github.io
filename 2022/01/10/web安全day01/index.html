@@ -5,12 +5,12 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>linux安全加固 - Hexo</title>
+    <title>web安全01 - Hexo</title>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
     <meta name="keywords" content="Fechin,"> 
-    <meta name="description" content="一。Linux文件结构/下面/bin 放置的是在单人维护模式下能够被操作的指令，在/bin底下的指令可以被root和一般账号所使用/boot 这个目录主要是在放开机会使用到的文件，包括linux核心,"> 
+    <meta name="description" content="第一节1.交换机什么是交换机：交换机是用来连接局域网的主要设备交换机能够根据以太网帧中目的地址只能的转发数据，因此交换机工作在数据链路层。交换机工作原理：交换机的转发原理：（1）.初始状态（2）.M,"> 
     <meta name="author" content="John Doe"> 
     <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -28,7 +28,7 @@
     <div class="bar" style="width: 0;"></div>
     <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://example.com"></a>
     <div title="播放/暂停" class="iconfont icon-play"></div>
-    <h3 class="subtitle">linux安全加固</h3>
+    <h3 class="subtitle">web安全01</h3>
     <div class="social">
         <div>
             <div class="share">
@@ -43,23 +43,25 @@
     <div class="section">
         <div class="article">
     <div class='main'>
-        <h1 class="title">linux安全加固</h1>
+        <h1 class="title">web安全01</h1>
         <div class="stuff">
-            <span>十一月 15, 2021</span>
+            <span>一月 10, 2022</span>
             
 
         </div>
         <div class="content markdown">
-            <p>一。Linux文件结构<br>/下面<br>/bin 放置的是在单人维护模式下能够被操作的指令，在/bin底下的指令可以被root和一般账号所使用<br>/boot 这个目录主要是在放开机会使用到的文件，包括linux核心文件以及开机选单与开机所需配置的文件等等<br>/dev 在linux系统上，任何装置与接口设备都是以文件的形态存在于这个目录当中的<br>/etc系统主要的配置文件几乎都放在这个，目录内，列如人员的账号密码文件，各种服务的启动档，系统变量配置等<br>/home系统默认的家目录<br>/lib放置的则是在开机时会用到的函数库，以及在/lib或/sbin5底下的指令会呼叫的函式库<br>二级目录<br>/media底下放置的是可移出的装置，包括软盘，光盘，dvd等等装置都杂事挂载在此。<br>/opt给第三方的协议软件放置的目录</p>
-<p>二。账号分类：<br>超级管理员 uid=0,<br>系统默认用户 系统程序使用，从不登录<br>新建普通用户 uid大于500<br>三。修改权限：<br>chmod 777 test<br>chown s：da   test<br>umask值为0022所对应的默认文件和文件夹创建的缺省权限分别为644和755<br>文件夹其权限规则为：777-022=755<br>文件其权限规则为： 777-111-022=644（因为文件默认没有执行权限）</p>
-<p>四。使用命令passwd -l &lt;用户名&gt;锁定不必要的账号。<br>使用命令passwd -u &lt;用户名&gt;解锁需要恢复的账号。</p>
-<p>五。执行命令<br>#cat /etc/login.defs|grep PASS查看密码策略设置<br>加固方法：<br>#vi /etc/login.defs修改配置文件<br>PASS_MAX_DAYS 90 #用户的密码最长使用天数<br>PASS_MIN_DAYS 0 #两次修改密码的最小时间间隔<br>PASS_MIN_LEN 7 #密码的最小长度<br>PASS_WARN_AGE 9 #密码过期前多少天开始提示</p>
-<p>六。禁用root之外的超级用户<br>检测方法：<br>awk -F “:” ‘($3==”0”){print $1}’ /etc/passwd 检查用户ID为0的用户<br>加固方法：<br>passwd -l &lt;用户名&gt;                  锁定用户</p>
-<p>七。限制能够su为root的用户<br>#cat /etc/pam.d/su,查看是否有auth required /lib/security/pam_wheel.so这样的配置条目<br>加固方法<br>在头部添加：<br>auth required /lib/security/pam_wheel.so group=wheel<br>这样，只有wheel组的用户可以su到root<br>#usermod -G10 test 将test用户加入到wheel组</p>
-<p>八。重要文件加上不可改变属性<br>把重要文件加上不可改变属性<br>[root@ayazero /]# chattr +i /etc/passwd<br>[root@ayazero /]# chattr +i /etc/shadow<br>[root@ayazero /]# chattr +i /etc/gshadow<br>[root@ayazero /]# chattr +i /etc/group<br>[root@ayazero /]# chattr +i /etc/inetd.conf<br>[root@ayazero /]# chattr +i /etc/httpd.conf<br>查看隐藏属性：lsattr /etc/shadow</p>
-<p>九。Umask安全<br>第一个0代表suid 丢弃的权限；<br>第二个0代表本文件/目录拥有者什么权限都没丢弃<br>第三个2代表本文件/目录的用户组丢弃了w权限<br>第四个2代表本文件/目录的其他用户能使用的权限只有有r和x<br>实际权限=7777-0022<br>设置合理的umask权限<br>umask 0022</p>
-<p>十。设置系统日志策略配置文件<br>日志的主要用途是系统审计、监测追踪和分析统计。<br>为了保证 Linux 系统正常运行、准确解决遇到的各种各样的系<br>统问题，认真地读取日志文件是管理员的一项非常重要的任务。<br>UNIX/ Linux采用了syslog工具来实现此功能，如果配置正确的<br>话，所有在主机上发生的事情都会被记录下来，不管是好的还<br>是坏的<br>   检查方法：</p>
-<h1 id="ps-aef-grep-syslog-确定syslog服务是否启用"><a href="#ps-aef-grep-syslog-确定syslog服务是否启用" class="headerlink" title="ps -aef | grep syslog 确定syslog服务是否启用"></a>ps -aef | grep syslog 确定syslog服务是否启用</h1><h1 id="cat-etc-rsyslog-conf-查看syslogd的配置，并确认日志文件日否存在"><a href="#cat-etc-rsyslog-conf-查看syslogd的配置，并确认日志文件日否存在" class="headerlink" title="cat /etc/rsyslog.conf 查看syslogd的配置，并确认日志文件日否存在"></a>cat /etc/rsyslog.conf 查看syslogd的配置，并确认日志文件日否存在</h1><p>系统日志 (默认) /var/log/messages<br>cron日志 (默认) /var/log/cron<br>安全日志 (默认) /var/log/secure，只要涉及账号和密码的程序都会记录。<br>/var/log/btmp 记录错误登录日志，这个文件是二进制文件，不能直接vi查看，而要使用lastb命令查看</p>
+            <p>第一节<br>1.交换机<br>什么是交换机：<br>交换机是用来连接局域网的主要设备<br>交换机能够根据以太网帧中目的地址只能的转发数据，因此交换机工作在数据链路层。<br>交换机工作原理：<br>交换机的转发原理：<br>（1）.初始状态<br>（2）.MAC地址学习<br>（3）.广播位置数据帧<br>（4）.接收方回应<br>（5）.交换机实现单播通信<br>转发，学习，广播，更新<br>交换机里面有 ARP (地址解析协议) 缓存表：根据 IP 地址获取物理地址的 TCP/IP 协议。<br>里面存放了 IP 地址、MAC 地址。主机发送信息时将包含 IP 地址的 ARP 请求广播到局域网上的所有主机，并接受返回消息，以此来确定目标的物理地址，收到返回消息后将该 IP 地址和物理地址存入本机 ARP 缓存中并保留一段时间，下次请求时直接查询 ARP 表以节约资源<br>2.路由器<br>路由器里面由路由表：包含三个元素，目的地址，掩码，下一跳地址，功能是路由寻址，对不同的网络之间的数据包进行存储、分组转发处理。<br>是连接两个或多个网络的硬件设备，在网络间起到网关的作用，分析不同类型网络传来的数据包的目的地址，把非 TCP/IP 网络的地址转换成 TCP/IP 地址，或者反之；<br>再根据选定的路由算法把各数据包按最佳路线传送到指定位置。<br>路由器原理及配置：<br>什么是路由器：</p>
+<ol>
+<li>将数据包从一个网络发送到另一个网络<br>(1)    需要依靠路由器来完成<br>(2)    路由器只关心网络的状态，决定最佳路径</li>
+<li>路由器可以根据路由表选择最佳路径<br>(1)    每个路由器都维护这一张路由表，这是路由器转发数据包的关键<br>(2)    每条路由表记录指明了：到达某个子网或主机应从路由器的那个物理接口发送，通过此接口可达该路径的下一个路由器的地址（或直接相连网络中的目标主机地址）</li>
+</ol>
+<p>如何获得路由表：</p>
+<ol>
+<li>静态、默认路由<br>(1)    由管理员在路由器上手工指定<br>(2)    适合分支机构、家具办公等小型网络</li>
+<li>动态路由<br>(1)    根据网络拓扑或流量变化，由路由器通过路由协议自动设置<br>(2)    适合ISP服务厂商、广域网、园区网等大型网络<br>静态路由：</li>
+<li>主要特点：<br>(1)    有管理员手工配置，为单向条目<br>(2)    通信双方的边缘路由器都需要指定，否则会导致数据包有去无回<br>路由器和交换机的对比</li>
+</ol>
+<p>*路由器工作在网络层<br>*交换机工作在数据链路层<br>3.访问控制列表 ACL (包过滤)<br>访问控制列表<br>应用于路由器接口的指令列表，用于指定哪些数据包可以接收转发，那些数据包需要拒绝<br>acl的作用<br>（1）提供网络访问的基本安全手段<br>（2）可以控制数据流量<br>（3)控制通信量<br>4.设备与层对应的关系<br>应用层               计算机/防火墙<br>传输层               防火墙<br>网络层               路由器<br>数据链路层        交换机<br>物理层               网卡<br>物理层：传输比特流数据。将 1、0 转化为电流强弱来进行传输，达到目的地之后在转化成 1、0。主要定义物理设备标准，如网线的接口类型，各种传输介质的传输速率。<br>数据链路层：传输数据帧。接收来自物理层的比特流的数据，通过差错控制等方法传输到网络层，也接收来自上层的数据，封装成数据帧的形式转发到物理层，以便提供可靠的数据传输。主要功能为建立逻辑连接、进行硬件地址寻址、差错校验等功能。<br>网络层：传输数据包。主要是进行逻辑地址寻址，实现不同网络之间的物理选择。<br>传输层：传输报文。向用户提供可靠的端到端的差错控制和流量控制，保证报文的正确传输。主要功能为定义传输数据的协议端口号，以及流量控制和差错校验。<br>会话层：负责建立、管理和终止表示层实体之间的对话。<br>表示层：处理用户信息的表示问题，如编码、数据格式转换和加密解密。<br>应用层：提供用户接口，使得用户能够与网络进行交互式联系，实现各种服务，完成和实现用户请求的各种服务。</p>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
