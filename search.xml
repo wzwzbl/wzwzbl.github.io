@@ -60,13 +60,11 @@
 <p>第一步：ESC  进入命令行模式<br>第二步：:     进入底行模式<br>第三步：q!     撤销本次修改并退出编辑</p>
 <p>3.1.4 文件的查看【查】<br>文件的查看命令：cat/more/less/tail</p>
 <p>cat：看最后一屏</p>
-<p>示例：使用cat查看/etc/sudo.conf文件，只能显示最后一屏内容<br>cat sudo.conf</p>
-<p>more：百分比显示</p>
+<p>示例：使用cat查看/etc/sudo.conf文件，只能显示最后一屏内容<br>cat sudo.conf<br>列：检查红帽发行信息  cat  /etc/redhat-release      列出内核版本：  uname  -r   查看cpu  lscpu<br>检查内存大小： cat  /proc/meminfo<br>more：百分比显示</p>
 <p>示例：使用more查看/etc/sudo.conf文件，可以显示百分比，回车可以向下一行，空格可以向下一页，q可以退出查看<br>more sudo.conf</p>
 <p>less：翻页查看</p>
 <p>示例：使用less查看/etc/sudo.conf文件，可以使用键盘上的PgUp和PgDn向上    和向下翻页，q结束查看<br>less sudo.conf</p>
-<p>tail：指定行数或者动态查看</p>
-<p>示例：使用tail -10 查看/etc/sudo.conf文件的后10行，Ctrl+C结束<br>tail -10 sudo.conf</p>
+<p>head  ：命令可用于查看文件的开头部分的内容<br>tail：命令可以用于查看文件的后面部分的内容<br>示例：使用tail -10 查看/etc/sudo.conf文件的后10行，Ctrl+C结束<br>tail -10 sudo.conf</p>
 <p>3.2 权限修改<br>rwx：r代表可读，w代表可写，x代表该文件是一个可执行文件，如果rwx任意位置变为-则代表不可读或不可写或不可执行文件。</p>
 <p>示例：给aaa.txt文件权限改为可执行文件权限，aaa.txt文件的权限是-rw——-</p>
 <p>第一位：-就代表是文件，d代表是文件夹<br>第一段（3位）：代表拥有者的权限<br>第二段（3位）：代表拥有者所在的组，组员的权限<br>第三段（最后3位）：代表的是其他用户的权限</p>
@@ -74,11 +72,12 @@
 <ul>
 <li> rw-   —     —</li>
 </ul>
-<p>命令：chmod +x aaa.txt或者采用8421法命令：chmod 100 aaa.txt<br>四、压缩文件操作<br>4.1 打包和压缩<br>Windows的压缩文件的扩展名  .zip/.rar<br>linux中的打包文件：aa.tar<br>linux中的压缩文件：bb.gz<br>linux中打包并压缩的文件：.tar.gz</p>
+<p>命令：chmod +x aaa.txt或者采用8421法命令：chmod 100 aaa.txt</p>
+<p>四、压缩文件操作<br>4.1 打包和压缩<br>Windows的压缩文件的扩展名  .zip/.rar<br>linux中的打包文件：aa.tar<br>linux中的压缩文件：bb.gz<br>linux中打包并压缩的文件：.tar.gz<br>•    tar -zcf 备份文件.tar.gz 文档….<br>•    tar -jcf 备份文件.tar.bz2 文档….<br>•    tar -Jcf 备份文件.tar.xz 文档….</p>
 <p>Linux中的打包文件一般是以.tar结尾的，压缩的命令一般是以.gz结尾的。<br>而一般情况下打包和压缩是一起进行的，打包并压缩后的文件的后缀名一般.tar.gz。</p>
 <p>命令：tar -zcvf 打包压缩后的文件名 要打包的文件<br>其中：z：调用gzip压缩命令进行压缩<br>  c：打包文件<br>  v：显示运行过程<br>  f：指定文件名</p>
-<p>示例：打包并压缩/usr/tmp 下的所有文件 压缩后的压缩包指定名称为xxx.tar<br>tar -zcvf ab.tar aa.txt bb.txt<br>或：tar -zcvf ab.tar  *</p>
-<p>4.2 解压<br>命令：tar [-zxvf] 压缩文件<br>其中：x：代表解压<br>示例：将/usr/tmp 下的ab.tar解压到当前目录下<br>五、查找命令<br>5.1 grep<br>grep命令是一种强大的文本搜索工具</p>
+<p>示例：打包并压缩/usr/tmp 下的所有文件 压缩后的压缩包指定名称为xxx.tar<br>tar -zcvf ab.tar aa.txt bb.txt<br>或：tar -zcvf ab.tar  *<br>•    tar -tf 备份文件<br>4.2 解压<br>命令：tar [-zxvf] 压缩文件<br>其中：x：代表解压<br>示例：将/usr/tmp 下的ab.tar解压到当前目录下</p>
+<p>五、查找命令<br>5.1 grep<br>grep命令是一种强大的文本搜索工具</p>
 <p>使用实例：</p>
 <p>ps -ef | grep sshd  查找指定ssh服务进程 ps -ef | grep sshd | grep -v grep 查找指定服务进程，排除gerp身 ps -ef | grep sshd -c 查找指定进程个数<br>5.2 find<br>find命令在目录结构中搜索文件，并对搜索结果执行指定的操作。 </p>
 <p>find 默认搜索当前目录及其子目录，并且不过滤任何结果（也就是返回所有文件），将它们全都显示在屏幕上。<br>5.3 locate<br>locate 让使用者可以很快速的搜寻某个路径。默认每天自动更新一次，所以使用locate 命令查不到最新变动过的文件。为了避免这种情况，可以在使用locate之前，先使用updatedb命令，手动更新数据库。如果数据库中没有查询的数据，则会报出locate: can not stat () `/var/lib/mlocate/mlocate.db’: No such file or directory该错误！updatedb即可！</p>
@@ -120,7 +119,8 @@
 <p>10.5 配置网络<br>命令：setup</p>
 <p>10.6 重启网络<br>命令：service network restart</p>
 <p>10.7 切换用户<br>命令：su - 用户名</p>
-<p>10.8 关闭防火墙<br>命令：chkconfig iptables off<br>10.9 修改文件权限<br>命令：chmod 777</p>
+<p>10.8 关闭防火墙<br>命令：chkconfig iptables off</p>
+<p>10.9 修改文件权限<br>命令：chmod 777</p>
 <p>10.10 清屏<br>命令：ctrl + l</p>
 <p>10.11 vi模式下快捷键<br>esc后:</p>
 <p>保存并退出快捷键：shift+z+z</p>
@@ -177,46 +177,6 @@
 <p>/sbin/iptables -I INPUT -p tcp –dport 3306 -j ACCEPT</p>
 <p>/etc/rc.d/init.d/iptables save</p>
 <p>/etc/init.d/iptables status</p>
-<p>11.3 安装tomcat部署项目<br>准备工作：将web项目打成war包，改名为ROOT.war</p>
-<p>11.3.1 创建ucenter用户<br>一般情况下，发布应用程序都不是使用root用户的，需要创建一个普通用户来发布程序；</p>
-<p>创建ucenter用户：</p>
-<p>useradd -d /ucenter ucenter</p>
-<p>设置密码：</p>
-<p>passwd ucenter （密码 ucenter）</p>
-<p>切换用户：</p>
-<p>su - ucenter</p>
-<p>11.3.2 安装Tomcat<br>tomcat只要解压就可以使用。</p>
-<p>1、创建web目录<br>mkdir /ucenter/web</p>
-<p>2、上传apache-tomcat-7.0.57.tar.gz</p>
-<p>3、解压：tar -xvf apache-tomcat-7.0.57.tar.gz</p>
-<p>4、重命名：mv apache-tomcat-7.0.57 itcast-usermanage</p>
-<p>5、启动tomcat：<br>     cd itcast-usermanage/bin/<br>     ./startup.sh 或者 sh startup.sh</p>
-<p>6、查看日志：<br>     tail -f ../logs/catalina.out</p>
-<p>7、查看效果 <a href="http://192.168.0.160:8080/">http://192.168.0.160:8080/</a><br>8、防火墙打开 8080 端口<br>     /sbin/iptables -I INPUT -p tcp –dport 8080 -j ACCEPT</p>
-<pre><code> /etc/rc.d/init.d/iptables save
-</code></pre>
-<p>11.3.3 部署用户管理项目<br>1、上传usermanage.sql和ROOT.war到/ucenter/web</p>
-<p>2、执行数据库脚本</p>
-<pre><code> cat user_manager.sql | mysql -uroot -p123456
-</code></pre>
-<p>3、部署web程序</p>
-<p>3.1 删除webapps下的所有文件</p>
-<pre><code> cd /ucenter/web/usermanage/webapps
-
- rm -rf *
-</code></pre>
-<p>3.2 拷贝ROOT.war到webapps</p>
-<pre><code> cp /ucenter/web/ROOT.war .
-</code></pre>
-<p>3.3 重新启动tomcat</p>
-<pre><code> cd ../bin/
-
- sh startup.sh &amp;&amp; tail -f ../logs/catalina.out
-</code></pre>
-<p>3.4 启动浏览器测试</p>
-<p>注意事项：Centos环境下部署项目中文乱码问题解决方案</p>
-<pre><code>今天在一台新的CentOS机器上使用c3p0连接池操作mysql数据库出现中文乱码问题，具体表现为：查询时无中文乱码问题，写数据时中文乱码，查看了机器上数据库字符集也是UTF8，应该不会出现中文乱码才对，最后在c3p0配置文件中 jdbcUrl后加上：?useUnicode=true&amp;amp;characterEncoding=UTF8 中文就不会乱码了。
-</code></pre>
 ]]></content>
   </entry>
   <entry>
@@ -1839,7 +1799,9 @@
     <url>/2022/01/04/linux%E5%BA%94%E6%80%A5%E5%AE%9E%E6%88%98/</url>
     <content><![CDATA[<pre><code>                                                           Linux入侵排查
 </code></pre>
-<p>当企业发生黑客入侵、系统崩溃或其它影响业务正常运行的安全事件时，急需第一时间进行处理，使企业的网络信息系<br>统在最短时间内恢复正常工作，进一步查找入侵来源，还原入侵事故过程，同时给出解决方案与防范措施，为企业挽回<br>或减少经济损失。<br>针对常见的攻击事件，结合工作中应急响应事件分析和解决的方法，总结了一些Linux服务器入侵排查的思路。<br>1.入侵思路排察<br>1.1账户安全<br>（1）./etc/passwd<br>root:x:0:0:root:/root:/bin/bash<br>account:password:UID:GID:GECOS:directory:shell<br>用户名：密码：用户ID：组ID：用户说明：家目录：登陆之后shell<br>注意：无密码只允许本机登陆，远程不允许登陆<br>（2）、影子文件/etc/shadow<br>root:$6$oGs1PqhL2p3ZetrE$X7o7bzoouHQVSEmSgsYN5UD4.kMHx6qgbTqwNVC5oOAouXvcjQSt.Ft7ql1WpkopY0UV<br>9ajBwUt1DpYxTCVvI/:16809:0:99999:7:::<br>用户名：加密密码：密码最后一次修改日期：两次密码的修改时间间隔：密码有效期：密码修改到期到的警告天数：密码过期之<br>后的宽限天数：账号失效时间：保留<br>命令： who 查看当前登录用户（tty本地登陆 pts远程登录）<br>            w 查看系统信息，想知道某一时刻用户的行为<br>           uptime 查看登陆多久、多少用户，负载<br>入侵排查<br>1.查询特权用户（uid为0）<br> awk -F: ‘$3==0{print $1}’   /etc/passwd<br>2、查询可以远程登录的帐号信息<br> awk   ‘/$1|$6/{print $1}’   /etc/shadow<br>3、除root帐号外，其他帐号是否存在sudo权限。如非管理需要，普通帐号应删除sudo权限<br> more /etc/sudoers | grep -v “^#|^$” | grep “ALL=(ALL)”<br>4、禁用或删除多余及可疑的帐号<br>usermod -L user 禁用帐号，帐号无法登录，/etc/shadow第二栏为!开头<br>userdel user 删除user用户<br>userdel -r user 将删除user用户，并且将/home目录下的user目录一并删除</p>
+<p>当企业发生黑客入侵、系统崩溃或其它影响业务正常运行的安全事件时，急需第一时间进行处理，使企业的网络信息系<br>统在最短时间内恢复正常工作，进一步查找入侵来源，还原入侵事故过程，同时给出解决方案与防范措施，为企业挽回<br>或减少经济损失。<br>针对常见的攻击事件，结合工作中应急响应事件分析和解决的方法，总结了一些Linux服务器入侵排查的思路。<br>1.入侵思路排察<br>1.1账户安全<br>（1）./etc/passwd<br>root:x:0:0:root:/root:/bin/bash<br>account:password:UID:GID:GECOS:directory:shell<br>用户名：密码：用户ID：组ID：用户说明：家目录：登陆之后shell<br>注意：无密码只允许本机登陆，远程不允许登陆<br>（2）、影子文件/etc/shadow<br>root:$6$oGs1PqhL2p3ZetrE$X7o7bzoouHQVSEmSgsYN5UD4.kMHx6qgbTqwNVC5oOAouXvcjQSt.Ft7ql1WpkopY0UV<br>9ajBwUt1DpYxTCVvI/:16809:0:99999:7:::<br>用户名：加密密码：密码最后一次修改日期：两次密码的修改时间间隔：密码有效期：密码修改到期到的警告天数：密码过期之<br>后的宽限天数：账号失效时间：保留</p>
+<p>用户组的所有信息都存放在/etc/group文件中<br>组名:口令:组标识号:组内用户列表 </p>
+<p>命令： who 查看当前登录用户（tty本地登陆 pts远程登录）<br>            w 查看系统信息，想知道某一时刻用户的行为<br>           uptime 查看登陆多久、多少用户，负载<br>入侵排查<br>1.查询特权用户（uid为0）<br> awk -F: ‘$3==0{print $1}’   /etc/passwd<br>2、查询可以远程登录的帐号信息<br> awk   ‘/$1|$6/{print $1}’   /etc/shadow<br>3、除root帐号外，其他帐号是否存在sudo权限。如非管理需要，普通帐号应删除sudo权限<br> more /etc/sudoers | grep -v “^#|^$” | grep “ALL=(ALL)”<br>4、禁用或删除多余及可疑的帐号<br>usermod -L user 禁用帐号，帐号无法登录，/etc/shadow第二栏为!开头<br>userdel user 删除user用户<br>userdel -r user 将删除user用户，并且将/home目录下的user目录一并删除</p>
 <p>1.2历史命令<br>通过.bash_history查看帐号执行过的系统命令<br>1、root的历史命令<br>histroy<br>2、打开/home各帐号目录下的.bash_history，查看普通帐号的历史命令<br>为历史的命令增加登录的IP地址、执行命令时间等信息：<br>1）保存1万条命令<br>sed -i ‘s/^HISTSIZE=1000/HISTSIZE=10000/g’ /etc/profile<br>2）在/etc/profile的文件尾部添加如下行数配置信息：<br>######jiagu history xianshi#########<br>USER_IP=<code>who -u am i 2&gt;/dev/null | awk &#39;&#123;print $NF&#125;&#39; | sed -e &#39;s/[()]//g&#39;</code><br>if [ “$USER_IP” = “” ]<br>then<br>USER_IP=<code>hostname</code><br>fi<br>export HISTTIMEFORMAT=”%F %T $USER_IP <code>whoami</code> “<br>shopt -s histappend<br>export PROMPT_COMMAND=”history -a”<br>######### jiagu history xianshi ##########<br>3）source /etc/profile让配置生效<br>生成效果： 1 2018-07-10 19:45:39 192.168.204.1 root source /etc/profile<br>3、历史操作命令的清除：history -c<br>但此命令并不会清除保存在文件中的记录，因此需要手动删除.bash_profile文件中的记录。</p>
 <p>入侵排察<br>进入用户目录下<br>cat .bash_history &gt;&gt; history.txt<br>1.3检查异常端口<br>PID 代表进程标识号。<br>使用netstat 网络连接命令，分析可疑端口、IP、PID<br>netstat -antlp|more<br>查看下pid所对应的进程文件路径，<br>运行ls -l /proc/$PID/exe或file /proc/$PID/exe（$PID 为对应的pid 号）<br>1.4检查异常进程<br>使用ps  aux   |  grep pid  分析进程<br>1.5检查开机启动项<br>运行级别<br>0         关机<br>1     单机模式<br>2     不安全的命令行模式<br>3      安全的命令行模式<br>4      系统保留<br>5      图形模式<br>6      重启动<br>查看运行级别命令 runlevel<br>系统默认允许级别<br>vi   /etc/inittab<br>id=3：initdefault 系统开机后直接进入哪个运行级别<br>开机启动配置文件<br>/etc/rc.local<br>/etc/rc.d/rc[0<del>6].d<br>例子:当我们需要开机启动自己的脚本时，只需要将可执行脚本丢在/etc/init.d目录下，然后在/etc/rc.d/rc*.d中建立软链<br>接即可<br>root@localhost ~]# ln -s /etc/init.d/sshd /etc/rc.d/rc3.d/S100ssh<br>此处sshd是具体服务的脚本文件，S100ssh是其软链接，S开头代表加载时自启动；如果是K开头的脚本文件，代表运行<br>级别加载时需要关闭的。<br>入侵排查：<br>启动项文件： more /etc/rc.local /etc/rc.d/rc[0</del>6].d ls -l /etc/rc.d/rc3.d/<br>1.6、利用crontab创建计划任务<br>基本命令<br>-l  列出某个用户cron服务的详细内容<br>-r  删除每个用户cront任务<br>-e   使用编译器编译当前的crontab文件。<br>crontab -e 使用编辑器编辑当前的crontab文件<br>如：*/1 * * * * echo “hello world” &gt;&gt; /tmp/test.txt 每分钟写入文件<br>入侵排查<br>重点关注以下目录中是否存在恶意脚本<br>/var/spool/cron/*<br>/etc/crontab<br>/etc/cron.d/*<br>/etc/cron.daily/*<br>/etc/cron.hourly/*<br>/etc/cron.monthly/*<br>/etc/cron.weekly/<br>/etc/anacrontab<br>/var/spool/anacron/*<br>小技巧：<br>more /etc/cron.daily/* 查看目录下所有文件<br>1.7检查服务<br>服务自启动<br>第一种修改方法：<br>chkconfig [–level 运行级别] [独立服务名] [on|off]<br>chkconfig –level 2345 httpd on 开启自启动<br>chkconfig httpd on （默认level是2345）<br>Linux chkconfig 命令用于检查，设置系统的各种服务。<br>–add 　增加所指定的系统服务，让 chkconfig 指令得以管理它，并同时在系统启动的叙述文件内增加相关数据。<br>–del 　删除所指定的系统服务，不再由 chkconfig 指令管理，并同时在系统启动的叙述文件内删除相关数据。<br>–level&lt;等级代号&gt; 　指定读系统服务要在哪一个执行等级中开启或关毕。<br>列出chkconfig 所知道的所有命令。</p>
 <h1 id="chkconfig-–list"><a href="#chkconfig-–list" class="headerlink" title="chkconfig –list"></a>chkconfig –list</h1><p>第二种修改方法：<br>修改/etc/re.d/rc.local 文件<br>加入 /etc/init.d/httpd start<br>第三种修改方法：<br>使用ntsysv命令管理自启动，可以管理独立服务和xinetd服务。<br>日志默认存放位置：/var/log/<br>查看日志配置情况：more /etc/rsyslog.conf</p>
