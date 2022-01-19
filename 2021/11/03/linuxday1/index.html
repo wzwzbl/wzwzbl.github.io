@@ -67,8 +67,7 @@
 <p>2.3.3 目录修改【改】mv 和 cp<br>一、重命名目录<br>    命令：mv 当前目录  新目录<br>    例如：mv aaa bbb    将目录aaa改为bbb<br>    注意：mv的语法不仅可以对目录进行重命名而且也可以对各种文件，压缩包等进行    重命名的操作</p>
 <p>二、剪切目录<br>    命令：mv 目录名称 目录的新位置<br>    示例：将/usr/tmp目录下的aaa目录剪切到 /usr目录下面     mv /usr/tmp/aaa /usr<br>    注意：mv语法不仅可以对目录进行剪切操作，对文件和压缩包等都可执行剪切操作</p>
 <p>三、拷贝目录<br>    命令：cp -r 目录名称 目录拷贝的目标位置   -r代表递归<br>    示例：将/usr/tmp目录下的aaa目录复制到 /usr目录下面     cp /usr/tmp/aaa  /usr<br>    注意：cp命令不仅可以拷贝目录还可以拷贝文件，压缩包等，拷贝文件和压缩包时不    用写-r递归</p>
-<p>2.3.4 搜索目录【查】find<br>命令：find 目录 参数 文件名称<br>示例：find /usr/tmp -name ‘a*’    查找/usr/tmp目录下的所有以a开头的目录或文件</p>
-<p>三、文件操作命令<br>3.1 文件操作【增，删，改，查】<br>3.1.1 新建文件【增】touch<br>命令：touch 文件名<br>示例：在当前目录创建一个名为aa.txt的文件        touch  aa.txt</p>
+<p>2.3.4 搜索目录【查】find<br>命令：find 目录 参数 文件名称<br>示例：find /usr/tmp -name ‘a*’    查找/usr/tmp目录下的所有以a开头的目录或文件<br>(1)-name name, -iname name : 文件名称符合 name 的文件。iname 会忽略大小写<br>(2)-size n : 文件大小 是 n 单位，b 代表 512 位元组的区块，c 表示字元数，k 表示 kilo bytes，w 是二个位元组。<br>(3)-type c : 文件类型是 c 的文件。 d: 目录   f: 一般文件<br>(4)-atime n : 在过去n天内被读取过的文件<br>(5)-cmin n : 在过去 n 分钟内被修改过<br>三、文件操作命令<br>3.1 文件操作【增，删，改，查】<br>3.1.1 新建文件【增】touch<br>命令：touch 文件名<br>示例：在当前目录创建一个名为aa.txt的文件        touch  aa.txt</p>
 <p>3.1.2 删除文件 【删】 rm<br>命令：rm -rf 文件名</p>
 <p>3.1.3 修改文件【改】 vi或vim<br>【vi编辑器的3种模式】<br>    基本上vi可以分为三种状态，分别是命令模式（command mode）、插入模式（Insert mode）和底行模式（last line mode），各模式的功能区分如下：</p>
 <ol>
@@ -101,8 +100,7 @@
 <ul>
 <li> rw-   —     —</li>
 </ul>
-<p>命令：chmod +x aaa.txt或者采用8421法命令：chmod 100 aaa.txt</p>
-<p>四、压缩文件操作<br>4.1 打包和压缩<br>Windows的压缩文件的扩展名  .zip/.rar<br>linux中的打包文件：aa.tar<br>linux中的压缩文件：bb.gz<br>linux中打包并压缩的文件：.tar.gz<br>•    tar -zcf 备份文件.tar.gz 文档….<br>•    tar -jcf 备份文件.tar.bz2 文档….<br>•    tar -Jcf 备份文件.tar.xz 文档….</p>
+<p>命令：chmod +x aaa.txt或者采用8421法命令：chmod 100 aaa.txt<br>特殊权限：<br>（1）SUID 特殊权限仅适用于可执行文件，所具有的功能是，只要用户对设有 SUID 的文件有执行权限，那么当用户执行此文件时，会以文件所有者的身份去执行此文件，一旦文件执行结束，身份的切换也随之消失。<br>举一个例子，我们都知道，Linux 系统中所有用户的密码数据都记录在 /etc/shadow 这个文件中，通过 ll /etc/shadow 命令可以看到，此文件的权限是 0（———），也就是说，普通用户对此文件没有任何操作权限。<br>（2）SGID用户在执行具有 SGID 权限的可执行文件时，用户的群组身份会变为文件所属群组<br>  (3)  SBIT  SBIT 权限仅对目录有效，一旦目录设定了 SBIT 权限，则用户在此目录下创建的文件或目录，就只有自己和 root 才有权利修改或删除该文件<br>四、压缩文件操作<br>4.1 打包和压缩<br>Windows的压缩文件的扩展名  .zip/.rar<br>linux中的打包文件：aa.tar<br>linux中的压缩文件：bb.gz<br>linux中打包并压缩的文件：.tar.gz<br>•    tar    -zcf 备份文件.tar.gz 文档….<br>•    tar    -jcf 备份文件.tar.bz2 文档….<br>•    tar   -Jcf 备份文件.tar.xz 文档….</p>
 <p>Linux中的打包文件一般是以.tar结尾的，压缩的命令一般是以.gz结尾的。<br>而一般情况下打包和压缩是一起进行的，打包并压缩后的文件的后缀名一般.tar.gz。</p>
 <p>命令：tar -zcvf 打包压缩后的文件名 要打包的文件<br>其中：z：调用gzip压缩命令进行压缩<br>  c：打包文件<br>  v：显示运行过程<br>  f：指定文件名</p>
 <p>示例：打包并压缩/usr/tmp 下的所有文件 压缩后的压缩包指定名称为xxx.tar<br>tar -zcvf ab.tar aa.txt bb.txt<br>或：tar -zcvf ab.tar  *<br>•    tar -tf 备份文件<br>4.2 解压<br>命令：tar [-zxvf] 压缩文件<br>其中：x：代表解压<br>示例：将/usr/tmp 下的ab.tar解压到当前目录下</p>
