@@ -813,54 +813,6 @@
 ]]></content>
   </entry>
   <entry>
-    <title>shell01正则表达式</title>
-    <url>/2021/11/03/shell01/</url>
-    <content><![CDATA[<p>正则表达式，使用若干符号配合某工具实现对文档的过滤、查</p>
-<p>找、修改等功能</p>
-<p>head -5 /etc/passwd &gt; user   //准备素材</p>
-<p>grep bin user   //找有bin的行</p>
-<p>grep ^bin user        //找以bin开头的行</p>
-<p>grep bash user   //找有bash的行</p>
-<p>grep bash$ user   //找以bash结尾的行</p>
-<p>vim user     //编辑文档添加空行</p>
-<p>grep  -n  ^$  user   //找空行，加n选项可以显示行号</p>
-<p>grep “[root]” user   //找root四个字符任意一个</p>
-<p>grep “[rot]” user         //效果同上，找rot任意一个字符</p>
-<p>grep “rot” user   //找连续的rot字符串</p>
-<p>grep “[a-z]” user   //找所有小写字母</p>
-<p>grep “[A-Z]” user   //找所有大写字母</p>
-<p>grep “[a-Z]” user   //找所有字母</p>
-<p>grep “[0-9]” user   //找所有数字</p>
-<p>grep “[^a-Z]” user  //找字母之外的内容，^写在[]里是取反效果</p>
-<p>grep “r..t” user   //找rt之间有2个任意字符的行</p>
-<p>grep “r…t” user  //找rt之间有3个任意字符的行，没有匹配内容，就无输出    </p>
-<p>grep “<em>“ user  //错误用法，</em>号是匹配前一个字符任意次，不能单独使用</p>
-<p>grep “ro*t” user  //找rt，中间的o有没有都行，有几次都行</p>
-<p>grep “.” user   //找任意单个字符，文档中每个字符都可以理解为任意字符</p>
-<p>grep “.<em>“ user  //找任意，包括空行 .与</em>的组合在正则中相当于通配符的效果</p>
-<p>grep “ro{2,4}t” user   //找rt，中间的o可以是2~4个</p>
-<p>grep “ro{2,}t” user         //找rt，中间的o可以是2个以及2个以</p>
-<p>上</p>
-<p>grep “ro{3,7}t” user //找rt，中间的o可以是3~7个，没有匹</p>
-<p>配条件就没有任何显示</p>
-<p>grep “ro{3,}t” user  //找rt，中间的o可以是3个以及3个以</p>
-<p>上</p>
-<p>grep “ro{2}t” user  //找rt，中间的o必须是2个</p>
-<p>grep “ro{1,}t” user    //找1次以及1次以上的o</p>
-<p>egrep “ro{1,}t” user   //效果同上,egrep支持扩展正则，或者grep -E</p>
-<p>egrep “ro+t” user     //效果同上，最精简</p>
-<p>grep “roo{0,1}t” user   //第二个o要出现0~1次</p>
-<p>egrep “roo{0,1}t” user  //效果同上</p>
-<p>egrep “roo?t” user   //效果同上，最精简</p>
-<p>grep “ro{2}t” user    //找o出现2次的</p>
-<p>egrep “ro{2}t” user    //效果同上</p>
-<p>egrep “^root|^bin” user   //找root或者以bin开头的行</p>
-<p>egrep “^(root|bin)” user   //效果同上</p>
-<p>egrep “\bthe\b” abc             //找the，前后不允许出现数</p>
-<p>字，字母，下划线</p>
-]]></content>
-  </entry>
-  <entry>
     <title>shell02简单的shell</title>
     <url>/2021/11/03/shell02/</url>
     <content><![CDATA[<p>什么是shell</p>
@@ -2090,6 +2042,81 @@
 <li>   192.168.4.5    <a href="http://www.c.com/">www.c.com</a>  <a href="http://www.a.com/">www.a.com</a>   <a href="http://www.b.com/">www.b.com</a><br>2）登录192.168.4.10客户端主机进行测试</li>
 <li>   [root@client ~]# firefox <a href="https://www.c.com/">https://www.c.com</a>           </li>
 </ol>
+]]></content>
+  </entry>
+  <entry>
+    <title>python笔记day1</title>
+    <url>/2022/01/21/python%E7%AC%94%E8%AE%B0day1/</url>
+    <content><![CDATA[<p>Python语法结构：</p>
+<ol>
+<li>   python代码块通过缩进对齐表示代码逻辑而不是使用大括号</li>
+<li>   缩进表达一个语句属于哪一个代码块</li>
+<li>   缩进风格<br>(1) 1或2：可能不够，很难确定代码语句属于哪一个代码块<br>(2) 8至10：可能太多，如果代码内嵌的层次太多，就会使得待py代码很难阅读<br>(3) 4个空格：非常流行，范。罗萨姆支持的风格</li>
+<li>   缩进相同的一组语句结构一个代码块，称之为代码组</li>
+<li>   首行以关键字开始，以冒号：结束，该行之后的以行或者多行代码构成代码组（细节注意）</li>
+<li>   如果代码只有一行，可以将其直接写在冒号后面，但是这样的写法可读性差，不推荐<br>注释及续行：</li>
+<li>首要说明：尽管Python是可读性最好的语言之一，这并不意味这程序员在代码中就不写注释。</li>
+<li>和很多Unix脚本类似，Python注释语句从#字符开始</li>
+<li>注释可以子啊以行的任何地方开始，解释器会忽略该行#之后的所有内容</li>
+<li>一行过长的语句可以使用反斜杠\分解成几行<br>同行多个语句： 【了解】</li>
+<li>分号；允许你将多个语句写在同一行上</li>
+<li>但是这些语句不能在这行开始一个新的代码块</li>
+<li>因为可读对变差，所以不推荐使用<br>简单命令<br>输出（打印）print<br>print（’hello world!’）<br>print (‘hello’+’world!’)<br>print (‘hello’,’world!’)<br>print(‘hello’,’world!’,sep=’***’,end=’’)<br>输入 input<br>num=input（“number：”）<br>进入python 直接输入python<br>运行python文件是列如：python log.py<br>退出exit（）</li>
+</ol>
+]]></content>
+  </entry>
+  <entry>
+    <title>shell01正则表达式</title>
+    <url>/2021/11/03/shell01%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/</url>
+    <content><![CDATA[<p>正则表达式，使用若干符号配合某工具实现对文档的过滤、查</p>
+<p>找、修改等功能</p>
+<p>head -5 /etc/passwd &gt; user   //准备素材</p>
+<p>grep bin user   //找有bin的行</p>
+<p>grep ^bin user        //找以bin开头的行</p>
+<p>grep bash user   //找有bash的行</p>
+<p>grep bash$ user   //找以bash结尾的行</p>
+<p>vim user     //编辑文档添加空行</p>
+<p>grep  -n  ^$  user   //找空行，加n选项可以显示行号</p>
+<p>grep “[root]” user   //找root四个字符任意一个</p>
+<p>grep “[rot]” user         //效果同上，找rot任意一个字符</p>
+<p>grep “rot” user   //找连续的rot字符串</p>
+<p>grep “[a-z]” user   //找所有小写字母</p>
+<p>grep “[A-Z]” user   //找所有大写字母</p>
+<p>grep “[a-Z]” user   //找所有字母</p>
+<p>grep “[0-9]” user   //找所有数字</p>
+<p>grep “[^a-Z]” user  //找字母之外的内容，^写在[]里是取反效果</p>
+<p>grep “r..t” user   //找rt之间有2个任意字符的行</p>
+<p>grep “r…t” user  //找rt之间有3个任意字符的行，没有匹配内容，就无输出    </p>
+<p>grep “<em>“ user  //错误用法，</em>号是匹配前一个字符任意次，不能单独使用</p>
+<p>grep “ro*t” user  //找rt，中间的o有没有都行，有几次都行</p>
+<p>grep “.” user   //找任意单个字符，文档中每个字符都可以理解为任意字符</p>
+<p>grep “.<em>“ user  //找任意，包括空行 .与</em>的组合在正则中相当于通配符的效果</p>
+<p>grep “ro{2,4}t” user   //找rt，中间的o可以是2~4个</p>
+<p>grep “ro{2,}t” user         //找rt，中间的o可以是2个以及2个以</p>
+<p>上</p>
+<p>grep “ro{3,7}t” user //找rt，中间的o可以是3~7个，没有匹</p>
+<p>配条件就没有任何显示</p>
+<p>grep “ro{3,}t” user  //找rt，中间的o可以是3个以及3个以</p>
+<p>上</p>
+<p>grep “ro{2}t” user  //找rt，中间的o必须是2个</p>
+<p>grep “ro{1,}t” user    //找1次以及1次以上的o</p>
+<p>egrep “ro{1,}t” user   //效果同上,egrep支持扩展正则，或者grep -E</p>
+<p>egrep “ro+t” user     //效果同上，最精简</p>
+<p>grep “roo{0,1}t” user   //第二个o要出现0~1次</p>
+<p>egrep “roo{0,1}t” user  //效果同上</p>
+<p>egrep “roo?t” user   //效果同上，最精简</p>
+<p>grep “ro{2}t” user    //找o出现2次的</p>
+<p>egrep “ro{2}t” user    //效果同上</p>
+<p>egrep “^root|^bin” user   //找root或者以bin开头的行</p>
+<p>egrep “^(root|bin)” user   //效果同上</p>
+<p>egrep “\bthe\b” abc             //找the，前后不允许出现数</p>
+<p>字，字母，下划线</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>web安全笔记day03</title>
+    <url>/2022/01/20/web%E5%AE%89%E5%85%A8%E7%AC%94%E8%AE%B0day03/</url>
+    <content><![CDATA[<p>信息收集：<br>信息收集是指通过各种方式获取所需要的信息，以便我们在后续的渗透过程更好的进行。因为只有我们掌握了目标网站或目标 主机足够多的信息之后，我们才能更好地对其进行漏洞检测。<br>主动信息收集<br>    优点: 精准、灵活<br>    缺点: 与目标直接交互，暴露自身<br>被动信息收集<br>    优点: 无交互、可以统一统计、工具化爬取<br>    缺点: 数据具有时效性，不精准，误差高<br>主要收集的内容：<br>    1. 服务器的配置信息，banner指纹<br>    2. 只要和网站关联的信息都要尽量去收集，包括网站注册人，网站关联公司，网站系统架构，网站关联子域名，网站开放服务以及开放端口等<br>谷歌黑语法<br>intitle:关键字  <del>搜索网页标题中含有关键字的网页</del><br>intext:关键字   <del>搜索站点正文中含有关键字的网页</del><br>inurl:关键字    <del>搜索URL中包含有指定字符串的网址</del><br>site:域名       <del>在指定站点内查找相关的内容</del><br>filetype:文件   <del>搜索指定类型的文件</del><br>github-dorks    <a href="https://github.com/techgaun/github-dorks">https://github.com/techgaun/github-dorks</a><br>github-dork.py是一个简单的python工具，可以搜索您的存储库或您的组织/用户存储库。它目前不是一个完美的工具，但提供了基本功能，可以针对文本文件中指定的dorks自动搜索存储库。<br>子域名信息收集<br>子域名是某个主域的二级域名或者多级域名或者其他域名，在防御措施严密的情况下无法直接拿下主域，那么可以用迂回战术拿下子域名，然后无限靠近主域。一台服务器上有很多个站点，这些站点之间没有必然的联系，是相互独立的，使用的是不同的域名（甚至端口都不同），但是它们却共存在一台服务器上。</p>
 ]]></content>
   </entry>
 </search>
