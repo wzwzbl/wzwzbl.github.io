@@ -2091,22 +2091,21 @@
 <p>grep “ro*t” user  //找rt，中间的o有没有都行，有几次都行</p>
 <p>grep “.” user   //找任意单个字符，文档中每个字符都可以理解为任意字符</p>
 <p>grep “.<em>“ user  //找任意，包括空行 .与</em>的组合在正则中相当于通配符的效果</p>
-<p>grep “ro{2,4}t” user   //找rt，中间的o可以是2~4个</p>
-<p>grep “ro{2,}t” user         //找rt，中间的o可以是2个以及2个以</p>
+<p>   grep “ro{2,4}t” user   //找rt，中间的o可以是2~4个<br>   grep “ro{2,}t” user         //找rt，中间的o可以是2个以及2个以</p>
 <p>上</p>
-<p>grep “ro{3,7}t” user //找rt，中间的o可以是3~7个，没有匹</p>
+<p>   grep “ro{3,7}t” user //找rt，中间的o可以是3~7个，没有匹</p>
 <p>配条件就没有任何显示</p>
-<p>grep “ro{3,}t” user  //找rt，中间的o可以是3个以及3个以</p>
+<p>   grep “ro{3,}t” user  //找rt，中间的o可以是3个以及3个以</p>
 <p>上</p>
-<p>grep “ro{2}t” user  //找rt，中间的o必须是2个</p>
-<p>grep “ro{1,}t” user    //找1次以及1次以上的o</p>
-<p>egrep “ro{1,}t” user   //效果同上,egrep支持扩展正则，或者grep -E</p>
-<p>egrep “ro+t” user     //效果同上，最精简</p>
-<p>grep “roo{0,1}t” user   //第二个o要出现0~1次</p>
+<p>   grep “ro{2}t” user  //找rt，中间的o必须是2个</p>
+<pre><code>grep &quot;ro\&#123;1,\&#125;t&quot; user    //找1次以及1次以上的o
+</code></pre>
+<p> egrep “ro{1,}t” user   //效果同上,egrep支持扩展正则，或者grep -E</p>
+<p> egrep “ro+t” user     //效果同上，最精简</p>
+<pre><code>grep &quot;roo\&#123;0,1\&#125;t&quot; user   //第二个o要出现0~1次
+</code></pre>
 <p>egrep “roo{0,1}t” user  //效果同上</p>
-<p>egrep “roo?t” user   //效果同上，最精简</p>
-<p>grep “ro{2}t” user    //找o出现2次的</p>
-<p>egrep “ro{2}t” user    //效果同上</p>
+<p>egrep “roo?t” user   //效果同上，最精简<br>      grep “ro{2}t” user    //找o出现2次的<br>egrep “ro{2}t” user    //效果同上</p>
 <p>egrep “^root|^bin” user   //找root或者以bin开头的行</p>
 <p>egrep “^(root|bin)” user   //效果同上</p>
 <p>egrep “\bthe\b” abc             //找the，前后不允许出现数</p>
