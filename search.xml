@@ -2118,4 +2118,62 @@
     <content><![CDATA[<p>信息收集：<br>信息收集是指通过各种方式获取所需要的信息，以便我们在后续的渗透过程更好的进行。因为只有我们掌握了目标网站或目标 主机足够多的信息之后，我们才能更好地对其进行漏洞检测。<br>主动信息收集<br>    优点: 精准、灵活<br>    缺点: 与目标直接交互，暴露自身<br>被动信息收集<br>    优点: 无交互、可以统一统计、工具化爬取<br>    缺点: 数据具有时效性，不精准，误差高<br>主要收集的内容：<br>    1. 服务器的配置信息，banner指纹<br>    2. 只要和网站关联的信息都要尽量去收集，包括网站注册人，网站关联公司，网站系统架构，网站关联子域名，网站开放服务以及开放端口等<br>谷歌黑语法<br>intitle:关键字  <del>搜索网页标题中含有关键字的网页</del><br>intext:关键字   <del>搜索站点正文中含有关键字的网页</del><br>inurl:关键字    <del>搜索URL中包含有指定字符串的网址</del><br>site:域名       <del>在指定站点内查找相关的内容</del><br>filetype:文件   <del>搜索指定类型的文件</del><br>github-dorks    <a href="https://github.com/techgaun/github-dorks">https://github.com/techgaun/github-dorks</a><br>github-dork.py是一个简单的python工具，可以搜索您的存储库或您的组织/用户存储库。它目前不是一个完美的工具，但提供了基本功能，可以针对文本文件中指定的dorks自动搜索存储库。<br>子域名信息收集<br>子域名是某个主域的二级域名或者多级域名或者其他域名，在防御措施严密的情况下无法直接拿下主域，那么可以用迂回战术拿下子域名，然后无限靠近主域。一台服务器上有很多个站点，这些站点之间没有必然的联系，是相互独立的，使用的是不同的域名（甚至端口都不同），但是它们却共存在一台服务器上。</p>
 ]]></content>
   </entry>
+  <entry>
+    <title>python笔记day02</title>
+    <url>/2022/01/23/python%E7%AC%94%E8%AE%B0day02/</url>
+    <content><![CDATA[<p>Python变量<br>变量名约定：</p>
+<ol>
+<li>第一个字符只能是大小写字母或者下划线</li>
+<li>后续字符只能是大小写字母或者数字或者下划线</li>
+<li>区分大小写<br>Python是动态类型语言，既不需要预先声明变量的类型<br>变量的定义：<br>一、推荐采用的全名方法</li>
+<li>变量名全部采用的小写的字母</li>
+<li>简短、有意义</li>
+<li>多个单词间用下划线分隔</li>
+<li>变量名用名词，函数名要用谓词（动词+名词）</li>
+<li>类名采用驼峰形式<br>二、变量的赋值</li>
+<li>变量的类型和值在赋值那一刻被初始化</li>
+<li>变量赋通等号来执行</li>
+<li>Python也支持增量赋值<br>三、运算符</li>
+<li>标准算术运算符</li>
+</ol>
+<ul>
+<li><ul>
+<li><ul>
+<li> /  //   %   **</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ol start="2">
+<li>比较运算符<br>&lt;  &lt;=   &gt;   &gt;=   ==    !=</li>
+<li>逻辑运算符<br>And    not   or  </li>
+</ol>
+<p>基本数字类型：</p>
+<ol>
+<li>int：有符号整数</li>
+<li>bool：布尔值</li>
+</ol>
+<p>-True：1<br>-False：0<br>3. float：浮点数<br>4. Complex：复数<br>数字表示方式：</p>
+<ol>
+<li>Python默认以十进制数显示</li>
+<li>数字以0o或者0O开头表示为8进制数</li>
+<li>数字以0x或者0X开头表示为16进制数</li>
+<li>数字以0b或者0B开头表示为2进制数<br>定义字符串：</li>
+<li>Python中字符串被定义为引号之间的字符集合</li>
+<li>Python支持使用成对的单引号或者双引号</li>
+<li>无论单引号，还是双引号，表示的意义相同</li>
+<li>Python还支持三引号（三个来连续的单引号或者双引号），可以用来高喊特殊字符</li>
+<li>Python不区分字符和字符串<br>字符串的切割：</li>
+<li>使用索引运算符[]和切片运算符[:]可得到字符串</li>
+<li>第一个字符的索引是0，最后一个字符的索引是-1</li>
+<li>子字符串包含切片中的起始下标，但不包含结束下标。<br>字符串连接的操作：</li>
+<li>使用+号可以将多个字符串拼接在一起</li>
+<li>使用*号可以将一个字符串重复多次<br>定义列表：</li>
+<li>可以将列表当成普通的“数组”，它能保存任意数量任已类型的python对象</li>
+<li>像字符串一样，列表也支持下表和切片操作</li>
+<li>列表中的项目可以改变<br>在2.7版本里输入是raw_input  3.0版本是input<br>linux系统升级python版本<br>(1)查看python原来的版本<br>python -V<br>（2）下载python安装包并解压<br>wget <a href="https://www.python.org/ftp/python/3.7.2/Python-3.7.2.tgz">https://www.python.org/ftp/python/3.7.2/Python-3.7.2.tgz</a><br>tar -xf Python-3.7.2.tgz<br>mv Python-3.7.2 python3<br>（3）进入解压的python内进行配置并安装<br>cd python3<br>./configure –prefix=/usr/local/python3 --with-ssl --enable-optimizations<br>make<br>make install<br>（4）安装完成后修改默认的python版本<br>cd /usr/bin<br>mv python python.bak<br>ln -s /usr/local/python3/bin/python3 /usr/bin/python   软连接<br>（5）安装完成<br>python -V<h1 id="输出结果：Python-3-7-2"><a href="#输出结果：Python-3-7-2" class="headerlink" title="输出结果：Python 3.7.2"></a>输出结果：Python 3.7.2</h1>列如<br>给文件创建（硬链接），为log2013.log创建硬链接ln2013，log2013.log与ln2013的各项属性相同<br>ln log2013.log ln2013</li>
+</ol>
+]]></content>
+  </entry>
 </search>

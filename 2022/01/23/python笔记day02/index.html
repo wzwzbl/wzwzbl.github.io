@@ -1,0 +1,219 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>python笔记day02 - Hexo</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="Python变量变量名约定：
+
+第一个字符只能是大小写字母或者下划线
+后续字符只能是大小写字母或者数字或者下划线
+区分大小写Python是动态类型语言，既不需要预先声明变量的类型变量的定义：一、推荐,"> 
+    <meta name="author" content="John Doe"> 
+    <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">Hexo</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://example.com"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">python笔记day02</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">python笔记day02</h1>
+        <div class="stuff">
+            <span>一月 23, 2022</span>
+            
+
+        </div>
+        <div class="content markdown">
+            <p>Python变量<br>变量名约定：</p>
+<ol>
+<li>第一个字符只能是大小写字母或者下划线</li>
+<li>后续字符只能是大小写字母或者数字或者下划线</li>
+<li>区分大小写<br>Python是动态类型语言，既不需要预先声明变量的类型<br>变量的定义：<br>一、推荐采用的全名方法</li>
+<li>变量名全部采用的小写的字母</li>
+<li>简短、有意义</li>
+<li>多个单词间用下划线分隔</li>
+<li>变量名用名词，函数名要用谓词（动词+名词）</li>
+<li>类名采用驼峰形式<br>二、变量的赋值</li>
+<li>变量的类型和值在赋值那一刻被初始化</li>
+<li>变量赋通等号来执行</li>
+<li>Python也支持增量赋值<br>三、运算符</li>
+<li>标准算术运算符</li>
+</ol>
+<ul>
+<li><ul>
+<li><ul>
+<li> /  //   %   **</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ol start="2">
+<li>比较运算符<br>&lt;  &lt;=   &gt;   &gt;=   ==    !=</li>
+<li>逻辑运算符<br>And    not   or  </li>
+</ol>
+<p>基本数字类型：</p>
+<ol>
+<li>int：有符号整数</li>
+<li>bool：布尔值</li>
+</ol>
+<p>-True：1<br>-False：0<br>3. float：浮点数<br>4. Complex：复数<br>数字表示方式：</p>
+<ol>
+<li>Python默认以十进制数显示</li>
+<li>数字以0o或者0O开头表示为8进制数</li>
+<li>数字以0x或者0X开头表示为16进制数</li>
+<li>数字以0b或者0B开头表示为2进制数<br>定义字符串：</li>
+<li>Python中字符串被定义为引号之间的字符集合</li>
+<li>Python支持使用成对的单引号或者双引号</li>
+<li>无论单引号，还是双引号，表示的意义相同</li>
+<li>Python还支持三引号（三个来连续的单引号或者双引号），可以用来高喊特殊字符</li>
+<li>Python不区分字符和字符串<br>字符串的切割：</li>
+<li>使用索引运算符[]和切片运算符[:]可得到字符串</li>
+<li>第一个字符的索引是0，最后一个字符的索引是-1</li>
+<li>子字符串包含切片中的起始下标，但不包含结束下标。<br>字符串连接的操作：</li>
+<li>使用+号可以将多个字符串拼接在一起</li>
+<li>使用*号可以将一个字符串重复多次<br>定义列表：</li>
+<li>可以将列表当成普通的“数组”，它能保存任意数量任已类型的python对象</li>
+<li>像字符串一样，列表也支持下表和切片操作</li>
+<li>列表中的项目可以改变<br>在2.7版本里输入是raw_input  3.0版本是input<br>linux系统升级python版本<br>(1)查看python原来的版本<br>python -V<br>（2）下载python安装包并解压<br>wget <a target="_blank" rel="noopener" href="https://www.python.org/ftp/python/3.7.2/Python-3.7.2.tgz">https://www.python.org/ftp/python/3.7.2/Python-3.7.2.tgz</a><br>tar -xf Python-3.7.2.tgz<br>mv Python-3.7.2 python3<br>（3）进入解压的python内进行配置并安装<br>cd python3<br>./configure –prefix=/usr/local/python3 --with-ssl --enable-optimizations<br>make<br>make install<br>（4）安装完成后修改默认的python版本<br>cd /usr/bin<br>mv python python.bak<br>ln -s /usr/local/python3/bin/python3 /usr/bin/python   软连接<br>（5）安装完成<br>python -V<h1 id="输出结果：Python-3-7-2"><a href="#输出结果：Python-3-7-2" class="headerlink" title="输出结果：Python 3.7.2"></a>输出结果：Python 3.7.2</h1>列如<br>给文件创建（硬链接），为log2013.log创建硬链接ln2013，log2013.log与ln2013的各项属性相同<br>ln log2013.log ln2013</li>
+</ol>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+		data-enable='false'
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</html>
