@@ -58,8 +58,7 @@
 <p>2.2 目录查看 ls [-al]<br>命令：ls [-al]</p>
 <p>ls                查看当前目录下的所有目录和文件<br>ls -a            查看当前目录下的所有目录和文件（包括隐藏的文件）<br>ls -l 或 ll       列表查看当前目录下的所有目录和文件（列表查看，显示更多信息）<br>ls /dir            查看指定目录下的所有目录和文件   如：ls /usr</p>
 <p>2.3 目录操作【增，删，改，查】<br>2.3.1 创建目录【增】 mkdir<br>命令：mkdir 目录</p>
-<p>mkdir    aaa            在当前目录下创建一个名为aaa的目录<br>mkdir    /usr/aaa    在指定目录下创建一个名为aaa的目录</p>
-<p>2.3.2 删除目录或文件【删】rm<br>命令：rm [-rf] 目录</p>
+<p>mkdir    aaa            在当前目录下创建一个名为aaa的目录<br>mkdir    /usr/aaa    在指定目录下创建一个名为aaa的目录<br>rmdir    删除一个空目录<br>2.3.2 删除目录或文件【删】rm<br>命令：rm [-rf] 目录</p>
 <p>删除文件：<br>rm 文件        删除当前目录下的文件<br>rm -f 文件    删除当前目录的的文件（不询问）</p>
 <p>删除目录：<br>rm -r aaa    递归删除当前目录下的aaa目录<br>rm -rf aaa    递归删除当前目录下的aaa目录（不询问）</p>
 <p>全部删除：<br>rm -rf *    将当前目录下的所有目录和文件全部删除<br>rm -rf /*    【自杀命令！慎用！慎用！慎用！】将根目录下的所有文件全部删除</p>
@@ -88,7 +87,9 @@
 <p>第一步：ESC  进入命令行模式<br>第二步：:     进入底行模式<br>第三步：q!     撤销本次修改并退出编辑</p>
 <p>3.1.4 文件的查看【查】<br>文件的查看命令：cat/more/less/tail</p>
 <p>cat：看最后一屏</p>
-<p>示例：使用cat查看/etc/sudo.conf文件，只能显示最后一屏内容<br>cat sudo.conf<br>列：检查红帽发行信息  cat  /etc/redhat-release      列出内核版本：  uname  -r   查看cpu  lscpu<br>检查内存大小： cat  /proc/meminfo<br>more：百分比显示</p>
+<p>-n 打印出行号</p>
+<p>示例：使用cat查看/etc/sudo.conf文件，只能显示最后一屏内容<br>cat sudo.conf<br>列：检查红帽发行信息  cat  /etc/redhat-release<br>列出内核版本：  uname  -r<br>查看cpu  lscpu<br>检查内存大小： cat  /proc/meminfo</p>
+<p>more：百分比显示，可翻页查看</p>
 <p>示例：使用more查看/etc/sudo.conf文件，可以显示百分比，回车可以向下一行，空格可以向下一页，q可以退出查看<br>more sudo.conf</p>
 <p>less：翻页查看</p>
 <p>示例：使用less查看/etc/sudo.conf文件，可以使用键盘上的PgUp和PgDn向上    和向下翻页，q结束查看<br>less sudo.conf</p>
@@ -100,7 +101,8 @@
 <ul>
 <li> rw-   —     —</li>
 </ul>
-<p>命令：chmod +x aaa.txt或者采用8421法命令：chmod 100 aaa.txt<br>特殊权限：<br>（1）SUID 特殊权限仅适用于可执行文件，所具有的功能是，只要用户对设有 SUID 的文件有执行权限，那么当用户执行此文件时，会以文件所有者的身份去执行此文件，一旦文件执行结束，身份的切换也随之消失。<br>举一个例子，我们都知道，Linux 系统中所有用户的密码数据都记录在 /etc/shadow 这个文件中，通过 ll /etc/shadow 命令可以看到，此文件的权限是 0（———），也就是说，普通用户对此文件没有任何操作权限。<br>（2）SGID用户在执行具有 SGID 权限的可执行文件时，用户的群组身份会变为文件所属群组<br>  (3)  SBIT  SBIT 权限仅对目录有效，一旦目录设定了 SBIT 权限，则用户在此目录下创建的文件或目录，就只有自己和 root 才有权利修改或删除该文件<br>四、压缩文件操作<br>4.1 打包和压缩<br>Windows的压缩文件的扩展名  .zip/.rar<br>linux中的打包文件：aa.tar<br>linux中的压缩文件：bb.gz<br>linux中打包并压缩的文件：.tar.gz<br>•    tar    -zcf 备份文件.tar.gz 文档….<br>•    tar    -jcf 备份文件.tar.bz2 文档….<br>•    tar   -Jcf 备份文件.tar.xz 文档….</p>
+<p>命令：chmod +x aaa.txt或者采用8421法命令：chmod 100 aaa.txt<br>chown  修改属主和属组<br>chattr  配置文件隐藏属性<br>lsattr    查看文件隐藏属性<br>特殊权限：<br>（1）SUID 特殊权限仅适用于可执行文件，所具有的功能是，只要用户对设有 SUID 的文件有执行权限，那么当用户执行此文件时，会以文件所有者的身份去执行此文件，一旦文件执行结束，身份的切换也随之消失。<br>举一个例子，我们都知道，Linux 系统中所有用户的密码数据都记录在 /etc/shadow 这个文件中，通过 ll /etc/shadow 命令可以看到，此文件的权限是 0（———），也就是说，普通用户对此文件没有任何操作权限。<br>（2）SGID用户在执行具有 SGID 权限的可执行文件时，用户的群组身份会变为文件所属群组<br>  (3)  SBIT  SBIT 权限仅对目录有效，一旦目录设定了 SBIT 权限，则用户在此目录下创建的文件或目录，就只有自己和 root 才有权利修改或删除该文件</p>
+<p>四、压缩文件操作<br>4.1 打包和压缩<br>Windows的压缩文件的扩展名  .zip/.rar<br>linux中的打包文件：aa.tar<br>linux中的压缩文件：bb.gz<br>linux中打包并压缩的文件：.tar.gz<br>•    tar    -zcf 备份文件.tar.gz 文档….<br>•    tar    -jcf 备份文件.tar.bz2 文档….<br>•    tar   -Jcf 备份文件.tar.xz 文档….</p>
 <p>Linux中的打包文件一般是以.tar结尾的，压缩的命令一般是以.gz结尾的。<br>而一般情况下打包和压缩是一起进行的，打包并压缩后的文件的后缀名一般.tar.gz。</p>
 <p>命令：tar -zcvf 打包压缩后的文件名 要打包的文件<br>其中：z：调用gzip压缩命令进行压缩<br>  c：打包文件<br>  v：显示运行过程<br>  f：指定文件名</p>
 <p>示例：打包并压缩/usr/tmp 下的所有文件 压缩后的压缩包指定名称为xxx.tar<br>tar -zcvf ab.tar aa.txt bb.txt<br>或：tar -zcvf ab.tar  *<br>•    tar -tf 备份文件<br>4.2 解压<br>命令：tar [-zxvf] 压缩文件<br>其中：x：代表解压<br>示例：将/usr/tmp 下的ab.tar解压到当前目录下</p>
@@ -112,9 +114,10 @@
 <p>使用实例：</p>
 <p>updatedblocate /etc/sh 搜索etc目录下所有以sh开头的文件 locate pwd 查找和pwd相关的所有文件<br>5.4 whereis<br>whereis命令是定位可执行文件、源代码文件、帮助文件在文件系统中的位置。这些文件的属性应属于原始代码，二进制文件，或是帮助文件。</p>
 <p>使用实例：</p>
-<p>whereis ls    将和ls文件相关的文件都查找出来<br>5.5 which<br>which命令的作用是在PATH变量指定的路径中，搜索某个系统命令的位置，并且返回第一个搜索结果。</p>
+<p>whereis ls    将和ls文件相关的文件都查找出来<br>5.5 which  （查找命令的路径）<br>which命令的作用是在PATH变量指定的路径中，搜索某个系统命令的位置，并且返回第一个搜索结果。</p>
 <p>使用实例：</p>
-<p>which pwd  查找pwd命令所在路径 which java  查找path中java的路径<br>六、su、sudo<br>6.1 su<br>su用于用户之间的切换。但是切换前的用户依然保持登录状态。如果是root 向普通或虚拟用户切换不需要密码，反之普通用户切换到其它任何用户都需要密码验证。<br>九、定时任务指令crontab 配置<br>crontab是Unix和Linux用于设置定时任务的指令。通过crontab命令，可以在固定间隔时间,执行指定的系统指令或shell脚本。时间间隔的单位可以是分钟、小时、日、月、周及以上的任意组合。</p>
+<p>which pwd  查找pwd命令所在路径 which java  查找path中java的路径 </p>
+<p>观察文件类型：file<br>file    /usr/bin/passwd<br>六、su、sudo<br>6.1 su<br>su用于用户之间的切换。但是切换前的用户依然保持登录状态。如果是root 向普通或虚拟用户切换不需要密码，反之普通用户切换到其它任何用户都需要密码验证。<br>九、定时任务指令crontab 配置  （date查看时间）<br>crontab是Unix和Linux用于设置定时任务的指令。通过crontab命令，可以在固定间隔时间,执行指定的系统指令或shell脚本。时间间隔的单位可以是分钟、小时、日、月、周及以上的任意组合。</p>
 <p>crontab安装： yum install crontabs<br>9.1 命令格式<br>crontab [-u user] file</p>
 <p>crontab [-u user] [ -e | -l | -r ]</p>
 <p>参数说明：</p>
@@ -154,7 +157,8 @@
 <p>光标跳到最后一行快捷键：shift+g</p>
 <p>删除一行：dd</p>
 <p>复制一行内容：y+y</p>
-<p>粘贴复制的内容：p</p>
+<p>粘贴复制的内容：p<br>显示目前所支持的语系 locale<br>locale </p>
+<p>lsblk  磁盘<br>df  -h  将容量结果显示出来</p>
 <p>十一、Linux项目部署<br>11.1 安装jdk1.8<br>先卸载open-jdk</p>
 <p>java -version<br>rpm -qa | grep java</p>
 <p>rpm -e –nodeps java-1.7.0-openjdk-1.7.0.45-2.4.3.3.el6.x86_64<br>rpm -e –nodeps java-1.6.0-openjdk-1.6.0.0-1.66.1.13.0.el6.x86_64</p>
