@@ -1,0 +1,182 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>linux磁盘和vim - Hexo</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="一。磁盘在linux下，需要使用一块硬盘。
+需要进行以下四步：
+识别硬盘—–分区规划—-格式化—-挂载步骤一：分区规划
+MBR模式分区
+要求：a.最多有四个区。一般分为1～4个主分区或者0～3个主分,"> 
+    <meta name="author" content="John Doe"> 
+    <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">Hexo</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://example.com"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">linux磁盘和vim</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">linux磁盘和vim</h1>
+        <div class="stuff">
+            <span>一月 26, 2022</span>
+            
+
+        </div>
+        <div class="content markdown">
+            <p>一。磁盘<br>在linux下，需要使用一块硬盘。</p>
+<p>需要进行以下四步：</p>
+<p>识别硬盘—–分区规划—-格式化—-挂载<br>步骤一：分区规划</p>
+<p>MBR模式分区</p>
+<p>要求：a.最多有四个区。一般分为1～4个主分区或者0～3个主分区+1个扩展分区（n个逻辑分区）</p>
+<pre><code>      b.最大支持容量为2.2TB的磁盘
+
+      c.扩展分区不能格式化
+</code></pre>
+<p>1.ext2<br>linux的正统文件系统为ext2<br>blkid   这个命令可以显示出目前系统被格式化的设备。<br>dumpe2fs  查询ext系统超级区块信息的命令</p>
+<p>2.inode<br>（1）文件是存储在硬盘上的，硬盘的最小存储单位叫做扇区sector，每个扇区存储512字节。操作系统读取硬盘的时候，不会一个个扇区地读取，这样效率太低，而是一次性连续读取多个扇区，即一次性读取一个块block。这种由多个扇区组成的块，是文件存取的最小单位。块的大小，最常见的是4KB，即连续八个sector组成一个block。<br>（2）文件数据存储在块中，那么还必须找到一个地方存储文件的元信息，比如文件的创建者、文件的创建日期、文件的大小等等。这种存储文件元信息的区域就叫做inode，中文译名为索引节点，也叫i节点。因此，一个文件必须占用一个inode，但至少占用一个block。<br>（3）inode包含很多的文件元信息，但不包含文件名，例如：字节数、属主UserID、属组GroupID、读写执行权限、时间戳等。</p>
+<p>而文件名存放在目录当中，但Linux系统内部不使用文件名，而是使用inode号码识别文件。对于系统来说文件名只是inode号码便于识别的别称。<br>（4）ls  -i 可以列出文件的inode<br>（5）df -i查看硬盘分区的inode总数和已使用情况<br>3.xfs文件系统<br>（1）从centos 7开始，默认的文件系统从ext4变成了xfs<br>（2）df -T  可以查看挂载点<br>4.磁盘与目录的容量<br>（1）df 列出文件系统的整体磁盘使用量   df -h  df -aT<br>（2）du 查看文件系统的磁盘的使用量<br>5.磁盘分区<br>（1）lsblk  列出系统上所有的磁盘列表<br>       parted  列出磁盘的分区类型和分区信息<br>（2）gdisk/fdisk<br>《1》    采用默认的 msdos 分区模式<br>fdisk分区工具用来建立msdos分区方案，其交互模式中的主要指令如下：<br>•    m：列出指令帮助<br>•    p：查看当前的分区表信息<br>•    n：新建分区<br>•    d：删除分区<br>•    q：放弃分区更改并退出<br>•    w：保存对分区表所做的更改<br>《2》mkfs.ext4   格式化成ext4类型  和 mkfs.xfs  格式化成xfs类型<br>《3》配置开机自动挂载<br>vim  /etc/fstab</p>
+<p>/dev/sdb2       /mnt/part2      ext4    defaults        0 0<br>《4》创建挂载点，并验证挂载配置<br>mkdir  /mnt/part2                 //创建挂载点</p>
+<p> mount  -a                         //挂载fstab中的可用设备</p>
+<p> df  -hT  /mnt/part2/                 //检查文档所在的文件系统及设备</p>
+<p>Filesystem      Type  Size  Used Avail Use% Mounted on<br>/dev/sdb2      ext4  1.9G  5.9M  1.8G   1% /mnt/part2</p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+		data-enable='false'
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</html>
