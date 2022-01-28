@@ -1,0 +1,169 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>linux逻辑卷管理 - Hexo</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="物理卷——————》卷组——————》逻辑卷一。lvm创建工具基本用法：创建卷组：vgcreate  卷组名  物理设备列如：vgcreate  systemvg  /dev/sdb1查看卷组：vg,"> 
+    <meta name="author" content="John Doe"> 
+    <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">Hexo</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://example.com"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">linux逻辑卷管理</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">linux逻辑卷管理</h1>
+        <div class="stuff">
+            <span>一月 28, 2022</span>
+            
+
+        </div>
+        <div class="content markdown">
+            <p>物理卷——————》卷组——————》逻辑卷<br>一。lvm创建工具基本用法：<br>创建卷组：vgcreate  卷组名  物理设备<br>列如：vgcreate  systemvg  /dev/sdb1<br>查看卷组：vgscan<br>创建逻辑卷：lvcreate  -L 大小  -n 逻辑卷名  卷组名<br>列如： lvcreate  -L  180MiB  -n  vo  systemvg<br>查看逻辑卷：lvscan<br>ACTIVE            ‘/dev/systemvg/vo’      [180.00 MiB] inherit<br>二。扩展逻辑卷的大小<br>对于已经格式化好的逻辑卷，在扩展大小以后，必须通知内核新大小。<br>如果此逻辑卷上的文件系统是EXT3/EXT4类型，需要使用resize2fs工具；<br>如果此逻辑卷上的文件系统是XFS类型，需要使用xfs_growfs。<br>步骤一：确认逻辑卷vo的信息<br>（1）找出逻辑卷所在卷组   lvscan<br>2）查看该卷组的剩余空间是否可满足扩展需要  vgdisplay  systemvg<br> VG Size               196.00 MiB                          //卷组总大小<br> Free  PE / Size       4 / 16.00 MiB                      //剩余空间大小<br>此例中卷组systemvg的总大小都不够300MiB、剩余空间才16MiB，因此必须先扩展卷组。只有剩余空间足够，才可以直接扩展逻辑卷大小<br>步骤二：扩展卷组<br>将提前准备的分区/dev/sdb5添加到卷组systemvg    vgextend  systemvg  /dev/sdb5、<br>确认卷组新的大小  vgdisplay  systemvg<br>VG Size               692.00 MiB                          //总大小已变大<br>Free  PE / Size       128 / 512.00 MiB                  //剩余空间已达512MiB<br>步骤三：扩展逻辑卷大小<br>1）将逻辑卷/dev/systemvg/vo的大小调整为300MiB<br>lvextend  -L 300MiB  /dev/systemvg/vo<br>2）确认调整结果  lvscan<br>3）刷新文件系统大小<br>确认逻辑卷vo上的文件系统类型：</p>
+<ol>
+<li>   [root@server0 ~]# blkid  /dev/systemvg/vo<br>选择合适的工具刷新大小：</li>
+<li>   [root@server0 ~]# resize2fs  /dev/systemvg/vo<br>确认新大小（约等于300MiB）：</li>
+<li>   [root@server0 ~]# mount  /dev/systemvg/vo  /vo/</li>
+<li>   [root@server0 ~]# df  -hT  /vo</li>
+</ol>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+		data-enable='false'
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</html>
