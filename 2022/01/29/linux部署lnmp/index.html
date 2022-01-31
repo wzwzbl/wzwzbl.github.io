@@ -1,0 +1,195 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>linux部署lnmp - Hexo</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="一。部署lnmp目前的网站一般都会有动态和静态数据，默认nginx仅可以处理静态数据，用户访问任何数据都是直接返回对应的文件，如果如果访问的是一个脚本的话，就会导致直接返回一个脚本给用户，而用户没有,"> 
+    <meta name="author" content="John Doe"> 
+    <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">Hexo</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://example.com"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">linux部署lnmp</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">linux部署lnmp</h1>
+        <div class="stuff">
+            <span>一月 29, 2022</span>
+            
+
+        </div>
+        <div class="content markdown">
+            <p>一。部署lnmp<br>目前的网站一般都会有动态和静态数据，默认nginx仅可以处理静态数据，用户访问任何数据都是直接返回对应的文件，如果如果访问的是一个脚本的话，就会导致直接返回一个脚本给用户，而用户没有脚本解释器，也看不懂脚本源代码！网站拓扑如图-1所示。<br>因此需要整合LNMP（Linux、Nginx、MySQL、PHP）实现动态网站效果。<br>LNMP在CentOS系统中，源码安装Nginx，使用RPM包安装MariaDB、PHP、PHP-FPM软件。<br>操作过程中需要安装的软件列表如下：<br>•    nginx<br>•    mariadb、mariadb-server、mariadb-devel<br>•    php、php-fpm、php-mysql<br>备注：mariadb（数据库客户端软件）、mariadb-server（数据库服务器软件）、mariadb-devel（其他客户端软件的依赖包）、php（解释器）、php-fpm（进程管理器服务）、php-mysql（PHP的数据库扩展包）。</p>
+<ol>
+<li>在虚拟机安装nginx依赖包：yum -y install gcc pcre-devel  zlib-devel  openssl-devel</li>
+<li> 解压nginx软件包并且进入软件包目录： tar -xf nginx-1.12.2.tar.gz      cd nginx-1.12.2/    </li>
+<li>源码编译安装： ./configure   –with-http_ssl_module （编译）<br>make  &amp;&amp; make install（安装）  </li>
+<li>安装php和mariadb软件包：  yum -y install php  php-mysql  mariadb   mariadb-devel  mariadb-server    </li>
+<li>安装PHP依赖包：yum -y install php-fpm</li>
+<li>修改nginx配置文件：vim /usr/local/nginx/conf/nginx.conf<br> location / {<pre><code>         root   html;
+         index  index.php  index.html   index.htm;
+</code></pre>
+ #设置默认首页为index.php，当用户在浏览器地址栏中只写域名或IP，不说访问什么页面时，服务器会把默认首页index.php返回给用户<pre><code>     &#125;
+</code></pre>
+</li>
+</ol>
+<p>(1)    取消65~71行注释，删除69行内容。<br>(2)    在下面内容之上添加：<br>①    缓存php生成的页面内容,8个16k：fastcgi_buffers  8  16k；<br>②    缓存php生成的头部信息：fastcgi_buffer_size  32k；<br>③    连接PHP的超时时间：fastcgi_connect_tinmeout  300;<br>④    发送请求的超时时间：fasticgi_send_timeout   300;<br>⑤    读取请求的超时时间：fasticgi_read_timeout  300;<br>      fastcgi_buffers 8 16k;<br>      fastcgi_buffer_size 32k;<br>      fastcgi_connect_timeout 300;<br>      fastcgi_send_timeout 300;<br>      fastcgi_read_timeout 300;<br>location ~ .php$ {<br>  root           html;<br>  fastcgi_pass   127.0.0.1:9000;<br> fastcgi_index  index.php;<br> include        fastcgi.conf;<br>   }<br>7. 启动数据库服务：systemctl start mariadb<br>8. 启动php服务：systemctl start php-fpm<br>9.启动nginx服务： /usr/local/nginx/sbin/nginx   重启nginx服务  /usr/local/nginx/sbin/nginx -s reload<br>9. 关闭防火墙：firewall-cmd  –set-defult-zone=trusted（如果没有安装防火墙就就会提示未找到命令）<br>10. 关闭SElinux：setenforce 0（敲完命令会提示setenforce: SELinux is disabled就证明SElinux已经关闭）<br>11.<br>1）添加php测试页面：vim /usr/local/nginx/html/test.php<br>内容是<br><?php
+$i=33;
+echo $i;
+?><br>2）创建PHP测试页面,连接并查询MariaDB数据库。<br>可以参考lnmp_soft/php_scripts/mysql.php:<br>    [root@proxy ~]# vim /usr/local/nginx/html/mysql.php<br>    <?php
+    $mysqli = new mysqli('localhost','root','密码','mysql');
+    //注意：root为mysql数据库的账户名称，密码需要修改为实际mysql密码，无密码则留空即可
+    //localhost是数据库的域名或IP，mysql是数据库的名称
+    if (mysqli_connect_errno()){
+        die('Unable to connect!'). mysqli_connect_error();
+    }
+    $sql = "select * from user";
+    $result = $mysqli->query($sql);
+    while($row = $result->fetch_array()){
+        printf("Host:%s",$row[0]);
+        printf("</br>");
+        printf("Name:%s",$row[1]);
+        printf("</br>");
+    }
+    ?><br>客户端使用浏览器访问服务器PHP首页文档，检验是否成功：<br>[root@client ~]# firefox <a target="_blank" rel="noopener" href="http://192.168.4.5/test.php">http://192.168.4.5/test.php</a><br>[root@client ~]# firefox <a target="_blank" rel="noopener" href="http://192.168.4.5/mysql.php">http://192.168.4.5/mysql.php</a></p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+		data-enable='false'
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</html>
