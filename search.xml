@@ -2253,10 +2253,9 @@ echo $i;
   <entry>
     <title>python爬虫day02</title>
     <url>/2022/02/05/python%E7%88%AC%E8%99%ABday02/</url>
-    <content><![CDATA[<p>一。爬一张照片（保存到本地：with open）<br>import requests<br>ur1 = ‘<a href="https://www.wahaotu.com/uploads/allimg/202010/1603608302633418.jpg&#39;">https://www.wahaotu.com/uploads/allimg/202010/1603608302633418.jpg&#39;</a><br>response = requests.get(ur1)</p>
+    <content><![CDATA[<p>一。第三个爬虫，爬一张照片（保存到本地：with open）<br>import requests<br>ur1 = ‘<a href="https://www.wahaotu.com/uploads/allimg/202010/1603608302633418.jpg&#39;">https://www.wahaotu.com/uploads/allimg/202010/1603608302633418.jpg&#39;</a><br>response = requests.get(ur1)</p>
 <p>print(response.content)</p>
-<p>with open(‘海贼王02.jsp’,’wb’) as f:<br>#命名为海贼王02.jsp  ，wb：二进制文件<br>    f.write(response.content)<br>二。爬贴吧网页</p>
-<p>import requests</p>
+<p>with open(‘海贼王02.jsp’,’wb’) as f:<br>#命名为海贼王02.jsp  ，wb：二进制文件<br>    f.write(response.content)<br>二。爬贴吧网页，第四个爬虫<br>import requests</p>
 <p>url = “<a href="https://tieba.baidu.com/f?kw=%7B%7D&amp;pn=%7B%7D&quot;">https://tieba.baidu.com/f?kw={}&amp;pn={}&quot;</a><br>w = input(“请输入你要搜索的贴吧名字:”)</p>
 <p>url_list = [url.format(w,i * 50) for i in range(5)]   遍历url 列表<br>print(url_list)<br>h = {<br>    “User-Agent”: “Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36 Edg/97.0.1072.76”</p>
 <p>}<br>for item_url in url_list :   遍历url列表为 item_url<br>    response =requests.get(item_url,headers=h)</p>
@@ -2272,15 +2271,61 @@ with  open(file_name,&quot;w&quot;,encoding=&#39;utf-8&#39;) as f:
   <entry>
     <title>python爬虫day01</title>
     <url>/2022/02/05/python%E7%88%AC%E8%99%ABday01/</url>
-    <content><![CDATA[<p>一。爬虫第一步（下载python和pycharm）<br>   （1）  需要到python的官方网站下载python的安装包。python官网的链接地址：<a href="https://www.python.org/">https://www.python.org</a><br>   （2）  打开官方网站，光标移到Downloads，选择windows<br>   （3）  根据不同的操作系统，选择不同版本的安装包。每一个版本提供了三个下载链接，依次是基于网页的安装程序、可执行的安装程序、程序的压缩文件。通常选择下载可执行的安装程序。32位的操作系统请选择windows x86，64位操作系统请选择windows x86-64。<br>   （4）  打开命令行，输入python 回车，出现python的版本信息并进入编辑页面。输入print(“Hello World”)，打印Hello World。输入exit() 退出编辑页面     。<br>   （5）   下载pycharm，Pycharm的官网下载地址是一个英文网站：<a href="https://www.jetbrains.com/pycharm/download/#section=windows%EF%BC%8C%E4%B8%8B%E8%BD%BD%E6%97%B6%E6%9C%89%E6%94%B6%E8%B4%B9%E5%92%8C%E5%85%8D%E8%B4%B9%E4%B8%A4%E4%B8%AA%E4%B8%A4%E4%B8%AA%E7%89%88%E6%9C%AC%E5%8F%AF%E4%BB%A5%E9%80%89%E6%8B%A9">https://www.jetbrains.com/pycharm/download/#section=windows，下载时有收费和免费两个两个版本可以选择</a> Professional(专业版，收费)和Community(社区版，免费)，一般来说，我们使用Community版本就够了，除非你需要用 Python 进行 Django等Web开发时才需要用到专业版。这里我们下载免费社区版。<br>二。下载模块<br>（1）在pycharm命令行（terminal）下载  pip  install  requests<br>pip  install  bs4（python专用网页解析器）<br>pip  install  re （正则表达式）系统本身就有的<br>pip install  lxml（html和xml和XPath解析方式）<br>XPath是最常用最高效的解析方式<br>（2）查看pip已经有的模块 pip  list<br>（3）升级pip  python -m pip install –upgrade pip<br> -i <a href="http://pypi.douban.com/simple/">http://pypi.douban.com/simple/</a> –trusted-host pypi.douban.com<br>三。简单的实例（爬取<a href="http://www.baidu.com的网页数据)/">www.baidu.com的网页数据）</a></p>
+    <content><![CDATA[<p>一。爬虫第一步（下载python和pycharm）<br>   （1）  需要到python的官方网站下载python的安装包。python官网的链接地址：<a href="https://www.python.org/">https://www.python.org</a><br>   （2）  打开官方网站，光标移到Downloads，选择windows<br>   （3）  根据不同的操作系统，选择不同版本的安装包。每一个版本提供了三个下载链接，依次是基于网页的安装程序、可执行的安装程序、程序的压缩文件。通常选择下载可执行的安装程序。32位的操作系统请选择windows x86，64位操作系统请选择windows x86-64。<br>   （4）  打开命令行，输入python 回车，出现python的版本信息并进入编辑页面。输入print(“Hello World”)，打印Hello World。输入exit() 退出编辑页面     。<br>   （5）   下载pycharm，Pycharm的官网下载地址是一个英文网站：<a href="https://www.jetbrains.com/pycharm/download/#section=windows%EF%BC%8C%E4%B8%8B%E8%BD%BD%E6%97%B6%E6%9C%89%E6%94%B6%E8%B4%B9%E5%92%8C%E5%85%8D%E8%B4%B9%E4%B8%A4%E4%B8%AA%E4%B8%A4%E4%B8%AA%E7%89%88%E6%9C%AC%E5%8F%AF%E4%BB%A5%E9%80%89%E6%8B%A9">https://www.jetbrains.com/pycharm/download/#section=windows，下载时有收费和免费两个两个版本可以选择</a> Professional(专业版，收费)和Community(社区版，免费)，一般来说，我们使用Community版本就够了，除非你需要用 Python 进行 Django等Web开发时才需要用到专业版。这里我们下载免费社区版。<br>二。下载模块<br>（1）在pycharm命令行（terminal）下载  pip  install  requests<br>pip  install  bs4（python专用网页解析器）<br>pip  install  re （正则表达式）系统本身就有的<br>pip install  lxml（html和xml和XPath解析方式）<br>XPath是最常用最高效的解析方式<br>from selenium import webdriver （selenium是Selenium是一个用电脑模拟人操作浏览器网页，可以实现自动化，测试等！）<br>（2）查看pip已经有的模块 pip  list<br>（3）升级pip  python -m pip install –upgrade pip<br> -i <a href="http://pypi.douban.com/simple/">http://pypi.douban.com/simple/</a> –trusted-host pypi.douban.com<br>三。简单的实例（爬取<a href="http://www.baidu.com的网页数据,第一个爬虫)/">www.baidu.com的网页数据，第一个爬虫）</a></p>
 <p>（1）import requests<br>#导入requests 模块<br>u = ‘<a href="https://www.baidu.com/&#39;">https://www.baidu.com/&#39;</a>   （要爬取的网页）<br> h = {<br>    “User-Agent”: “Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36 Edg/97.0.1072.76”</p>
 <p>}（头文件）<br>response = requests.get(url=u, headers=h)<br>print(response.content.decode())  （打印原代码）</p>
 <p>print(response.request.headers) （查看头文件）</p>
-<p>（2）import requests<br>#导入requests 模块<br>u = ‘<a href="https://www.baidu.com/&#39;">https://www.baidu.com/&#39;</a>   （要爬取的网页）<br> h = {<br>    “User-Agent”: “Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36 Edg/97.0.1072.76”<br>}（头文件）<br>response = request.get（url = u，headers = h）.text<br>print(response)<br>四。 requests.get (百度经验)<br>import requests</p>
-<p>u = “<a href="https://jingyan.baidu.com/search?&quot;">https://jingyan.baidu.com/search?&quot;</a><br>w = input(“请输入你要搜索的关键字:”)<br>p = {</p>
+<p>（2）import requests<br>#导入requests 模块<br>u = ‘<a href="https://www.baidu.com/&#39;">https://www.baidu.com/&#39;</a>   （要爬取的网页）<br> h = {<br>    “User-Agent”: “Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36 Edg/97.0.1072.76”<br>}（头文件）<br>response = request.get（url = u，headers = h）.text<br>print(response)<br>四。 requests.get (百度经验，第二个爬虫）<br>import requests</p>
+<p>u = “<a href="https://jingyan.baidu.com/search?&quot;">https://jingyan.baidu.com/search?&quot;</a><br>m = input(“请输入你要搜索的关键字:”)<br>p = {</p>
 <p> “word” :”w”<br> }</p>
 <p>r = requests.get(url = u,params= p  ).text</p>
-<p>print(r)</p>
+<p>print(r)<br>with open(“wzw\”+m+”.text”,”w”)as f:<br>    f.write(r)</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>pyhon爬虫03</title>
+    <url>/2022/02/07/pyhon%E7%88%AC%E8%99%ABday03/</url>
+    <content><![CDATA[<p>一。爬取批量抖音视频，第五个爬虫<br>from selenium import webdriver #导入库<br> 固定格式（1）滑动页面，只有滑动所有的页面，才能获得所有的网址。<br>def drop_down():<br>    for x in range(1,100,4):<br>        time.sleep(1)<br>        j = x / 9<br>        js = ‘document.documentElement.scrollTop = document.documentElement.scrollHeight * %f’ % j<br>        driver.execute_script(js)<br>固定格式（2）用正则表达式把标题里不符合格式的化成”<em>“<br>def chang_title(title):<br>    pattorn = re.compile(r”[/\:*?&quot;&lt;&gt;|]”)<br>    new_tiltle = re.sub(pattorn, “</em>“, title)<br>    return new_tiltle<br> new_title = chang_title(title)  #定义标头</p>
+<p>#Selenium库是一个用电脑模拟人操作浏览器网页，可以实现自动化，测试等！<br>driver = webdriver.Chrome() #爬取的是Google浏览器<br>driver.get(‘要爬取的视频网页’)<br>time.sleep(3)#是间隔3秒。需要手动的滑动验证码<br>#需要下载google对应版本的chromedriver.exe<br>#chromedriver.exe的下载网站是 <a href="https://chromedriver.chromium.org/downloads">https://chromedriver.chromium.org/downloads</a></p>
+<p>list = driver.find_elements_by_css_selector(‘  div.knrjsN15 &gt; div:nth-child(2)&gt;ul li’)  # (找出每个视频的网址’selector’)<br>for li in list:<br>    li_url = li.find_element_by_css_selector(‘a’).get_attribute(‘href’)    #（遍历list，存入到li_url里 element是一个。elements是多个）  </p>
+<pre><code>headers = &#123;
+    &#39;cookie&#39;: “ 在网页里找  ”
+    &#39;User-Agent&#39;: &#39;Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36&#39;
+&#125;  （请求头cookie和User-Agent ，做伪装。伪装成浏览器）
+
+response = requests.get(url=li_url, headers=headers)  （请求网址li_url）
+
+title = re.findall(&#39;&lt;title data-react-helmet=&quot;true&quot;&gt;(.*?)&lt;/title&gt;&#39;, response.text)[0]
+href = re.findall(&#39;src(.*?)vr%3D%2&#39;, response.text)[1]
+video_url = requests.utils.unquote(href).replace(&#39;&quot;:&quot;&#39;, &#39;https:&#39;)
+video_content = requests.get(url=video_url, headers=headers).content
+new_title = chang_title(title)
+with open(&#39;asd\\&#39; + new_title + &#39;.mp4&#39;, mode=&#39;wb&#39;) as f:
+    f.write(video_content)
+    print(&quot;在下载&quot;,title)
+</code></pre>
+<p>二。批量爬取图片。第6个爬虫<br>import requests<br>import re</p>
+<p>ur1 = ‘<a href="https://cn.bing.com/images/search?q=%E6%B5%B7%E8%B4%BC%E7%8E%8B%E5%A4%A7%E5%92%8C&amp;form=HDRSC2&amp;first=1&amp;tsc=ImageBasicHover&#39;">https://cn.bing.com/images/search?q=海贼王大和&amp;form=HDRSC2&amp;first=1&amp;tsc=ImageBasicHover&#39;</a><br>response = requests.get(ur1)</p>
+<p>pa = re.compile(‘class=”img_cont hoff”.<em>?src=”(.</em>?)”‘,re.S)<br>re = re.findall(pa,response.text)</p>
+<p>num = 1<br>for img_url in re:<br>    response = requests.get(img_url)<br>    with open(‘img/%d海贼王大和.jsp’%num, ‘wb’) as f:<br>        f.write(response.content)<br>        print(“已经下载%d张”%num)<br>        num = num + 1<br>re.compile()是用来优化正则的，它将正则表达式转化为对象，re.search(pattern, string)的调用方式就转换为 pattern.search(string)的调用方式，多次调用一个正则表达式就重复利用这个正则对象，可以实现更有效率的匹配<br>1).re.I(re.IGNORECASE): 忽略大小写<br>2).re.M(MULTILINE): 多行模式，改变’^’和’$’的行为<br>3).re.S(DOTALL): 点任意匹配模式，改变’.’的行为  (这次用到的模式就是这个)<br>4).re.L(LOCALE): 使预定字符类 \w \W \b \B \s \S 取决于当前区域设定<br>5).re.U(UNICODE): 使预定字符类 \w \W \b \B \s \S \d \D 取决于unicode定义的字符属性<br>6).re.X(VERBOSE): 详细模式。这个模式下正则表达式可以是多行，忽略空白字符，并可以加入注释</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>python爬虫day04</title>
+    <url>/2022/02/08/python%E7%88%AC%E8%99%ABday04/</url>
+    <content><![CDATA[<p>一。第7个爬虫，爬取抖音视频<br>import requests<br>import re</p>
+<p>url = ‘<a href="https://www.douyin.com/video/7059655603584617743&#39;">https://www.douyin.com/video/7059655603584617743&#39;</a></p>
+<p>headers = {<br>    ‘cookie’: ‘  在网页上查找   ‘,<br>    ‘User-Agent’: ‘Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36’<br>}</p>
+<p>response = requests.get(url=url, headers=headers)</p>
+<p>title = re.findall(‘<title data-react-helmet="true">(.<em>?)</title>‘, response.text)[0]    找出标题<br>href = re.findall(‘src(.</em>?)vr%3D%2’, response.text)[1]      找出视频的连接是相当于加密的url<br>video_url = requests.utils.unquote(href).replace(‘“:”‘, ‘https:’)     生成新的播放链接url<br>video_content = requests.get(url=video_url, headers=headers).content<br>with open (‘asd\‘+title + ‘.mp4’, mode=’wb’) as f:<br>    f.write(video_content)</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>python爬虫day05</title>
+    <url>/2022/02/08/python%E7%88%AC%E8%99%ABday05/</url>
+    <content><![CDATA[<p>python爬虫库总结<br>（1）selenium<br>from selenium import webdriver<br>Chrome浏览器驱动：chromedriver , taobao备用地址<br>driver = webdriver.Chrome()    # Chrome浏览器<br>元素定位<br>find_element_by_css_selector() 格式： div.knrjsN15 &gt; div:nth-child(2)&gt;ul li<br>find_element_by_xpath()   格式 //*[@id=”root”]/div/div[2]/div/div/div[4]/div[1]/div[2]/ul/li[1]<br>（2）bs4库<br>from bs4 import BeautifulSoup </p>
+<p>BeautifulSoup是将HTML代码当做一个便签树来处理，BeautifulSoup对应一个HTML/XML文档的全部内容 。其中的每一个标签的结构如下：<p                class="title">   ….   </p><br>                    名称.name      属性.attrs              非属性字符串/注释.string<br>soup = BeautifulSoup(r.text, “html.parser”)<br> data = []<br>    for h2 in soup.find_all(“h2”):<br>        link = h2.find(“a”)<br>        if not link:<br>            continue<br>        data.append((“https:%s” % link[‘href’], link[‘title’]))<br>    return data<br>除了find_all()方法，还有find()方法，只不过find()方法返回的是单个的标签，也就是第一个匹配的标签，而find_all()方法返回的是所有匹配的标签组成的列表。<br>（3）xpath库<br>pip install lxml<br>from lxml import etree<br>使用Xpath解析HTML文本<br>html = etree.HTML(text, etree.HTMLParser())<br>result = html.xpath(‘/html/head/title/text()’)<br>print(result)<br>（4）pyquery<br>from pyquery import PyQuery as pq</p>
+<h1 id="将字符串初始化为pyquery对象"><a href="#将字符串初始化为pyquery对象" class="headerlink" title="将字符串初始化为pyquery对象"></a>将字符串初始化为pyquery对象</h1><p>doc = pq(text)<br>print(doc(‘b’))<br>运行结果：<br><b link="af"/><br><b link="bba"/><br>（5）re 正则表达式<br>(.*?)</p>
 ]]></content>
   </entry>
 </search>
