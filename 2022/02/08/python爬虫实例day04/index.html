@@ -5,12 +5,13 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>python爬虫day05 - Hexo</title>
+    <title>python爬虫实例day04 - Hexo</title>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
     <meta name="keywords" content="Fechin,"> 
-    <meta name="description" content="python爬虫库总结（1）selenium   （用来爬抖音视频，谷歌浏览器）from selenium import webdriverChrome浏览器驱动：chromedriver , ta,"> 
+    <meta name="description" content="一。第7个爬虫，爬取抖音视频import requestsimport re
+url = ‘https://www.douyin.com/video/7059655603584617743&amp;#39;,"> 
     <meta name="author" content="John Doe"> 
     <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -28,7 +29,7 @@
     <div class="bar" style="width: 0;"></div>
     <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://example.com"></a>
     <div title="播放/暂停" class="iconfont icon-play"></div>
-    <h3 class="subtitle">python爬虫day05</h3>
+    <h3 class="subtitle">python爬虫实例day04</h3>
     <div class="social">
         <div>
             <div class="share">
@@ -43,15 +44,36 @@
     <div class="section">
         <div class="article">
     <div class='main'>
-        <h1 class="title">python爬虫day05</h1>
+        <h1 class="title">python爬虫实例day04</h1>
         <div class="stuff">
             <span>二月 08, 2022</span>
             
 
         </div>
         <div class="content markdown">
-            <p>python爬虫库总结<br>（1）selenium   （用来爬抖音视频，谷歌浏览器）<br>from selenium import webdriver<br>Chrome浏览器驱动：chromedriver , taobao备用地址<br>driver = webdriver.Chrome()    # Chrome浏览器<br>元素定位<br>find_element_by_css_selector() 格式： div.knrjsN15 &gt; div:nth-child(2)&gt;ul li<br>find_element_by_xpath()   格式 //*[@id=”root”]/div/div[2]/div/div/div[4]/div[1]/div[2]/ul/li[1]<br>（2）bs4库 （用来爬小说）<br>from bs4 import BeautifulSoup </p>
-<p>BeautifulSoup是将HTML代码当做一个便签树来处理，BeautifulSoup对应一个HTML/XML文档的全部内容 。其中的每一个标签的结构如下：’<p                class="title">   ….   </p>‘<br>                    名称.name      属性.attrs              非属性字符串/注释.string<br>soup = BeautifulSoup(r.text, “html.parser”)<br> data = []<br>    for h2 in soup.find_all(“h2”):<br>        link = h2.find(“a”)<br>        if not link:<br>            continue<br>        data.append((“https:%s” % link[‘href’], link[‘title’]))<br>    return data<br>除了find_all()方法，还有find()方法，只不过find()方法返回的是单个的标签，也就是第一个匹配的标签，而find_all()方法返回的是所有匹配的标签组成的列表。<br>（3）xpath库<br>pip install lxml<br>from lxml import etree<br>使用Xpath解析HTML文本<br>html = etree.HTML(text, etree.HTMLParser())<br>result = html.xpath(‘/html/head/title/text()’)<br>print(result)<br>（4）pyquery<br>from pyquery import PyQuery as pq    # 将字符串初始化为pyquery对象<br>doc = pq(text)<br>print(doc(‘b’))<br>运行结果：<br><b link="af"/><br><b link="bba"/><br>（5）re 正则表达式<br>(.*?)</p>
+            <p>一。第7个爬虫，爬取抖音视频<br>import requests<br>import re</p>
+<p>url = ‘<a target="_blank" rel="noopener" href="https://www.douyin.com/video/7059655603584617743&#39;">https://www.douyin.com/video/7059655603584617743&#39;</a></p>
+<p>headers = {<br>    ‘cookie’: ‘  在网页上查找   ‘,<br>    ‘User-Agent’: ‘Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36’<br>}</p>
+<p>response = requests.get(url=url, headers=headers)</p>
+<p>title = re.findall(‘<title data-react-helmet="true">(.<em>?)</title>‘, response.text)[0]    找出标题<br>href = re.findall(‘src(.</em>?)vr%3D%2’, response.text)[1]      找出视频的连接是相当于加密的url<br>video_url = requests.utils.unquote(href).replace(‘“:”‘, ‘https:’)     生成新的播放链接url<br>video_content = requests.get(url=video_url, headers=headers).content<br>with open (‘asd\‘+title + ‘.mp4’, mode=’wb’) as f:<br>    f.write(video_content)<br>二。爬取批量抖音视频，第8个爬虫<br>from selenium import webdriver #导入库<br> 固定格式（1）滑动页面，只有滑动所有的页面，才能获得所有的网址。<br>def drop_down():<br>    for x in range(1,100,4):<br>        time.sleep(1)<br>        j = x / 9<br>        js = ‘document.documentElement.scrollTop = document.documentElement.scrollHeight * %f’ % j<br>        driver.execute_script(js)<br>固定格式（2）用正则表达式把标题里不符合格式的化成”<em>“<br>def chang_title(title):<br>    pattorn = re.compile(r”[/\:*?&quot;&lt;&gt;|]”)<br>    new_tiltle = re.sub(pattorn, “</em>“, title)<br>    return new_tiltle<br> new_title = chang_title(title)  #定义标头</p>
+<p>#Selenium库是一个用电脑模拟人操作浏览器网页，可以实现自动化，测试等！<br>driver = webdriver.Chrome() #爬取的是Google浏览器<br>driver.get(‘要爬取的视频网页’)<br>time.sleep(3)#是间隔3秒。需要手动的滑动验证码<br>#需要下载google对应版本的chromedriver.exe<br>#chromedriver.exe的下载网站是 <a target="_blank" rel="noopener" href="https://chromedriver.chromium.org/downloads">https://chromedriver.chromium.org/downloads</a></p>
+<p>list = driver.find_elements_by_css_selector(‘  div.knrjsN15 &gt; div:nth-child(2)&gt;ul li’)  # (找出每个视频的网址’selector’)<br>for li in list:<br>    li_url = li.find_element_by_css_selector(‘a’).get_attribute(‘href’)    #（遍历list，存入到li_url里 element是一个。elements是多个）  </p>
+<pre><code>headers = &#123;
+    &#39;cookie&#39;: “ 在网页里找  ”
+    &#39;User-Agent&#39;: &#39;Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36&#39;
+&#125;  （请求头cookie和User-Agent ，做伪装。伪装成浏览器）
+
+response = requests.get(url=li_url, headers=headers)  （请求网址li_url）
+
+title = re.findall(&#39;&lt;title data-react-helmet=&quot;true&quot;&gt;(.*?)&lt;/title&gt;&#39;, response.text)[0]
+href = re.findall(&#39;src(.*?)vr%3D%2&#39;, response.text)[1]
+video_url = requests.utils.unquote(href).replace(&#39;&quot;:&quot;&#39;, &#39;https:&#39;)
+video_content = requests.get(url=video_url, headers=headers).content
+new_title = chang_title(title)
+with open(&#39;asd\\&#39; + new_title + &#39;.mp4&#39;, mode=&#39;wb&#39;) as f:
+    f.write(video_content)
+    print(&quot;在下载&quot;,title)
+</code></pre>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
