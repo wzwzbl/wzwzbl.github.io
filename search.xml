@@ -2324,14 +2324,8 @@ with open(&#39;asd\\&#39; + new_title + &#39;.mp4&#39;, mode=&#39;wb&#39;) as f:
   <entry>
     <title>python爬虫基本知识</title>
     <url>/2022/02/10/python%E7%88%AC%E8%99%AB%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AF%86/</url>
-    <content><![CDATA[<p>爬虫基本原理：<br>（1）http基本原理<br>url，统一资源标识符</p>
-<p>客户端向服务器发送一个request（请求）<br>服务器向客户端发送一个respose（响应）<br>请求</p>
-<ol>
-<li>请求方法</li>
-<li>请求网址</li>
-<li>请求头</li>
-<li>请求体</li>
-</ol>]]></content>
+    <content><![CDATA[<p>爬虫基础：<br>1http基本原理<br>（1）url，统一资源标识符<br>客户端向服务器发送一个request（请求）<br>服务器向客户端发送一个respose（响应）<br>（2）请求<br>请求方法 ：get和post<br>请求网址：url<br>请求头：ua和cookie等<br>请求体<br>（3）响应<br>200  成功     400  错误请求  401  未授权    403   禁止访问    404    未找到<br>2web网页基础<br>（1）网页的组成<br>1.html<br>2.css<br>3.JavaScript<br>爬虫的基本原理：<br>（1）获取网页：urllib，requests<br>（2）提取信息：re，bs4（Beautifulsoup),pyueryimport,xpath(etree)，parsel（css）<br>  (3)  保存数据：可以用open 保存到txt，json，csv，还可以保存到数据库MySQL，mongoDB，redis等</p>
+]]></content>
   </entry>
   <entry>
     <title>python爬虫day05</title>
