@@ -5,12 +5,12 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>python爬虫基本知识 - Hexo</title>
+    <title>redis基本操作 - Hexo</title>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
     <meta name="keywords" content="Fechin,"> 
-    <meta name="description" content="爬虫基础：1http基本原理（1）url，统一资源标识符客户端向服务器发送一个request（请求）服务器向客户端发送一个respose（响应）（2）请求请求方法 ：get和post请求网址：url,"> 
+    <meta name="description" content="在linux系统里安装redis（1）wget http://download.redis.io/releases/redis-5.0.7.tar.gz（2）tar -zvxf redis-5.0.,"> 
     <meta name="author" content="John Doe"> 
     <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -28,7 +28,7 @@
     <div class="bar" style="width: 0;"></div>
     <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://example.com"></a>
     <div title="播放/暂停" class="iconfont icon-play"></div>
-    <h3 class="subtitle">python爬虫基本知识</h3>
+    <h3 class="subtitle">redis基本操作</h3>
     <div class="social">
         <div>
             <div class="share">
@@ -43,15 +43,17 @@
     <div class="section">
         <div class="article">
     <div class='main'>
-        <h1 class="title">python爬虫基本知识</h1>
+        <h1 class="title">redis基本操作</h1>
         <div class="stuff">
-            <span>二月 10, 2022</span>
+            <span>三月 12, 2022</span>
             
 
         </div>
         <div class="content markdown">
-            <p>爬虫基础：<br>1http基本原理<br>（1）url，统一资源标识符<br>客户端向服务器发送一个request（请求）<br>服务器向客户端发送一个respose（响应）<br>（2）请求<br>请求方法 ：get和post<br>请求网址：url<br>请求头：ua和cookie等<br>请求体<br>（3）响应<br>200  成功     400  错误请求  401  未授权    403   禁止访问    404    未找到<br>2web网页基础<br>（1）网页的组成<br>1.html<br>2.css<br>3.JavaScript<br>爬虫的基本原理：<br>（1）获取网页：urllib，requests<br>（2）提取信息：re，bs4（Beautifulsoup),pyueryimport,xpath(etree)，parsel（css）<br>  (3)  保存数据：可以用open 保存到txt，json，csv，还可以保存到数据库MySQL，mongoDB，redis等<br>md5算法信息摘要<br>‘’’<br>import hashlib</p>
-<p>str01 = ‘pyth12345’<br>md5 = hashlib.md5()<br>md5.update(str01.encode())<br>result  = md5.hexdigest()<br>print(result)<br>‘’’</p>
+            <p>在linux系统里安装redis<br>（1）wget <a target="_blank" rel="noopener" href="http://download.redis.io/releases/redis-5.0.7.tar.gz">http://download.redis.io/releases/redis-5.0.7.tar.gz</a><br>（2）tar -zvxf redis-5.0.7.tar.gz<br>（3）mv /root/redis-5.0.7 /usr/local/redis<br>（4）make &amp;&amp;make install<br>（5）在 /usr/local/bin里创建 kconfig<br>mkdir kconfig</p>
+<p> cp  /usr/local/redis/redis.conf kconfig/<br>修改redis.conf<br> daemonize yes  ##  136行把no换成yes</p>
+<p>(6) 启动server<br>redis-server   kconfig/redis.conf<br>（7）启动cli  redis-cli -p 6379<br>redis默认16个数据库，编号为0~15<br>select 数据库编号<br>dbsize  获取当前数据库键值的数量<br>flushdb  清空当前数据库<br>flushall   清空所有数据库<br>set   k1  v1   （key value）   get 查看<br>mset  k1  v1  k2  v2 （key value）</p>
+<p>keys 格式   查看符合指定格式的key，*为通配符<br>exists key1  查看是否存在一个或多个key<br>type  key  查看key的value的数据类型<br>del 删除key建<br>rename 重命名key值<br>renamenx  key1  key2  只有key2不存在时重命名key1<br>move k1 3 移动k1到数据库3<br>copy  key1  key2  将key1拷贝给key2</p>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">

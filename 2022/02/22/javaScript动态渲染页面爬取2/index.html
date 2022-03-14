@@ -5,12 +5,12 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>python爬虫基本知识 - Hexo</title>
+    <title>javaScript动态渲染页面爬取2 - Hexo</title>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
     <meta name="keywords" content="Fechin,"> 
-    <meta name="description" content="爬虫基础：1http基本原理（1）url，统一资源标识符客户端向服务器发送一个request（请求）服务器向客户端发送一个respose（响应）（2）请求请求方法 ：get和post请求网址：url,"> 
+    <meta name="description" content="一.selenim的使用（1）安装pip install selenium用来模拟人工滑动，页面的情况from selenium import webdriverChrome浏览器驱动：chrome,"> 
     <meta name="author" content="John Doe"> 
     <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -28,7 +28,7 @@
     <div class="bar" style="width: 0;"></div>
     <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://example.com"></a>
     <div title="播放/暂停" class="iconfont icon-play"></div>
-    <h3 class="subtitle">python爬虫基本知识</h3>
+    <h3 class="subtitle">javaScript动态渲染页面爬取2</h3>
     <div class="social">
         <div>
             <div class="share">
@@ -43,15 +43,15 @@
     <div class="section">
         <div class="article">
     <div class='main'>
-        <h1 class="title">python爬虫基本知识</h1>
+        <h1 class="title">javaScript动态渲染页面爬取2</h1>
         <div class="stuff">
-            <span>二月 10, 2022</span>
+            <span>二月 22, 2022</span>
             
 
         </div>
         <div class="content markdown">
-            <p>爬虫基础：<br>1http基本原理<br>（1）url，统一资源标识符<br>客户端向服务器发送一个request（请求）<br>服务器向客户端发送一个respose（响应）<br>（2）请求<br>请求方法 ：get和post<br>请求网址：url<br>请求头：ua和cookie等<br>请求体<br>（3）响应<br>200  成功     400  错误请求  401  未授权    403   禁止访问    404    未找到<br>2web网页基础<br>（1）网页的组成<br>1.html<br>2.css<br>3.JavaScript<br>爬虫的基本原理：<br>（1）获取网页：urllib，requests<br>（2）提取信息：re，bs4（Beautifulsoup),pyueryimport,xpath(etree)，parsel（css）<br>  (3)  保存数据：可以用open 保存到txt，json，csv，还可以保存到数据库MySQL，mongoDB，redis等<br>md5算法信息摘要<br>‘’’<br>import hashlib</p>
-<p>str01 = ‘pyth12345’<br>md5 = hashlib.md5()<br>md5.update(str01.encode())<br>result  = md5.hexdigest()<br>print(result)<br>‘’’</p>
+            <p>一.selenim的使用<br>（1）安装pip install selenium<br>用来模拟人工滑动，页面的情况<br>from selenium import webdriver<br>Chrome浏览器驱动：chromedriver , taobao备用地址<br>下载谷歌相对应版本的chromedriver.exe<br>然后放在python文件夹里<br>（2）。使用<br>driver = webdriver.Chrome()    # Chrome浏览器</p>
+<p>driver对象的常用属性和方法：<br>driver.page_soure当前标签页的网页源代码<br>driver.current_url 当前标签页的url<br>driver.close()关闭当前标签页<br>driver.forward()页面前进<br>driver.back()页面后退<br>driver.quit()关闭浏览器<br>driver.save_screenshot(‘截图.png’))<br>.click模拟鼠标点击<br>元素定位<br>find_element_by_css_selector() 格式： div.knrjsN15 &gt; div:nth-child(2)&gt;ul li<br>find_element_by_xpath()   格式 //*[@id=”root”]/div/div[2]/div/div/div[4]/div[1]/div[2]/ul/li[1]<br>find_element_by_id(“su”) 格式id=”su”<br>driver.find_element_by_link_text(“地图”).click()查找标签<br>iframe标签<br>switch_to.frame(找id)<br>switch_to.frame(0)<br>句柄–一种特殊的智能指针：指向当前页面的指针<br>句柄是：driver.window_handles<br>传入句柄：switch_to.window(句柄)</p>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
