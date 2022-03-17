@@ -2379,6 +2379,25 @@ with open(&#39;asd\\&#39; + new_title + &#39;.mp4&#39;, mode=&#39;wb&#39;) as f:
     <content><![CDATA[<p>环境配置<br>只配置从库，不配置从库<br>info replication #查看当前库的信息</p>
 <h1 id="Replication"><a href="#Replication" class="headerlink" title="Replication"></a>Replication</h1><p>role:master    角色：主库<br>connected_slaves:0  没有从机<br>复制3个配置文件<br>（1）端口<br>（2）pid名字<br>（3）log文件名字<br>（4）dump.rdb 名字<br>修改配置文件<br>（1）port 6379  #92行<br>（2）pidfile /var/run/redis_6379.pid  #158行<br>（3）logfile “6379.log”   #171行<br>（4）dbfilename dump6379.rdb   #253行<br>一主（79）二从（80,81）<br>认老大：SLAVEOF  127.0.0.1  6379<br>———————————————————————————<br>role:slave<br>master_host:127.0.0.1<br>master_port:6379<br>———————————————————————————<br>role:master<br>connected_slaves:2<br>slave0:ip=127.0.0.1,port=6380,state=online,offset=196,lag=0<br>slave1:ip=127.0.0.1,port=6381,state=online,offset=196,lag=0<br>———————————————————————————<br>主机可以写，从机不能写只能读。<br>测试：主机断开连接，从机依旧连接到主机，但是没有写操作，这个时候，主机如果回来了，从机依然可以直接获取主机写的信息。<br>如果是使用命令行，来配置的主从，这个时候如果重启了，就会变回主机！只要变为从机，立马就会从主机中获取值。</p>
 <p>复 制 原 理<br>Slave 启 动 成 功 连 接 到 master 后 会 发 送 一 个 sync 同 步 命 令<br>Master 接 到 命 令 , 启 动 后 台 的 存 盘 进 程 , 同 时 收 集 所 有 接 收 到 的 用 于 修 改 数 据 集 命 令 , 在 后 台 进 程 执 行 完 毕 之 后 , master 案 传 送<br>整 个 数 据 文 件 到 slave , 并 完 成 一 次 完 全 同 步 .<br>全 量 复 制 : 而 slave 服 务 在 接 收 到 数 据 库 文 件 数 据 后 , 将 其 存 盘 五 加 载 到 内 存 中 .<br>增 量 复 制 : Master 继 续 案 新 的 所 有 收 集 到 的 修 改 命 令 依 次 传 给 slave , 完 成 同 步<br>但 是 只 要 是 重 新 连 接 master , 一 次 完 全 同 步 ( 全 量 复 制 ) 将 被 自 动 执 行</p>
+<p>层层链路<br>m  —s：m —-s</p>
+<p>如果没有老大了，在从机里选一个主机。</p>
+<p>SLAVEOF  no  one</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>redis哨兵模式</title>
+    <url>/2022/03/17/redis%E5%93%A8%E5%85%B5%E6%A8%A1%E5%BC%8F/</url>
+    <content><![CDATA[<p>哨兵模式可以监控主机是否故障，如果故障了根据投票将从库转换成主库。（sentinel）<br>哨兵是一个独立的进程，其原理是哨兵通过发送命令，等待redis服务器响应，从而监控运行多个redis实例。</p>
+<p>多哨兵模式，哨兵互相监控。<br>写哨兵配置文件：<br> vim sentinel.conf<br>                            被监控主机名称      host            port       1<br>sentinel monitor  myredis             127.0.0.1      6379     1<br>启动服务<br>redis-sentinel   kconfig/sentinel.conf<br>如果主机节点断了，这个时候就会随机选一个从机当主机</p>
+<p>可以查看哨兵日志<br>如果主机回来了，只能当从机</p>
+<p>哨 兵 模 式</p>
+<p>优 点 :</p>
+<p>1、 哨 兵 集 群 , 基 于 主 从 复 制 模 式 , 所 有 的 主 从 配 置 优 点 , 它 全 有</p>
+<p>2、 主 从 可 以 切 换 , 故 障 可 以 转 移 , 系 统 的 可 用 性 就 会 更 好</p>
+<p>3、 哨 兵 模 式 就 是 主 从 模 式 的 升 级 , 手 动 到 自 动 , 更 加 健 壮 !</p>
+<p>缺点 2</p>
+<p>1、Redis 不 好 啊 在 线 扩 容 的 , 集 群 容 量 一 旦 到 达 上 限 , 在 线 扩 容 就 十 分 麻 烦 !<br>2、 实 现 哨 兵 模 式 的 配 置 其 实 是 很 麻 烦 的 , 里 面 有 很 多 选 择 !</p>
+<p>哨兵模式的配置：<br>port  26379<br>哨兵模式sentinel实例运行的端口 默认是26379<br>哨兵模式的工作目录：<br>dir /tmp<br>主要配置（最主要）<br>sentinel monitor  myredis             127.0.0.1      6379     1</p>
 ]]></content>
   </entry>
 </search>
