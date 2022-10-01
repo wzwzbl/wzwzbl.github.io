@@ -84,7 +84,7 @@
 <p>第一步：ESC  进入命令行模式<br>第二步：:     进入底行模式<br>第三步：wq     保存并退出编辑</p>
 <p>取消编辑：</p>
 <p>第一步：ESC  进入命令行模式<br>第二步：:     进入底行模式<br>第三步：q!     撤销本次修改并退出编辑</p>
-<p>3.1.4 文件的查看【查】<br>文件的查看命令：cat/more/less/tail</p>
+<p>3.1.4 文件的查看【查】<br>文件的查看命令：cat   /more/less/tail</p>
 <p>cat：看最后一屏</p>
 <p>-n 打印出行号</p>
 <p>示例：使用cat查看/etc/sudo.conf文件，只能显示最后一屏内容<br>cat sudo.conf<br>列：检查红帽发行信息  cat  /etc/redhat-release<br>列出内核版本：  uname  -r<br>查看cpu  lscpu<br>检查内存大小： cat  /proc/meminfo</p>
@@ -117,10 +117,18 @@
 <p>使用实例：</p>
 <p>which pwd  查找pwd命令所在路径 which java  查找path中java的路径 </p>
 <p>观察文件类型：file<br>file    /usr/bin/passwd<br>六、su、sudo<br>6.1 su<br>su用于用户之间的切换。但是切换前的用户依然保持登录状态。如果是root 向普通或虚拟用户切换不需要密码，反之普通用户切换到其它任何用户都需要密码验证。<br>九、定时任务指令crontab 配置  （date查看时间）<br>crontab是Unix和Linux用于设置定时任务的指令。通过crontab命令，可以在固定间隔时间,执行指定的系统指令或shell脚本。时间间隔的单位可以是分钟、小时、日、月、周及以上的任意组合。</p>
-<p>crontab安装： yum install crontabs<br>9.1 命令格式<br>crontab [-u user] file</p>
+<p>crontab安装： yum install crontabs<br>1）确保系统服务crond可用</p>
+<ol>
+<li>systemctl restart crond    重启</li>
+<li> systemctl enable crond   开机自启</li>
+<li>1 命令格式<br>crontab [-u user] file</li>
+</ol>
 <p>crontab [-u user] [ -e | -l | -r ]</p>
 <p>参数说明：</p>
-<p>-u user：用来设定某个用户的crontab服务  </p>
+<p>-u user：用来设定某个用户的crontab服务   列如：为用户natasha添加计划任务</p>
+<ol>
+<li> crontab **-**e **-**u natasha</li>
+</ol>
 <p>file：file是命令文件的名字,表示将file做为crontab的任务列表文件</p>
 <p>并载入crontab。</p>
 <p>-e：编辑某个用户的crontab文件内容。如果不指定用户，则表示编辑当前</p>
@@ -134,7 +142,8 @@
 <p>第2列表示小时0～23（0表示0点）</p>
 <p>第3列表示日期1～31  </p>
 <p>第4列表示月份1～12  </p>
-<p>第5列标识号星期0～6（0表示星期天）  </p>
+<p>第5列标识号星期0～6（0表示星期天）<br>tail  /var/log/cron  查看日志</p>
+<p>vim  /etc/crontab   计划任务配置文件</p>
 <p>第6列要运行的命令<br>十、其他命令<br>10.1 查看当前目录：pwd<br>命令：pwd     查看当前目录路径</p>
 <p>10.2 查看进程：ps -ef<br>命令：ps -ef    查看所有正在运行的进程</p>
 <p>10.3 结束进程：kill<br>命令：kill pid 或者 kill -9 pid(强制杀死进程)           pid:进程号</p>
@@ -149,8 +158,7 @@
 <p>10.6 重启网络<br>命令：service network restart</p>
 <p>10.7 切换用户<br>命令：su - 用户名</p>
 <p>10.8 关闭防火墙<br>命令：chkconfig iptables off</p>
-<p>10.9 修改文件权限<br>命令：chmod 777</p>
-<p>10.10 清屏<br>命令：ctrl + l</p>
+<p>10.9 清屏<br>命令：ctrl + l</p>
 <p>10.11 vi模式下快捷键<br>esc后:</p>
 <p>保存并退出快捷键：shift+z+z</p>
 <p>光标跳到最后一行快捷键：shift+g</p>
@@ -158,55 +166,6 @@
 <p>复制一行内容：y+y</p>
 <p>粘贴复制的内容：p<br>显示目前所支持的语系 locale<br>locale </p>
 <p>lsblk  磁盘<br>df  -h  将容量结果显示出来</p>
-<p>十一、Linux项目部署<br>11.1 安装jdk1.8<br>先卸载open-jdk</p>
-<p>java -version<br>rpm -qa | grep java</p>
-<p>rpm -e –nodeps java-1.7.0-openjdk-1.7.0.45-2.4.3.3.el6.x86_64<br>rpm -e –nodeps java-1.6.0-openjdk-1.6.0.0-1.66.1.13.0.el6.x86_64</p>
-<p>开始安装：<br>mkdir /usr/local/src/java<br>rz 上传jdk tar包<br>tar -zxvf jdk-8u181-linux-x64.tar.gz</p>
-<p>yum install glibc.i686</p>
-<p>配置环境变量：<br> vi /etc/profile</p>
-<p> 在末尾行添加<br>  #set java environment<br>  JAVA_HOME=/usr/local/src/jdk8/jdk1.8.0_181<br>  CLASSPATH=.:$JAVA_HOME/lib.tools.jar<br>  PATH=$JAVA_HOME/bin:$PATH<br>  export JAVA_HOME CLASSPATH PATH</p>
-<p>保存退出<br>source /etc/profile  使更改的配置立即生效<br>java -version  查看JDK版本信息，如果显示出1.8证明成功</p>
-<p>11.2 安装MySQL5.6<br>11.2.1 上传MySQL5.6的tar包<br>创建目录：mkdir /usr/local/src/mysql5.6</p>
-<p>上传：MySQL-5.6.34-1.rhel5.x86_64.rpm-bundle.tar 到上面的目录中</p>
-<p>11.2.2 安装<br>第一步：解压</p>
-<pre><code> 命令：tar -xvf MySQL-5.6.34-1.rhel5.x86_64.rpm-bundle.tar
-</code></pre>
-<p>第二步：检测是否已经安装了mysql</p>
-<pre><code> 命令：rpm -qa | grep mysql   
-
- 如果已经安装了，将其卸载，如：
-
- rpm -e --nodeps  mysql-libs-5.1.71-1.el6.x86_64
-</code></pre>
-<p>第三步：安装MySQL的服务端</p>
-<pre><code> 命令：rpm -ivh MySQL-server-5.6.34-1.rhel5.x86_64.rpm
-</code></pre>
-<p>第四步：安装MySQL的客户端</p>
-<pre><code> 命令：rpm -ivh MySQL-client-5.6.34-1.rhel5.x86_64.rpm
-</code></pre>
-<p>第五步：查看MySQL服务运行状态</p>
-<pre><code> 命令：service mysql status
-</code></pre>
-<p>第六步：启动MySQL服务</p>
-<pre><code> 命令：service mysql start
-</code></pre>
-<p>第七步：使用root账号登录mysql<br>注意：这个密码是不安全的，所有需要修改初始密码。</p>
-<p>使用密码登录mysql账号：mysql -uroot -p<br>修改root密码：SET PASSWORD = PASSWORD(‘root’);<br>11.2.3 开机自动启动设置<br>加入到系统服务：</p>
-<p>chkconfig –add mysql</p>
-<p>自动启动：</p>
-<p>chkconfig mysql on</p>
-<p>查询列表：</p>
-<p>chkconfig</p>
-<p>说明：都没关闭（off）时是没有自动启动。</p>
-<p>11.2.4 开启远程访问<br>登录：</p>
-<p>mysql -uroot –proot</p>
-<p>设置远程访问（使用root密码）：</p>
-<p>grant all privileges on <em>.</em> to ‘root’ @’%’ identified by ‘root’;</p>
-<p>flush privileges;</p>
-<p>退出mysql，在centos环境下打开3306防火墙</p>
-<p>/sbin/iptables -I INPUT -p tcp –dport 3306 -j ACCEPT</p>
-<p>/etc/rc.d/init.d/iptables save</p>
-<p>/etc/init.d/iptables status</p>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
