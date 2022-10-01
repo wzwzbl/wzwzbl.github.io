@@ -18,7 +18,7 @@
     
 <link rel="stylesheet" href="/css/diaspora.css">
 
-<meta name="generator" content="Hexo 5.4.0"></head>
+<meta name="generator" content="Hexo 5.4.2"></head>
 
 <body class="loading">
     <span id="config-title" style="display:none">Hexo</span>
@@ -50,8 +50,8 @@
 
         </div>
         <div class="content markdown">
-            <p>在linux系统里安装redis<br>（1）wget <a target="_blank" rel="noopener" href="http://download.redis.io/releases/redis-5.0.7.tar.gz">http://download.redis.io/releases/redis-5.0.7.tar.gz</a><br>（2）tar -zvxf redis-5.0.7.tar.gz<br>（3）mv /root/redis-5.0.7 /usr/local/redis<br>（4）make &amp;&amp;make install<br>（5）在 /usr/local/bin里创建 kconfig<br>mkdir kconfig</p>
-<p> cp  /usr/local/redis/redis.conf kconfig/<br>修改redis.conf<br> daemonize yes  ##  136行把no换成yes</p>
+            <p>在linux系统里安装redis<br>（1）wget <a target="_blank" rel="noopener" href="http://download.redis.io/releases/redis-5.0.7.tar.gz">http://download.redis.io/releases/redis-5.0.7.tar.gz</a><br>（2）tar -zvxf redis-5.0.7.tar.gz<br>安装yum   install gcc-c++<br>（3）mv /root/redis-5.0.7 /usr/local/redis<br>（4）make &amp;&amp;make install<br>（5）在 /usr/local/bin里创建 kconfig<br>mkdir kconfig</p>
+<p> cp  /usr/local/redis/redis.conf kconfig/<br>修改redis.conf<br> daemonize yes  ##  136行把no换成yes  以后台方式启动。</p>
 <p>(6) 启动server<br>redis-server   kconfig/redis.conf<br>（7）启动cli  redis-cli -p 6379<br>redis默认16个数据库，编号为0~15<br>select 数据库编号<br>dbsize  获取当前数据库键值的数量<br>flushdb  清空当前数据库<br>flushall   清空所有数据库<br>set   k1  v1   （key value）   get 查看<br>mset  k1  v1  k2  v2 （key value）</p>
 <p>keys 格式   查看符合指定格式的key，*为通配符<br>exists key1  查看是否存在一个或多个key<br>type  key  查看key的value的数据类型<br>del 删除key建<br>rename 重命名key值<br>renamenx  key1  key2  只有key2不存在时重命名key1<br>move k1 3 移动k1到数据库3<br>copy  key1  key2  将key1拷贝给key2</p>
 

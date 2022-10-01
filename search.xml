@@ -2233,7 +2233,7 @@
 $i=33;
 echo $i;
 ?><br>2）创建PHP测试页面,连接并查询MariaDB数据库。<br>可以参考lnmp_soft/php_scripts/mysql.php:<br>    [root@proxy ~]# vim /usr/local/nginx/html/mysql.php<br>    <?php
-    $mysqli = new mysqli('localhost','root','密码','mysql');
+    $mysqli = new mysqli('localhost','root','123456','mysql');
     //注意：root为mysql数据库的账户名称，密码需要修改为实际mysql密码，无密码则留空即可
     //localhost是数据库的域名或IP，mysql是数据库的名称
     if (mysqli_connect_errno()){
@@ -2324,7 +2324,7 @@ with open(&#39;asd\\&#39; + new_title + &#39;.mp4&#39;, mode=&#39;wb&#39;) as f:
   <entry>
     <title>python爬虫基本知识</title>
     <url>/2022/02/10/python%E7%88%AC%E8%99%AB%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AF%86/</url>
-    <content><![CDATA[<p>爬虫基础：<br>1http基本原理<br>（1）url，统一资源标识符<br>客户端向服务器发送一个request（请求）<br>服务器向客户端发送一个respose（响应）<br>（2）请求<br>请求方法 ：get和post<br>请求网址：url<br>请求头：ua和cookie等<br>请求体<br>（3）响应<br>200  成功     400  错误请求  401  未授权    403   禁止访问    404    未找到<br>2web网页基础<br>（1）网页的组成<br>1.html<br>2.css<br>3.JavaScript<br>爬虫的基本原理：<br>（1）获取网页：urllib，requests<br>（2）提取信息：re，bs4（Beautifulsoup),pyueryimport,xpath(etree)，parsel（css）<br>  (3)  保存数据：可以用open 保存到txt，json，csv，还可以保存到数据库MySQL，mongoDB，redis等<br>md5算法信息摘要<br>‘’’<br>import hashlib</p>
+    <content><![CDATA[<p>爬虫基础：<br>pip install 包名 -i <a href="http://pypi.douban.com/simple/">http://pypi.douban.com/simple/</a> –trusted-host pypi.douban.com<br>1http基本原理<br>（1）url，统一资源标识符<br>客户端向服务器发送一个request（请求）<br>服务器向客户端发送一个respose（响应）<br>（2）请求<br>请求方法 ：get和post<br>请求网址：url<br>请求头：ua和cookie等<br>请求体<br>（3）响应<br>200  成功     400  错误请求  401  未授权    403   禁止访问    404    未找到<br>2web网页基础<br>（1）网页的组成<br>1.html<br>2.css<br>3.JavaScript<br>爬虫的基本原理：<br>（1）获取网页：urllib，requests<br>（2）提取信息：re，bs4（Beautifulsoup),pyueryimport,xpath(etree)，parsel（css）<br>  (3)  保存数据：可以用open 保存到txt，json，csv，还可以保存到数据库MySQL，mongoDB，redis等<br>md5算法信息摘要<br>‘’’<br>import hashlib</p>
 <p>str01 = ‘pyth12345’<br>md5 = hashlib.md5()<br>md5.update(str01.encode())<br>result  = md5.hexdigest()<br>print(result)<br>‘’’</p>
 ]]></content>
   </entry>
@@ -2332,7 +2332,7 @@ with open(&#39;asd\\&#39; + new_title + &#39;.mp4&#39;, mode=&#39;wb&#39;) as f:
     <title>python爬虫day05</title>
     <url>/2022/02/08/python%E7%88%AC%E8%99%AB%E7%94%A8%E5%88%B0%E7%9A%84%E5%BA%93/</url>
     <content><![CDATA[<p>python爬虫库总结<br>（1）selenium   （用来爬抖音视频，谷歌浏览器） 是动态渲染页面的爬虫<br>用来模拟人工滑动，页面的情况<br>from selenium import webdriver<br>Chrome浏览器驱动：chromedriver , taobao备用地址<br>driver = webdriver.Chrome()    # Chrome浏览器<br>元素定位<br>find_element_by_css_selector() 格式： div.knrjsN15 &gt; div:nth-child(2)&gt;ul li<br>find_element_by_xpath()   格式 //*[@id=”root”]/div/div[2]/div/div/div[4]/div[1]/div[2]/ul/li[1]<br>（2）bs4库 （用来爬小说，爬取音乐）<br>from bs4 import BeautifulSoup </p>
-<p>BeautifulSoup是将HTML代码当做一个便签树来处理，BeautifulSoup对应一个HTML/XML文档的全部内容 。其中的每一个标签的结构如下：<br>soup = BeautifulSoup(r.text, “html.parser”)<br> data = []<br>    for h2 in soup.find_all(“h2”):   #  找所有的h2<br>        link = h2.find(“a”)               #遍历h2下面的a<br>        if not link:<br>            continue<br>        data.append((“https:%s” % link[‘href’], link[‘title’]))<br>    return data<br>除了find_all()方法，还有find()方法，只不过find()方法返回的是单个的标签，也就是第一个匹配的标签，而find_all()方法返回的是所有匹配的标签组成的列表。<br>（3）xpath库<br>pip install lxml<br>from lxml import etree<br>使用Xpath解析HTML文本<br>html = etree.HTML(text, etree.HTMLParser())<br>result = html.xpath(‘/html/head/title/text()’)<br>print(result)<br>（4）pyquery<br>from pyquery import PyQuery as pq    # 将字符串初始化为pyquery对象<br>doc = pq(response)<br>    figure = doc(‘.   ‘).items()  #查找class里的东西<br>    for i in figure:<br>        video_url = i.attr(‘href’)       遍历figure 找到href里的视频连接</p>
+<p>BeautifulSoup是将HTML代码当做一个便签树来处理，BeautifulSoup对应一个HTML/XML文档的全部内容 。其中的每一个标签的结构如下：<br>soup = BeautifulSoup(r.text, “html.parser”)<br> data = []<br>    for h2 in soup.find_all(“h2”):   #  找所有的h2<br>        link = h2.find(“a”)               #遍历h2下面的a<br>        if not link:<br>            continue<br>        data.append((“https:%s” % link[‘href’], link[‘title’]))<br>    return data<br>除了find_all()方法，还有find()方法，只不过find()方法返回的是单个的标签，也就是第一个匹配的标签，而find_all()方法返回的是所有匹配的标签组成的列表。<br>（3）xpath库<br>pip install lxml<br>from lxml import etree<br>使用Xpath解析HTML文本<br>html = etree.HTML(text, etree.HTMLParser())<br>result = html.xpath(‘/html/head/title/text()’)<br>print(result)<br>（4）pyquery<br>from pyquery import PyQuery as pq    # 将字符串初始化为pyquery对象<br>doc = pq(response)<br>    figure = doc(‘.  ‘).items()  #查找class里的东西<br>    for i in figure:<br>        video_url = i.attr(‘href’)       遍历figure 找到href里的视频连接</p>
 <p>doc = pq(text)<br>print(doc(‘b’))<br>运行结果：<br><b link="af"/><br><b link="bba"/><br>（5）re 正则表达式<br>(.*?)<br>re.compile(,re.S)<br>re.findall()<br>re.sub(‘’,’’,’’)<br>(6)  parsel<br>selector = parsel.Selector(rea)<br>lis = selector.css(‘.grid_view li’)   #’.grid_view li’ 是在class =grid_view下的li<br>title = ls.css(‘.info .hd span.title:nth-child(1)::text’).get()  #:nth-child(1)查找第一个<br>（7）csv 保存为csv格式<br>import csv<br>f = open(‘豆瓣top250.csv’, mode=’a’, encoding=’utf-8-sig’, newline=’’)<br>csv_writer=csv.DictWriter(f, fieldnames=[     #写的所有的开头<br>    ‘标题’,<br>    ‘导演’,<br>    ‘演员’,<br>    ‘电影年份’,<br>    ‘国家’,<br>    ‘类型’,<br>    ‘电影简介’,<br>    ‘电影评分’,<br>    ‘评价人数’<br>])<br>csv_writer.writeheader()  #在代码开头写是csv是头文件<br>csv_writer.writerow(dit) #在结尾写是写如csv要传入的东西<br>（8）josnpath 数据提取方法，提取josn数据<br> ‘’’<br>import jsonpath<br>import requests<br>import json<br>url = ‘<a href="https://www.lagou.com/lbs/getAllCitySearchLabels.json&#39;">https://www.lagou.com/lbs/getAllCitySearchLabels.json&#39;</a><br>headers = {<br>    ‘user-agent’: ‘Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.81 Safari/537.36’<br>}</p>
 <p>resa =requests.get(url=url,headers=headers)<br>city_data=resa.content.decode()<br>print(city_data)<br>city_data_dict = json.loads(city_data)<br>print(jsonpath.jsonpath(city_data_dict,”$..B..name”) )</p>
 <p>‘’’</p>
@@ -2355,14 +2355,14 @@ with open(&#39;asd\\&#39; + new_title + &#39;.mp4&#39;, mode=&#39;wb&#39;) as f:
     <title>javaScript动态渲染页面爬取2</title>
     <url>/2022/02/22/javaScript%E5%8A%A8%E6%80%81%E6%B8%B2%E6%9F%93%E9%A1%B5%E9%9D%A2%E7%88%AC%E5%8F%962/</url>
     <content><![CDATA[<p>一.selenim的使用<br>（1）安装pip install selenium<br>用来模拟人工滑动，页面的情况<br>from selenium import webdriver<br>Chrome浏览器驱动：chromedriver , taobao备用地址<br>下载谷歌相对应版本的chromedriver.exe<br>然后放在python文件夹里<br>（2）。使用<br>driver = webdriver.Chrome()    # Chrome浏览器</p>
-<p>driver对象的常用属性和方法：<br>driver.page_soure当前标签页的网页源代码<br>driver.current_url 当前标签页的url<br>driver.close()关闭当前标签页<br>driver.forward()页面前进<br>driver.back()页面后退<br>driver.quit()关闭浏览器<br>driver.save_screenshot(‘截图.png’))<br>.click模拟鼠标点击<br>元素定位<br>find_element_by_css_selector() 格式： div.knrjsN15 &gt; div:nth-child(2)&gt;ul li<br>find_element_by_xpath()   格式 //*[@id=”root”]/div/div[2]/div/div/div[4]/div[1]/div[2]/ul/li[1]<br>find_element_by_id(“su”) 格式id=”su”<br>driver.find_element_by_link_text(“地图”).click()查找标签<br>iframe标签<br>switch_to.frame(找id)<br>switch_to.frame(0)<br>句柄–一种特殊的智能指针：指向当前页面的指针<br>句柄是：driver.window_handles<br>传入句柄：switch_to.window(句柄)</p>
+<p>driver对象的常用属性和方法：<br>driver.page_soure当前标签页的网页源代码<br>driver.current_url 当前标签页的url<br> 重点   driver.close()关闭当前标签页<br>driver.forward()页面前进<br>driver.back()页面后退<br>重点* driver.quit()关闭浏览器<br>driver.save_screenshot(‘截图.png’))<br>重点* .click模拟鼠标点击<br>重点  .send_keys(‘舔要输入的东西’)<br>列如：browser.find_element_by_css_selector(‘.username input[type=”text”]’).send_keys(‘admin’)<br>元素定位<br>find_element_by_css_selector() 格式： div.knrjsN15 &gt; div:nth-child(2)&gt;ul li<br>find_element_by_xpath()   格式 //*[@id=”root”]/div/div[2]/div/div/div[4]/div[1]/div[2]/ul/li[1]<br>find_element_by_id(“su”) 格式id=”su”<br>driver.find_element_by_link_text(“地图”).click()查找标签<br>————————————————————————<br>登录的<br>iframe标签<br>switch_to.frame(找id)<br>switch_to.frame(0)<br>句柄–一种特殊的智能指针：指向当前页面的指针<br>句柄是：driver.window_handles<br>传入句柄：switch_to.window(句柄)</p>
 ]]></content>
   </entry>
   <entry>
     <title>redis基本操作</title>
     <url>/2022/03/12/redis%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/</url>
-    <content><![CDATA[<p>在linux系统里安装redis<br>（1）wget <a href="http://download.redis.io/releases/redis-5.0.7.tar.gz">http://download.redis.io/releases/redis-5.0.7.tar.gz</a><br>（2）tar -zvxf redis-5.0.7.tar.gz<br>（3）mv /root/redis-5.0.7 /usr/local/redis<br>（4）make &amp;&amp;make install<br>（5）在 /usr/local/bin里创建 kconfig<br>mkdir kconfig</p>
-<p> cp  /usr/local/redis/redis.conf kconfig/<br>修改redis.conf<br> daemonize yes  ##  136行把no换成yes</p>
+    <content><![CDATA[<p>在linux系统里安装redis<br>（1）wget <a href="http://download.redis.io/releases/redis-5.0.7.tar.gz">http://download.redis.io/releases/redis-5.0.7.tar.gz</a><br>（2）tar -zvxf redis-5.0.7.tar.gz<br>安装yum   install gcc-c++<br>（3）mv /root/redis-5.0.7 /usr/local/redis<br>（4）make &amp;&amp;make install<br>（5）在 /usr/local/bin里创建 kconfig<br>mkdir kconfig</p>
+<p> cp  /usr/local/redis/redis.conf kconfig/<br>修改redis.conf<br> daemonize yes  ##  136行把no换成yes  以后台方式启动。</p>
 <p>(6) 启动server<br>redis-server   kconfig/redis.conf<br>（7）启动cli  redis-cli -p 6379<br>redis默认16个数据库，编号为0~15<br>select 数据库编号<br>dbsize  获取当前数据库键值的数量<br>flushdb  清空当前数据库<br>flushall   清空所有数据库<br>set   k1  v1   （key value）   get 查看<br>mset  k1  v1  k2  v2 （key value）</p>
 <p>keys 格式   查看符合指定格式的key，*为通配符<br>exists key1  查看是否存在一个或多个key<br>type  key  查看key的value的数据类型<br>del 删除key建<br>rename 重命名key值<br>renamenx  key1  key2  只有key2不存在时重命名key1<br>move k1 3 移动k1到数据库3<br>copy  key1  key2  将key1拷贝给key2</p>
 ]]></content>
@@ -2398,6 +2398,15 @@ with open(&#39;asd\\&#39; + new_title + &#39;.mp4&#39;, mode=&#39;wb&#39;) as f:
 <p>缺点 2</p>
 <p>1、Redis 不 好 啊 在 线 扩 容 的 , 集 群 容 量 一 旦 到 达 上 限 , 在 线 扩 容 就 十 分 麻 烦 !<br>2、 实 现 哨 兵 模 式 的 配 置 其 实 是 很 麻 烦 的 , 里 面 有 很 多 选 择 !</p>
 <p>哨兵模式的配置：<br>port  26379<br>哨兵模式sentinel实例运行的端口 默认是26379<br>哨兵模式的工作目录：<br>dir /tmp<br>主要配置（最主要）<br>sentinel monitor  myredis             127.0.0.1      6379     1</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>redis缓存穿透与雪崩</title>
+    <url>/2022/03/17/redis%E7%BC%93%E5%AD%98%E7%A9%BF%E9%80%8F%E4%B8%8E%E9%9B%AA%E5%B4%A9/</url>
+    <content><![CDATA[<p>服务器高可用问题</p>
+<p>（1）缓存穿透（查不到）<br>缓存穿透就是，一个用户想要查询一个数据，发现redis数据库没有，也就是缓存没有命中，于是向持久层数据库查询。发现也没有，于是本次查询失败。当用户很多的时候，缓存都没有命中（秒杀！），于是都去请求了持久层数据库。这会使数据库的压力变大，这就也是缓存穿透。<br>布隆过滤器<br>布隆过滤器是一种数据结构，对所有可能查询的参数以hash形式储存，在控制层先进行校验，不符合的丢弃，从而避免存储系统的查询压力。<br>缓存空对象<br>（2）缓存击穿（量太大，缓存过期！）<br>设置热点数据永不过期<br>加互斥锁<br>使用分布式锁，保证对于每个key同时只有一个线程去查询后端服务，其他线程没有获得分布式锁的权限，因此只需要等待即可，这种方式将高并发的压力转移到了分布式锁，因此对分布式锁的考验很大。<br>（3）缓存雪崩<br>一般指一段时间，缓存集中过期失效，redis 宕机！</p>
+<p>解决问题：<br>1.redis高可用<br>多设置几台redis，搭建集群（异地多活！）<br>2.限流降级<br>这 个 解 决 方 案 的 思想 是 ,在缓存失效后，通 过 加 锁 或 者 队 列 来 控 制 读 数 据 库 写 缓 存 的 线 程 数 量 , 比 如 对 某 个 key 只 允 许 一 个 线 程 查 询 数 据 和 写 缓 存 , 其 他 线 程 等 待。</p>
+<p>3.数据预热<br>数据加热的含义就是子啊正式部署之前，我先把可能的数据先预先访问一遍，这样部分可能大量访问的数据就会加载到缓存中。在即将发生大并发访问前手动触发加载缓存不同的key，设置不同的过期时间，让缓存失效的时间点尽量均匀。</p>
 ]]></content>
   </entry>
 </search>

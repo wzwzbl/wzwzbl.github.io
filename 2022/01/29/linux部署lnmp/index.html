@@ -18,7 +18,7 @@
     
 <link rel="stylesheet" href="/css/diaspora.css">
 
-<meta name="generator" content="Hexo 5.4.0"></head>
+<meta name="generator" content="Hexo 5.4.2"></head>
 
 <body class="loading">
     <span id="config-title" style="display:none">Hexo</span>
@@ -68,7 +68,7 @@
 $i=33;
 echo $i;
 ?><br>2）创建PHP测试页面,连接并查询MariaDB数据库。<br>可以参考lnmp_soft/php_scripts/mysql.php:<br>    [root@proxy ~]# vim /usr/local/nginx/html/mysql.php<br>    <?php
-    $mysqli = new mysqli('localhost','root','密码','mysql');
+    $mysqli = new mysqli('localhost','root','123456','mysql');
     //注意：root为mysql数据库的账户名称，密码需要修改为实际mysql密码，无密码则留空即可
     //localhost是数据库的域名或IP，mysql是数据库的名称
     if (mysqli_connect_errno()){
