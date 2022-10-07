@@ -2325,12 +2325,6 @@ with open(&#39;asd\\&#39; + new_title + &#39;.mp4&#39;, mode=&#39;wb&#39;) as f:
 ]]></content>
   </entry>
   <entry>
-    <title>redis知识（2）</title>
-    <url>/2022/03/15/redis%E7%9F%A5%E8%AF%86%EF%BC%882%EF%BC%89/</url>
-    <content><![CDATA[<p>list列表</p>
-]]></content>
-  </entry>
-  <entry>
     <title>redis主从服务</title>
     <url>/2022/03/16/redis%E4%B8%BB%E4%BB%8E%E6%9C%8D%E5%8A%A1/</url>
     <content><![CDATA[<p>环境配置<br>只配置从库，不配置从库<br>info replication #查看当前库的信息</p>
