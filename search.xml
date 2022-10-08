@@ -2360,4 +2360,60 @@ with open(&#39;asd\\&#39; + new_title + &#39;.mp4&#39;, mode=&#39;wb&#39;) as f:
 <p>3.数据预热<br>数据加热的含义就是子啊正式部署之前，我先把可能的数据先预先访问一遍，这样部分可能大量访问的数据就会加载到缓存中。在即将发生大并发访问前手动触发加载缓存不同的key，设置不同的过期时间，让缓存失效的时间点尽量均匀。</p>
 ]]></content>
   </entry>
+  <entry>
+    <title>mysql主从服务</title>
+    <url>/2022/10/08/mysql%E4%B8%BB%E4%BB%8E%E6%9C%8D%E5%8A%A1/</url>
+    <content><![CDATA[<p><strong>步骤一：配置主服务器</strong></p>
+<p>1）启用binlog日志</p>
+<ol>
+<li>]# vim /etc/my.cnf</li>
+<li>[mysqld]</li>
+<li>server_id=51     //server_id</li>
+<li>log-bin=master51    //日志名</li>
+<li>:wq</li>
+<li>]#systemctl restart mysqld</li>
+</ol>
+<p>2）用户授权</p>
+<p> grant replication slave on . to repluser@”%”identified by “123qqq…A”;</p>
+<p>3）查看binlog日志信息</p>
+<p>show master status\G</p>
+<p>File: master100.000003 日志名</p>
+<p>Position: 1842</p>
+<p>步骤二。部署从服务器<br>1）修改配置文件</p>
+<ol>
+<li>]# vim /etc/my.cnf</li>
+<li>[mysqld]</li>
+<li>server_id=52 //server_id值</li>
+<li>:wq</li>
+<li>]# systemctl restart mysqld //重启服务</li>
+</ol>
+<p>2）恢复数据</p>
+<ol>
+<li>mysqldump -uroot –p密码 –master-data 数据库名 &gt; /allbak.sql /**/**在主服务器上备份数据</li>
+<li>]# scp /allbak.sql root@<strong>192.168.4.52</strong>:/root/ //将备份文件拷贝给从服务器</li>
+<li>mysql&gt; createdatabase 数据库名 ; //在从服务器上创建与主服务器同名的数据库</li>
+<li><h1 id="mysql-uroot-–p密码-数据库名-lt-root-allbak-sql-从服务器使用备份文件恢复数据"><a href="#mysql-uroot-–p密码-数据库名-lt-root-allbak-sql-从服务器使用备份文件恢复数据" class="headerlink" title="mysql -uroot –p密码 数据库名 &lt; /root/allbak.sql //从服务器使用备份文件恢复数据"></a>mysql -uroot –p密码 数据库名 &lt; /root/allbak.sql //从服务器使用备份文件恢复数据</h1></li>
+</ol>
+<p>3)</p>
+<ol>
+<li>show slave status; //查看状态信息，还不是从服务器</li>
+</ol>
+<p>4)添加（主要配置）</p>
+<ol>
+<li>mysql&gt; change master to //指定主服务器</li>
+<li>-&gt; master_host=“192.168.4.51”, //主服务器ip地址</li>
+<li>-&gt; master_user=“repluser”, //主服务器授权用户</li>
+<li>-&gt; master_password=“123qqq…A”, //主服务器授权用户密码</li>
+<li>-&gt; master_log_file=“master100.000003”,//主服务器日志文件（重要）和主机的show master status\G一致</li>
+<li>-&gt; master_log_pos=1842;          //主服务器日志偏移量（重要）</li>
+</ol>
+<p>start slave；</p>
+<p>mysql&gt; show slavestatusG; //查看状态信息</p>
+<p>最重要的俩个信息</p>
+<ol>
+<li>Slave_IO_Running:Yes        //IO线程yes状态</li>
+<li>Slave_SQL_Running:Yes //SQL线程yes状态</li>
+</ol>
+]]></content>
+  </entry>
 </search>
