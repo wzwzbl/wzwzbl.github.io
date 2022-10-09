@@ -2339,7 +2339,7 @@ with open(&#39;asd\\&#39; + new_title + &#39;.mp4&#39;, mode=&#39;wb&#39;) as f:
     <title>redis哨兵模式</title>
     <url>/2022/03/17/redis%E5%93%A8%E5%85%B5%E6%A8%A1%E5%BC%8F/</url>
     <content><![CDATA[<p>哨兵模式可以监控主机是否故障，如果故障了根据投票将从库转换成主库。（sentinel）<br>哨兵是一个独立的进程，其原理是哨兵通过发送命令，等待redis服务器响应，从而监控运行多个redis实例。</p>
-<p>多哨兵模式，哨兵互相监控。<br>写哨兵配置文件：<br> vim sentinel.conf<br>                            被监控主机名称      host            port       1<br>sentinel monitor  myredis             127.0.0.1      6379     1<br>启动服务<br>redis-sentinel   kconfig/sentinel.conf<br>如果主机节点断了，这个时候就会随机选一个从机当主机</p>
+<p>多哨兵模式，哨兵互相监控。<br>写哨兵配置文件：<br> vim kconfig/redis_sentinel.conf 重新写一个<br>                             被监控主机名称      host            port       1<br>sentinel monitor    myredis             127.0.0.1      6379     1<br>启动服务<br>redis-sentinel   kconfig/sentinel.conf<br>如果主机节点断了，这个时候就会随机选一个从机当主机</p>
 <p>可以查看哨兵日志<br>如果主机回来了，只能当从机</p>
 <p>哨 兵 模 式</p>
 <p>优 点 :</p>
