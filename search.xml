@@ -2540,4 +2540,82 @@ echo $i;
 <p>; max_input_time = 60    #将原来的60注释掉<br>max_input_time = 300    #添加一行，修改成300</p>
 ]]></content>
   </entry>
+  <entry>
+    <title>docker部署</title>
+    <url>/2022/10/13/docker%E9%83%A8%E7%BD%B2/</url>
+    <content><![CDATA[<p>一。安装（yum安装）</p>
+<p>1.<strong>安装gcc依赖</strong>。<br>命令：yum -y install gcc gcc-c++</p>
+<p>2.<strong>，使用Docker仓库进行安装。</strong></p>
+<p>（1）设置仓库，安装所需的软件包。</p>
+<p>命令：yum install -y yum-utils device-mapper-persistent-data lvm2</p>
+<p>（2）设置稳定的仓库 如阿里云</p>
+<p> yum-config-manager –add-repo <a href="http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo">http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo</a></p>
+<p>（3）.<strong>安装Docker Engine-Community。</strong></p>
+<p>命令：yum install docker-ce docker-ce-cli <a href="https://link.zhihu.com/?target=http://containerd.io">http://containerd.io</a></p>
+<p>3.<strong>启动Docker。</strong></p>
+<p>命令：systemctl enable docker 设置开机自启</p>
+<p>systemctl start docker   启动</p>
+<p>systemctl restart docker  重启</p>
+<p><strong>4.验证Docker Engine-Community是否正确安装。</strong></p>
+<p>命令：docker version 列出docker版本</p>
+<p>docker run hello-world</p>
+<p>若结果显示“Hello from Docker!”，则说明Docker Engine-Community正确安装。</p>
+<p>二。镜像</p>
+<h4 id="查看docker镜像"><a href="#查看docker镜像" class="headerlink" title="查看docker镜像"></a>查看docker镜像</h4><p>docker images</p>
+<h4 id="列出本地所有的镜像"><a href="#列出本地所有的镜像" class="headerlink" title="列出本地所有的镜像"></a>列出本地所有的镜像</h4><p>docker images -a</p>
+<h4 id="只显示镜像ID"><a href="#只显示镜像ID" class="headerlink" title="只显示镜像ID"></a>只显示镜像ID</h4><p>docker images -q</p>
+<h4 id="显示镜像的摘要信息"><a href="#显示镜像的摘要信息" class="headerlink" title="显示镜像的摘要信息"></a>显示镜像的摘要信息</h4><p>docker images –digests</p>
+<h4 id="显示完整的镜像信息"><a href="#显示完整的镜像信息" class="headerlink" title="显示完整的镜像信息"></a>显示完整的镜像信息</h4><p>docker images –no-trunc</p>
+<h4 id="从Docker-Hub上查找tomcat镜像"><a href="#从Docker-Hub上查找tomcat镜像" class="headerlink" title="从Docker Hub上查找tomcat镜像"></a>从Docker Hub上查找tomcat镜像</h4><p>docker search tomcat</p>
+<h4 id="从Docker-Hub上下载tomcat镜像"><a href="#从Docker-Hub上下载tomcat镜像" class="headerlink" title="从Docker Hub上下载tomcat镜像"></a>从Docker Hub上下载tomcat镜像</h4><p>docker pull tomcat</p>
+<p>或 docker pull tomcat:latest</p>
+<h4 id="提交容器使之成为一个新的镜像"><a href="#提交容器使之成为一个新的镜像" class="headerlink" title="提交容器使之成为一个新的镜像"></a>提交容器使之成为一个新的镜像</h4><p>docker commit -m “提交的描述信息” -a “作者” 容器ID 要创建的目标镜像名称:[标签名]</p>
+<p>如：docker commit -m “新的tomcat” -a “YM” b10b019a21c2 mytomcat:1.2</p>
+<h4 id="从Docker中删除hello-world镜像"><a href="#从Docker中删除hello-world镜像" class="headerlink" title="从Docker中删除hello-world镜像"></a>从Docker中删除hello-world镜像</h4><p>docker rmi hello-world</p>
+<h4 id="从Docker中强制删除hello-world镜像"><a href="#从Docker中强制删除hello-world镜像" class="headerlink" title="从Docker中强制删除hello-world镜像"></a>从Docker中强制删除hello-world镜像</h4><p>docker rmi -f hello-world</p>
+<h4 id="从Docker中强制删除hello-world镜像和nginx镜像"><a href="#从Docker中强制删除hello-world镜像和nginx镜像" class="headerlink" title="从Docker中强制删除hello-world镜像和nginx镜像"></a>从Docker中强制删除hello-world镜像和nginx镜像</h4><p>docker rmi -f hello-world nginx</p>
+<h4 id="通过docker-images-p查询到的镜像ID来删除所有镜像"><a href="#通过docker-images-p查询到的镜像ID来删除所有镜像" class="headerlink" title="通过docker images -p查询到的镜像ID来删除所有镜像"></a>通过docker images -p查询到的镜像ID来删除所有镜像</h4><p>docker rmi -f $(docker images -p)</p>
+<p>三。实践创建nginx，tomcat容器</p>
+<p>docker 轻量级虚拟机</p>
+<p>启动应用容器；</p>
+<p>启动guest os；</p>
+<p>（1）搜索</p>
+<p>docker search tomcat</p>
+<p>（2）下载nginx镜像</p>
+<p>docker pull   docker.io/nginx </p>
+<p>(3)查看镜像列表</p>
+<p>docker images</p>
+<p>（4）基于nginx镜像启动nginx容器</p>
+<p>docker run -itd -p 80:80 <a href="http://docker.io/nginx">docker.io/nginx</a></p>
+<p>启动centos镜像</p>
+<p>dockerrun **-**it –name myos centos:latest /bin/bash</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>k8s部署</title>
+    <url>/2022/10/13/k8s%E9%83%A8%E7%BD%B2/</url>
+    <content><![CDATA[<p>一。安装</p>
+<p>（1）添加yum</p>
+<p>cat &gt; /etc/yum.repos.d/kubernetes.repo &lt;&lt; EOF[kubernetes]<br>name=Kubernetes<br>baseurl=<a href="https://mirrors.aliyun.com/kubernetes/yum/repos/kubernetes-el7-x86_64">https://mirrors.aliyun.com/kubernetes/yum/repos/kubernetes-el7-x86_64</a><br>enabled=1<br>gpgcheck=0<br>repo_gpgcheck=0<br>gpgkey=<a href="https://mirrors.aliyun.com/kubernetes/yum/doc/yum-key.gpg">https://mirrors.aliyun.com/kubernetes/yum/doc/yum-key.gpg</a> <a href="https://mirrors.aliyun.com/kubernetes/yum/doc/rpm-package-key.gpg">https://mirrors.aliyun.com/kubernetes/yum/doc/rpm-package-key.gpg</a><br>EOF[kubernetes]</p>
+<p>（2）安装kubeadm，kubelet和kubectl</p>
+<p>yum install -y kubelet-1.16.2 kubeadm-1.16.2 kubectl-1.16.2<br>systemctl start kubelet<br>systemctl enable kubelet</p>
+<p>（3）部署master，在master操作</p>
+<p>在 <code>master</code> 节点中执行以下命令，注意将 master 节点 IP 和 kube 版本号修改为自己主机中所对应的。</p>
+<p>kubeadm init –apiserver-advertise-address=192.168.200.132 –image-repository <a href="http://registry.aliyuncs.com/google_containers">registry.aliyuncs.com/google_containers</a> –kubernetes-version v1.18.0 –service-cidr=10.96.0.0/12 –pod-network-cidr=10.244.0.0/16</p>
+<p>验证</p>
+<p>使用命令<code>docker images</code>查看系统中的镜像，可以我们需要的镜像均已安装完成。一共七条</p>
+<p>（4）执行（这个命令会在上个命令里出来）</p>
+<p>开启 kubectl 工具的使用(<code>该命令在master节点中执行</code>)。</p>
+<p>mkdir -p $HOME/.kube</p>
+<p>  sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config</p>
+<p>  sudo chown $(id -u):$(id -g) $HOME/.kube/config</p>
+<p>（5）部署node （在俩台node执行，这个命令也是命令3生成的）</p>
+<p>kubeadm join 192.168.2.100:6443 –token27vl3h.prktr5awxz19x50l \</p>
+<p>  –discovery-token-ca-cert-hashsha256:f7ed9afbae54b972b9d5372a9bc880bc8f7908f2091e3c9de3c5a7ad807c314f</p>
+<p>(6)安装网络插件</p>
+<p>wget <a href="https://kuboard.cn/install-script/calico/calico-3.13.1.yaml">https://kuboard.cn/install-script/calico/calico-3.13.1.yaml</a><br>kubectl apply -f calico-3.13.1.yaml</p>
+<p>（7）验证node</p>
+<p>kubectl  get nodes</p>
+]]></content>
+  </entry>
 </search>

@@ -1,0 +1,186 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>k8s部署 - Hexo</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="一。安装
+（1）添加yum
+cat &amp;gt; /etc/yum.repos.d/kubernetes.repo &amp;lt;&amp;lt; EOF[kubernetes]name=Kubernetesbase,"> 
+    <meta name="author" content="John Doe"> 
+    <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">Hexo</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://example.com"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">k8s部署</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">k8s部署</h1>
+        <div class="stuff">
+            <span>十月 13, 2022</span>
+            
+
+        </div>
+        <div class="content markdown">
+            <p>一。安装</p>
+<p>（1）添加yum</p>
+<p>cat &gt; /etc/yum.repos.d/kubernetes.repo &lt;&lt; EOF[kubernetes]<br>name=Kubernetes<br>baseurl=<a target="_blank" rel="noopener" href="https://mirrors.aliyun.com/kubernetes/yum/repos/kubernetes-el7-x86_64">https://mirrors.aliyun.com/kubernetes/yum/repos/kubernetes-el7-x86_64</a><br>enabled=1<br>gpgcheck=0<br>repo_gpgcheck=0<br>gpgkey=<a target="_blank" rel="noopener" href="https://mirrors.aliyun.com/kubernetes/yum/doc/yum-key.gpg">https://mirrors.aliyun.com/kubernetes/yum/doc/yum-key.gpg</a> <a target="_blank" rel="noopener" href="https://mirrors.aliyun.com/kubernetes/yum/doc/rpm-package-key.gpg">https://mirrors.aliyun.com/kubernetes/yum/doc/rpm-package-key.gpg</a><br>EOF[kubernetes]</p>
+<p>（2）安装kubeadm，kubelet和kubectl</p>
+<p>yum install -y kubelet-1.16.2 kubeadm-1.16.2 kubectl-1.16.2<br>systemctl start kubelet<br>systemctl enable kubelet</p>
+<p>（3）部署master，在master操作</p>
+<p>在 <code>master</code> 节点中执行以下命令，注意将 master 节点 IP 和 kube 版本号修改为自己主机中所对应的。</p>
+<p>kubeadm init –apiserver-advertise-address=192.168.200.132 –image-repository <a target="_blank" rel="noopener" href="http://registry.aliyuncs.com/google_containers">registry.aliyuncs.com/google_containers</a> –kubernetes-version v1.18.0 –service-cidr=10.96.0.0/12 –pod-network-cidr=10.244.0.0/16</p>
+<p>验证</p>
+<p>使用命令<code>docker images</code>查看系统中的镜像，可以我们需要的镜像均已安装完成。一共七条</p>
+<p>（4）执行（这个命令会在上个命令里出来）</p>
+<p>开启 kubectl 工具的使用(<code>该命令在master节点中执行</code>)。</p>
+<p>mkdir -p $HOME/.kube</p>
+<p>  sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config</p>
+<p>  sudo chown $(id -u):$(id -g) $HOME/.kube/config</p>
+<p>（5）部署node （在俩台node执行，这个命令也是命令3生成的）</p>
+<p>kubeadm join 192.168.2.100:6443 –token27vl3h.prktr5awxz19x50l \</p>
+<p>  –discovery-token-ca-cert-hashsha256:f7ed9afbae54b972b9d5372a9bc880bc8f7908f2091e3c9de3c5a7ad807c314f</p>
+<p>(6)安装网络插件</p>
+<p>wget <a target="_blank" rel="noopener" href="https://kuboard.cn/install-script/calico/calico-3.13.1.yaml">https://kuboard.cn/install-script/calico/calico-3.13.1.yaml</a><br>kubectl apply -f calico-3.13.1.yaml</p>
+<p>（7）验证node</p>
+<p>kubectl  get nodes</p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+		data-enable='false'
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</html>
