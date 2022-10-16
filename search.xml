@@ -114,127 +114,6 @@
 ]]></content>
   </entry>
   <entry>
-    <title>linuxday1基本命令</title>
-    <url>/2021/11/03/linuxday1/</url>
-    <content><![CDATA[<p>一、基本命令<br>1.1 关机和重启<br>关机<br>    shutdown -h now        立刻关机<br>    shutdown -h 5        5分钟后关机<br>    poweroff            立刻关机<br>重启<br>    shutdown -r now        立刻重启<br>    shutdown -r 5        5分钟后重启<br>    reboot                立刻重启</p>
-<p>1.2 帮助命令<br>–help命令<br>  shutdown –help：<br>  ifconfig  –help：查看网卡信息</p>
-<p>man命令（命令说明书）<br>  man shutdown<br>  注意：man shutdown打开命令说明书之后，使用按键q退出</p>
-<p>二、目录操作命令<br>2.1 目录切换 cd<br>命令：cd 目录</p>
-<p>cd /        切换到根目录<br>cd /usr        切换到根目录下的usr目录<br>cd ../        切换到上一级目录 或者  cd ..<br>cd ~        切换到home目录<br>cd -        切换到上次访问的目录</p>
-<p>2.2 目录查看 ls [-al]<br>命令：ls [-al]</p>
-<p>ls                查看当前目录下的所有目录和文件<br>ls -a            查看当前目录下的所有目录和文件（包括隐藏的文件）<br>ls -l 或 ll       列表查看当前目录下的所有目录和文件（列表查看，显示更多信息）<br>ls /dir            查看指定目录下的所有目录和文件   如：ls /usr<br>ls -d        仅列出目录本身，而不列出目录内的文件数据<br>ls  -i         显示出inode<br>2.3 目录操作【增，删，改，查】<br>2.3.1 创建目录【增】 mkdir<br>命令：mkdir 目录</p>
-<p>mkdir    aaa            在当前目录下创建一个名为aaa的目录<br>mkdir    /usr/aaa    在指定目录下创建一个名为aaa的目录<br>rmdir    删除一个空目录<br>2.3.2 删除目录或文件【删】rm<br>命令：rm [-rf] 目录</p>
-<p>删除文件：<br>rm 文件        删除当前目录下的文件<br>rm -f 文件    删除当前目录的的文件（不询问）</p>
-<p>删除目录：<br>rm -r aaa    递归删除当前目录下的aaa目录<br>rm -rf aaa    递归删除当前目录下的aaa目录（不询问）</p>
-<p>全部删除：<br>rm -rf *    将当前目录下的所有目录和文件全部删除<br>rm -rf /*    【自杀命令！慎用！慎用！慎用！】将根目录下的所有文件全部删除</p>
-<p>注意：rm不仅可以删除目录，也可以删除其他文件或压缩包，为了方便大家的记忆，无论删除任何目录或文件，都直接使用 rm -rf 目录/文件/压缩包</p>
-<p>2.3.3 目录修改【改】mv 和 cp<br>一、重命名目录<br>    命令：mv 当前目录  新目录<br>    例如：mv aaa bbb    将目录aaa改为bbb<br>    注意：mv的语法不仅可以对目录进行重命名而且也可以对各种文件，压缩包等进行    重命名的操作</p>
-<p>二、剪切目录<br>    命令：mv 目录名称 目录的新位置<br>    示例：将/usr/tmp目录下的aaa目录剪切到 /usr目录下面     mv /usr/tmp/aaa /usr<br>    注意：mv语法不仅可以对目录进行剪切操作，对文件和压缩包等都可执行剪切操作</p>
-<p>三、拷贝目录<br>    命令：cp -r 目录名称 目录拷贝的目标位置   -r代表递归<br>    示例：将/usr/tmp目录下的aaa目录复制到 /usr目录下面     cp /usr/tmp/aaa  /usr<br>    注意：cp命令不仅可以拷贝目录还可以拷贝文件，压缩包等，拷贝文件和压缩包时不    用写-r递归</p>
-<p>2.3.4 搜索目录【查】find<br>命令：find 目录 参数 文件名称<br>示例：find /usr/tmp -name ‘a*’    查找/usr/tmp目录下的所有以a开头的目录或文件<br>(1)-name name, -iname name : 文件名称符合 name 的文件。iname 会忽略大小写<br>(2)-size n : 文件大小 是 n 单位，b 代表 512 位元组的区块，c 表示字元数，k 表示 kilo bytes，w 是二个位元组。<br>(3)-type c : 文件类型是 c 的文件。 d: 目录   f: 一般文件<br>(4)-atime n : 在过去n天内被读取过的文件<br>(5)-cmin n : 在过去 n 分钟内被修改过<br>三、文件操作命令<br>3.1 文件操作【增，删，改，查】<br>3.1.1 新建文件【增】touch<br>命令：touch 文件名<br>示例：在当前目录创建一个名为aa.txt的文件        touch  aa.txt</p>
-<p>3.1.2 删除文件 【删】 rm<br>命令：rm -rf 文件名</p>
-<p>3.1.3 修改文件【改】 vi或vim<br>【vi编辑器的3种模式】<br>    基本上vi可以分为三种状态，分别是命令模式（command mode）、插入模式（Insert mode）和底行模式（last line mode），各模式的功能区分如下：</p>
-<ol>
-<li>命令行模式command mode）<br>   控制屏幕光标的移动，字符、字或行的删除，查找，移动复制某区段及进入Insert mode下，或者到 last line mode。<br>   命令行模式下的常用命令：<br>   【1】控制光标移动：↑，↓，j<br>   【2】删除当前行：dd<br>   【3】查找：/字符<br>   【4】进入编辑模式：i o a<br>   【5】进入底行模式：:</li>
-<li>编辑模式（Insert mode）<br>   只有在Insert mode下，才可以做文字输入，按「ESC」键可回到命令行模式。<br>   编辑模式下常用命令：<br>   【1】ESC 退出编辑模式到命令行模式；</li>
-<li>底行模式（last line mode）<br>  将文件保存或退出vi，也可以设置编辑环境，如寻找字符串、列出行号……等。<br>  底行模式下常用命令：<br>  【1】退出编辑：   :q<br>  【2】强制退出：   :q!<br>  【3】保存并退出：  :wq</li>
-</ol>
-<p>打开文件</p>
-<p>命令：vi 文件名<br>示例：打开当前目录下的aa.txt文件     vi aa.txt 或者 vim aa.txt</p>
-<p>注意：使用vi编辑器打开文件后，并不能编辑，因为此时处于命令模式，点击键盘i/a/o进入编辑模式。</p>
-<p>编辑文件</p>
-<p>使用vi编辑器打开文件后点击按键：i ，a或者o即可进入编辑模式。</p>
-<p>i:在光标所在字符前开始插入<br>a:在光标所在字符后开始插入<br>o:在光标所在行的下面另起一新行插入</p>
-<p>保存或者取消编辑</p>
-<p>保存文件：</p>
-<p>第一步：ESC  进入命令行模式<br>第二步：:     进入底行模式<br>第三步：wq     保存并退出编辑</p>
-<p>取消编辑：</p>
-<p>第一步：ESC  进入命令行模式<br>第二步：:     进入底行模式<br>第三步：q!     撤销本次修改并退出编辑</p>
-<p>3.1.4 文件的查看【查】<br>文件的查看命令：cat   /more/less/tail</p>
-<p>cat：看最后一屏</p>
-<p>-n 打印出行号</p>
-<p>示例：使用cat查看/etc/sudo.conf文件，只能显示最后一屏内容<br>cat sudo.conf<br>列：检查红帽发行信息  cat  /etc/redhat-release<br>列出内核版本：  uname  -r<br>查看cpu  lscpu<br>检查内存大小： cat  /proc/meminfo</p>
-<p>more：百分比显示，可翻页查看</p>
-<p>示例：使用more查看/etc/sudo.conf文件，可以显示百分比，回车可以向下一行，空格可以向下一页，q可以退出查看<br>more sudo.conf</p>
-<p>less：翻页查看</p>
-<p>示例：使用less查看/etc/sudo.conf文件，可以使用键盘上的PgUp和PgDn向上    和向下翻页，q结束查看<br>less sudo.conf</p>
-<p>head  ：命令可用于查看文件的开头部分的内容<br>tail：命令可以用于查看文件的后面部分的内容<br>示例：使用tail -10 查看/etc/sudo.conf文件的后10行，Ctrl+C结束<br>tail -10 sudo.conf</p>
-<p>3.2 权限修改<br>rwx：r代表可读，w代表可写，x代表该文件是一个可执行文件，如果rwx任意位置变为-则代表不可读或不可写或不可执行文件。</p>
-<p>示例：给aaa.txt文件权限改为可执行文件权限，aaa.txt文件的权限是-rw——-</p>
-<p>第一位：-就代表是文件，d代表是文件夹<br>第一段（3位）：代表拥有者的权限<br>第二段（3位）：代表拥有者所在的组，组员的权限<br>第三段（最后3位）：代表的是其他用户的权限</p>
-<p>   421  421  421</p>
-<ul>
-<li> rw-   —     —</li>
-</ul>
-<p>命令：chmod +x aaa.txt或者采用8421法命令：chmod 100 aaa.txt<br>chown  修改属主和属组<br>chattr  配置文件隐藏属性<br>lsattr    查看文件隐藏属性<br>特殊权限：<br>（1）SUID 特殊权限仅适用于可执行文件，所具有的功能是，只要用户对设有 SUID 的文件有执行权限，那么当用户执行此文件时，会以文件所有者的身份去执行此文件，一旦文件执行结束，身份的切换也随之消失。<br>举一个例子，我们都知道，Linux 系统中所有用户的密码数据都记录在 /etc/shadow 这个文件中，通过 ll /etc/shadow 命令可以看到，此文件的权限是 0（———），也就是说，普通用户对此文件没有任何操作权限。<br>（2）SGID用户在执行具有 SGID 权限的可执行文件时，用户的群组身份会变为文件所属群组<br>  (3)  SBIT  SBIT 权限仅对目录有效，一旦目录设定了 SBIT 权限，则用户在此目录下创建的文件或目录，就只有自己和 root 才有权利修改或删除该文件</p>
-<p>四、压缩文件操作<br>4.1 打包和压缩<br>Windows的压缩文件的扩展名  .zip/.rar<br>linux中的打包文件：aa.tar<br>linux中的压缩文件：bb.gz<br>linux中打包并压缩的文件：.tar.gz<br>•    tar    -zcf 备份文件.tar.gz 文档….<br>•    tar    -jcf 备份文件.tar.bz2 文档….<br>•    tar   -Jcf 备份文件.tar.xz 文档….</p>
-<p>Linux中的打包文件一般是以.tar结尾的，压缩的命令一般是以.gz结尾的。<br>而一般情况下打包和压缩是一起进行的，打包并压缩后的文件的后缀名一般.tar.gz。</p>
-<p>命令：tar -zcvf 打包压缩后的文件名 要打包的文件<br>其中：z：调用gzip压缩命令进行压缩<br>  c：打包文件<br>  v：显示运行过程<br>  f：指定文件名</p>
-<p>示例：打包并压缩/usr/tmp 下的所有文件 压缩后的压缩包指定名称为xxx.tar<br>tar -zcvf ab.tar aa.txt bb.txt<br>或：tar -zcvf ab.tar  *<br>•    tar -tf 备份文件<br>4.2 解压<br>命令：tar [-zxvf] 压缩文件<br>其中：x：代表解压<br>示例：将/usr/tmp 下的ab.tar解压到当前目录下</p>
-<p>五、查找命令<br>5.1 grep<br>grep命令是一种强大的文本搜索工具</p>
-<p>使用实例：</p>
-<p>ps -ef | grep sshd  查找指定ssh服务进程 ps -ef | grep sshd | grep -v grep 查找指定服务进程，排除gerp身 ps -ef | grep sshd -c 查找指定进程个数<br>5.2 find<br>find命令在目录结构中搜索文件，并对搜索结果执行指定的操作。 </p>
-<p>find 默认搜索当前目录及其子目录，并且不过滤任何结果（也就是返回所有文件），将它们全都显示在屏幕上。<br>5.3 locate<br>locate 让使用者可以很快速的搜寻某个路径。默认每天自动更新一次，所以使用locate 命令查不到最新变动过的文件。为了避免这种情况，可以在使用locate之前，先使用updatedb命令，手动更新数据库。如果数据库中没有查询的数据，则会报出locate: can not stat () `/var/lib/mlocate/mlocate.db’: No such file or directory该错误！updatedb即可！</p>
-<p>yum -y install mlocate 如果是精简版CentOS系统需要安装locate命令</p>
-<p>使用实例：</p>
-<p>updatedblocate /etc/sh 搜索etc目录下所有以sh开头的文件 locate pwd 查找和pwd相关的所有文件<br>5.4 whereis<br>whereis命令是定位可执行文件、源代码文件、帮助文件在文件系统中的位置。这些文件的属性应属于原始代码，二进制文件，或是帮助文件。</p>
-<p>使用实例：</p>
-<p>whereis ls    将和ls文件相关的文件都查找出来<br>5.5 which  （查找命令的路径）<br>which命令的作用是在PATH变量指定的路径中，搜索某个系统命令的位置，并且返回第一个搜索结果。</p>
-<p>使用实例：</p>
-<p>which pwd  查找pwd命令所在路径 which java  查找path中java的路径 </p>
-<p>观察文件类型：file<br>file    /usr/bin/passwd<br>六、su、sudo<br>6.1 su<br>su用于用户之间的切换。但是切换前的用户依然保持登录状态。如果是root 向普通或虚拟用户切换不需要密码，反之普通用户切换到其它任何用户都需要密码验证。<br>九、定时任务指令crontab 配置  （date查看时间）<br>crontab是Unix和Linux用于设置定时任务的指令。通过crontab命令，可以在固定间隔时间,执行指定的系统指令或shell脚本。时间间隔的单位可以是分钟、小时、日、月、周及以上的任意组合。</p>
-<p>crontab安装： yum install crontabs<br>1）确保系统服务crond可用</p>
-<ol>
-<li>systemctl restart crond    重启</li>
-<li> systemctl enable crond   开机自启</li>
-<li>1 命令格式<br>crontab [-u user] file</li>
-</ol>
-<p>crontab [-u user] [ -e | -l | -r ]</p>
-<p>参数说明：</p>
-<p>-u user：用来设定某个用户的crontab服务   列如：为用户natasha添加计划任务</p>
-<ol>
-<li> crontab **-**e **-**u natasha</li>
-</ol>
-<p>file：file是命令文件的名字,表示将file做为crontab的任务列表文件</p>
-<p>并载入crontab。</p>
-<p>-e：编辑某个用户的crontab文件内容。如果不指定用户，则表示编辑当前</p>
-<p>用户的crontab文件。</p>
-<p>-l：显示某个用户的crontab文件内容。如果不指定用户，则表示显示当前</p>
-<p>用户的crontab文件内容。</p>
-<p>-r：删除定时任务配置，从/var/spool/cron目录中删除某个用户的crontab</p>
-<p>文件，如果不指定用户，则默认删除当前用户的crontab文件。<br>9.2 配置说明、实例<br>命令：*   *    *   *   *   command  </p>
-<p>解释：分  时  日  月  周  命令</p>
-<p>第1列表示分钟1～59 每分钟用*或者 */1表示    </p>
-<p>第2列表示小时0～23（0表示0点）</p>
-<p>第3列表示日期1～31  </p>
-<p>第4列表示月份1～12  </p>
-<p>第5列标识号星期0～6（0表示星期天）<br>tail  /var/log/cron  查看日志</p>
-<p>vim  /etc/crontab   计划任务配置文件</p>
-<p>第6列要运行的命令<br>十、其他命令<br>10.1 查看当前目录：pwd<br>命令：pwd     查看当前目录路径</p>
-<p>10.2 查看进程：ps -ef<br>命令：ps -ef    查看所有正在运行的进程</p>
-<p>10.3 结束进程：kill<br>命令：kill pid 或者 kill -9 pid(强制杀死进程)           pid:进程号</p>
-<p>10.4 网络通信命令：<br>ifconfig：查看网卡信息</p>
-<p>命令：ifconfig 或 ifconfig | more</p>
-<p>ping：查看与某台机器的连接情况</p>
-<p>命令：ping ip</p>
-<p>netstat -an：查看当前系统端口</p>
-<p>命令：netstat -an</p>
-<p>搜索指定端口<br>命令：netstat -an | grep 8080</p>
-<p>10.5 配置网络<br>命令：setup</p>
-<p>10.6 重启网络<br>命令：service network restart</p>
-<p>10.7 切换用户<br>命令：su - 用户名</p>
-<p>10.8 关闭防火墙<br>命令：chkconfig iptables off</p>
-<p>10.9 清屏<br>命令：ctrl + l</p>
-<p>10.11 vi模式下快捷键<br>esc后:</p>
-<p>保存并退出快捷键：shift+z+z</p>
-<p>光标跳到最后一行快捷键：shift+g</p>
-<p>删除一行：dd</p>
-<p>复制一行内容：y+y</p>
-<p>粘贴复制的内容：p<br>显示目前所支持的语系 locale<br>locale </p>
-<p>lsblk  磁盘<br>df  -h  将容量结果显示出来</p>
-]]></content>
-  </entry>
-  <entry>
     <title>linuxday10Linux的补充知识</title>
     <url>/2021/11/13/linuxday10/</url>
     <content><![CDATA[<p>一。linux的安装</p>
@@ -356,6 +235,127 @@
 <li>   [root@svr7 ~]# reboot</li>
 <li>   .. ..</li>
 </ol>
+]]></content>
+  </entry>
+  <entry>
+    <title>linuxday1基本命令</title>
+    <url>/2021/11/03/linuxday1/</url>
+    <content><![CDATA[<p>一、基本命令<br>1.1 关机和重启<br>关机<br>    shutdown -h now        立刻关机<br>    shutdown -h 5        5分钟后关机<br>    poweroff            立刻关机<br>重启<br>    shutdown -r now        立刻重启<br>    shutdown -r 5        5分钟后重启<br>    reboot                立刻重启</p>
+<p>1.2 帮助命令<br>–help命令<br>  shutdown –help：<br>  ifconfig  –help：查看网卡信息</p>
+<p>man命令（命令说明书）<br>  man shutdown<br>  注意：man shutdown打开命令说明书之后，使用按键q退出</p>
+<p>二、目录操作命令<br>2.1 目录切换 cd<br>命令：cd 目录</p>
+<p>cd /        切换到根目录<br>cd /usr        切换到根目录下的usr目录<br>cd ../        切换到上一级目录 或者  cd ..<br>cd ~        切换到home目录<br>cd -        切换到上次访问的目录</p>
+<p>2.2 目录查看 ls [-al]<br>命令：ls [-al]</p>
+<p>ls                查看当前目录下的所有目录和文件<br>ls -a            查看当前目录下的所有目录和文件（包括隐藏的文件）<br>ls -l 或 ll       列表查看当前目录下的所有目录和文件（列表查看，显示更多信息）<br>ls /dir            查看指定目录下的所有目录和文件   如：ls /usr<br>ls -d        仅列出目录本身，而不列出目录内的文件数据<br>ls  -i         显示出inode<br>2.3 目录操作【增，删，改，查】<br>2.3.1 创建目录【增】 mkdir<br>命令：mkdir 目录</p>
+<p>mkdir    aaa            在当前目录下创建一个名为aaa的目录<br>mkdir    /usr/aaa    在指定目录下创建一个名为aaa的目录<br>rmdir    删除一个空目录<br>2.3.2 删除目录或文件【删】rm<br>命令：rm [-rf] 目录</p>
+<p>删除文件：<br>rm 文件        删除当前目录下的文件<br>rm -f 文件    删除当前目录的的文件（不询问）</p>
+<p>删除目录：<br>rm -r aaa    递归删除当前目录下的aaa目录<br>rm -rf aaa    递归删除当前目录下的aaa目录（不询问）</p>
+<p>全部删除：<br>rm -rf *    将当前目录下的所有目录和文件全部删除<br>rm -rf /*    【自杀命令！慎用！慎用！慎用！】将根目录下的所有文件全部删除</p>
+<p>注意：rm不仅可以删除目录，也可以删除其他文件或压缩包，为了方便大家的记忆，无论删除任何目录或文件，都直接使用 rm -rf 目录/文件/压缩包</p>
+<p>2.3.3 目录修改【改】mv 和 cp<br>一、重命名目录<br>    命令：mv 当前目录  新目录<br>    例如：mv aaa bbb    将目录aaa改为bbb<br>    注意：mv的语法不仅可以对目录进行重命名而且也可以对各种文件，压缩包等进行    重命名的操作</p>
+<p>二、剪切目录<br>    命令：mv 目录名称 目录的新位置<br>    示例：将/usr/tmp目录下的aaa目录剪切到 /usr目录下面     mv /usr/tmp/aaa /usr<br>    注意：mv语法不仅可以对目录进行剪切操作，对文件和压缩包等都可执行剪切操作</p>
+<p>三、拷贝目录<br>    命令：cp -r 目录名称 目录拷贝的目标位置   -r代表递归<br>    示例：将/usr/tmp目录下的aaa目录复制到 /usr目录下面     cp /usr/tmp/aaa  /usr<br>    注意：cp命令不仅可以拷贝目录还可以拷贝文件，压缩包等，拷贝文件和压缩包时不    用写-r递归</p>
+<p>2.3.4 搜索目录【查】find<br>命令：find 目录 参数 文件名称<br>示例：find /usr/tmp -name ‘a*’    查找/usr/tmp目录下的所有以a开头的目录或文件<br>(1)-name name, -iname name : 文件名称符合 name 的文件。iname 会忽略大小写<br>(2)-size n : 文件大小 是 n 单位，b 代表 512 位元组的区块，c 表示字元数，k 表示 kilo bytes，w 是二个位元组。<br>(3)-type c : 文件类型是 c 的文件。 d: 目录   f: 一般文件<br>(4)-atime n : 在过去n天内被读取过的文件<br>(5)-cmin n : 在过去 n 分钟内被修改过<br>三、文件操作命令<br>3.1 文件操作【增，删，改，查】<br>3.1.1 新建文件【增】touch<br>命令：touch 文件名<br>示例：在当前目录创建一个名为aa.txt的文件        touch  aa.txt</p>
+<p>3.1.2 删除文件 【删】 rm<br>命令：rm -rf 文件名</p>
+<p>3.1.3 修改文件【改】 vi或vim<br>【vi编辑器的3种模式】<br>    基本上vi可以分为三种状态，分别是命令模式（command mode）、插入模式（Insert mode）和底行模式（last line mode），各模式的功能区分如下：</p>
+<ol>
+<li>命令行模式command mode）<br>   控制屏幕光标的移动，字符、字或行的删除，查找，移动复制某区段及进入Insert mode下，或者到 last line mode。<br>   命令行模式下的常用命令：<br>   【1】控制光标移动：↑，↓，j<br>   【2】删除当前行：dd<br>   【3】查找：/字符<br>   【4】进入编辑模式：i o a<br>   【5】进入底行模式：:</li>
+<li>编辑模式（Insert mode）<br>   只有在Insert mode下，才可以做文字输入，按「ESC」键可回到命令行模式。<br>   编辑模式下常用命令：<br>   【1】ESC 退出编辑模式到命令行模式；</li>
+<li>底行模式（last line mode）<br>  将文件保存或退出vi，也可以设置编辑环境，如寻找字符串、列出行号……等。<br>  底行模式下常用命令：<br>  【1】退出编辑：   :q<br>  【2】强制退出：   :q!<br>  【3】保存并退出：  :wq</li>
+</ol>
+<p>打开文件</p>
+<p>命令：vi 文件名<br>示例：打开当前目录下的aa.txt文件     vi aa.txt 或者 vim aa.txt</p>
+<p>注意：使用vi编辑器打开文件后，并不能编辑，因为此时处于命令模式，点击键盘i/a/o进入编辑模式。</p>
+<p>编辑文件</p>
+<p>使用vi编辑器打开文件后点击按键：i ，a或者o即可进入编辑模式。</p>
+<p>i:在光标所在字符前开始插入<br>a:在光标所在字符后开始插入<br>o:在光标所在行的下面另起一新行插入</p>
+<p>保存或者取消编辑</p>
+<p>保存文件：</p>
+<p>第一步：ESC  进入命令行模式<br>第二步：:     进入底行模式<br>第三步：wq     保存并退出编辑</p>
+<p>取消编辑：</p>
+<p>第一步：ESC  进入命令行模式<br>第二步：:     进入底行模式<br>第三步：q!     撤销本次修改并退出编辑</p>
+<p>3.1.4 文件的查看【查】<br>文件的查看命令：cat   /more/less/tail</p>
+<p>cat：看最后一屏</p>
+<p>-n 打印出行号</p>
+<p>示例：使用cat查看/etc/sudo.conf文件，只能显示最后一屏内容<br>cat sudo.conf<br>列：检查红帽发行信息  cat  /etc/redhat-release<br>列出内核版本：  uname  -r<br>查看cpu  lscpu<br>检查内存大小： cat  /proc/meminfo</p>
+<p>more：百分比显示，可翻页查看</p>
+<p>示例：使用more查看/etc/sudo.conf文件，可以显示百分比，回车可以向下一行，空格可以向下一页，q可以退出查看<br>more sudo.conf</p>
+<p>less：翻页查看</p>
+<p>示例：使用less查看/etc/sudo.conf文件，可以使用键盘上的PgUp和PgDn向上    和向下翻页，q结束查看<br>less sudo.conf</p>
+<p>head  ：命令可用于查看文件的开头部分的内容<br>tail：命令可以用于查看文件的后面部分的内容<br>示例：使用tail -10 查看/etc/sudo.conf文件的后10行，Ctrl+C结束<br>tail -10 sudo.conf</p>
+<p>3.2 权限修改<br>rwx：r代表可读，w代表可写，x代表该文件是一个可执行文件，如果rwx任意位置变为-则代表不可读或不可写或不可执行文件。</p>
+<p>示例：给aaa.txt文件权限改为可执行文件权限，aaa.txt文件的权限是-rw——-</p>
+<p>第一位：-就代表是文件，d代表是文件夹<br>第一段（3位）：代表拥有者的权限<br>第二段（3位）：代表拥有者所在的组，组员的权限<br>第三段（最后3位）：代表的是其他用户的权限</p>
+<p>   421  421  421</p>
+<ul>
+<li> rw-   —     —</li>
+</ul>
+<p>命令：chmod +x aaa.txt或者采用8421法命令：chmod 100 aaa.txt<br>chown  修改属主和属组<br>chattr  配置文件隐藏属性<br>lsattr    查看文件隐藏属性<br>特殊权限：<br>（1）SUID 特殊权限仅适用于可执行文件，所具有的功能是，只要用户对设有 SUID 的文件有执行权限，那么当用户执行此文件时，会以文件所有者的身份去执行此文件，一旦文件执行结束，身份的切换也随之消失。<br>举一个例子，我们都知道，Linux 系统中所有用户的密码数据都记录在 /etc/shadow 这个文件中，通过 ll /etc/shadow 命令可以看到，此文件的权限是 0（———），也就是说，普通用户对此文件没有任何操作权限。<br>（2）SGID用户在执行具有 SGID 权限的可执行文件时，用户的群组身份会变为文件所属群组<br>  (3)  SBIT  SBIT 权限仅对目录有效，一旦目录设定了 SBIT 权限，则用户在此目录下创建的文件或目录，就只有自己和 root 才有权利修改或删除该文件</p>
+<p>四、压缩文件操作<br>4.1 打包和压缩<br>Windows的压缩文件的扩展名  .zip/.rar<br>linux中的打包文件：aa.tar<br>linux中的压缩文件：bb.gz<br>linux中打包并压缩的文件：.tar.gz<br>•    tar    -zcf 备份文件.tar.gz 文档….<br>•    tar    -jcf 备份文件.tar.bz2 文档….<br>•    tar   -Jcf 备份文件.tar.xz 文档….</p>
+<p>Linux中的打包文件一般是以.tar结尾的，压缩的命令一般是以.gz结尾的。<br>而一般情况下打包和压缩是一起进行的，打包并压缩后的文件的后缀名一般.tar.gz。</p>
+<p>命令：tar -zcvf 打包压缩后的文件名 要打包的文件<br>其中：z：调用gzip压缩命令进行压缩<br>  c：打包文件<br>  v：显示运行过程<br>  f：指定文件名</p>
+<p>示例：打包并压缩/usr/tmp 下的所有文件 压缩后的压缩包指定名称为xxx.tar<br>tar -zcvf ab.tar aa.txt bb.txt<br>或：tar -zcvf ab.tar  *<br>•    tar -tf 备份文件<br>4.2 解压<br>命令：tar [-zxvf] 压缩文件<br>其中：x：代表解压<br>示例：将/usr/tmp 下的ab.tar解压到当前目录下</p>
+<p>五、查找命令<br>5.1 grep<br>grep命令是一种强大的文本搜索工具</p>
+<p>使用实例：</p>
+<p>ps -ef | grep sshd  查找指定ssh服务进程 ps -ef | grep sshd | grep -v grep 查找指定服务进程，排除gerp身 ps -ef | grep sshd -c 查找指定进程个数<br>5.2 find<br>find命令在目录结构中搜索文件，并对搜索结果执行指定的操作。 </p>
+<p>find 默认搜索当前目录及其子目录，并且不过滤任何结果（也就是返回所有文件），将它们全都显示在屏幕上。<br>5.3 locate<br>locate 让使用者可以很快速的搜寻某个路径。默认每天自动更新一次，所以使用locate 命令查不到最新变动过的文件。为了避免这种情况，可以在使用locate之前，先使用updatedb命令，手动更新数据库。如果数据库中没有查询的数据，则会报出locate: can not stat () `/var/lib/mlocate/mlocate.db’: No such file or directory该错误！updatedb即可！</p>
+<p>yum -y install mlocate 如果是精简版CentOS系统需要安装locate命令</p>
+<p>使用实例：</p>
+<p>updatedblocate /etc/sh 搜索etc目录下所有以sh开头的文件 locate pwd 查找和pwd相关的所有文件<br>5.4 whereis<br>whereis命令是定位可执行文件、源代码文件、帮助文件在文件系统中的位置。这些文件的属性应属于原始代码，二进制文件，或是帮助文件。</p>
+<p>使用实例：</p>
+<p>whereis ls    将和ls文件相关的文件都查找出来<br>5.5 which  （查找命令的路径）<br>which命令的作用是在PATH变量指定的路径中，搜索某个系统命令的位置，并且返回第一个搜索结果。</p>
+<p>使用实例：</p>
+<p>which pwd  查找pwd命令所在路径 which java  查找path中java的路径 </p>
+<p>观察文件类型：file<br>file    /usr/bin/passwd<br>六、su、sudo<br>6.1 su<br>su用于用户之间的切换。但是切换前的用户依然保持登录状态。如果是root 向普通或虚拟用户切换不需要密码，反之普通用户切换到其它任何用户都需要密码验证。<br>九、定时任务指令crontab 配置  （date查看时间）<br>crontab是Unix和Linux用于设置定时任务的指令。通过crontab命令，可以在固定间隔时间,执行指定的系统指令或shell脚本。时间间隔的单位可以是分钟、小时、日、月、周及以上的任意组合。</p>
+<p>crontab安装： yum install crontabs<br>1）确保系统服务crond可用</p>
+<ol>
+<li>systemctl restart crond    重启</li>
+<li> systemctl enable crond   开机自启</li>
+<li>1 命令格式<br>crontab [-u user] file</li>
+</ol>
+<p>crontab [-u user] [ -e | -l | -r ]</p>
+<p>参数说明：</p>
+<p>-u user：用来设定某个用户的crontab服务   列如：为用户natasha添加计划任务</p>
+<ol>
+<li> crontab **-**e **-**u natasha</li>
+</ol>
+<p>file：file是命令文件的名字,表示将file做为crontab的任务列表文件</p>
+<p>并载入crontab。</p>
+<p>-e：编辑某个用户的crontab文件内容。如果不指定用户，则表示编辑当前</p>
+<p>用户的crontab文件。</p>
+<p>-l：显示某个用户的crontab文件内容。如果不指定用户，则表示显示当前</p>
+<p>用户的crontab文件内容。</p>
+<p>-r：删除定时任务配置，从/var/spool/cron目录中删除某个用户的crontab</p>
+<p>文件，如果不指定用户，则默认删除当前用户的crontab文件。<br>9.2 配置说明、实例<br>命令：*   *    *   *   *   command  </p>
+<p>解释：分  时  日  月  周  命令</p>
+<p>第1列表示分钟1～59 每分钟用*或者 */1表示    </p>
+<p>第2列表示小时0～23（0表示0点）</p>
+<p>第3列表示日期1～31  </p>
+<p>第4列表示月份1～12  </p>
+<p>第5列标识号星期0～6（0表示星期天）<br>tail  /var/log/cron  查看日志</p>
+<p>vim  /etc/crontab   计划任务配置文件</p>
+<p>第6列要运行的命令<br>十、其他命令<br>10.1 查看当前目录：pwd<br>命令：pwd     查看当前目录路径</p>
+<p>10.2 查看进程：ps -ef<br>命令：ps -ef    查看所有正在运行的进程</p>
+<p>10.3 结束进程：kill<br>命令：kill pid 或者 kill -9 pid(强制杀死进程)           pid:进程号</p>
+<p>10.4 网络通信命令：<br>ifconfig：查看网卡信息</p>
+<p>命令：ifconfig 或 ifconfig | more</p>
+<p>ping：查看与某台机器的连接情况</p>
+<p>命令：ping ip</p>
+<p>netstat -an：查看当前系统端口</p>
+<p>命令：netstat -an</p>
+<p>搜索指定端口<br>命令：netstat -an | grep 8080</p>
+<p>10.5 配置网络<br>命令：setup</p>
+<p>10.6 重启网络<br>命令：service network restart</p>
+<p>10.7 切换用户<br>命令：su - 用户名</p>
+<p>10.8 关闭防火墙<br>命令：chkconfig iptables off</p>
+<p>10.9 清屏<br>命令：ctrl + l</p>
+<p>10.11 vi模式下快捷键<br>esc后:</p>
+<p>保存并退出快捷键：shift+z+z</p>
+<p>光标跳到最后一行快捷键：shift+g</p>
+<p>删除一行：dd</p>
+<p>复制一行内容：y+y</p>
+<p>粘贴复制的内容：p<br>显示目前所支持的语系 locale<br>locale </p>
+<p>lsblk  磁盘<br>df  -h  将容量结果显示出来</p>
 ]]></content>
   </entry>
   <entry>
@@ -587,7 +587,7 @@
 <h1 id="列出所有正在运行的、类型为-service-的-Unit"><a href="#列出所有正在运行的、类型为-service-的-Unit" class="headerlink" title="列出所有正在运行的、类型为 service 的 Unit"></a>列出所有正在运行的、类型为 service 的 Unit</h1><p>$ systemctl list-units –type=service<br>4.2 Unit 的状态<br>systemctl status命令用于查看系统状态和单个 Unit 的状态。</p>
 <h1 id="显示系统状态"><a href="#显示系统状态" class="headerlink" title="显示系统状态"></a>显示系统状态</h1><p>$ systemctl status</p>
 <h1 id="显示单个-Unit-的状态"><a href="#显示单个-Unit-的状态" class="headerlink" title="显示单个 Unit 的状态"></a>显示单个 Unit 的状态</h1><p>$ sysystemctl status bluetooth.service</p>
-<h1 id="显示远程主机的某个-Unit-的状态"><a href="#显示远程主机的某个-Unit-的状态" class="headerlink" title="显示远程主机的某个 Unit 的状态"></a>显示远程主机的某个 Unit 的状态</h1><p>$ systemctl -H <a href="mailto:&#114;&#111;&#111;&#116;&#x40;&#x72;&#104;&#101;&#x6c;&#55;&#46;&#x65;&#120;&#x61;&#109;&#112;&#108;&#101;&#46;&#99;&#x6f;&#109;">&#114;&#111;&#111;&#116;&#x40;&#x72;&#104;&#101;&#x6c;&#55;&#46;&#x65;&#120;&#x61;&#109;&#112;&#108;&#101;&#46;&#99;&#x6f;&#109;</a> status httpd.service<br>除了status命令，systemctl还提供了三个查询状态的简单方法，主要供脚本内部的判断语句使用。</p>
+<h1 id="显示远程主机的某个-Unit-的状态"><a href="#显示远程主机的某个-Unit-的状态" class="headerlink" title="显示远程主机的某个 Unit 的状态"></a>显示远程主机的某个 Unit 的状态</h1><p>$ systemctl -H <a href="mailto:&#x72;&#x6f;&#x6f;&#x74;&#64;&#114;&#104;&#x65;&#x6c;&#55;&#x2e;&#101;&#x78;&#x61;&#109;&#x70;&#108;&#101;&#x2e;&#x63;&#111;&#x6d;">&#x72;&#x6f;&#x6f;&#x74;&#64;&#114;&#104;&#x65;&#x6c;&#55;&#x2e;&#101;&#x78;&#x61;&#109;&#x70;&#108;&#101;&#x2e;&#x63;&#111;&#x6d;</a> status httpd.service<br>除了status命令，systemctl还提供了三个查询状态的简单方法，主要供脚本内部的判断语句使用。</p>
 <h1 id="显示某个-Unit-是否正在运行"><a href="#显示某个-Unit-是否正在运行" class="headerlink" title="显示某个 Unit 是否正在运行"></a>显示某个 Unit 是否正在运行</h1><p>$ systemctl is-active application.service</p>
 <h1 id="显示某个-Unit-是否处于启动失败状态"><a href="#显示某个-Unit-是否处于启动失败状态" class="headerlink" title="显示某个 Unit 是否处于启动失败状态"></a>显示某个 Unit 是否处于启动失败状态</h1><p>$ systemctl is-failed application.service</p>
 <h1 id="显示某个-Unit-服务是否建立了启动链接"><a href="#显示某个-Unit-服务是否建立了启动链接" class="headerlink" title="显示某个 Unit 服务是否建立了启动链接"></a>显示某个 Unit 服务是否建立了启动链接</h1><p>$ systemctl is-enabled application.service<br>4.3 Unit 管理<br>对于用户来说，最常用的是下面这些命令，用于启动和停止 Unit（主要是 service）。</p>
@@ -604,15 +604,15 @@
 <p>$ systemctl list-dependencies nginx.service<br>上面命令的输出结果之中，有些依赖Target 类型（详见下文），默认不会展开显示。如果要展开 Target，就需要使用–all参数。</p>
 <p>$ systemctl list-dependencies –all nginx.service<br>五、Unit 的配置文件<br>5.1 概述<br>每一个 Unit 都有一个配置文件，告诉 Systemd 怎么启动这个 Unit 。</p>
 <p>Systemd 默认从目录/etc/systemd/system/读取配置文件。但是，里面存放的大部分文件都是符号链接，指向目录/usr/lib/systemd/system/，真正的配置文件存放在那个目录。</p>
-<p>systemctl enable命令用于在上面两个目录之间，建立符号链接关系。<br>$ sudo systemctl enable <a href="mailto:&#x63;&#108;&#97;&#x6d;&#100;&#x40;&#115;&#99;&#x61;&#110;&#x2e;&#115;&#x65;&#x72;&#118;&#105;&#99;&#101;">&#x63;&#108;&#97;&#x6d;&#100;&#x40;&#115;&#99;&#x61;&#110;&#x2e;&#115;&#x65;&#x72;&#118;&#105;&#99;&#101;</a></p>
-<h1 id="等同于"><a href="#等同于" class="headerlink" title="等同于"></a>等同于</h1><p>$ sudo ln -s ‘/usr/lib/systemd/system/<a href="mailto:&#x63;&#x6c;&#x61;&#109;&#x64;&#64;&#x73;&#x63;&#97;&#x6e;&#x2e;&#x73;&#101;&#x72;&#118;&#105;&#99;&#x65;">&#x63;&#x6c;&#x61;&#109;&#x64;&#64;&#x73;&#x63;&#97;&#x6e;&#x2e;&#x73;&#101;&#x72;&#118;&#105;&#99;&#x65;</a>‘ ‘/etc/systemd/system/multi-user.target.wants/<a href="mailto:&#99;&#108;&#x61;&#x6d;&#100;&#x40;&#115;&#99;&#97;&#x6e;&#x2e;&#x73;&#101;&#114;&#118;&#x69;&#x63;&#101;">&#99;&#108;&#x61;&#x6d;&#100;&#x40;&#115;&#99;&#97;&#x6e;&#x2e;&#x73;&#101;&#114;&#118;&#x69;&#x63;&#101;</a>‘<br>如果配置文件里面设置了开机启动，systemctl enable命令相当于激活开机启动。</p>
+<p>systemctl enable命令用于在上面两个目录之间，建立符号链接关系。<br>$ sudo systemctl enable <a href="mailto:&#99;&#108;&#x61;&#109;&#100;&#64;&#115;&#x63;&#x61;&#110;&#x2e;&#x73;&#101;&#114;&#118;&#x69;&#99;&#101;">&#99;&#108;&#x61;&#109;&#100;&#64;&#115;&#x63;&#x61;&#110;&#x2e;&#x73;&#101;&#114;&#118;&#x69;&#99;&#101;</a></p>
+<h1 id="等同于"><a href="#等同于" class="headerlink" title="等同于"></a>等同于</h1><p>$ sudo ln -s ‘/usr/lib/systemd/system/<a href="mailto:&#99;&#x6c;&#x61;&#109;&#x64;&#x40;&#x73;&#x63;&#x61;&#x6e;&#x2e;&#x73;&#101;&#114;&#x76;&#x69;&#x63;&#x65;">&#99;&#x6c;&#x61;&#109;&#x64;&#x40;&#x73;&#x63;&#x61;&#x6e;&#x2e;&#x73;&#101;&#114;&#x76;&#x69;&#x63;&#x65;</a>‘ ‘/etc/systemd/system/multi-user.target.wants/<a href="mailto:&#99;&#108;&#x61;&#109;&#x64;&#x40;&#115;&#x63;&#97;&#110;&#x2e;&#115;&#101;&#114;&#x76;&#x69;&#x63;&#101;">&#99;&#108;&#x61;&#109;&#x64;&#x40;&#115;&#x63;&#97;&#110;&#x2e;&#115;&#101;&#114;&#x76;&#x69;&#x63;&#101;</a>‘<br>如果配置文件里面设置了开机启动，systemctl enable命令相当于激活开机启动。</p>
 <p>与之对应的，systemctl disable命令用于在两个目录之间，撤销符号链接关系，相当于撤销开机启动。</p>
-<p>$ sudo systemctl disable <a href="mailto:&#99;&#x6c;&#97;&#x6d;&#x64;&#64;&#x73;&#99;&#x61;&#x6e;&#x2e;&#x73;&#101;&#x72;&#x76;&#x69;&#x63;&#x65;">&#99;&#x6c;&#97;&#x6d;&#x64;&#64;&#x73;&#99;&#x61;&#x6e;&#x2e;&#x73;&#101;&#x72;&#x76;&#x69;&#x63;&#x65;</a><br>配置文件的后缀名，就是该 Unit 的种类，比如sshd.socket。如果省略，Systemd 默认后缀名为.service，所以sshd会被理解成sshd.service。</p>
+<p>$ sudo systemctl disable <a href="mailto:&#99;&#x6c;&#97;&#x6d;&#x64;&#x40;&#115;&#x63;&#x61;&#x6e;&#46;&#115;&#101;&#x72;&#118;&#x69;&#x63;&#101;">&#99;&#x6c;&#97;&#x6d;&#x64;&#x40;&#115;&#x63;&#x61;&#x6e;&#46;&#115;&#101;&#x72;&#118;&#x69;&#x63;&#101;</a><br>配置文件的后缀名，就是该 Unit 的种类，比如sshd.socket。如果省略，Systemd 默认后缀名为.service，所以sshd会被理解成sshd.service。</p>
 <p>5.2 配置文件的状态<br>systemctl list-unit-files命令用于列出所有配置文件。</p>
 <h1 id="列出所有配置文件"><a href="#列出所有配置文件" class="headerlink" title="列出所有配置文件"></a>列出所有配置文件</h1><p>$ systemctl list-unit-files</p>
 <h1 id="列出指定类型的配置文件"><a href="#列出指定类型的配置文件" class="headerlink" title="列出指定类型的配置文件"></a>列出指定类型的配置文件</h1><p>$ systemctl list-unit-files –type=service<br>这个命令会输出一个列表。</p>
 <p>$ systemctl list-unit-files</p>
-<p>UNIT FILE              STATE<br>chronyd.service        enabled<br>clamd@.service         static<br><a href="mailto:&#99;&#108;&#x61;&#109;&#x64;&#64;&#x73;&#x63;&#97;&#x6e;&#46;&#x73;&#101;&#114;&#118;&#x69;&#x63;&#101;">&#99;&#108;&#x61;&#109;&#x64;&#64;&#x73;&#x63;&#97;&#x6e;&#46;&#x73;&#101;&#114;&#118;&#x69;&#x63;&#101;</a>     disabled<br>这个列表显示每个配置文件的状态，一共有四种。</p>
+<p>UNIT FILE              STATE<br>chronyd.service        enabled<br>clamd@.service         static<br><a href="mailto:&#99;&#108;&#97;&#109;&#x64;&#64;&#x73;&#99;&#x61;&#x6e;&#46;&#x73;&#x65;&#114;&#x76;&#105;&#x63;&#x65;">&#99;&#108;&#97;&#109;&#x64;&#64;&#x73;&#99;&#x61;&#x6e;&#46;&#x73;&#x65;&#114;&#x76;&#105;&#x63;&#x65;</a>     disabled<br>这个列表显示每个配置文件的状态，一共有四种。</p>
 <p>enabled：已建立启动链接<br>disabled：没建立启动链接<br>static：该配置文件没有[Install]部分（无法执行），只能作为其他配置文件的依赖<br>masked：该配置文件被禁止建立启动链接<br>注意，从配置文件的状态无法看出，该 Unit 是否正在运行。这必须执行前面提到的systemctl status命令。</p>
 <p>$ systemctl status bluetooth.service<br>一旦修改配置文件，就要让 SystemD 重新加载配置文件，然后重新启动，否则修改不会生效。</p>
 <p>$ sudo systemctl daemon-reload<br>$ sudo systemctl restart httpd.service<br>5.3 配置文件的格式<br>配置文件就是普通的文本文件，可以用文本编辑器打开。</p>
@@ -1490,6 +1490,18 @@ with  open(file_name,&quot;w&quot;,encoding=&#39;utf-8&#39;) as f:
 ]]></content>
   </entry>
   <entry>
+    <title>pyhon爬虫实例day03</title>
+    <url>/2022/02/07/python%E7%88%AC%E8%99%AB%E5%AE%9E%E4%BE%8Bday03/</url>
+    <content><![CDATA[<p>一。批量爬取图片。第5个爬虫<br>import requests<br>import re</p>
+<p>ur1 = ‘<a href="https://cn.bing.com/images/search?q=%E6%B5%B7%E8%B4%BC%E7%8E%8B%E5%A4%A7%E5%92%8C&amp;form=HDRSC2&amp;first=1&amp;tsc=ImageBasicHover&#39;">https://cn.bing.com/images/search?q=海贼王大和&amp;form=HDRSC2&amp;first=1&amp;tsc=ImageBasicHover&#39;</a><br>response = requests.get(ur1)</p>
+<p>pa = re.compile(‘class=”img_cont hoff”.<em>?src=”(.</em>?)”‘,re.S)<br>re = re.findall(pa,response.text)</p>
+<p>num = 1<br>for img_url in re:<br>    response = requests.get(img_url)<br>    with open(‘img/%d海贼王大和.jsp’%num, ‘wb’) as f:<br>        f.write(response.content)<br>        print(“已经下载%d张”%num)<br>        num = num + 1<br>re.compile()是用来优化正则的，它将正则表达式转化为对象，re.search(pattern, string)的调用方式就转换为 pattern.search(string)的调用方式，多次调用一个正则表达式就重复利用这个正则对象，可以实现更有效率的匹配<br>1).re.I(re.IGNORECASE): 忽略大小写<br>2).re.M(MULTILINE): 多行模式，改变’^’和’$’的行为<br>3).re.S(DOTALL): 点任意匹配模式，改变’.’的行为  (这次用到的模式就是这个)<br>4).re.L(LOCALE): 使预定字符类 \w \W \b \B \s \S 取决于当前区域设定<br>5).re.U(UNICODE): 使预定字符类 \w \W \b \B \s \S \d \D 取决于unicode定义的字符属性<br>6).re.X(VERBOSE): 详细模式。这个模式下正则表达式可以是多行，忽略空白字符，并可以加入注释<br>二。爬起点网小说。第6个爬虫<br>import requests<br>from bs4 import BeautifulSoup</p>
+<p>def get_novel_chopters():<br>    root_url = ‘<a href="https://book.qidian.com/info/1031954817/#Catalog&#39;">https://book.qidian.com/info/1031954817/#Catalog&#39;</a><br>    r = requests.get(root_url)<br>    r.encoding = “gdk”<br>    soup = BeautifulSoup(r.text, “html.parser”)<br>    data = []                                       （找到整本书里面的title和href。href是url）<br>    for h2 in soup.find_all(“h2”):         （找所有的h2）<br>        link = h2.find(“a”)    （h2.底下的a）<br>        if not link:<br>            continue<br>        data.append((“https:%s” % link[‘href’], link[‘title’]))      （匹配href，和title）<br>    return data</p>
+<p>def get_chopter_content(url):<br>    r = requests.get(url)<br>    r.encoding = ‘gdk’<br>    soup = BeautifulSoup(r.text, “html.parser”)<br>    return soup.find(“div”, class_=”read-content j_readContent”).get_text()        （找div里面的文字）</p>
+<p>nover = get_novel_chopters()<br>total = len(nover)<br>idx = 0<br>for chopter in nover:<br>    idx += 1<br>    print(idx, total)<br>    url, title = chopter<br>    with open(‘wzw\‘ + “%s.txt” % title, “w”) as f:<br>        f.write(title)<br>        f.write(get_chopter_content(url))</p>
+]]></content>
+  </entry>
+  <entry>
     <title>python爬虫实例day04</title>
     <url>/2022/02/08/python%E7%88%AC%E8%99%AB%E5%AE%9E%E4%BE%8Bday04/</url>
     <content><![CDATA[<p>一。第7个爬虫，爬取抖音视频<br>import requests<br>import re</p>
@@ -1518,32 +1530,10 @@ with open(&#39;asd\\&#39; + new_title + &#39;.mp4&#39;, mode=&#39;wb&#39;) as f:
 ]]></content>
   </entry>
   <entry>
-    <title>pyhon爬虫实例day03</title>
-    <url>/2022/02/07/python%E7%88%AC%E8%99%AB%E5%AE%9E%E4%BE%8Bday03/</url>
-    <content><![CDATA[<p>一。批量爬取图片。第5个爬虫<br>import requests<br>import re</p>
-<p>ur1 = ‘<a href="https://cn.bing.com/images/search?q=%E6%B5%B7%E8%B4%BC%E7%8E%8B%E5%A4%A7%E5%92%8C&amp;form=HDRSC2&amp;first=1&amp;tsc=ImageBasicHover&#39;">https://cn.bing.com/images/search?q=海贼王大和&amp;form=HDRSC2&amp;first=1&amp;tsc=ImageBasicHover&#39;</a><br>response = requests.get(ur1)</p>
-<p>pa = re.compile(‘class=”img_cont hoff”.<em>?src=”(.</em>?)”‘,re.S)<br>re = re.findall(pa,response.text)</p>
-<p>num = 1<br>for img_url in re:<br>    response = requests.get(img_url)<br>    with open(‘img/%d海贼王大和.jsp’%num, ‘wb’) as f:<br>        f.write(response.content)<br>        print(“已经下载%d张”%num)<br>        num = num + 1<br>re.compile()是用来优化正则的，它将正则表达式转化为对象，re.search(pattern, string)的调用方式就转换为 pattern.search(string)的调用方式，多次调用一个正则表达式就重复利用这个正则对象，可以实现更有效率的匹配<br>1).re.I(re.IGNORECASE): 忽略大小写<br>2).re.M(MULTILINE): 多行模式，改变’^’和’$’的行为<br>3).re.S(DOTALL): 点任意匹配模式，改变’.’的行为  (这次用到的模式就是这个)<br>4).re.L(LOCALE): 使预定字符类 \w \W \b \B \s \S 取决于当前区域设定<br>5).re.U(UNICODE): 使预定字符类 \w \W \b \B \s \S \d \D 取决于unicode定义的字符属性<br>6).re.X(VERBOSE): 详细模式。这个模式下正则表达式可以是多行，忽略空白字符，并可以加入注释<br>二。爬起点网小说。第6个爬虫<br>import requests<br>from bs4 import BeautifulSoup</p>
-<p>def get_novel_chopters():<br>    root_url = ‘<a href="https://book.qidian.com/info/1031954817/#Catalog&#39;">https://book.qidian.com/info/1031954817/#Catalog&#39;</a><br>    r = requests.get(root_url)<br>    r.encoding = “gdk”<br>    soup = BeautifulSoup(r.text, “html.parser”)<br>    data = []                                       （找到整本书里面的title和href。href是url）<br>    for h2 in soup.find_all(“h2”):         （找所有的h2）<br>        link = h2.find(“a”)    （h2.底下的a）<br>        if not link:<br>            continue<br>        data.append((“https:%s” % link[‘href’], link[‘title’]))      （匹配href，和title）<br>    return data</p>
-<p>def get_chopter_content(url):<br>    r = requests.get(url)<br>    r.encoding = ‘gdk’<br>    soup = BeautifulSoup(r.text, “html.parser”)<br>    return soup.find(“div”, class_=”read-content j_readContent”).get_text()        （找div里面的文字）</p>
-<p>nover = get_novel_chopters()<br>total = len(nover)<br>idx = 0<br>for chopter in nover:<br>    idx += 1<br>    print(idx, total)<br>    url, title = chopter<br>    with open(‘wzw\‘ + “%s.txt” % title, “w”) as f:<br>        f.write(title)<br>        f.write(get_chopter_content(url))</p>
-]]></content>
-  </entry>
-  <entry>
     <title>python爬虫实例day06</title>
     <url>/2022/02/09/python%E7%88%AC%E8%99%AB%E5%AE%9E%E4%BE%8Bday05/</url>
     <content><![CDATA[<p>一。第九个爬虫，爬腾讯视频<br>import requests<br>import pprint      # pprint 是“pretty printer”的简写，因此它的含义便是：（相当）美观的打印。<br>import re        #正则表达式<br>import json     #json数据<br>from tqdm import tqdm      #显示下载的进度条<br>url = ‘<a href="https://vd.l.qq.com/proxyhttp&#39;">https://vd.l.qq.com/proxyhttp&#39;</a></p>
 <p>data = {“因为是post的所以要有data，每个视频连接的data是不一样的”<br>}<br>headers = {<br>    ‘user-agent’: ‘Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.81 Safari/537.36’<br>}     #请求头<br>response = requests.post(url=url, json=data, headers=headers)    #请求网页，post的方式。<br>html_data = response.json()[‘vinfo’]     #筛选‘vinfo’的内容<br>m3u8_url = re.findall(‘url(.*?),’,html_data)[3].split(‘“‘)[2]   #用正则表达式匹配url（），要的（）里的内容，要的是第四个。要三个字符”后面的内容。<br>#pprint.pprint(html_data)<br>m3u8_data = requests.get(url=m3u8_url).text    #请求网页m3u8_url,获取text<br>m3u8_data = re.sub(‘#EXTM3U’,’’,m3u8_data)     #用re.sub把”#EXTM3U”替换成空白<br>m3u8_data = re.sub(‘#EXT-X-VERSION:\d’,’’,m3u8_data)<br>m3u8_data = re.sub(‘#EXT-X-MEDIA-SEQUENCE:\d’,’’,m3u8_data)<br>m3u8_data = re.sub(‘#EXT-X-TARGETDURATION:\d+’,’’,m3u8_data)<br>m3u8_data = re.sub(‘#EXT-X-PLAYLIST-TYPE:VOD’,’’,m3u8_data)<br>m3u8_data = re.sub(‘#EXTINF:\d+.\d+,’,’’,m3u8_data)<br>m3u8_data = re.sub(‘#EXT-X-ENDLIST’,’’,m3u8_data).split()    #split Python split() 通过指定分隔符对字符串进行切片<br>for ts in tqdm(m3u8_data):<br>    ts_url = ‘<a href="https://apd-6dc457641b263c90dce7c5ab8b7c4718.v.smtcdns.com/moviets.tc.qq.com/ACgoZ1rSyLeXt-5O_1qnlBtM57gJEpfDuwb50lggB0vE/uwMROfz2r5xgoaQXGdGnC2df645GziNP4fCTXzcc9dfItw5M/lgeZDzgYIrLpIdbJgAIVZll_g3QXNnU4vUCCyGTKUr_pbDsLFy5en7WZxqPEGRG_3buVk0iCBSFA6xsoeR4-jv4RShcuya3Q3yWcfIeie2hFrB4yyDa3Kpw4huiEwRt_QztFQiKfp9OG6_TXczD2Qxf0CJKbd0j_R9lTsm1dJ0gXzvYBnBf7lQ/&#39;">https://apd-6dc457641b263c90dce7c5ab8b7c4718.v.smtcdns.com/moviets.tc.qq.com/ACgoZ1rSyLeXt-5O_1qnlBtM57gJEpfDuwb50lggB0vE/uwMROfz2r5xgoaQXGdGnC2df645GziNP4fCTXzcc9dfItw5M/lgeZDzgYIrLpIdbJgAIVZll_g3QXNnU4vUCCyGTKUr_pbDsLFy5en7WZxqPEGRG_3buVk0iCBSFA6xsoeR4-jv4RShcuya3Q3yWcfIeie2hFrB4yyDa3Kpw4huiEwRt_QztFQiKfp9OG6_TXczD2Qxf0CJKbd0j_R9lTsm1dJ0gXzvYBnBf7lQ/&#39;</a> + ts<br>    ts_content = requests.get(url=ts_url).content    #遍历ts ，加上https：// +ts，请求页面，变成content格式，二进制格式<br>    with open(‘wzw\‘+’斗罗大陆.mp4’,mode=’ab+’) as f:     #保存到本地<br>        f.write(ts_content)<br>print(‘下载完成’)</p>
-]]></content>
-  </entry>
-  <entry>
-    <title>python爬虫day05</title>
-    <url>/2022/02/08/python%E7%88%AC%E8%99%AB%E7%94%A8%E5%88%B0%E7%9A%84%E5%BA%93/</url>
-    <content><![CDATA[<p>python爬虫库总结<br>（1）selenium   （用来爬抖音视频，谷歌浏览器） 是动态渲染页面的爬虫<br>用来模拟人工滑动，页面的情况<br>from selenium import webdriver<br>Chrome浏览器驱动：chromedriver , taobao备用地址<br>driver = webdriver.Chrome()    # Chrome浏览器<br>元素定位<br>find_element_by_css_selector() 格式： div.knrjsN15 &gt; div:nth-child(2)&gt;ul li<br>find_element_by_xpath()   格式 //*[@id=”root”]/div/div[2]/div/div/div[4]/div[1]/div[2]/ul/li[1]<br>（2）bs4库 （用来爬小说，爬取音乐）<br>from bs4 import BeautifulSoup </p>
-<p>BeautifulSoup是将HTML代码当做一个便签树来处理，BeautifulSoup对应一个HTML/XML文档的全部内容 。其中的每一个标签的结构如下：<br>soup = BeautifulSoup(r.text, “html.parser”)<br> data = []<br>    for h2 in soup.find_all(“h2”):   #  找所有的h2<br>        link = h2.find(“a”)               #遍历h2下面的a<br>        if not link:<br>            continue<br>        data.append((“https:%s” % link[‘href’], link[‘title’]))<br>    return data<br>除了find_all()方法，还有find()方法，只不过find()方法返回的是单个的标签，也就是第一个匹配的标签，而find_all()方法返回的是所有匹配的标签组成的列表。<br>（3）xpath库<br>pip install lxml<br>from lxml import etree<br>使用Xpath解析HTML文本<br>html = etree.HTML(text, etree.HTMLParser())<br>result = html.xpath(‘/html/head/title/text()’)<br>print(result)<br>（4）pyquery<br>from pyquery import PyQuery as pq    # 将字符串初始化为pyquery对象<br>doc = pq(response)<br>    figure = doc(‘.  ‘).items()  #查找class里的东西<br>    for i in figure:<br>        video_url = i.attr(‘href’)       遍历figure 找到href里的视频连接</p>
-<p>doc = pq(text)<br>print(doc(‘b’))<br>运行结果：<br><b link="af"/><br><b link="bba"/><br>（5）re 正则表达式<br>(.*?)<br>re.compile(,re.S)<br>re.findall()<br>re.sub(‘’,’’,’’)<br>(6)  parsel<br>selector = parsel.Selector(rea)<br>lis = selector.css(‘.grid_view li’)   #’.grid_view li’ 是在class =grid_view下的li<br>title = ls.css(‘.info .hd span.title:nth-child(1)::text’).get()  #:nth-child(1)查找第一个<br>（7）csv 保存为csv格式<br>import csv<br>f = open(‘豆瓣top250.csv’, mode=’a’, encoding=’utf-8-sig’, newline=’’)<br>csv_writer=csv.DictWriter(f, fieldnames=[     #写的所有的开头<br>    ‘标题’,<br>    ‘导演’,<br>    ‘演员’,<br>    ‘电影年份’,<br>    ‘国家’,<br>    ‘类型’,<br>    ‘电影简介’,<br>    ‘电影评分’,<br>    ‘评价人数’<br>])<br>csv_writer.writeheader()  #在代码开头写是csv是头文件<br>csv_writer.writerow(dit) #在结尾写是写如csv要传入的东西<br>（8）josnpath 数据提取方法，提取josn数据<br> ‘’’<br>import jsonpath<br>import requests<br>import json<br>url = ‘<a href="https://www.lagou.com/lbs/getAllCitySearchLabels.json&#39;">https://www.lagou.com/lbs/getAllCitySearchLabels.json&#39;</a><br>headers = {<br>    ‘user-agent’: ‘Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.81 Safari/537.36’<br>}</p>
-<p>resa =requests.get(url=url,headers=headers)<br>city_data=resa.content.decode()<br>print(city_data)<br>city_data_dict = json.loads(city_data)<br>print(jsonpath.jsonpath(city_data_dict,”$..B..name”) )</p>
-<p>‘’’</p>
 ]]></content>
   </entry>
   <entry>
@@ -1602,6 +1592,16 @@ with open(&#39;asd\\&#39; + new_title + &#39;.mp4&#39;, mode=&#39;wb&#39;) as f:
 <li>像字符串一样，列表也支持下表和切片操作</li>
 <li>列表中的项目可以改变<br>在2.7版本里输入是raw_input  3.0版本是input<br>linux系统升级python版本<br>(1)查看python原来的版本<br>python -V<br>（2）下载python安装包并解压<br>wget <a href="https://www.python.org/ftp/python/3.7.2/Python-3.7.2.tgz">https://www.python.org/ftp/python/3.7.2/Python-3.7.2.tgz</a><br>tar -xf Python-3.7.2.tgz<br>mv Python-3.7.2 python3<br>（3）进入解压的python内进行配置并安装<br>cd python3<br>./configure –prefix=/usr/local/python3 --with-ssl --enable-optimizations<br>make<br>make install<br>（4）安装完成后修改默认的python版本<br>cd /usr/bin<br>mv python python.bak<br>ln -s /usr/local/python3/bin/python3 /usr/bin/python   软连接<br>（5）安装完成<br>python -V<h1 id="输出结果：Python-3-7-2"><a href="#输出结果：Python-3-7-2" class="headerlink" title="输出结果：Python 3.7.2"></a>输出结果：Python 3.7.2</h1>列如<br>给文件创建（硬链接），为log2013.log创建硬链接ln2013，log2013.log与ln2013的各项属性相同<br>ln log2013.log ln2013</li>
 </ol>
+]]></content>
+  </entry>
+  <entry>
+    <title>python爬虫day05</title>
+    <url>/2022/02/08/python%E7%88%AC%E8%99%AB%E7%94%A8%E5%88%B0%E7%9A%84%E5%BA%93/</url>
+    <content><![CDATA[<p>python爬虫库总结<br>（1）selenium   （用来爬抖音视频，谷歌浏览器） 是动态渲染页面的爬虫<br>用来模拟人工滑动，页面的情况<br>from selenium import webdriver<br>Chrome浏览器驱动：chromedriver , taobao备用地址<br>driver = webdriver.Chrome()    # Chrome浏览器<br>元素定位<br>find_element_by_css_selector() 格式： div.knrjsN15 &gt; div:nth-child(2)&gt;ul li<br>find_element_by_xpath()   格式 //*[@id=”root”]/div/div[2]/div/div/div[4]/div[1]/div[2]/ul/li[1]<br>（2）bs4库 （用来爬小说，爬取音乐）<br>from bs4 import BeautifulSoup </p>
+<p>BeautifulSoup是将HTML代码当做一个便签树来处理，BeautifulSoup对应一个HTML/XML文档的全部内容 。其中的每一个标签的结构如下：<br>soup = BeautifulSoup(r.text, “html.parser”)<br> data = []<br>    for h2 in soup.find_all(“h2”):   #  找所有的h2<br>        link = h2.find(“a”)               #遍历h2下面的a<br>        if not link:<br>            continue<br>        data.append((“https:%s” % link[‘href’], link[‘title’]))<br>    return data<br>除了find_all()方法，还有find()方法，只不过find()方法返回的是单个的标签，也就是第一个匹配的标签，而find_all()方法返回的是所有匹配的标签组成的列表。<br>（3）xpath库<br>pip install lxml<br>from lxml import etree<br>使用Xpath解析HTML文本<br>html = etree.HTML(text, etree.HTMLParser())<br>result = html.xpath(‘/html/head/title/text()’)<br>print(result)<br>（4）pyquery<br>from pyquery import PyQuery as pq    # 将字符串初始化为pyquery对象<br>doc = pq(response)<br>    figure = doc(‘.  ‘).items()  #查找class里的东西<br>    for i in figure:<br>        video_url = i.attr(‘href’)       遍历figure 找到href里的视频连接</p>
+<p>doc = pq(text)<br>print(doc(‘b’))<br>运行结果：<br><b link="af"/><br><b link="bba"/><br>（5）re 正则表达式<br>(.*?)<br>re.compile(,re.S)<br>re.findall()<br>re.sub(‘’,’’,’’)<br>(6)  parsel<br>selector = parsel.Selector(rea)<br>lis = selector.css(‘.grid_view li’)   #’.grid_view li’ 是在class =grid_view下的li<br>title = ls.css(‘.info .hd span.title:nth-child(1)::text’).get()  #:nth-child(1)查找第一个<br>（7）csv 保存为csv格式<br>import csv<br>f = open(‘豆瓣top250.csv’, mode=’a’, encoding=’utf-8-sig’, newline=’’)<br>csv_writer=csv.DictWriter(f, fieldnames=[     #写的所有的开头<br>    ‘标题’,<br>    ‘导演’,<br>    ‘演员’,<br>    ‘电影年份’,<br>    ‘国家’,<br>    ‘类型’,<br>    ‘电影简介’,<br>    ‘电影评分’,<br>    ‘评价人数’<br>])<br>csv_writer.writeheader()  #在代码开头写是csv是头文件<br>csv_writer.writerow(dit) #在结尾写是写如csv要传入的东西<br>（8）josnpath 数据提取方法，提取josn数据<br> ‘’’<br>import jsonpath<br>import requests<br>import json<br>url = ‘<a href="https://www.lagou.com/lbs/getAllCitySearchLabels.json&#39;">https://www.lagou.com/lbs/getAllCitySearchLabels.json&#39;</a><br>headers = {<br>    ‘user-agent’: ‘Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.81 Safari/537.36’<br>}</p>
+<p>resa =requests.get(url=url,headers=headers)<br>city_data=resa.content.decode()<br>print(city_data)<br>city_data_dict = json.loads(city_data)<br>print(jsonpath.jsonpath(city_data_dict,”$..B..name”) )</p>
+<p>‘’’</p>
 ]]></content>
   </entry>
   <entry>
