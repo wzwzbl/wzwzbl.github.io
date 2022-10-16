@@ -1,6 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Hello World</title>
+    <url>/2021/11/02/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+  </entry>
+  <entry>
     <title>docker部署</title>
     <url>/2022/10/13/docker%E9%83%A8%E7%BD%B2/</url>
     <content><![CDATA[<p>一。安装（yum安装）</p>
@@ -56,24 +74,6 @@
 ]]></content>
   </entry>
   <entry>
-    <title>Hello World</title>
-    <url>/2021/11/02/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-  </entry>
-  <entry>
     <title>javaScript动态渲染页面爬取2</title>
     <url>/2022/02/22/javaScript%E5%8A%A8%E6%80%81%E6%B8%B2%E6%9F%93%E9%A1%B5%E9%9D%A2%E7%88%AC%E5%8F%962/</url>
     <content><![CDATA[<p>一.selenim的使用<br>（1）安装pip install selenium<br>用来模拟人工滑动，页面的情况<br>from selenium import webdriver<br>Chrome浏览器驱动：chromedriver , taobao备用地址<br>下载谷歌相对应版本的chromedriver.exe<br>然后放在python文件夹里<br>（2）。使用<br>driver = webdriver.Chrome()    # Chrome浏览器</p>
@@ -111,6 +111,127 @@
 <p>wget <a href="https://kuboard.cn/install-script/calico/calico-3.13.1.yaml">https://kuboard.cn/install-script/calico/calico-3.13.1.yaml</a><br>kubectl apply -f calico-3.13.1.yaml</p>
 <p>（7）验证node</p>
 <p>kubectl  get nodes</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>linuxday1基本命令</title>
+    <url>/2021/11/03/linuxday1/</url>
+    <content><![CDATA[<p>一、基本命令<br>1.1 关机和重启<br>关机<br>    shutdown -h now        立刻关机<br>    shutdown -h 5        5分钟后关机<br>    poweroff            立刻关机<br>重启<br>    shutdown -r now        立刻重启<br>    shutdown -r 5        5分钟后重启<br>    reboot                立刻重启</p>
+<p>1.2 帮助命令<br>–help命令<br>  shutdown –help：<br>  ifconfig  –help：查看网卡信息</p>
+<p>man命令（命令说明书）<br>  man shutdown<br>  注意：man shutdown打开命令说明书之后，使用按键q退出</p>
+<p>二、目录操作命令<br>2.1 目录切换 cd<br>命令：cd 目录</p>
+<p>cd /        切换到根目录<br>cd /usr        切换到根目录下的usr目录<br>cd ../        切换到上一级目录 或者  cd ..<br>cd ~        切换到home目录<br>cd -        切换到上次访问的目录</p>
+<p>2.2 目录查看 ls [-al]<br>命令：ls [-al]</p>
+<p>ls                查看当前目录下的所有目录和文件<br>ls -a            查看当前目录下的所有目录和文件（包括隐藏的文件）<br>ls -l 或 ll       列表查看当前目录下的所有目录和文件（列表查看，显示更多信息）<br>ls /dir            查看指定目录下的所有目录和文件   如：ls /usr<br>ls -d        仅列出目录本身，而不列出目录内的文件数据<br>ls  -i         显示出inode<br>2.3 目录操作【增，删，改，查】<br>2.3.1 创建目录【增】 mkdir<br>命令：mkdir 目录</p>
+<p>mkdir    aaa            在当前目录下创建一个名为aaa的目录<br>mkdir    /usr/aaa    在指定目录下创建一个名为aaa的目录<br>rmdir    删除一个空目录<br>2.3.2 删除目录或文件【删】rm<br>命令：rm [-rf] 目录</p>
+<p>删除文件：<br>rm 文件        删除当前目录下的文件<br>rm -f 文件    删除当前目录的的文件（不询问）</p>
+<p>删除目录：<br>rm -r aaa    递归删除当前目录下的aaa目录<br>rm -rf aaa    递归删除当前目录下的aaa目录（不询问）</p>
+<p>全部删除：<br>rm -rf *    将当前目录下的所有目录和文件全部删除<br>rm -rf /*    【自杀命令！慎用！慎用！慎用！】将根目录下的所有文件全部删除</p>
+<p>注意：rm不仅可以删除目录，也可以删除其他文件或压缩包，为了方便大家的记忆，无论删除任何目录或文件，都直接使用 rm -rf 目录/文件/压缩包</p>
+<p>2.3.3 目录修改【改】mv 和 cp<br>一、重命名目录<br>    命令：mv 当前目录  新目录<br>    例如：mv aaa bbb    将目录aaa改为bbb<br>    注意：mv的语法不仅可以对目录进行重命名而且也可以对各种文件，压缩包等进行    重命名的操作</p>
+<p>二、剪切目录<br>    命令：mv 目录名称 目录的新位置<br>    示例：将/usr/tmp目录下的aaa目录剪切到 /usr目录下面     mv /usr/tmp/aaa /usr<br>    注意：mv语法不仅可以对目录进行剪切操作，对文件和压缩包等都可执行剪切操作</p>
+<p>三、拷贝目录<br>    命令：cp -r 目录名称 目录拷贝的目标位置   -r代表递归<br>    示例：将/usr/tmp目录下的aaa目录复制到 /usr目录下面     cp /usr/tmp/aaa  /usr<br>    注意：cp命令不仅可以拷贝目录还可以拷贝文件，压缩包等，拷贝文件和压缩包时不    用写-r递归</p>
+<p>2.3.4 搜索目录【查】find<br>命令：find 目录 参数 文件名称<br>示例：find /usr/tmp -name ‘a*’    查找/usr/tmp目录下的所有以a开头的目录或文件<br>(1)-name name, -iname name : 文件名称符合 name 的文件。iname 会忽略大小写<br>(2)-size n : 文件大小 是 n 单位，b 代表 512 位元组的区块，c 表示字元数，k 表示 kilo bytes，w 是二个位元组。<br>(3)-type c : 文件类型是 c 的文件。 d: 目录   f: 一般文件<br>(4)-atime n : 在过去n天内被读取过的文件<br>(5)-cmin n : 在过去 n 分钟内被修改过<br>三、文件操作命令<br>3.1 文件操作【增，删，改，查】<br>3.1.1 新建文件【增】touch<br>命令：touch 文件名<br>示例：在当前目录创建一个名为aa.txt的文件        touch  aa.txt</p>
+<p>3.1.2 删除文件 【删】 rm<br>命令：rm -rf 文件名</p>
+<p>3.1.3 修改文件【改】 vi或vim<br>【vi编辑器的3种模式】<br>    基本上vi可以分为三种状态，分别是命令模式（command mode）、插入模式（Insert mode）和底行模式（last line mode），各模式的功能区分如下：</p>
+<ol>
+<li>命令行模式command mode）<br>   控制屏幕光标的移动，字符、字或行的删除，查找，移动复制某区段及进入Insert mode下，或者到 last line mode。<br>   命令行模式下的常用命令：<br>   【1】控制光标移动：↑，↓，j<br>   【2】删除当前行：dd<br>   【3】查找：/字符<br>   【4】进入编辑模式：i o a<br>   【5】进入底行模式：:</li>
+<li>编辑模式（Insert mode）<br>   只有在Insert mode下，才可以做文字输入，按「ESC」键可回到命令行模式。<br>   编辑模式下常用命令：<br>   【1】ESC 退出编辑模式到命令行模式；</li>
+<li>底行模式（last line mode）<br>  将文件保存或退出vi，也可以设置编辑环境，如寻找字符串、列出行号……等。<br>  底行模式下常用命令：<br>  【1】退出编辑：   :q<br>  【2】强制退出：   :q!<br>  【3】保存并退出：  :wq</li>
+</ol>
+<p>打开文件</p>
+<p>命令：vi 文件名<br>示例：打开当前目录下的aa.txt文件     vi aa.txt 或者 vim aa.txt</p>
+<p>注意：使用vi编辑器打开文件后，并不能编辑，因为此时处于命令模式，点击键盘i/a/o进入编辑模式。</p>
+<p>编辑文件</p>
+<p>使用vi编辑器打开文件后点击按键：i ，a或者o即可进入编辑模式。</p>
+<p>i:在光标所在字符前开始插入<br>a:在光标所在字符后开始插入<br>o:在光标所在行的下面另起一新行插入</p>
+<p>保存或者取消编辑</p>
+<p>保存文件：</p>
+<p>第一步：ESC  进入命令行模式<br>第二步：:     进入底行模式<br>第三步：wq     保存并退出编辑</p>
+<p>取消编辑：</p>
+<p>第一步：ESC  进入命令行模式<br>第二步：:     进入底行模式<br>第三步：q!     撤销本次修改并退出编辑</p>
+<p>3.1.4 文件的查看【查】<br>文件的查看命令：cat   /more/less/tail</p>
+<p>cat：看最后一屏</p>
+<p>-n 打印出行号</p>
+<p>示例：使用cat查看/etc/sudo.conf文件，只能显示最后一屏内容<br>cat sudo.conf<br>列：检查红帽发行信息  cat  /etc/redhat-release<br>列出内核版本：  uname  -r<br>查看cpu  lscpu<br>检查内存大小： cat  /proc/meminfo</p>
+<p>more：百分比显示，可翻页查看</p>
+<p>示例：使用more查看/etc/sudo.conf文件，可以显示百分比，回车可以向下一行，空格可以向下一页，q可以退出查看<br>more sudo.conf</p>
+<p>less：翻页查看</p>
+<p>示例：使用less查看/etc/sudo.conf文件，可以使用键盘上的PgUp和PgDn向上    和向下翻页，q结束查看<br>less sudo.conf</p>
+<p>head  ：命令可用于查看文件的开头部分的内容<br>tail：命令可以用于查看文件的后面部分的内容<br>示例：使用tail -10 查看/etc/sudo.conf文件的后10行，Ctrl+C结束<br>tail -10 sudo.conf</p>
+<p>3.2 权限修改<br>rwx：r代表可读，w代表可写，x代表该文件是一个可执行文件，如果rwx任意位置变为-则代表不可读或不可写或不可执行文件。</p>
+<p>示例：给aaa.txt文件权限改为可执行文件权限，aaa.txt文件的权限是-rw——-</p>
+<p>第一位：-就代表是文件，d代表是文件夹<br>第一段（3位）：代表拥有者的权限<br>第二段（3位）：代表拥有者所在的组，组员的权限<br>第三段（最后3位）：代表的是其他用户的权限</p>
+<p>   421  421  421</p>
+<ul>
+<li> rw-   —     —</li>
+</ul>
+<p>命令：chmod +x aaa.txt或者采用8421法命令：chmod 100 aaa.txt<br>chown  修改属主和属组<br>chattr  配置文件隐藏属性<br>lsattr    查看文件隐藏属性<br>特殊权限：<br>（1）SUID 特殊权限仅适用于可执行文件，所具有的功能是，只要用户对设有 SUID 的文件有执行权限，那么当用户执行此文件时，会以文件所有者的身份去执行此文件，一旦文件执行结束，身份的切换也随之消失。<br>举一个例子，我们都知道，Linux 系统中所有用户的密码数据都记录在 /etc/shadow 这个文件中，通过 ll /etc/shadow 命令可以看到，此文件的权限是 0（———），也就是说，普通用户对此文件没有任何操作权限。<br>（2）SGID用户在执行具有 SGID 权限的可执行文件时，用户的群组身份会变为文件所属群组<br>  (3)  SBIT  SBIT 权限仅对目录有效，一旦目录设定了 SBIT 权限，则用户在此目录下创建的文件或目录，就只有自己和 root 才有权利修改或删除该文件</p>
+<p>四、压缩文件操作<br>4.1 打包和压缩<br>Windows的压缩文件的扩展名  .zip/.rar<br>linux中的打包文件：aa.tar<br>linux中的压缩文件：bb.gz<br>linux中打包并压缩的文件：.tar.gz<br>•    tar    -zcf 备份文件.tar.gz 文档….<br>•    tar    -jcf 备份文件.tar.bz2 文档….<br>•    tar   -Jcf 备份文件.tar.xz 文档….</p>
+<p>Linux中的打包文件一般是以.tar结尾的，压缩的命令一般是以.gz结尾的。<br>而一般情况下打包和压缩是一起进行的，打包并压缩后的文件的后缀名一般.tar.gz。</p>
+<p>命令：tar -zcvf 打包压缩后的文件名 要打包的文件<br>其中：z：调用gzip压缩命令进行压缩<br>  c：打包文件<br>  v：显示运行过程<br>  f：指定文件名</p>
+<p>示例：打包并压缩/usr/tmp 下的所有文件 压缩后的压缩包指定名称为xxx.tar<br>tar -zcvf ab.tar aa.txt bb.txt<br>或：tar -zcvf ab.tar  *<br>•    tar -tf 备份文件<br>4.2 解压<br>命令：tar [-zxvf] 压缩文件<br>其中：x：代表解压<br>示例：将/usr/tmp 下的ab.tar解压到当前目录下</p>
+<p>五、查找命令<br>5.1 grep<br>grep命令是一种强大的文本搜索工具</p>
+<p>使用实例：</p>
+<p>ps -ef | grep sshd  查找指定ssh服务进程 ps -ef | grep sshd | grep -v grep 查找指定服务进程，排除gerp身 ps -ef | grep sshd -c 查找指定进程个数<br>5.2 find<br>find命令在目录结构中搜索文件，并对搜索结果执行指定的操作。 </p>
+<p>find 默认搜索当前目录及其子目录，并且不过滤任何结果（也就是返回所有文件），将它们全都显示在屏幕上。<br>5.3 locate<br>locate 让使用者可以很快速的搜寻某个路径。默认每天自动更新一次，所以使用locate 命令查不到最新变动过的文件。为了避免这种情况，可以在使用locate之前，先使用updatedb命令，手动更新数据库。如果数据库中没有查询的数据，则会报出locate: can not stat () `/var/lib/mlocate/mlocate.db’: No such file or directory该错误！updatedb即可！</p>
+<p>yum -y install mlocate 如果是精简版CentOS系统需要安装locate命令</p>
+<p>使用实例：</p>
+<p>updatedblocate /etc/sh 搜索etc目录下所有以sh开头的文件 locate pwd 查找和pwd相关的所有文件<br>5.4 whereis<br>whereis命令是定位可执行文件、源代码文件、帮助文件在文件系统中的位置。这些文件的属性应属于原始代码，二进制文件，或是帮助文件。</p>
+<p>使用实例：</p>
+<p>whereis ls    将和ls文件相关的文件都查找出来<br>5.5 which  （查找命令的路径）<br>which命令的作用是在PATH变量指定的路径中，搜索某个系统命令的位置，并且返回第一个搜索结果。</p>
+<p>使用实例：</p>
+<p>which pwd  查找pwd命令所在路径 which java  查找path中java的路径 </p>
+<p>观察文件类型：file<br>file    /usr/bin/passwd<br>六、su、sudo<br>6.1 su<br>su用于用户之间的切换。但是切换前的用户依然保持登录状态。如果是root 向普通或虚拟用户切换不需要密码，反之普通用户切换到其它任何用户都需要密码验证。<br>九、定时任务指令crontab 配置  （date查看时间）<br>crontab是Unix和Linux用于设置定时任务的指令。通过crontab命令，可以在固定间隔时间,执行指定的系统指令或shell脚本。时间间隔的单位可以是分钟、小时、日、月、周及以上的任意组合。</p>
+<p>crontab安装： yum install crontabs<br>1）确保系统服务crond可用</p>
+<ol>
+<li>systemctl restart crond    重启</li>
+<li> systemctl enable crond   开机自启</li>
+<li>1 命令格式<br>crontab [-u user] file</li>
+</ol>
+<p>crontab [-u user] [ -e | -l | -r ]</p>
+<p>参数说明：</p>
+<p>-u user：用来设定某个用户的crontab服务   列如：为用户natasha添加计划任务</p>
+<ol>
+<li> crontab **-**e **-**u natasha</li>
+</ol>
+<p>file：file是命令文件的名字,表示将file做为crontab的任务列表文件</p>
+<p>并载入crontab。</p>
+<p>-e：编辑某个用户的crontab文件内容。如果不指定用户，则表示编辑当前</p>
+<p>用户的crontab文件。</p>
+<p>-l：显示某个用户的crontab文件内容。如果不指定用户，则表示显示当前</p>
+<p>用户的crontab文件内容。</p>
+<p>-r：删除定时任务配置，从/var/spool/cron目录中删除某个用户的crontab</p>
+<p>文件，如果不指定用户，则默认删除当前用户的crontab文件。<br>9.2 配置说明、实例<br>命令：*   *    *   *   *   command  </p>
+<p>解释：分  时  日  月  周  命令</p>
+<p>第1列表示分钟1～59 每分钟用*或者 */1表示    </p>
+<p>第2列表示小时0～23（0表示0点）</p>
+<p>第3列表示日期1～31  </p>
+<p>第4列表示月份1～12  </p>
+<p>第5列标识号星期0～6（0表示星期天）<br>tail  /var/log/cron  查看日志</p>
+<p>vim  /etc/crontab   计划任务配置文件</p>
+<p>第6列要运行的命令<br>十、其他命令<br>10.1 查看当前目录：pwd<br>命令：pwd     查看当前目录路径</p>
+<p>10.2 查看进程：ps -ef<br>命令：ps -ef    查看所有正在运行的进程</p>
+<p>10.3 结束进程：kill<br>命令：kill pid 或者 kill -9 pid(强制杀死进程)           pid:进程号</p>
+<p>10.4 网络通信命令：<br>ifconfig：查看网卡信息</p>
+<p>命令：ifconfig 或 ifconfig | more</p>
+<p>ping：查看与某台机器的连接情况</p>
+<p>命令：ping ip</p>
+<p>netstat -an：查看当前系统端口</p>
+<p>命令：netstat -an</p>
+<p>搜索指定端口<br>命令：netstat -an | grep 8080</p>
+<p>10.5 配置网络<br>命令：setup</p>
+<p>10.6 重启网络<br>命令：service network restart</p>
+<p>10.7 切换用户<br>命令：su - 用户名</p>
+<p>10.8 关闭防火墙<br>命令：chkconfig iptables off</p>
+<p>10.9 清屏<br>命令：ctrl + l</p>
+<p>10.11 vi模式下快捷键<br>esc后:</p>
+<p>保存并退出快捷键：shift+z+z</p>
+<p>光标跳到最后一行快捷键：shift+g</p>
+<p>删除一行：dd</p>
+<p>复制一行内容：y+y</p>
+<p>粘贴复制的内容：p<br>显示目前所支持的语系 locale<br>locale </p>
+<p>lsblk  磁盘<br>df  -h  将容量结果显示出来</p>
 ]]></content>
   </entry>
   <entry>
@@ -235,127 +356,6 @@
 <li>   [root@svr7 ~]# reboot</li>
 <li>   .. ..</li>
 </ol>
-]]></content>
-  </entry>
-  <entry>
-    <title>linuxday1基本命令</title>
-    <url>/2021/11/03/linuxday1/</url>
-    <content><![CDATA[<p>一、基本命令<br>1.1 关机和重启<br>关机<br>    shutdown -h now        立刻关机<br>    shutdown -h 5        5分钟后关机<br>    poweroff            立刻关机<br>重启<br>    shutdown -r now        立刻重启<br>    shutdown -r 5        5分钟后重启<br>    reboot                立刻重启</p>
-<p>1.2 帮助命令<br>–help命令<br>  shutdown –help：<br>  ifconfig  –help：查看网卡信息</p>
-<p>man命令（命令说明书）<br>  man shutdown<br>  注意：man shutdown打开命令说明书之后，使用按键q退出</p>
-<p>二、目录操作命令<br>2.1 目录切换 cd<br>命令：cd 目录</p>
-<p>cd /        切换到根目录<br>cd /usr        切换到根目录下的usr目录<br>cd ../        切换到上一级目录 或者  cd ..<br>cd ~        切换到home目录<br>cd -        切换到上次访问的目录</p>
-<p>2.2 目录查看 ls [-al]<br>命令：ls [-al]</p>
-<p>ls                查看当前目录下的所有目录和文件<br>ls -a            查看当前目录下的所有目录和文件（包括隐藏的文件）<br>ls -l 或 ll       列表查看当前目录下的所有目录和文件（列表查看，显示更多信息）<br>ls /dir            查看指定目录下的所有目录和文件   如：ls /usr<br>ls -d        仅列出目录本身，而不列出目录内的文件数据<br>ls  -i         显示出inode<br>2.3 目录操作【增，删，改，查】<br>2.3.1 创建目录【增】 mkdir<br>命令：mkdir 目录</p>
-<p>mkdir    aaa            在当前目录下创建一个名为aaa的目录<br>mkdir    /usr/aaa    在指定目录下创建一个名为aaa的目录<br>rmdir    删除一个空目录<br>2.3.2 删除目录或文件【删】rm<br>命令：rm [-rf] 目录</p>
-<p>删除文件：<br>rm 文件        删除当前目录下的文件<br>rm -f 文件    删除当前目录的的文件（不询问）</p>
-<p>删除目录：<br>rm -r aaa    递归删除当前目录下的aaa目录<br>rm -rf aaa    递归删除当前目录下的aaa目录（不询问）</p>
-<p>全部删除：<br>rm -rf *    将当前目录下的所有目录和文件全部删除<br>rm -rf /*    【自杀命令！慎用！慎用！慎用！】将根目录下的所有文件全部删除</p>
-<p>注意：rm不仅可以删除目录，也可以删除其他文件或压缩包，为了方便大家的记忆，无论删除任何目录或文件，都直接使用 rm -rf 目录/文件/压缩包</p>
-<p>2.3.3 目录修改【改】mv 和 cp<br>一、重命名目录<br>    命令：mv 当前目录  新目录<br>    例如：mv aaa bbb    将目录aaa改为bbb<br>    注意：mv的语法不仅可以对目录进行重命名而且也可以对各种文件，压缩包等进行    重命名的操作</p>
-<p>二、剪切目录<br>    命令：mv 目录名称 目录的新位置<br>    示例：将/usr/tmp目录下的aaa目录剪切到 /usr目录下面     mv /usr/tmp/aaa /usr<br>    注意：mv语法不仅可以对目录进行剪切操作，对文件和压缩包等都可执行剪切操作</p>
-<p>三、拷贝目录<br>    命令：cp -r 目录名称 目录拷贝的目标位置   -r代表递归<br>    示例：将/usr/tmp目录下的aaa目录复制到 /usr目录下面     cp /usr/tmp/aaa  /usr<br>    注意：cp命令不仅可以拷贝目录还可以拷贝文件，压缩包等，拷贝文件和压缩包时不    用写-r递归</p>
-<p>2.3.4 搜索目录【查】find<br>命令：find 目录 参数 文件名称<br>示例：find /usr/tmp -name ‘a*’    查找/usr/tmp目录下的所有以a开头的目录或文件<br>(1)-name name, -iname name : 文件名称符合 name 的文件。iname 会忽略大小写<br>(2)-size n : 文件大小 是 n 单位，b 代表 512 位元组的区块，c 表示字元数，k 表示 kilo bytes，w 是二个位元组。<br>(3)-type c : 文件类型是 c 的文件。 d: 目录   f: 一般文件<br>(4)-atime n : 在过去n天内被读取过的文件<br>(5)-cmin n : 在过去 n 分钟内被修改过<br>三、文件操作命令<br>3.1 文件操作【增，删，改，查】<br>3.1.1 新建文件【增】touch<br>命令：touch 文件名<br>示例：在当前目录创建一个名为aa.txt的文件        touch  aa.txt</p>
-<p>3.1.2 删除文件 【删】 rm<br>命令：rm -rf 文件名</p>
-<p>3.1.3 修改文件【改】 vi或vim<br>【vi编辑器的3种模式】<br>    基本上vi可以分为三种状态，分别是命令模式（command mode）、插入模式（Insert mode）和底行模式（last line mode），各模式的功能区分如下：</p>
-<ol>
-<li>命令行模式command mode）<br>   控制屏幕光标的移动，字符、字或行的删除，查找，移动复制某区段及进入Insert mode下，或者到 last line mode。<br>   命令行模式下的常用命令：<br>   【1】控制光标移动：↑，↓，j<br>   【2】删除当前行：dd<br>   【3】查找：/字符<br>   【4】进入编辑模式：i o a<br>   【5】进入底行模式：:</li>
-<li>编辑模式（Insert mode）<br>   只有在Insert mode下，才可以做文字输入，按「ESC」键可回到命令行模式。<br>   编辑模式下常用命令：<br>   【1】ESC 退出编辑模式到命令行模式；</li>
-<li>底行模式（last line mode）<br>  将文件保存或退出vi，也可以设置编辑环境，如寻找字符串、列出行号……等。<br>  底行模式下常用命令：<br>  【1】退出编辑：   :q<br>  【2】强制退出：   :q!<br>  【3】保存并退出：  :wq</li>
-</ol>
-<p>打开文件</p>
-<p>命令：vi 文件名<br>示例：打开当前目录下的aa.txt文件     vi aa.txt 或者 vim aa.txt</p>
-<p>注意：使用vi编辑器打开文件后，并不能编辑，因为此时处于命令模式，点击键盘i/a/o进入编辑模式。</p>
-<p>编辑文件</p>
-<p>使用vi编辑器打开文件后点击按键：i ，a或者o即可进入编辑模式。</p>
-<p>i:在光标所在字符前开始插入<br>a:在光标所在字符后开始插入<br>o:在光标所在行的下面另起一新行插入</p>
-<p>保存或者取消编辑</p>
-<p>保存文件：</p>
-<p>第一步：ESC  进入命令行模式<br>第二步：:     进入底行模式<br>第三步：wq     保存并退出编辑</p>
-<p>取消编辑：</p>
-<p>第一步：ESC  进入命令行模式<br>第二步：:     进入底行模式<br>第三步：q!     撤销本次修改并退出编辑</p>
-<p>3.1.4 文件的查看【查】<br>文件的查看命令：cat   /more/less/tail</p>
-<p>cat：看最后一屏</p>
-<p>-n 打印出行号</p>
-<p>示例：使用cat查看/etc/sudo.conf文件，只能显示最后一屏内容<br>cat sudo.conf<br>列：检查红帽发行信息  cat  /etc/redhat-release<br>列出内核版本：  uname  -r<br>查看cpu  lscpu<br>检查内存大小： cat  /proc/meminfo</p>
-<p>more：百分比显示，可翻页查看</p>
-<p>示例：使用more查看/etc/sudo.conf文件，可以显示百分比，回车可以向下一行，空格可以向下一页，q可以退出查看<br>more sudo.conf</p>
-<p>less：翻页查看</p>
-<p>示例：使用less查看/etc/sudo.conf文件，可以使用键盘上的PgUp和PgDn向上    和向下翻页，q结束查看<br>less sudo.conf</p>
-<p>head  ：命令可用于查看文件的开头部分的内容<br>tail：命令可以用于查看文件的后面部分的内容<br>示例：使用tail -10 查看/etc/sudo.conf文件的后10行，Ctrl+C结束<br>tail -10 sudo.conf</p>
-<p>3.2 权限修改<br>rwx：r代表可读，w代表可写，x代表该文件是一个可执行文件，如果rwx任意位置变为-则代表不可读或不可写或不可执行文件。</p>
-<p>示例：给aaa.txt文件权限改为可执行文件权限，aaa.txt文件的权限是-rw——-</p>
-<p>第一位：-就代表是文件，d代表是文件夹<br>第一段（3位）：代表拥有者的权限<br>第二段（3位）：代表拥有者所在的组，组员的权限<br>第三段（最后3位）：代表的是其他用户的权限</p>
-<p>   421  421  421</p>
-<ul>
-<li> rw-   —     —</li>
-</ul>
-<p>命令：chmod +x aaa.txt或者采用8421法命令：chmod 100 aaa.txt<br>chown  修改属主和属组<br>chattr  配置文件隐藏属性<br>lsattr    查看文件隐藏属性<br>特殊权限：<br>（1）SUID 特殊权限仅适用于可执行文件，所具有的功能是，只要用户对设有 SUID 的文件有执行权限，那么当用户执行此文件时，会以文件所有者的身份去执行此文件，一旦文件执行结束，身份的切换也随之消失。<br>举一个例子，我们都知道，Linux 系统中所有用户的密码数据都记录在 /etc/shadow 这个文件中，通过 ll /etc/shadow 命令可以看到，此文件的权限是 0（———），也就是说，普通用户对此文件没有任何操作权限。<br>（2）SGID用户在执行具有 SGID 权限的可执行文件时，用户的群组身份会变为文件所属群组<br>  (3)  SBIT  SBIT 权限仅对目录有效，一旦目录设定了 SBIT 权限，则用户在此目录下创建的文件或目录，就只有自己和 root 才有权利修改或删除该文件</p>
-<p>四、压缩文件操作<br>4.1 打包和压缩<br>Windows的压缩文件的扩展名  .zip/.rar<br>linux中的打包文件：aa.tar<br>linux中的压缩文件：bb.gz<br>linux中打包并压缩的文件：.tar.gz<br>•    tar    -zcf 备份文件.tar.gz 文档….<br>•    tar    -jcf 备份文件.tar.bz2 文档….<br>•    tar   -Jcf 备份文件.tar.xz 文档….</p>
-<p>Linux中的打包文件一般是以.tar结尾的，压缩的命令一般是以.gz结尾的。<br>而一般情况下打包和压缩是一起进行的，打包并压缩后的文件的后缀名一般.tar.gz。</p>
-<p>命令：tar -zcvf 打包压缩后的文件名 要打包的文件<br>其中：z：调用gzip压缩命令进行压缩<br>  c：打包文件<br>  v：显示运行过程<br>  f：指定文件名</p>
-<p>示例：打包并压缩/usr/tmp 下的所有文件 压缩后的压缩包指定名称为xxx.tar<br>tar -zcvf ab.tar aa.txt bb.txt<br>或：tar -zcvf ab.tar  *<br>•    tar -tf 备份文件<br>4.2 解压<br>命令：tar [-zxvf] 压缩文件<br>其中：x：代表解压<br>示例：将/usr/tmp 下的ab.tar解压到当前目录下</p>
-<p>五、查找命令<br>5.1 grep<br>grep命令是一种强大的文本搜索工具</p>
-<p>使用实例：</p>
-<p>ps -ef | grep sshd  查找指定ssh服务进程 ps -ef | grep sshd | grep -v grep 查找指定服务进程，排除gerp身 ps -ef | grep sshd -c 查找指定进程个数<br>5.2 find<br>find命令在目录结构中搜索文件，并对搜索结果执行指定的操作。 </p>
-<p>find 默认搜索当前目录及其子目录，并且不过滤任何结果（也就是返回所有文件），将它们全都显示在屏幕上。<br>5.3 locate<br>locate 让使用者可以很快速的搜寻某个路径。默认每天自动更新一次，所以使用locate 命令查不到最新变动过的文件。为了避免这种情况，可以在使用locate之前，先使用updatedb命令，手动更新数据库。如果数据库中没有查询的数据，则会报出locate: can not stat () `/var/lib/mlocate/mlocate.db’: No such file or directory该错误！updatedb即可！</p>
-<p>yum -y install mlocate 如果是精简版CentOS系统需要安装locate命令</p>
-<p>使用实例：</p>
-<p>updatedblocate /etc/sh 搜索etc目录下所有以sh开头的文件 locate pwd 查找和pwd相关的所有文件<br>5.4 whereis<br>whereis命令是定位可执行文件、源代码文件、帮助文件在文件系统中的位置。这些文件的属性应属于原始代码，二进制文件，或是帮助文件。</p>
-<p>使用实例：</p>
-<p>whereis ls    将和ls文件相关的文件都查找出来<br>5.5 which  （查找命令的路径）<br>which命令的作用是在PATH变量指定的路径中，搜索某个系统命令的位置，并且返回第一个搜索结果。</p>
-<p>使用实例：</p>
-<p>which pwd  查找pwd命令所在路径 which java  查找path中java的路径 </p>
-<p>观察文件类型：file<br>file    /usr/bin/passwd<br>六、su、sudo<br>6.1 su<br>su用于用户之间的切换。但是切换前的用户依然保持登录状态。如果是root 向普通或虚拟用户切换不需要密码，反之普通用户切换到其它任何用户都需要密码验证。<br>九、定时任务指令crontab 配置  （date查看时间）<br>crontab是Unix和Linux用于设置定时任务的指令。通过crontab命令，可以在固定间隔时间,执行指定的系统指令或shell脚本。时间间隔的单位可以是分钟、小时、日、月、周及以上的任意组合。</p>
-<p>crontab安装： yum install crontabs<br>1）确保系统服务crond可用</p>
-<ol>
-<li>systemctl restart crond    重启</li>
-<li> systemctl enable crond   开机自启</li>
-<li>1 命令格式<br>crontab [-u user] file</li>
-</ol>
-<p>crontab [-u user] [ -e | -l | -r ]</p>
-<p>参数说明：</p>
-<p>-u user：用来设定某个用户的crontab服务   列如：为用户natasha添加计划任务</p>
-<ol>
-<li> crontab **-**e **-**u natasha</li>
-</ol>
-<p>file：file是命令文件的名字,表示将file做为crontab的任务列表文件</p>
-<p>并载入crontab。</p>
-<p>-e：编辑某个用户的crontab文件内容。如果不指定用户，则表示编辑当前</p>
-<p>用户的crontab文件。</p>
-<p>-l：显示某个用户的crontab文件内容。如果不指定用户，则表示显示当前</p>
-<p>用户的crontab文件内容。</p>
-<p>-r：删除定时任务配置，从/var/spool/cron目录中删除某个用户的crontab</p>
-<p>文件，如果不指定用户，则默认删除当前用户的crontab文件。<br>9.2 配置说明、实例<br>命令：*   *    *   *   *   command  </p>
-<p>解释：分  时  日  月  周  命令</p>
-<p>第1列表示分钟1～59 每分钟用*或者 */1表示    </p>
-<p>第2列表示小时0～23（0表示0点）</p>
-<p>第3列表示日期1～31  </p>
-<p>第4列表示月份1～12  </p>
-<p>第5列标识号星期0～6（0表示星期天）<br>tail  /var/log/cron  查看日志</p>
-<p>vim  /etc/crontab   计划任务配置文件</p>
-<p>第6列要运行的命令<br>十、其他命令<br>10.1 查看当前目录：pwd<br>命令：pwd     查看当前目录路径</p>
-<p>10.2 查看进程：ps -ef<br>命令：ps -ef    查看所有正在运行的进程</p>
-<p>10.3 结束进程：kill<br>命令：kill pid 或者 kill -9 pid(强制杀死进程)           pid:进程号</p>
-<p>10.4 网络通信命令：<br>ifconfig：查看网卡信息</p>
-<p>命令：ifconfig 或 ifconfig | more</p>
-<p>ping：查看与某台机器的连接情况</p>
-<p>命令：ping ip</p>
-<p>netstat -an：查看当前系统端口</p>
-<p>命令：netstat -an</p>
-<p>搜索指定端口<br>命令：netstat -an | grep 8080</p>
-<p>10.5 配置网络<br>命令：setup</p>
-<p>10.6 重启网络<br>命令：service network restart</p>
-<p>10.7 切换用户<br>命令：su - 用户名</p>
-<p>10.8 关闭防火墙<br>命令：chkconfig iptables off</p>
-<p>10.9 清屏<br>命令：ctrl + l</p>
-<p>10.11 vi模式下快捷键<br>esc后:</p>
-<p>保存并退出快捷键：shift+z+z</p>
-<p>光标跳到最后一行快捷键：shift+g</p>
-<p>删除一行：dd</p>
-<p>复制一行内容：y+y</p>
-<p>粘贴复制的内容：p<br>显示目前所支持的语系 locale<br>locale </p>
-<p>lsblk  磁盘<br>df  -h  将容量结果显示出来</p>
 ]]></content>
   </entry>
   <entry>
@@ -587,7 +587,7 @@
 <h1 id="列出所有正在运行的、类型为-service-的-Unit"><a href="#列出所有正在运行的、类型为-service-的-Unit" class="headerlink" title="列出所有正在运行的、类型为 service 的 Unit"></a>列出所有正在运行的、类型为 service 的 Unit</h1><p>$ systemctl list-units –type=service<br>4.2 Unit 的状态<br>systemctl status命令用于查看系统状态和单个 Unit 的状态。</p>
 <h1 id="显示系统状态"><a href="#显示系统状态" class="headerlink" title="显示系统状态"></a>显示系统状态</h1><p>$ systemctl status</p>
 <h1 id="显示单个-Unit-的状态"><a href="#显示单个-Unit-的状态" class="headerlink" title="显示单个 Unit 的状态"></a>显示单个 Unit 的状态</h1><p>$ sysystemctl status bluetooth.service</p>
-<h1 id="显示远程主机的某个-Unit-的状态"><a href="#显示远程主机的某个-Unit-的状态" class="headerlink" title="显示远程主机的某个 Unit 的状态"></a>显示远程主机的某个 Unit 的状态</h1><p>$ systemctl -H <a href="mailto:&#x72;&#x6f;&#x6f;&#x74;&#64;&#114;&#104;&#x65;&#x6c;&#55;&#x2e;&#101;&#x78;&#x61;&#109;&#x70;&#108;&#101;&#x2e;&#x63;&#111;&#x6d;">&#x72;&#x6f;&#x6f;&#x74;&#64;&#114;&#104;&#x65;&#x6c;&#55;&#x2e;&#101;&#x78;&#x61;&#109;&#x70;&#108;&#101;&#x2e;&#x63;&#111;&#x6d;</a> status httpd.service<br>除了status命令，systemctl还提供了三个查询状态的简单方法，主要供脚本内部的判断语句使用。</p>
+<h1 id="显示远程主机的某个-Unit-的状态"><a href="#显示远程主机的某个-Unit-的状态" class="headerlink" title="显示远程主机的某个 Unit 的状态"></a>显示远程主机的某个 Unit 的状态</h1><p>$ systemctl -H <a href="mailto:&#x72;&#111;&#x6f;&#x74;&#x40;&#x72;&#x68;&#x65;&#x6c;&#55;&#46;&#101;&#x78;&#97;&#x6d;&#112;&#108;&#x65;&#46;&#99;&#x6f;&#x6d;">&#x72;&#111;&#x6f;&#x74;&#x40;&#x72;&#x68;&#x65;&#x6c;&#55;&#46;&#101;&#x78;&#97;&#x6d;&#112;&#108;&#x65;&#46;&#99;&#x6f;&#x6d;</a> status httpd.service<br>除了status命令，systemctl还提供了三个查询状态的简单方法，主要供脚本内部的判断语句使用。</p>
 <h1 id="显示某个-Unit-是否正在运行"><a href="#显示某个-Unit-是否正在运行" class="headerlink" title="显示某个 Unit 是否正在运行"></a>显示某个 Unit 是否正在运行</h1><p>$ systemctl is-active application.service</p>
 <h1 id="显示某个-Unit-是否处于启动失败状态"><a href="#显示某个-Unit-是否处于启动失败状态" class="headerlink" title="显示某个 Unit 是否处于启动失败状态"></a>显示某个 Unit 是否处于启动失败状态</h1><p>$ systemctl is-failed application.service</p>
 <h1 id="显示某个-Unit-服务是否建立了启动链接"><a href="#显示某个-Unit-服务是否建立了启动链接" class="headerlink" title="显示某个 Unit 服务是否建立了启动链接"></a>显示某个 Unit 服务是否建立了启动链接</h1><p>$ systemctl is-enabled application.service<br>4.3 Unit 管理<br>对于用户来说，最常用的是下面这些命令，用于启动和停止 Unit（主要是 service）。</p>
@@ -604,15 +604,15 @@
 <p>$ systemctl list-dependencies nginx.service<br>上面命令的输出结果之中，有些依赖Target 类型（详见下文），默认不会展开显示。如果要展开 Target，就需要使用–all参数。</p>
 <p>$ systemctl list-dependencies –all nginx.service<br>五、Unit 的配置文件<br>5.1 概述<br>每一个 Unit 都有一个配置文件，告诉 Systemd 怎么启动这个 Unit 。</p>
 <p>Systemd 默认从目录/etc/systemd/system/读取配置文件。但是，里面存放的大部分文件都是符号链接，指向目录/usr/lib/systemd/system/，真正的配置文件存放在那个目录。</p>
-<p>systemctl enable命令用于在上面两个目录之间，建立符号链接关系。<br>$ sudo systemctl enable <a href="mailto:&#99;&#108;&#x61;&#109;&#100;&#64;&#115;&#x63;&#x61;&#110;&#x2e;&#x73;&#101;&#114;&#118;&#x69;&#99;&#101;">&#99;&#108;&#x61;&#109;&#100;&#64;&#115;&#x63;&#x61;&#110;&#x2e;&#x73;&#101;&#114;&#118;&#x69;&#99;&#101;</a></p>
-<h1 id="等同于"><a href="#等同于" class="headerlink" title="等同于"></a>等同于</h1><p>$ sudo ln -s ‘/usr/lib/systemd/system/<a href="mailto:&#99;&#x6c;&#x61;&#109;&#x64;&#x40;&#x73;&#x63;&#x61;&#x6e;&#x2e;&#x73;&#101;&#114;&#x76;&#x69;&#x63;&#x65;">&#99;&#x6c;&#x61;&#109;&#x64;&#x40;&#x73;&#x63;&#x61;&#x6e;&#x2e;&#x73;&#101;&#114;&#x76;&#x69;&#x63;&#x65;</a>‘ ‘/etc/systemd/system/multi-user.target.wants/<a href="mailto:&#99;&#108;&#x61;&#109;&#x64;&#x40;&#115;&#x63;&#97;&#110;&#x2e;&#115;&#101;&#114;&#x76;&#x69;&#x63;&#101;">&#99;&#108;&#x61;&#109;&#x64;&#x40;&#115;&#x63;&#97;&#110;&#x2e;&#115;&#101;&#114;&#x76;&#x69;&#x63;&#101;</a>‘<br>如果配置文件里面设置了开机启动，systemctl enable命令相当于激活开机启动。</p>
+<p>systemctl enable命令用于在上面两个目录之间，建立符号链接关系。<br>$ sudo systemctl enable <a href="mailto:&#99;&#108;&#x61;&#x6d;&#100;&#x40;&#x73;&#x63;&#x61;&#x6e;&#x2e;&#115;&#x65;&#x72;&#x76;&#x69;&#x63;&#101;">&#99;&#108;&#x61;&#x6d;&#100;&#x40;&#x73;&#x63;&#x61;&#x6e;&#x2e;&#115;&#x65;&#x72;&#x76;&#x69;&#x63;&#101;</a></p>
+<h1 id="等同于"><a href="#等同于" class="headerlink" title="等同于"></a>等同于</h1><p>$ sudo ln -s ‘/usr/lib/systemd/system/<a href="mailto:&#99;&#108;&#x61;&#x6d;&#x64;&#x40;&#x73;&#99;&#97;&#x6e;&#x2e;&#115;&#x65;&#x72;&#x76;&#105;&#99;&#101;">&#99;&#108;&#x61;&#x6d;&#x64;&#x40;&#x73;&#99;&#97;&#x6e;&#x2e;&#115;&#x65;&#x72;&#x76;&#105;&#99;&#101;</a>‘ ‘/etc/systemd/system/multi-user.target.wants/<a href="mailto:&#99;&#108;&#97;&#109;&#100;&#x40;&#x73;&#x63;&#x61;&#x6e;&#46;&#x73;&#101;&#114;&#118;&#x69;&#99;&#x65;">&#99;&#108;&#97;&#109;&#100;&#x40;&#x73;&#x63;&#x61;&#x6e;&#46;&#x73;&#101;&#114;&#118;&#x69;&#99;&#x65;</a>‘<br>如果配置文件里面设置了开机启动，systemctl enable命令相当于激活开机启动。</p>
 <p>与之对应的，systemctl disable命令用于在两个目录之间，撤销符号链接关系，相当于撤销开机启动。</p>
-<p>$ sudo systemctl disable <a href="mailto:&#99;&#x6c;&#97;&#x6d;&#x64;&#x40;&#115;&#x63;&#x61;&#x6e;&#46;&#115;&#101;&#x72;&#118;&#x69;&#x63;&#101;">&#99;&#x6c;&#97;&#x6d;&#x64;&#x40;&#115;&#x63;&#x61;&#x6e;&#46;&#115;&#101;&#x72;&#118;&#x69;&#x63;&#101;</a><br>配置文件的后缀名，就是该 Unit 的种类，比如sshd.socket。如果省略，Systemd 默认后缀名为.service，所以sshd会被理解成sshd.service。</p>
+<p>$ sudo systemctl disable <a href="mailto:&#99;&#x6c;&#x61;&#109;&#x64;&#64;&#115;&#x63;&#x61;&#110;&#x2e;&#115;&#101;&#114;&#118;&#x69;&#99;&#x65;">&#99;&#x6c;&#x61;&#109;&#x64;&#64;&#115;&#x63;&#x61;&#110;&#x2e;&#115;&#101;&#114;&#118;&#x69;&#99;&#x65;</a><br>配置文件的后缀名，就是该 Unit 的种类，比如sshd.socket。如果省略，Systemd 默认后缀名为.service，所以sshd会被理解成sshd.service。</p>
 <p>5.2 配置文件的状态<br>systemctl list-unit-files命令用于列出所有配置文件。</p>
 <h1 id="列出所有配置文件"><a href="#列出所有配置文件" class="headerlink" title="列出所有配置文件"></a>列出所有配置文件</h1><p>$ systemctl list-unit-files</p>
 <h1 id="列出指定类型的配置文件"><a href="#列出指定类型的配置文件" class="headerlink" title="列出指定类型的配置文件"></a>列出指定类型的配置文件</h1><p>$ systemctl list-unit-files –type=service<br>这个命令会输出一个列表。</p>
 <p>$ systemctl list-unit-files</p>
-<p>UNIT FILE              STATE<br>chronyd.service        enabled<br>clamd@.service         static<br><a href="mailto:&#99;&#108;&#97;&#109;&#x64;&#64;&#x73;&#99;&#x61;&#x6e;&#46;&#x73;&#x65;&#114;&#x76;&#105;&#x63;&#x65;">&#99;&#108;&#97;&#109;&#x64;&#64;&#x73;&#99;&#x61;&#x6e;&#46;&#x73;&#x65;&#114;&#x76;&#105;&#x63;&#x65;</a>     disabled<br>这个列表显示每个配置文件的状态，一共有四种。</p>
+<p>UNIT FILE              STATE<br>chronyd.service        enabled<br>clamd@.service         static<br><a href="mailto:&#99;&#x6c;&#x61;&#109;&#100;&#x40;&#x73;&#x63;&#97;&#110;&#x2e;&#115;&#x65;&#114;&#118;&#105;&#99;&#x65;">&#99;&#x6c;&#x61;&#109;&#100;&#x40;&#x73;&#x63;&#97;&#110;&#x2e;&#115;&#x65;&#114;&#118;&#105;&#99;&#x65;</a>     disabled<br>这个列表显示每个配置文件的状态，一共有四种。</p>
 <p>enabled：已建立启动链接<br>disabled：没建立启动链接<br>static：该配置文件没有[Install]部分（无法执行），只能作为其他配置文件的依赖<br>masked：该配置文件被禁止建立启动链接<br>注意，从配置文件的状态无法看出，该 Unit 是否正在运行。这必须执行前面提到的systemctl status命令。</p>
 <p>$ systemctl status bluetooth.service<br>一旦修改配置文件，就要让 SystemD 重新加载配置文件，然后重新启动，否则修改不会生效。</p>
 <p>$ sudo systemctl daemon-reload<br>$ sudo systemctl restart httpd.service<br>5.3 配置文件的格式<br>配置文件就是普通的文本文件，可以用文本编辑器打开。</p>
@@ -671,148 +671,6 @@
 ]]></content>
   </entry>
   <entry>
-    <title>linuxday5日志</title>
-    <url>/2021/11/07/linuxday5/</url>
-    <content><![CDATA[<p>一.日志文件的轮循（logrotate）<br>配置文件：/etc/logrotate.conf<br>                /etc/logrotate.d/<br>执行logrotate<br>logrotate  -v /etc/logrotate.conf<br>强制进行logrotate<br>logrotate  -vf  /etc/logrotate.conf</p>
-<p>二.journalctl 查看登录信息<br>Journald使用journalctl工具读取日志  journalctl<br>2查看  2017-05-27 09:37:00 到  2017-05-27 10:47:00 之间日志<br> journalctl –since “2017-05-27 09:37:00” –until “2017-05-27 10:47:00”<br>3.查看重启的记录：journalctl –list-boots<br>4.查看上一次启动以来的日志，根据上面的记录，也可以选择其他重启以来的日志： journalctl -b -1<br>5.查看最新的日志： journalctl -r<br>6.查看严重等级为错误的日志 journalctl -p err<br>7.查看指定应用日志：journalctl -t sshd<br>8.显示最近前几行的日志 如：-n  5<br>9.-f 持续显示joural日志内容</p>
-<p>三.logger命令的应用<br>使用 logger 工具，可以直接将信息传入到Journald中，-p 参数指定服务名称，和日志级别<br>logger -p user.info “log test with logger”</p>
-<p>四.保存journal的方式<br>mkdir  /var/log/journal<br>chown  root:systemd-journal  /var/log/journal<br>chmod  2775  /var/log/journal<br>systemctl  restart    systemd-journald.service</p>
-<p>五.分析日志文件<br>centos默认提供的logwatch<br>他会每天分析一次日志文件，然后通过email 的格式寄给root<br>1.安装<br>yum install /mnt/dvd/Packages/perl-5.*.rpm</p>
-]]></content>
-  </entry>
-  <entry>
-    <title>linuxday6 启动流程，模块管理与loader</title>
-    <url>/2021/11/08/linuxday6/</url>
-    <content><![CDATA[<p>一.linux的启动流程分析<br>1.启动流程：（1）加载bios的硬件信息，<br>（2）读取并执行第一个启动设备内mbr的启动引导程序，<br>（3）根据启动引导加载与加载驱动程序<br>（4）硬件驱动成功后，kernel会调用systemd程序，并以defult.target程序启动<br>2.boot loader<br>初始化开发板上主要硬件（时钟，内存，硬盘），把操作系统从硬盘拷贝到内存，然后让CPU跳到内存中执行操作系统<br>loader的最主要功能是要识别操作系统的文件格式，并据以加载内核到内存去执行<br>boot loader<br>提供选项：（1）用户可以选择不同的启动选项，这也是多重引导的重要功能<br>（2）加载内核文件<br>（3）转交其他loader<br>3. Kernel（初始化）<br>我们知道kernel是完成探索硬件及加载硬件驱动程序，并以读写的方式挂载根文件系统。<br>kernel初始化：探测硬件-&gt;加载驱动（initrd)-&gt;挂载根文件系统-&gt;rootfs(/sbin/init)<br>4.initrd功能介绍<br>       其实说白了initrd就是一个虚拟的文件系统，里面有/、lib、bin、sbin、usr、proc、sys、var、dev、boot等一些目录<br>5./sbin/init(/etc/inittab)<br>/sbin/init启动会用到/etc/inittab所定义的条目，如：默认登陆级别id:3:initdefault:(这里就是默认启动3级别）<br>下面就来说下/etc/inittab所工作那些内容：<br>/etc/inittab<br>默认运行级别<br>   0：halt系统停机状态<br>   1: single user mode(单用户维护模式)<br>   2：multi user mode, without NFS(多用户，不支持NFS功能）<br>   3: multi user mode, text mode（字符界面）完全的多用户状态(有NFS)，登陆后进入控制台命令行模式<br>   4：reserved （系统保留）系统未使用<br>   5: multi user mode, graphic mode  （图形化界面）：X11控制台，登陆后进入图形GUI模式<br>   6: reboot   （重启）<br>6.init执行/etc/rc.d/rc.local<br>init执行中断机模拟程序mingetty来启动login进程，最后等待用户登录<br>7.启动过程会用到的主要配置文件<br>基本上，systemd有自己的配置文件处理方式，读取位于/etc/sysconfig下面的环境配置文件<br>关于模块：/etc/modprobe.d/<em>.conf及/etc/modules-load.d/</em>.conf<br>.  /etc/sysconfig/*<br>authconfig   此文件中的内容为主机在进行认证时使用<br>cpupower  启动cpupower.service服务时会读取这个配置文件</p>
-<p>二.处理忘记密码<br>1.先按e进入编译模式<br>2.在编译模式里【linux16】最后面添加rd.break  ctrl+x执行<br>3.进入到另外一个模式 ，然后检查mount  ，并添加权限 mount   -o   remount ，rw /sysroot<br>4.chroot  /sysroot<br>然后改密码echo “新密码”| passwd  –stdin   root<br>然后touch  /.autorelabel<br>然后重启  redoot<br>三.tmux<br>Tmux 是一个终端复用器（terminal multiplexer），非常有用，属于常用的开发工具。<br>1.安装</p>
-<h1 id="Ubuntu-或-Debian"><a href="#Ubuntu-或-Debian" class="headerlink" title="Ubuntu 或 Debian"></a>Ubuntu 或 Debian</h1><p>$ sudo apt-get install tmux</p>
-<h1 id="CentOS-或-Fedora"><a href="#CentOS-或-Fedora" class="headerlink" title="CentOS 或 Fedora"></a>CentOS 或 Fedora</h1><p>$ sudo yum install tmux</p>
-<h1 id="Mac"><a href="#Mac" class="headerlink" title="Mac"></a>Mac</h1><p>$ brew install tmux</p>
-<p>2.安装完成后，键入tmux命令，就进入了 Tmux 窗口。</p>
-<p>3.按下Ctrl+d或者显式输入exit命令，就可以退出 Tmux 窗口。<br>$ exit</p>
-<p>4.Tmux 窗口有大量的快捷键。所有快捷键都要通过前缀键唤起。默认的前缀键是Ctrl+b，即先按下Ctrl+b，快捷键才会生效。</p>
-<p>5.第一个启动的 Tmux 窗口，编号是0，第二个窗口的编号是1，以此类推。这些窗口对应的会话，就是 0 号会话、1 号会话。</p>
-<p>6.在 Tmux 窗口中，按下Ctrl+b d或者输入tmux detach命令，就会将当前会话与窗口分离。<br>$ tmux detach<br>上面命令执行后，就会退出当前 Tmux 窗口，但是会话和里面的进程仍然在后台运行。</p>
-<p>tmux ls命令可以查看当前所有的 Tmux 会话。<br>$ tmux ls</p>
-<h1 id="or"><a href="#or" class="headerlink" title="or"></a>or</h1><p>$ tmux list-session</p>
-<p>接入会话<br>tmux attach命令用于重新接入某个已存在的会话。</p>
-<h1 id="使用会话编号"><a href="#使用会话编号" class="headerlink" title="使用会话编号"></a>使用会话编号</h1><p>$ tmux attach -t 0</p>
-<h1 id="使用会话名称"><a href="#使用会话名称" class="headerlink" title="使用会话名称"></a>使用会话名称</h1><p>$ tmux attach -t <session-name></p>
-<p>杀死会话<br>tmux kill-session命令用于杀死某个会话。</p>
-<h1 id="使用会话编号-1"><a href="#使用会话编号-1" class="headerlink" title="使用会话编号"></a>使用会话编号</h1><p>$ tmux kill-session -t 0</p>
-<h1 id="使用会话名称-1"><a href="#使用会话名称-1" class="headerlink" title="使用会话名称"></a>使用会话名称</h1><p>$ tmux kill-session -t <session-name></p>
-<p> 切换会话<br>tmux switch命令用于切换会话。</p>
-<h1 id="使用会话编号-2"><a href="#使用会话编号-2" class="headerlink" title="使用会话编号"></a>使用会话编号</h1><p>$ tmux switch -t 0</p>
-<h1 id="使用会话名称-2"><a href="#使用会话名称-2" class="headerlink" title="使用会话名称"></a>使用会话名称</h1><p>$ tmux switch -t <session-name></p>
-<p>重命名会话<br>tmux rename-session命令用于重命名会话。<br>$ tmux rename-session -t 0 <new-name></p>
-<p>快捷键<br>Ctrl+b d：分离当前会话。<br>Ctrl+b s：列出所有会话。<br>Ctrl+b $：重命名当前会话。</p>
-<p>.1 划分窗格<br>tmux split-window命令用来划分窗格。</p>
-<h1 id="划分上下两个窗格"><a href="#划分上下两个窗格" class="headerlink" title="划分上下两个窗格"></a>划分上下两个窗格</h1><p>$ tmux split-window</p>
-<h1 id="划分左右两个窗格"><a href="#划分左右两个窗格" class="headerlink" title="划分左右两个窗格"></a>划分左右两个窗格</h1><p>$ tmux split-window -h</p>
-<p>tmux select-pane命令用来移动光标位置。</p>
-<h1 id="光标切换到上方窗格"><a href="#光标切换到上方窗格" class="headerlink" title="光标切换到上方窗格"></a>光标切换到上方窗格</h1><p>$ tmux select-pane -U</p>
-<h1 id="光标切换到下方窗格"><a href="#光标切换到下方窗格" class="headerlink" title="光标切换到下方窗格"></a>光标切换到下方窗格</h1><p>$ tmux select-pane -D</p>
-<h1 id="光标切换到左边窗格"><a href="#光标切换到左边窗格" class="headerlink" title="光标切换到左边窗格"></a>光标切换到左边窗格</h1><p>$ tmux select-pane -L</p>
-<h1 id="光标切换到右边窗格"><a href="#光标切换到右边窗格" class="headerlink" title="光标切换到右边窗格"></a>光标切换到右边窗格</h1><p>$ tmux select-pane -R</p>
-<p>交换窗格位置<br>tmux swap-pane命令用来交换窗格位置。</p>
-<h1 id="当前窗格上移"><a href="#当前窗格上移" class="headerlink" title="当前窗格上移"></a>当前窗格上移</h1><p>$ tmux swap-pane -U</p>
-<h1 id="当前窗格下移"><a href="#当前窗格下移" class="headerlink" title="当前窗格下移"></a>当前窗格下移</h1><p>$ tmux swap-pane -D</p>
-<p>窗口管理<br>除了将一个窗口划分成多个窗格，Tmux 也允许新建多个窗口。</p>
-<p>6.1 新建窗口<br>tmux new-window命令用来创建新窗口。<br>$ tmux new-window</p>
-<h1 id="新建一个指定名称的窗口"><a href="#新建一个指定名称的窗口" class="headerlink" title="新建一个指定名称的窗口"></a>新建一个指定名称的窗口</h1><p>$ tmux new-window -n <window-name><br>6.2 切换窗口<br>tmux select-window命令用来切换窗口。</p>
-<h1 id="切换到指定编号的窗口"><a href="#切换到指定编号的窗口" class="headerlink" title="切换到指定编号的窗口"></a>切换到指定编号的窗口</h1><p>$ tmux select-window -t <window-number></p>
-<h1 id="切换到指定名称的窗口"><a href="#切换到指定名称的窗口" class="headerlink" title="切换到指定名称的窗口"></a>切换到指定名称的窗口</h1><p>$ tmux select-window -t <window-name><br>6.3 重命名窗口<br>tmux rename-window命令用于为当前窗口起名（或重命名）。</p>
-<p>$ tmux rename-window <new-name><br>6.4 窗口快捷键<br>下面是一些窗口操作的快捷键。</p>
-<p>Ctrl+b c：创建一个新窗口，状态栏会显示多个窗口的信息。<br>Ctrl+b p：切换到上一个窗口（按照状态栏上的顺序）。<br>Ctrl+b n：切换到下一个窗口。<br>Ctrl+b <number>：切换到指定编号的窗口，其中的<number>是状态栏上的窗口编号。<br>Ctrl+b w：从列表中选择窗口。<br>Ctrl+b ,：窗口重命名。<br>其他命令<br>下面是一些其他命令。</p>
-<h1 id="列出所有快捷键，及其对应的-Tmux-命令"><a href="#列出所有快捷键，及其对应的-Tmux-命令" class="headerlink" title="列出所有快捷键，及其对应的 Tmux 命令"></a>列出所有快捷键，及其对应的 Tmux 命令</h1><p>$ tmux list-keys</p>
-<h1 id="列出所有-Tmux-命令及其参数"><a href="#列出所有-Tmux-命令及其参数" class="headerlink" title="列出所有 Tmux 命令及其参数"></a>列出所有 Tmux 命令及其参数</h1><p>$ tmux list-commands</p>
-<h1 id="列出当前所有-Tmux-会话的信息"><a href="#列出当前所有-Tmux-会话的信息" class="headerlink" title="列出当前所有 Tmux 会话的信息"></a>列出当前所有 Tmux 会话的信息</h1><p>$ tmux info</p>
-<h1 id="重新加载当前的-Tmux-配置"><a href="#重新加载当前的-Tmux-配置" class="headerlink" title="重新加载当前的 Tmux 配置"></a>重新加载当前的 Tmux 配置</h1><p>$ tmux source-file ~/.tmux.conf<br>四.cron计划任务<br>很多时候，我们计划任务需要精确到秒来执行，根据以下方法，可以很容易地以秒执行任务。<br>以下方法将每10秒执行一次</p>
-<h1 id="crontab-e"><a href="#crontab-e" class="headerlink" title="crontab -e"></a>crontab -e</h1><ul>
-<li><ul>
-<li><ul>
-<li><ul>
-<li><ul>
-<li>/bin/date &gt;&gt;/tmp/date.txt</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><ul>
-<li><ul>
-<li><ul>
-<li><ul>
-<li>sleep 10; /bin/date &gt;&gt;/tmp/date.txt</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><ul>
-<li><ul>
-<li><ul>
-<li><ul>
-<li>sleep 20; /bin/date &gt;&gt;/tmp/date.txt</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><ul>
-<li><ul>
-<li><ul>
-<li><ul>
-<li>sleep 30; /bin/date &gt;&gt;/tmp/date.txt</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><ul>
-<li><ul>
-<li><ul>
-<li><ul>
-<li>sleep 40; /bin/date &gt;&gt;/tmp/date.txt</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><ul>
-<li><ul>
-<li><ul>
-<li><ul>
-<li>sleep 50; /bin/date &gt;&gt;/tmp/date.txt</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>代表着所有可能取到的值，除了直接用 * 外，下面的几个例子也较为常用<br>当指定 */5 在分钟字段，代表每五分钟。<br>当指定 0-10/2 在分钟字段，代表在前十分钟的每两分钟</p>
-</li>
-</ul>
-]]></content>
-  </entry>
-  <entry>
     <title>linuxday7内核管理和修改ip</title>
     <url>/2021/11/09/linuxday7/</url>
     <content><![CDATA[<p>一。内核与内核模块<br>1。内核模块与依赖性<br>内核模板放在：/lib/modules/$(uname -r)/kernel中<br>使用depmod<br>范例一：若我做好一个网卡驱动程序，文件名为a.ko,该跟新内核依赖性<br>cp a.ko /lib/modules/$(uname -r)/kernel/drivers/net<br>depmod<br>2.查看内核模块<br>lsmod<br>列出内核名称。模块大小，此模块是否被其他模块所使用<br>列出模块的相关信息<br>如列出drm的模块信息：modinfo drm<br>3.内核模块的加载与删除<br>加载insmod  删除 rmmod<br>加载：modprobe vfat<br>删除：modprobe  -r vfat<br>4.内核模块的额外参数设置：/etc/modprobe.d/*.conf<br>5.boot loader的俩个stage<br>stage1：执行boot loader 主程序<br>stage2：主程序加载配置文件</p>
@@ -820,41 +678,13 @@
 ]]></content>
   </entry>
   <entry>
-    <title>linuxday8防火墙以及firewalld</title>
-    <url>/2021/11/11/linuxday8/</url>
-    <content><![CDATA[<p>一。防火墙<br>1.启动防火墙： systemctl start firewalld<br>查看防火墙状态： systemctl status firewalld<br>停止防火墙： systemctl disable firewalld<br>禁用防火墙： systemctl stop firewalld  ， firewall-cmd –set-default-zone=trusted<br>2.配置firewalld-cmd<br>查看版本： firewall-cmd –version</p>
-<p>查看帮助： firewall-cmd –help</p>
-<p>显示状态： firewall-cmd –state</p>
-<p>查看所有打开的端口： firewall-cmd –zone=public –list-ports</p>
-<p>更新防火墙规则： firewall-cmd –reload</p>
-<p>查看区域信息: firewall-cmd –get-active-zones</p>
-<p>查看指定接口所属区域： firewall-cmd –get-zone-of-interface=eth0</p>
-<p>拒绝所有包：firewall-cmd –panic-on</p>
-<p>取消拒绝状态： firewall-cmd –panic-off</p>
-<p>查看是否拒绝： firewall-cmd –query-panic</p>
-<p>那怎么开启一个端口呢</p>
-<p>添加</p>
-<p>firewall-cmd –zone=public –add-port=80/tcp –permanent （–permanent永久生效，没有此参数重启后失效）</p>
-<p>重新载入</p>
-<p>firewall-cmd –reload</p>
-<p>查看</p>
-<p>firewall-cmd –zone= public –query-port=80/tcp</p>
-<p>删除</p>
-<p>firewall-cmd –zone= public –remove-port=80/tcp –permanent</p>
-<p> 四个基本区域</p>
-<p>  根据所在的网络场所区分,预设保护规则集<br>– public:仅允许访问本机的ssh dhcp ping服务<br>– trusted:允许任何访问<br>– block:阻塞任何来访请求(明确拒绝,有回应客户端)<br>– drop:丢弃任何来访的数据包(没有回应,节省服务端资源)</p>
-<p>基本命令</p>
-<p>  1.查看当前区域</p>
-<pre><code>firewall-cmd --get-default-zone
-</code></pre>
-<p>  2.转换区域</p>
-<pre><code>firewall-cmd --set-default-zone=&#39;区域名&#39;
-</code></pre>
-<p>  3.查看区域规则</p>
-<pre><code>firewall-cmd --zone=&#39;区域名&#39; --list-all
-</code></pre>
-<p>  4.添加源</p>
-<p>   firewall-cmd –zone=’区域名’ –add-source=’ip地址’<br>二。服务器硬件数据的收集<br>1.使用dmidecode查看硬件设备<br>使用dmidecode -t 1 可以查看主板信息(制造商、型号、序列号等等）<br>使用dmidecode -t 4 可以查看CPU信息(CPU数目、型号、大小、频率等等）<br>使用dmidecode -t 17 可以查看内存信息(插槽数目、内存类型、大小、频率等等）<br>使用dmidecode -t  9  可以查看系统相关插槽的格式。<br>2.硬件资源的收集和分析<br>lspci<br>lsusb<br>iostat<br>3.了解磁盘的健康状态<br>用smartctl来显示完整的/dev/sda<br>smartctl -a   /dev/sda<br>三。备份<br>1.那些数据具有备份的意义<br>操作系统本身需要备份的文件<br>【账户与系统配置文件】<br>/etc/passwd , /etc/shadow , /etc/group  , /etc/gshadow以及/home下的用户家目录<br>/etc/整个目录  /home /var/spool/mail   /var/spool/{at|cron}   /boot/  /root/   /var/lib<br>如果安装过其他软件，那么/usr/local  ,/opt也备份<br>网络服务<br>www数据：/var/www 或 /srv/www<br>mariaDB：/var/lib/mysql整个目录<br>2.完整备份<br>（1）累积备份<br>累积备份的原则：系统在进行一次完整备份后，进行一段时间的运行，比较系统与备份文件之间的差异，仅备份有差异的文件<br>而第二次累积备份则是与第一次累积备份的数据比较，也是备份有差异的数据。<br>（2）差异备份<br>原则：也是需要系统进行第一次完整备份后才能进行，每次的备份都是与原始的完整备份比较的结果</p>
+    <title>linuxday5日志</title>
+    <url>/2021/11/07/linuxday5/</url>
+    <content><![CDATA[<p>一.日志文件的轮循（logrotate）<br>配置文件：/etc/logrotate.conf<br>                /etc/logrotate.d/<br>执行logrotate<br>logrotate  -v /etc/logrotate.conf<br>强制进行logrotate<br>logrotate  -vf  /etc/logrotate.conf</p>
+<p>二.journalctl 查看登录信息<br>Journald使用journalctl工具读取日志  journalctl<br>2查看  2017-05-27 09:37:00 到  2017-05-27 10:47:00 之间日志<br> journalctl –since “2017-05-27 09:37:00” –until “2017-05-27 10:47:00”<br>3.查看重启的记录：journalctl –list-boots<br>4.查看上一次启动以来的日志，根据上面的记录，也可以选择其他重启以来的日志： journalctl -b -1<br>5.查看最新的日志： journalctl -r<br>6.查看严重等级为错误的日志 journalctl -p err<br>7.查看指定应用日志：journalctl -t sshd<br>8.显示最近前几行的日志 如：-n  5<br>9.-f 持续显示joural日志内容</p>
+<p>三.logger命令的应用<br>使用 logger 工具，可以直接将信息传入到Journald中，-p 参数指定服务名称，和日志级别<br>logger -p user.info “log test with logger”</p>
+<p>四.保存journal的方式<br>mkdir  /var/log/journal<br>chown  root:systemd-journal  /var/log/journal<br>chmod  2775  /var/log/journal<br>systemctl  restart    systemd-journald.service</p>
+<p>五.分析日志文件<br>centos默认提供的logwatch<br>他会每天分析一次日志文件，然后通过email 的格式寄给root<br>1.安装<br>yum install /mnt/dvd/Packages/perl-5.*.rpm</p>
 ]]></content>
   </entry>
   <entry>
@@ -1035,16 +865,173 @@
 ]]></content>
   </entry>
   <entry>
-    <title>linux应急实战</title>
-    <url>/2022/01/04/linux%E5%BA%94%E6%80%A5%E5%AE%9E%E6%88%98/</url>
-    <content><![CDATA[<pre><code>                                                           Linux入侵排查
+    <title>linuxday6 启动流程，模块管理与loader</title>
+    <url>/2021/11/08/linuxday6/</url>
+    <content><![CDATA[<p>一.linux的启动流程分析<br>1.启动流程：（1）加载bios的硬件信息，<br>（2）读取并执行第一个启动设备内mbr的启动引导程序，<br>（3）根据启动引导加载与加载驱动程序<br>（4）硬件驱动成功后，kernel会调用systemd程序，并以defult.target程序启动<br>2.boot loader<br>初始化开发板上主要硬件（时钟，内存，硬盘），把操作系统从硬盘拷贝到内存，然后让CPU跳到内存中执行操作系统<br>loader的最主要功能是要识别操作系统的文件格式，并据以加载内核到内存去执行<br>boot loader<br>提供选项：（1）用户可以选择不同的启动选项，这也是多重引导的重要功能<br>（2）加载内核文件<br>（3）转交其他loader<br>3. Kernel（初始化）<br>我们知道kernel是完成探索硬件及加载硬件驱动程序，并以读写的方式挂载根文件系统。<br>kernel初始化：探测硬件-&gt;加载驱动（initrd)-&gt;挂载根文件系统-&gt;rootfs(/sbin/init)<br>4.initrd功能介绍<br>       其实说白了initrd就是一个虚拟的文件系统，里面有/、lib、bin、sbin、usr、proc、sys、var、dev、boot等一些目录<br>5./sbin/init(/etc/inittab)<br>/sbin/init启动会用到/etc/inittab所定义的条目，如：默认登陆级别id:3:initdefault:(这里就是默认启动3级别）<br>下面就来说下/etc/inittab所工作那些内容：<br>/etc/inittab<br>默认运行级别<br>   0：halt系统停机状态<br>   1: single user mode(单用户维护模式)<br>   2：multi user mode, without NFS(多用户，不支持NFS功能）<br>   3: multi user mode, text mode（字符界面）完全的多用户状态(有NFS)，登陆后进入控制台命令行模式<br>   4：reserved （系统保留）系统未使用<br>   5: multi user mode, graphic mode  （图形化界面）：X11控制台，登陆后进入图形GUI模式<br>   6: reboot   （重启）<br>6.init执行/etc/rc.d/rc.local<br>init执行中断机模拟程序mingetty来启动login进程，最后等待用户登录<br>7.启动过程会用到的主要配置文件<br>基本上，systemd有自己的配置文件处理方式，读取位于/etc/sysconfig下面的环境配置文件<br>关于模块：/etc/modprobe.d/<em>.conf及/etc/modules-load.d/</em>.conf<br>.  /etc/sysconfig/*<br>authconfig   此文件中的内容为主机在进行认证时使用<br>cpupower  启动cpupower.service服务时会读取这个配置文件</p>
+<p>二.处理忘记密码<br>1.先按e进入编译模式<br>2.在编译模式里【linux16】最后面添加rd.break  ctrl+x执行<br>3.进入到另外一个模式 ，然后检查mount  ，并添加权限 mount   -o   remount ，rw /sysroot<br>4.chroot  /sysroot<br>然后改密码echo “新密码”| passwd  –stdin   root<br>然后touch  /.autorelabel<br>然后重启  redoot<br>三.tmux<br>Tmux 是一个终端复用器（terminal multiplexer），非常有用，属于常用的开发工具。<br>1.安装</p>
+<h1 id="Ubuntu-或-Debian"><a href="#Ubuntu-或-Debian" class="headerlink" title="Ubuntu 或 Debian"></a>Ubuntu 或 Debian</h1><p>$ sudo apt-get install tmux</p>
+<h1 id="CentOS-或-Fedora"><a href="#CentOS-或-Fedora" class="headerlink" title="CentOS 或 Fedora"></a>CentOS 或 Fedora</h1><p>$ sudo yum install tmux</p>
+<h1 id="Mac"><a href="#Mac" class="headerlink" title="Mac"></a>Mac</h1><p>$ brew install tmux</p>
+<p>2.安装完成后，键入tmux命令，就进入了 Tmux 窗口。</p>
+<p>3.按下Ctrl+d或者显式输入exit命令，就可以退出 Tmux 窗口。<br>$ exit</p>
+<p>4.Tmux 窗口有大量的快捷键。所有快捷键都要通过前缀键唤起。默认的前缀键是Ctrl+b，即先按下Ctrl+b，快捷键才会生效。</p>
+<p>5.第一个启动的 Tmux 窗口，编号是0，第二个窗口的编号是1，以此类推。这些窗口对应的会话，就是 0 号会话、1 号会话。</p>
+<p>6.在 Tmux 窗口中，按下Ctrl+b d或者输入tmux detach命令，就会将当前会话与窗口分离。<br>$ tmux detach<br>上面命令执行后，就会退出当前 Tmux 窗口，但是会话和里面的进程仍然在后台运行。</p>
+<p>tmux ls命令可以查看当前所有的 Tmux 会话。<br>$ tmux ls</p>
+<h1 id="or"><a href="#or" class="headerlink" title="or"></a>or</h1><p>$ tmux list-session</p>
+<p>接入会话<br>tmux attach命令用于重新接入某个已存在的会话。</p>
+<h1 id="使用会话编号"><a href="#使用会话编号" class="headerlink" title="使用会话编号"></a>使用会话编号</h1><p>$ tmux attach -t 0</p>
+<h1 id="使用会话名称"><a href="#使用会话名称" class="headerlink" title="使用会话名称"></a>使用会话名称</h1><p>$ tmux attach -t <session-name></p>
+<p>杀死会话<br>tmux kill-session命令用于杀死某个会话。</p>
+<h1 id="使用会话编号-1"><a href="#使用会话编号-1" class="headerlink" title="使用会话编号"></a>使用会话编号</h1><p>$ tmux kill-session -t 0</p>
+<h1 id="使用会话名称-1"><a href="#使用会话名称-1" class="headerlink" title="使用会话名称"></a>使用会话名称</h1><p>$ tmux kill-session -t <session-name></p>
+<p> 切换会话<br>tmux switch命令用于切换会话。</p>
+<h1 id="使用会话编号-2"><a href="#使用会话编号-2" class="headerlink" title="使用会话编号"></a>使用会话编号</h1><p>$ tmux switch -t 0</p>
+<h1 id="使用会话名称-2"><a href="#使用会话名称-2" class="headerlink" title="使用会话名称"></a>使用会话名称</h1><p>$ tmux switch -t <session-name></p>
+<p>重命名会话<br>tmux rename-session命令用于重命名会话。<br>$ tmux rename-session -t 0 <new-name></p>
+<p>快捷键<br>Ctrl+b d：分离当前会话。<br>Ctrl+b s：列出所有会话。<br>Ctrl+b $：重命名当前会话。</p>
+<p>.1 划分窗格<br>tmux split-window命令用来划分窗格。</p>
+<h1 id="划分上下两个窗格"><a href="#划分上下两个窗格" class="headerlink" title="划分上下两个窗格"></a>划分上下两个窗格</h1><p>$ tmux split-window</p>
+<h1 id="划分左右两个窗格"><a href="#划分左右两个窗格" class="headerlink" title="划分左右两个窗格"></a>划分左右两个窗格</h1><p>$ tmux split-window -h</p>
+<p>tmux select-pane命令用来移动光标位置。</p>
+<h1 id="光标切换到上方窗格"><a href="#光标切换到上方窗格" class="headerlink" title="光标切换到上方窗格"></a>光标切换到上方窗格</h1><p>$ tmux select-pane -U</p>
+<h1 id="光标切换到下方窗格"><a href="#光标切换到下方窗格" class="headerlink" title="光标切换到下方窗格"></a>光标切换到下方窗格</h1><p>$ tmux select-pane -D</p>
+<h1 id="光标切换到左边窗格"><a href="#光标切换到左边窗格" class="headerlink" title="光标切换到左边窗格"></a>光标切换到左边窗格</h1><p>$ tmux select-pane -L</p>
+<h1 id="光标切换到右边窗格"><a href="#光标切换到右边窗格" class="headerlink" title="光标切换到右边窗格"></a>光标切换到右边窗格</h1><p>$ tmux select-pane -R</p>
+<p>交换窗格位置<br>tmux swap-pane命令用来交换窗格位置。</p>
+<h1 id="当前窗格上移"><a href="#当前窗格上移" class="headerlink" title="当前窗格上移"></a>当前窗格上移</h1><p>$ tmux swap-pane -U</p>
+<h1 id="当前窗格下移"><a href="#当前窗格下移" class="headerlink" title="当前窗格下移"></a>当前窗格下移</h1><p>$ tmux swap-pane -D</p>
+<p>窗口管理<br>除了将一个窗口划分成多个窗格，Tmux 也允许新建多个窗口。</p>
+<p>6.1 新建窗口<br>tmux new-window命令用来创建新窗口。<br>$ tmux new-window</p>
+<h1 id="新建一个指定名称的窗口"><a href="#新建一个指定名称的窗口" class="headerlink" title="新建一个指定名称的窗口"></a>新建一个指定名称的窗口</h1><p>$ tmux new-window -n <window-name><br>6.2 切换窗口<br>tmux select-window命令用来切换窗口。</p>
+<h1 id="切换到指定编号的窗口"><a href="#切换到指定编号的窗口" class="headerlink" title="切换到指定编号的窗口"></a>切换到指定编号的窗口</h1><p>$ tmux select-window -t <window-number></p>
+<h1 id="切换到指定名称的窗口"><a href="#切换到指定名称的窗口" class="headerlink" title="切换到指定名称的窗口"></a>切换到指定名称的窗口</h1><p>$ tmux select-window -t <window-name><br>6.3 重命名窗口<br>tmux rename-window命令用于为当前窗口起名（或重命名）。</p>
+<p>$ tmux rename-window <new-name><br>6.4 窗口快捷键<br>下面是一些窗口操作的快捷键。</p>
+<p>Ctrl+b c：创建一个新窗口，状态栏会显示多个窗口的信息。<br>Ctrl+b p：切换到上一个窗口（按照状态栏上的顺序）。<br>Ctrl+b n：切换到下一个窗口。<br>Ctrl+b <number>：切换到指定编号的窗口，其中的<number>是状态栏上的窗口编号。<br>Ctrl+b w：从列表中选择窗口。<br>Ctrl+b ,：窗口重命名。<br>其他命令<br>下面是一些其他命令。</p>
+<h1 id="列出所有快捷键，及其对应的-Tmux-命令"><a href="#列出所有快捷键，及其对应的-Tmux-命令" class="headerlink" title="列出所有快捷键，及其对应的 Tmux 命令"></a>列出所有快捷键，及其对应的 Tmux 命令</h1><p>$ tmux list-keys</p>
+<h1 id="列出所有-Tmux-命令及其参数"><a href="#列出所有-Tmux-命令及其参数" class="headerlink" title="列出所有 Tmux 命令及其参数"></a>列出所有 Tmux 命令及其参数</h1><p>$ tmux list-commands</p>
+<h1 id="列出当前所有-Tmux-会话的信息"><a href="#列出当前所有-Tmux-会话的信息" class="headerlink" title="列出当前所有 Tmux 会话的信息"></a>列出当前所有 Tmux 会话的信息</h1><p>$ tmux info</p>
+<h1 id="重新加载当前的-Tmux-配置"><a href="#重新加载当前的-Tmux-配置" class="headerlink" title="重新加载当前的 Tmux 配置"></a>重新加载当前的 Tmux 配置</h1><p>$ tmux source-file ~/.tmux.conf<br>四.cron计划任务<br>很多时候，我们计划任务需要精确到秒来执行，根据以下方法，可以很容易地以秒执行任务。<br>以下方法将每10秒执行一次</p>
+<h1 id="crontab-e"><a href="#crontab-e" class="headerlink" title="crontab -e"></a>crontab -e</h1><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li>/bin/date &gt;&gt;/tmp/date.txt</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li>sleep 10; /bin/date &gt;&gt;/tmp/date.txt</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li>sleep 20; /bin/date &gt;&gt;/tmp/date.txt</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li>sleep 30; /bin/date &gt;&gt;/tmp/date.txt</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li>sleep 40; /bin/date &gt;&gt;/tmp/date.txt</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li>sleep 50; /bin/date &gt;&gt;/tmp/date.txt</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>代表着所有可能取到的值，除了直接用 * 外，下面的几个例子也较为常用<br>当指定 */5 在分钟字段，代表每五分钟。<br>当指定 0-10/2 在分钟字段，代表在前十分钟的每两分钟</p>
+</li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>linuxday8防火墙以及firewalld</title>
+    <url>/2021/11/11/linuxday8/</url>
+    <content><![CDATA[<p>一。防火墙<br>1.启动防火墙： systemctl start firewalld<br>查看防火墙状态： systemctl status firewalld<br>停止防火墙： systemctl disable firewalld<br>禁用防火墙： systemctl stop firewalld  ， firewall-cmd –set-default-zone=trusted<br>2.配置firewalld-cmd<br>查看版本： firewall-cmd –version</p>
+<p>查看帮助： firewall-cmd –help</p>
+<p>显示状态： firewall-cmd –state</p>
+<p>查看所有打开的端口： firewall-cmd –zone=public –list-ports</p>
+<p>更新防火墙规则： firewall-cmd –reload</p>
+<p>查看区域信息: firewall-cmd –get-active-zones</p>
+<p>查看指定接口所属区域： firewall-cmd –get-zone-of-interface=eth0</p>
+<p>拒绝所有包：firewall-cmd –panic-on</p>
+<p>取消拒绝状态： firewall-cmd –panic-off</p>
+<p>查看是否拒绝： firewall-cmd –query-panic</p>
+<p>那怎么开启一个端口呢</p>
+<p>添加</p>
+<p>firewall-cmd –zone=public –add-port=80/tcp –permanent （–permanent永久生效，没有此参数重启后失效）</p>
+<p>重新载入</p>
+<p>firewall-cmd –reload</p>
+<p>查看</p>
+<p>firewall-cmd –zone= public –query-port=80/tcp</p>
+<p>删除</p>
+<p>firewall-cmd –zone= public –remove-port=80/tcp –permanent</p>
+<p> 四个基本区域</p>
+<p>  根据所在的网络场所区分,预设保护规则集<br>– public:仅允许访问本机的ssh dhcp ping服务<br>– trusted:允许任何访问<br>– block:阻塞任何来访请求(明确拒绝,有回应客户端)<br>– drop:丢弃任何来访的数据包(没有回应,节省服务端资源)</p>
+<p>基本命令</p>
+<p>  1.查看当前区域</p>
+<pre><code>firewall-cmd --get-default-zone
 </code></pre>
-<p>当企业发生黑客入侵、系统崩溃或其它影响业务正常运行的安全事件时，急需第一时间进行处理，使企业的网络信息系<br>统在最短时间内恢复正常工作，进一步查找入侵来源，还原入侵事故过程，同时给出解决方案与防范措施，为企业挽回<br>或减少经济损失。<br>针对常见的攻击事件，结合工作中应急响应事件分析和解决的方法，总结了一些Linux服务器入侵排查的思路。<br>1.入侵思路排察<br>1.1账户安全<br>（1）./etc/passwd<br>root:x:0:0:root:/root:/bin/bash<br>account:password:UID:GID:GECOS:directory:shell<br>用户名：密码：用户ID：组ID：用户说明：家目录：登陆之后shell<br>注意：无密码只允许本机登陆，远程不允许登陆<br>（2）、影子文件/etc/shadow<br>root:$6$oGs1PqhL2p3ZetrE$X7o7bzoouHQVSEmSgsYN5UD4.kMHx6qgbTqwNVC5oOAouXvcjQSt.Ft7ql1WpkopY0UV<br>9ajBwUt1DpYxTCVvI/:16809:0:99999:7:::<br>用户名：加密密码：密码最后一次修改日期：两次密码的修改时间间隔：密码有效期：密码修改到期到的警告天数：密码过期之<br>后的宽限天数：账号失效时间：保留</p>
-<p>用户组的所有信息都存放在/etc/group文件中<br>组名:口令:组标识号:组内用户列表 </p>
-<p>命令： who 查看当前登录用户（tty本地登陆 pts远程登录）<br>            w 查看系统信息，想知道某一时刻用户的行为<br>           uptime 查看登陆多久、多少用户，负载<br>入侵排查<br>1.查询特权用户（uid为0）<br> awk -F: ‘$3==0{print $1}’   /etc/passwd<br>2、查询可以远程登录的帐号信息<br> awk   ‘/$1|$6/{print $1}’   /etc/shadow<br>3、除root帐号外，其他帐号是否存在sudo权限。如非管理需要，普通帐号应删除sudo权限<br> more /etc/sudoers | grep -v “^#|^$” | grep “ALL=(ALL)”<br>4、禁用或删除多余及可疑的帐号<br>usermod -L user 禁用帐号，帐号无法登录，/etc/shadow第二栏为!开头<br>userdel user 删除user用户<br>userdel -r user 将删除user用户，并且将/home目录下的user目录一并删除</p>
-<p>1.2历史命令<br>通过.bash_history查看帐号执行过的系统命令<br>1、root的历史命令<br>histroy<br>2、打开/home各帐号目录下的.bash_history，查看普通帐号的历史命令<br>为历史的命令增加登录的IP地址、执行命令时间等信息：<br>1）保存1万条命令<br>sed -i ‘s/^HISTSIZE=1000/HISTSIZE=10000/g’ /etc/profile<br>2）在/etc/profile的文件尾部添加如下行数配置信息：<br>######jiagu history xianshi#########<br>USER_IP=<code>who -u am i 2&gt;/dev/null | awk &#39;&#123;print $NF&#125;&#39; | sed -e &#39;s/[()]//g&#39;</code><br>if [ “$USER_IP” = “” ]<br>then<br>USER_IP=<code>hostname</code><br>fi<br>export HISTTIMEFORMAT=”%F %T $USER_IP <code>whoami</code> “<br>shopt -s histappend<br>export PROMPT_COMMAND=”history -a”<br>######### jiagu history xianshi ##########<br>3）source /etc/profile让配置生效<br>生成效果： 1 2018-07-10 19:45:39 192.168.204.1 root source /etc/profile<br>3、历史操作命令的清除：history -c<br>但此命令并不会清除保存在文件中的记录，因此需要手动删除.bash_profile文件中的记录。</p>
-<p>入侵排察<br>进入用户目录下<br>cat .bash_history &gt;&gt; history.txt<br>1.3检查异常端口<br>PID 代表进程标识号。<br>使用netstat 网络连接命令，分析可疑端口、IP、PID<br>netstat -antlp|more<br>查看下pid所对应的进程文件路径，<br>运行ls -l /proc/$PID/exe或file /proc/$PID/exe（$PID 为对应的pid 号）<br>1.4检查异常进程<br>使用ps  aux   |  grep pid  分析进程<br>1.5检查开机启动项<br>运行级别<br>0         关机<br>1     单机模式<br>2     不安全的命令行模式<br>3      安全的命令行模式<br>4      系统保留<br>5      图形模式<br>6      重启动<br>查看运行级别命令 runlevel<br>系统默认允许级别<br>vi   /etc/inittab<br>id=3：initdefault 系统开机后直接进入哪个运行级别<br>开机启动配置文件<br>/etc/rc.local<br>/etc/rc.d/rc[0<del>6].d<br>例子:当我们需要开机启动自己的脚本时，只需要将可执行脚本丢在/etc/init.d目录下，然后在/etc/rc.d/rc*.d中建立软链<br>接即可<br>root@localhost ~]# ln -s /etc/init.d/sshd /etc/rc.d/rc3.d/S100ssh<br>此处sshd是具体服务的脚本文件，S100ssh是其软链接，S开头代表加载时自启动；如果是K开头的脚本文件，代表运行<br>级别加载时需要关闭的。<br>入侵排查：<br>启动项文件： more /etc/rc.local /etc/rc.d/rc[0</del>6].d ls -l /etc/rc.d/rc3.d/<br>1.6、利用crontab创建计划任务<br>基本命令<br>-l  列出某个用户cron服务的详细内容<br>-r  删除每个用户cront任务<br>-e   使用编译器编译当前的crontab文件。<br>crontab -e 使用编辑器编辑当前的crontab文件<br>如：*/1 * * * * echo “hello world” &gt;&gt; /tmp/test.txt 每分钟写入文件<br>入侵排查<br>重点关注以下目录中是否存在恶意脚本<br>/var/spool/cron/*<br>/etc/crontab<br>/etc/cron.d/*<br>/etc/cron.daily/*<br>/etc/cron.hourly/*<br>/etc/cron.monthly/*<br>/etc/cron.weekly/<br>/etc/anacrontab<br>/var/spool/anacron/*<br>小技巧：<br>more /etc/cron.daily/* 查看目录下所有文件<br>1.7检查服务<br>服务自启动<br>第一种修改方法：<br>chkconfig [–level 运行级别] [独立服务名] [on|off]<br>chkconfig –level 2345 httpd on 开启自启动<br>chkconfig httpd on （默认level是2345）<br>Linux chkconfig 命令用于检查，设置系统的各种服务。<br>–add 　增加所指定的系统服务，让 chkconfig 指令得以管理它，并同时在系统启动的叙述文件内增加相关数据。<br>–del 　删除所指定的系统服务，不再由 chkconfig 指令管理，并同时在系统启动的叙述文件内删除相关数据。<br>–level&lt;等级代号&gt; 　指定读系统服务要在哪一个执行等级中开启或关毕。<br>列出chkconfig 所知道的所有命令。</p>
-<h1 id="chkconfig-–list"><a href="#chkconfig-–list" class="headerlink" title="chkconfig –list"></a>chkconfig –list</h1><p>第二种修改方法：<br>修改/etc/re.d/rc.local 文件<br>加入 /etc/init.d/httpd start<br>第三种修改方法：<br>使用ntsysv命令管理自启动，可以管理独立服务和xinetd服务。<br>日志默认存放位置：/var/log/<br>查看日志配置情况：more /etc/rsyslog.conf</p>
+<p>  2.转换区域</p>
+<pre><code>firewall-cmd --set-default-zone=&#39;区域名&#39;
+</code></pre>
+<p>  3.查看区域规则</p>
+<pre><code>firewall-cmd --zone=&#39;区域名&#39; --list-all
+</code></pre>
+<p>  4.添加源</p>
+<p>   firewall-cmd –zone=’区域名’ –add-source=’ip地址’<br>二。服务器硬件数据的收集<br>1.使用dmidecode查看硬件设备<br>使用dmidecode -t 1 可以查看主板信息(制造商、型号、序列号等等）<br>使用dmidecode -t 4 可以查看CPU信息(CPU数目、型号、大小、频率等等）<br>使用dmidecode -t 17 可以查看内存信息(插槽数目、内存类型、大小、频率等等）<br>使用dmidecode -t  9  可以查看系统相关插槽的格式。<br>2.硬件资源的收集和分析<br>lspci<br>lsusb<br>iostat<br>3.了解磁盘的健康状态<br>用smartctl来显示完整的/dev/sda<br>smartctl -a   /dev/sda<br>三。备份<br>1.那些数据具有备份的意义<br>操作系统本身需要备份的文件<br>【账户与系统配置文件】<br>/etc/passwd , /etc/shadow , /etc/group  , /etc/gshadow以及/home下的用户家目录<br>/etc/整个目录  /home /var/spool/mail   /var/spool/{at|cron}   /boot/  /root/   /var/lib<br>如果安装过其他软件，那么/usr/local  ,/opt也备份<br>网络服务<br>www数据：/var/www 或 /srv/www<br>mariaDB：/var/lib/mysql整个目录<br>2.完整备份<br>（1）累积备份<br>累积备份的原则：系统在进行一次完整备份后，进行一段时间的运行，比较系统与备份文件之间的差异，仅备份有差异的文件<br>而第二次累积备份则是与第一次累积备份的数据比较，也是备份有差异的数据。<br>（2）差异备份<br>原则：也是需要系统进行第一次完整备份后才能进行，每次的备份都是与原始的完整备份比较的结果</p>
 ]]></content>
   </entry>
   <entry>
@@ -1069,18 +1056,16 @@
 ]]></content>
   </entry>
   <entry>
-    <title>linux补充知识</title>
-    <url>/2022/01/16/linux%E8%A1%A5%E5%85%85%E7%9F%A5%E8%AF%86/</url>
-    <content><![CDATA[<p>关闭selinux ： setenforce  0<br>selinux 三种模式<br>1.enforcing   强制模式   1<br>2.permissive  宽松模式  0<br>3.disabled   关闭模式<br>关闭防火墙：firewall-cmd –set-default-zone=trusted<br>systemctl stop firewalld<br>变量<br>环境变量env<br>set观察所有变量<br>PS1    提示字符的设置<br>列如PS1=’[\u@\h\w\A##]$‘<br>\u目前用户的账号名称。<br>\h<br>\w完整的工作名称<br>\A显示时间，为24小时格式。<br>#执行的第几个命令<br>$ 提示符</p>
-<p>export 也是变量的<br>locale 语系变量<br>修改：cat /etc/locale.conf</p>
-<p>declare 声明变量类型<br>declare -i sum=10+10 声明整数变量<br> echo ${sum}<br>20<br>declare -x sum  声明环境变量<br>export | grep sum </p>
-<p>-a数组，-r不能被更改<br>ulimit  文件大小限制<br>通配符<br>*代表任意个字符<br>？代表一个字符<br>【0-9】，代表0-9<br>^取反</p>
-<p>&amp;&amp;与  只有前面正确，才会进行后面的操作<br>|| 或 只有前面错误，才会今后后面操作</p>
-<p>cut 主要作用是将同一行的数据进行分解<br>列：echo    ${PATH} | cut   -d ‘:’  -f  3,5</p>
-<p>grep 过滤查找 -v取反 -n 显示行号</p>
-<p>last 列出目前和过去登入系统用户的相关信息。</p>
-<p>sort  排序 -t ‘:’ 分隔符<br>-k 用第几排排序<br>uniq 将重复的列出显示<br>wc计数</p>
-<p>字符转换符 tr  -d 删除 -s替换<br>col 将文件里的 tab 换成 空格键<br>join 将相同数据的那行加在一起<br>paste  直接将俩行贴在一起<br>expand 将tab 转换成空格键<br>划分命令split 将大的文件划为小的文件<br>参数代换xargs 产生某个命令的参数 </p>
+    <title>linux应急实战</title>
+    <url>/2022/01/04/linux%E5%BA%94%E6%80%A5%E5%AE%9E%E6%88%98/</url>
+    <content><![CDATA[<pre><code>                                                           Linux入侵排查
+</code></pre>
+<p>当企业发生黑客入侵、系统崩溃或其它影响业务正常运行的安全事件时，急需第一时间进行处理，使企业的网络信息系<br>统在最短时间内恢复正常工作，进一步查找入侵来源，还原入侵事故过程，同时给出解决方案与防范措施，为企业挽回<br>或减少经济损失。<br>针对常见的攻击事件，结合工作中应急响应事件分析和解决的方法，总结了一些Linux服务器入侵排查的思路。<br>1.入侵思路排察<br>1.1账户安全<br>（1）./etc/passwd<br>root:x:0:0:root:/root:/bin/bash<br>account:password:UID:GID:GECOS:directory:shell<br>用户名：密码：用户ID：组ID：用户说明：家目录：登陆之后shell<br>注意：无密码只允许本机登陆，远程不允许登陆<br>（2）、影子文件/etc/shadow<br>root:$6$oGs1PqhL2p3ZetrE$X7o7bzoouHQVSEmSgsYN5UD4.kMHx6qgbTqwNVC5oOAouXvcjQSt.Ft7ql1WpkopY0UV<br>9ajBwUt1DpYxTCVvI/:16809:0:99999:7:::<br>用户名：加密密码：密码最后一次修改日期：两次密码的修改时间间隔：密码有效期：密码修改到期到的警告天数：密码过期之<br>后的宽限天数：账号失效时间：保留</p>
+<p>用户组的所有信息都存放在/etc/group文件中<br>组名:口令:组标识号:组内用户列表 </p>
+<p>命令： who 查看当前登录用户（tty本地登陆 pts远程登录）<br>            w 查看系统信息，想知道某一时刻用户的行为<br>           uptime 查看登陆多久、多少用户，负载<br>入侵排查<br>1.查询特权用户（uid为0）<br> awk -F: ‘$3==0{print $1}’   /etc/passwd<br>2、查询可以远程登录的帐号信息<br> awk   ‘/$1|$6/{print $1}’   /etc/shadow<br>3、除root帐号外，其他帐号是否存在sudo权限。如非管理需要，普通帐号应删除sudo权限<br> more /etc/sudoers | grep -v “^#|^$” | grep “ALL=(ALL)”<br>4、禁用或删除多余及可疑的帐号<br>usermod -L user 禁用帐号，帐号无法登录，/etc/shadow第二栏为!开头<br>userdel user 删除user用户<br>userdel -r user 将删除user用户，并且将/home目录下的user目录一并删除</p>
+<p>1.2历史命令<br>通过.bash_history查看帐号执行过的系统命令<br>1、root的历史命令<br>histroy<br>2、打开/home各帐号目录下的.bash_history，查看普通帐号的历史命令<br>为历史的命令增加登录的IP地址、执行命令时间等信息：<br>1）保存1万条命令<br>sed -i ‘s/^HISTSIZE=1000/HISTSIZE=10000/g’ /etc/profile<br>2）在/etc/profile的文件尾部添加如下行数配置信息：<br>######jiagu history xianshi#########<br>USER_IP=<code>who -u am i 2&gt;/dev/null | awk &#39;&#123;print $NF&#125;&#39; | sed -e &#39;s/[()]//g&#39;</code><br>if [ “$USER_IP” = “” ]<br>then<br>USER_IP=<code>hostname</code><br>fi<br>export HISTTIMEFORMAT=”%F %T $USER_IP <code>whoami</code> “<br>shopt -s histappend<br>export PROMPT_COMMAND=”history -a”<br>######### jiagu history xianshi ##########<br>3）source /etc/profile让配置生效<br>生成效果： 1 2018-07-10 19:45:39 192.168.204.1 root source /etc/profile<br>3、历史操作命令的清除：history -c<br>但此命令并不会清除保存在文件中的记录，因此需要手动删除.bash_profile文件中的记录。</p>
+<p>入侵排察<br>进入用户目录下<br>cat .bash_history &gt;&gt; history.txt<br>1.3检查异常端口<br>PID 代表进程标识号。<br>使用netstat 网络连接命令，分析可疑端口、IP、PID<br>netstat -antlp|more<br>查看下pid所对应的进程文件路径，<br>运行ls -l /proc/$PID/exe或file /proc/$PID/exe（$PID 为对应的pid 号）<br>1.4检查异常进程<br>使用ps  aux   |  grep pid  分析进程<br>1.5检查开机启动项<br>运行级别<br>0         关机<br>1     单机模式<br>2     不安全的命令行模式<br>3      安全的命令行模式<br>4      系统保留<br>5      图形模式<br>6      重启动<br>查看运行级别命令 runlevel<br>系统默认允许级别<br>vi   /etc/inittab<br>id=3：initdefault 系统开机后直接进入哪个运行级别<br>开机启动配置文件<br>/etc/rc.local<br>/etc/rc.d/rc[0<del>6].d<br>例子:当我们需要开机启动自己的脚本时，只需要将可执行脚本丢在/etc/init.d目录下，然后在/etc/rc.d/rc*.d中建立软链<br>接即可<br>root@localhost ~]# ln -s /etc/init.d/sshd /etc/rc.d/rc3.d/S100ssh<br>此处sshd是具体服务的脚本文件，S100ssh是其软链接，S开头代表加载时自启动；如果是K开头的脚本文件，代表运行<br>级别加载时需要关闭的。<br>入侵排查：<br>启动项文件： more /etc/rc.local /etc/rc.d/rc[0</del>6].d ls -l /etc/rc.d/rc3.d/<br>1.6、利用crontab创建计划任务<br>基本命令<br>-l  列出某个用户cron服务的详细内容<br>-r  删除每个用户cront任务<br>-e   使用编译器编译当前的crontab文件。<br>crontab -e 使用编辑器编辑当前的crontab文件<br>如：*/1 * * * * echo “hello world” &gt;&gt; /tmp/test.txt 每分钟写入文件<br>入侵排查<br>重点关注以下目录中是否存在恶意脚本<br>/var/spool/cron/*<br>/etc/crontab<br>/etc/cron.d/*<br>/etc/cron.daily/*<br>/etc/cron.hourly/*<br>/etc/cron.monthly/*<br>/etc/cron.weekly/<br>/etc/anacrontab<br>/var/spool/anacron/*<br>小技巧：<br>more /etc/cron.daily/* 查看目录下所有文件<br>1.7检查服务<br>服务自启动<br>第一种修改方法：<br>chkconfig [–level 运行级别] [独立服务名] [on|off]<br>chkconfig –level 2345 httpd on 开启自启动<br>chkconfig httpd on （默认level是2345）<br>Linux chkconfig 命令用于检查，设置系统的各种服务。<br>–add 　增加所指定的系统服务，让 chkconfig 指令得以管理它，并同时在系统启动的叙述文件内增加相关数据。<br>–del 　删除所指定的系统服务，不再由 chkconfig 指令管理，并同时在系统启动的叙述文件内删除相关数据。<br>–level&lt;等级代号&gt; 　指定读系统服务要在哪一个执行等级中开启或关毕。<br>列出chkconfig 所知道的所有命令。</p>
+<h1 id="chkconfig-–list"><a href="#chkconfig-–list" class="headerlink" title="chkconfig –list"></a>chkconfig –list</h1><p>第二种修改方法：<br>修改/etc/re.d/rc.local 文件<br>加入 /etc/init.d/httpd start<br>第三种修改方法：<br>使用ntsysv命令管理自启动，可以管理独立服务和xinetd服务。<br>日志默认存放位置：/var/log/<br>查看日志配置情况：more /etc/rsyslog.conf</p>
 ]]></content>
   </entry>
   <entry>
@@ -1093,6 +1078,21 @@
 <li>   [root@server0 ~]# mount  /dev/systemvg/vo  /vo/</li>
 <li>   [root@server0 ~]# df  -hT  /vo</li>
 </ol>
+]]></content>
+  </entry>
+  <entry>
+    <title>linux补充知识</title>
+    <url>/2022/01/16/linux%E8%A1%A5%E5%85%85%E7%9F%A5%E8%AF%86/</url>
+    <content><![CDATA[<p>关闭selinux ： setenforce  0<br>selinux 三种模式<br>1.enforcing   强制模式   1<br>2.permissive  宽松模式  0<br>3.disabled   关闭模式<br>关闭防火墙：firewall-cmd –set-default-zone=trusted<br>systemctl stop firewalld<br>变量<br>环境变量env<br>set观察所有变量<br>PS1    提示字符的设置<br>列如PS1=’[\u@\h\w\A##]$‘<br>\u目前用户的账号名称。<br>\h<br>\w完整的工作名称<br>\A显示时间，为24小时格式。<br>#执行的第几个命令<br>$ 提示符</p>
+<p>export 也是变量的<br>locale 语系变量<br>修改：cat /etc/locale.conf</p>
+<p>declare 声明变量类型<br>declare -i sum=10+10 声明整数变量<br> echo ${sum}<br>20<br>declare -x sum  声明环境变量<br>export | grep sum </p>
+<p>-a数组，-r不能被更改<br>ulimit  文件大小限制<br>通配符<br>*代表任意个字符<br>？代表一个字符<br>【0-9】，代表0-9<br>^取反</p>
+<p>&amp;&amp;与  只有前面正确，才会进行后面的操作<br>|| 或 只有前面错误，才会今后后面操作</p>
+<p>cut 主要作用是将同一行的数据进行分解<br>列：echo    ${PATH} | cut   -d ‘:’  -f  3,5</p>
+<p>grep 过滤查找 -v取反 -n 显示行号</p>
+<p>last 列出目前和过去登入系统用户的相关信息。</p>
+<p>sort  排序 -t ‘:’ 分隔符<br>-k 用第几排排序<br>uniq 将重复的列出显示<br>wc计数</p>
+<p>字符转换符 tr  -d 删除 -s替换<br>col 将文件里的 tab 换成 空格键<br>join 将相同数据的那行加在一起<br>paste  直接将俩行贴在一起<br>expand 将tab 转换成空格键<br>划分命令split 将大的文件划为小的文件<br>参数代换xargs 产生某个命令的参数 </p>
 ]]></content>
   </entry>
   <entry>
@@ -1146,62 +1146,6 @@ echo $i;
 <p>九。Umask安全<br>第一个0代表suid 丢弃的权限；<br>第二个0代表本文件/目录拥有者什么权限都没丢弃<br>第三个2代表本文件/目录的用户组丢弃了w权限<br>第四个2代表本文件/目录的其他用户能使用的权限只有有r和x<br>实际权限=7777-0022<br>设置合理的umask权限<br>umask 0022</p>
 <p>十。设置系统日志策略配置文件<br>日志的主要用途是系统审计、监测追踪和分析统计。<br>为了保证 Linux 系统正常运行、准确解决遇到的各种各样的系<br>统问题，认真地读取日志文件是管理员的一项非常重要的任务。<br>UNIX/ Linux采用了syslog工具来实现此功能，如果配置正确的<br>话，所有在主机上发生的事情都会被记录下来，不管是好的还<br>是坏的<br>   检查方法：</p>
 <h1 id="ps-aef-grep-syslog-确定syslog服务是否启用"><a href="#ps-aef-grep-syslog-确定syslog服务是否启用" class="headerlink" title="ps -aef | grep syslog 确定syslog服务是否启用"></a>ps -aef | grep syslog 确定syslog服务是否启用</h1><h1 id="cat-etc-rsyslog-conf-查看syslogd的配置，并确认日志文件日否存在"><a href="#cat-etc-rsyslog-conf-查看syslogd的配置，并确认日志文件日否存在" class="headerlink" title="cat /etc/rsyslog.conf 查看syslogd的配置，并确认日志文件日否存在"></a>cat /etc/rsyslog.conf 查看syslogd的配置，并确认日志文件日否存在</h1><p>系统日志 (默认) /var/log/messages<br>cron日志 (默认) /var/log/cron<br>安全日志 (默认) /var/log/secure，只要涉及账号和密码的程序都会记录。<br>/var/log/btmp 记录错误登录日志，这个文件是二进制文件，不能直接vi查看，而要使用lastb命令查看</p>
-]]></content>
-  </entry>
-  <entry>
-    <title>mysql主从服务</title>
-    <url>/2022/10/08/mysql%E4%B8%BB%E4%BB%8E%E6%9C%8D%E5%8A%A1/</url>
-    <content><![CDATA[<p><strong>步骤一：配置主服务器</strong></p>
-<p>1）启用binlog日志</p>
-<ol>
-<li>]# vim /etc/my.cnf</li>
-<li>[mysqld]</li>
-<li>server_id=51     //server_id</li>
-<li>log-bin=master51    //日志名</li>
-<li>:wq</li>
-<li>]#systemctl restart mysqld</li>
-</ol>
-<p>2）用户授权</p>
-<p> grant replication slave on . to repluser@”%”identified by “123qqq…A”;</p>
-<p>3）查看binlog日志信息</p>
-<p>show master status\G</p>
-<p>File: master100.000003 日志名</p>
-<p>Position: 1842</p>
-<p>步骤二。部署从服务器<br>1）修改配置文件</p>
-<ol>
-<li>]# vim /etc/my.cnf</li>
-<li>[mysqld]</li>
-<li>server_id=52 //server_id值</li>
-<li>:wq</li>
-<li>]# systemctl restart mysqld //重启服务</li>
-</ol>
-<p>2）恢复数据</p>
-<ol>
-<li>mysqldump -uroot –p密码 –master-data 数据库名 &gt; /allbak.sql /**/**在主服务器上备份数据</li>
-<li>]# scp /allbak.sql root@<strong>192.168.4.52</strong>:/root/ //将备份文件拷贝给从服务器</li>
-<li>mysql&gt; createdatabase 数据库名 ; //在从服务器上创建与主服务器同名的数据库</li>
-<li>mysql -uroot –p密码 数据库名 &lt; /root/allbak.sql //从服务器使用备份文件恢复数据</li>
-</ol>
-<p>3)</p>
-<ol>
-<li>show slave status; //查看状态信息，还不是从服务器</li>
-</ol>
-<p>4)添加（主要配置）</p>
-<ol>
-<li>mysql&gt; change master to //指定主服务器</li>
-<li>-&gt; master_host=“192.168.4.51”, //主服务器ip地址</li>
-<li>-&gt; master_user=“repluser”, //主服务器授权用户</li>
-<li>-&gt; master_password=“123qqq…A”, //主服务器授权用户密码</li>
-<li>-&gt; master_log_file=“master100.000003”,//主服务器日志文件（重要）和主机的show master status\G一致</li>
-<li>-&gt; master_log_pos=1842;          //主服务器日志偏移量（重要）</li>
-</ol>
-<p>start slave；</p>
-<p>mysql&gt; show slavestatusG; //查看状态信息</p>
-<p>最重要的俩个信息</p>
-<ol>
-<li>Slave_IO_Running:Yes        //IO线程yes状态</li>
-<li>Slave_SQL_Running:Yes //SQL线程yes状态</li>
-</ol>
 ]]></content>
   </entry>
   <entry>
@@ -1452,6 +1396,62 @@ echo $i;
 ]]></content>
   </entry>
   <entry>
+    <title>mysql主从服务</title>
+    <url>/2022/10/08/mysql%E4%B8%BB%E4%BB%8E%E6%9C%8D%E5%8A%A1/</url>
+    <content><![CDATA[<p><strong>步骤一：配置主服务器</strong></p>
+<p>1）启用binlog日志</p>
+<ol>
+<li>]# vim /etc/my.cnf</li>
+<li>[mysqld]</li>
+<li>server_id=51     //server_id</li>
+<li>log-bin=master51    //日志名</li>
+<li>:wq</li>
+<li>]#systemctl restart mysqld</li>
+</ol>
+<p>2）用户授权</p>
+<p> grant replication slave on . to repluser@”%”identified by “123qqq…A”;</p>
+<p>3）查看binlog日志信息</p>
+<p>show master status\G</p>
+<p>File: master100.000003 日志名</p>
+<p>Position: 1842</p>
+<p>步骤二。部署从服务器<br>1）修改配置文件</p>
+<ol>
+<li>]# vim /etc/my.cnf</li>
+<li>[mysqld]</li>
+<li>server_id=52 //server_id值</li>
+<li>:wq</li>
+<li>]# systemctl restart mysqld //重启服务</li>
+</ol>
+<p>2）恢复数据</p>
+<ol>
+<li>mysqldump -uroot –p密码 –master-data 数据库名 &gt; /allbak.sql /**/**在主服务器上备份数据</li>
+<li>]# scp /allbak.sql root@<strong>192.168.4.52</strong>:/root/ //将备份文件拷贝给从服务器</li>
+<li>mysql&gt; createdatabase 数据库名 ; //在从服务器上创建与主服务器同名的数据库</li>
+<li>mysql -uroot –p密码 数据库名 &lt; /root/allbak.sql //从服务器使用备份文件恢复数据</li>
+</ol>
+<p>3)</p>
+<ol>
+<li>show slave status; //查看状态信息，还不是从服务器</li>
+</ol>
+<p>4)添加（主要配置）</p>
+<ol>
+<li>mysql&gt; change master to //指定主服务器</li>
+<li>-&gt; master_host=“192.168.4.51”, //主服务器ip地址</li>
+<li>-&gt; master_user=“repluser”, //主服务器授权用户</li>
+<li>-&gt; master_password=“123qqq…A”, //主服务器授权用户密码</li>
+<li>-&gt; master_log_file=“master100.000003”,//主服务器日志文件（重要）和主机的show master status\G一致</li>
+<li>-&gt; master_log_pos=1842;          //主服务器日志偏移量（重要）</li>
+</ol>
+<p>start slave；</p>
+<p>mysql&gt; show slavestatusG; //查看状态信息</p>
+<p>最重要的俩个信息</p>
+<ol>
+<li>Slave_IO_Running:Yes        //IO线程yes状态</li>
+<li>Slave_SQL_Running:Yes //SQL线程yes状态</li>
+</ol>
+]]></content>
+  </entry>
+  <entry>
     <title>python爬虫基本知识</title>
     <url>/2022/02/10/python%E7%88%AC%E8%99%AB%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AF%86/</url>
     <content><![CDATA[<p>爬虫基础：<br>pip install 包名 -i <a href="http://pypi.douban.com/simple/">http://pypi.douban.com/simple/</a> –trusted-host pypi.douban.com<br>1http基本原理<br>（1）url，统一资源标识符<br>客户端向服务器发送一个request（请求）<br>服务器向客户端发送一个respose（响应）<br>（2）请求<br>请求方法 ：get和post<br>请求网址：url<br>请求头：ua和cookie等<br>请求体<br>（3）响应<br>200  成功     400  错误请求  401  未授权    403   禁止访问    404    未找到<br>2web网页基础<br>（1）网页的组成<br>1.html<br>2.css<br>3.JavaScript<br>爬虫的基本原理：<br>（1）获取网页：urllib，requests<br>（2）提取信息：re，bs4（Beautifulsoup),pyueryimport,xpath(etree)，parsel（css）<br>  (3)  保存数据：可以用open 保存到txt，json，csv，还可以保存到数据库MySQL，mongoDB，redis等<br>md5算法信息摘要<br>‘’’<br>import hashlib</p>
@@ -1472,6 +1472,18 @@ echo $i;
 ]]></content>
   </entry>
   <entry>
+    <title>pyhon爬虫实例day03</title>
+    <url>/2022/02/07/python%E7%88%AC%E8%99%AB%E5%AE%9E%E4%BE%8Bday03/</url>
+    <content><![CDATA[<p>一。批量爬取图片。第5个爬虫<br>import requests<br>import re</p>
+<p>ur1 = ‘<a href="https://cn.bing.com/images/search?q=%E6%B5%B7%E8%B4%BC%E7%8E%8B%E5%A4%A7%E5%92%8C&amp;form=HDRSC2&amp;first=1&amp;tsc=ImageBasicHover&#39;">https://cn.bing.com/images/search?q=海贼王大和&amp;form=HDRSC2&amp;first=1&amp;tsc=ImageBasicHover&#39;</a><br>response = requests.get(ur1)</p>
+<p>pa = re.compile(‘class=”img_cont hoff”.<em>?src=”(.</em>?)”‘,re.S)<br>re = re.findall(pa,response.text)</p>
+<p>num = 1<br>for img_url in re:<br>    response = requests.get(img_url)<br>    with open(‘img/%d海贼王大和.jsp’%num, ‘wb’) as f:<br>        f.write(response.content)<br>        print(“已经下载%d张”%num)<br>        num = num + 1<br>re.compile()是用来优化正则的，它将正则表达式转化为对象，re.search(pattern, string)的调用方式就转换为 pattern.search(string)的调用方式，多次调用一个正则表达式就重复利用这个正则对象，可以实现更有效率的匹配<br>1).re.I(re.IGNORECASE): 忽略大小写<br>2).re.M(MULTILINE): 多行模式，改变’^’和’$’的行为<br>3).re.S(DOTALL): 点任意匹配模式，改变’.’的行为  (这次用到的模式就是这个)<br>4).re.L(LOCALE): 使预定字符类 \w \W \b \B \s \S 取决于当前区域设定<br>5).re.U(UNICODE): 使预定字符类 \w \W \b \B \s \S \d \D 取决于unicode定义的字符属性<br>6).re.X(VERBOSE): 详细模式。这个模式下正则表达式可以是多行，忽略空白字符，并可以加入注释<br>二。爬起点网小说。第6个爬虫<br>import requests<br>from bs4 import BeautifulSoup</p>
+<p>def get_novel_chopters():<br>    root_url = ‘<a href="https://book.qidian.com/info/1031954817/#Catalog&#39;">https://book.qidian.com/info/1031954817/#Catalog&#39;</a><br>    r = requests.get(root_url)<br>    r.encoding = “gdk”<br>    soup = BeautifulSoup(r.text, “html.parser”)<br>    data = []                                       （找到整本书里面的title和href。href是url）<br>    for h2 in soup.find_all(“h2”):         （找所有的h2）<br>        link = h2.find(“a”)    （h2.底下的a）<br>        if not link:<br>            continue<br>        data.append((“https:%s” % link[‘href’], link[‘title’]))      （匹配href，和title）<br>    return data</p>
+<p>def get_chopter_content(url):<br>    r = requests.get(url)<br>    r.encoding = ‘gdk’<br>    soup = BeautifulSoup(r.text, “html.parser”)<br>    return soup.find(“div”, class_=”read-content j_readContent”).get_text()        （找div里面的文字）</p>
+<p>nover = get_novel_chopters()<br>total = len(nover)<br>idx = 0<br>for chopter in nover:<br>    idx += 1<br>    print(idx, total)<br>    url, title = chopter<br>    with open(‘wzw\‘ + “%s.txt” % title, “w”) as f:<br>        f.write(title)<br>        f.write(get_chopter_content(url))</p>
+]]></content>
+  </entry>
+  <entry>
     <title>python爬虫实例day02</title>
     <url>/2022/02/05/python%E7%88%AC%E8%99%AB%E5%AE%9E%E4%BE%8Bday02/</url>
     <content><![CDATA[<p>一。第三个爬虫，爬一张照片（保存到本地：with open）<br>import requests<br>ur1 = ‘<a href="https://www.wahaotu.com/uploads/allimg/202010/1603608302633418.jpg&#39;">https://www.wahaotu.com/uploads/allimg/202010/1603608302633418.jpg&#39;</a><br>response = requests.get(ur1)</p>
@@ -1487,18 +1499,6 @@ with  open(file_name,&quot;w&quot;,encoding=&#39;utf-8&#39;) as f:
 <p>三。爬贴吧网页（面向对象）有类和对象<br>（1）格式<br>import requests</p>
 <p>class tieba_spider(object):   #  tieba_spider 贴吧名字随便起<br>    def  <strong>init</strong>(self):   # init 初始化的方法逻辑代码<br>        pass<br>    def  run(self):<br>        pass</p>
 <p>if  <strong>name</strong> == ‘<strong>min</strong>‘:<br>    text = input(“请输入贴吧的名字：”)<br>    spider = tieba_spider(text)<br>    spider.run()</p>
-]]></content>
-  </entry>
-  <entry>
-    <title>pyhon爬虫实例day03</title>
-    <url>/2022/02/07/python%E7%88%AC%E8%99%AB%E5%AE%9E%E4%BE%8Bday03/</url>
-    <content><![CDATA[<p>一。批量爬取图片。第5个爬虫<br>import requests<br>import re</p>
-<p>ur1 = ‘<a href="https://cn.bing.com/images/search?q=%E6%B5%B7%E8%B4%BC%E7%8E%8B%E5%A4%A7%E5%92%8C&amp;form=HDRSC2&amp;first=1&amp;tsc=ImageBasicHover&#39;">https://cn.bing.com/images/search?q=海贼王大和&amp;form=HDRSC2&amp;first=1&amp;tsc=ImageBasicHover&#39;</a><br>response = requests.get(ur1)</p>
-<p>pa = re.compile(‘class=”img_cont hoff”.<em>?src=”(.</em>?)”‘,re.S)<br>re = re.findall(pa,response.text)</p>
-<p>num = 1<br>for img_url in re:<br>    response = requests.get(img_url)<br>    with open(‘img/%d海贼王大和.jsp’%num, ‘wb’) as f:<br>        f.write(response.content)<br>        print(“已经下载%d张”%num)<br>        num = num + 1<br>re.compile()是用来优化正则的，它将正则表达式转化为对象，re.search(pattern, string)的调用方式就转换为 pattern.search(string)的调用方式，多次调用一个正则表达式就重复利用这个正则对象，可以实现更有效率的匹配<br>1).re.I(re.IGNORECASE): 忽略大小写<br>2).re.M(MULTILINE): 多行模式，改变’^’和’$’的行为<br>3).re.S(DOTALL): 点任意匹配模式，改变’.’的行为  (这次用到的模式就是这个)<br>4).re.L(LOCALE): 使预定字符类 \w \W \b \B \s \S 取决于当前区域设定<br>5).re.U(UNICODE): 使预定字符类 \w \W \b \B \s \S \d \D 取决于unicode定义的字符属性<br>6).re.X(VERBOSE): 详细模式。这个模式下正则表达式可以是多行，忽略空白字符，并可以加入注释<br>二。爬起点网小说。第6个爬虫<br>import requests<br>from bs4 import BeautifulSoup</p>
-<p>def get_novel_chopters():<br>    root_url = ‘<a href="https://book.qidian.com/info/1031954817/#Catalog&#39;">https://book.qidian.com/info/1031954817/#Catalog&#39;</a><br>    r = requests.get(root_url)<br>    r.encoding = “gdk”<br>    soup = BeautifulSoup(r.text, “html.parser”)<br>    data = []                                       （找到整本书里面的title和href。href是url）<br>    for h2 in soup.find_all(“h2”):         （找所有的h2）<br>        link = h2.find(“a”)    （h2.底下的a）<br>        if not link:<br>            continue<br>        data.append((“https:%s” % link[‘href’], link[‘title’]))      （匹配href，和title）<br>    return data</p>
-<p>def get_chopter_content(url):<br>    r = requests.get(url)<br>    r.encoding = ‘gdk’<br>    soup = BeautifulSoup(r.text, “html.parser”)<br>    return soup.find(“div”, class_=”read-content j_readContent”).get_text()        （找div里面的文字）</p>
-<p>nover = get_novel_chopters()<br>total = len(nover)<br>idx = 0<br>for chopter in nover:<br>    idx += 1<br>    print(idx, total)<br>    url, title = chopter<br>    with open(‘wzw\‘ + “%s.txt” % title, “w”) as f:<br>        f.write(title)<br>        f.write(get_chopter_content(url))</p>
 ]]></content>
   </entry>
   <entry>
@@ -1527,13 +1527,6 @@ with open(&#39;asd\\&#39; + new_title + &#39;.mp4&#39;, mode=&#39;wb&#39;) as f:
     f.write(video_content)
     print(&quot;在下载&quot;,title)
 </code></pre>
-]]></content>
-  </entry>
-  <entry>
-    <title>python爬虫实例day06</title>
-    <url>/2022/02/09/python%E7%88%AC%E8%99%AB%E5%AE%9E%E4%BE%8Bday05/</url>
-    <content><![CDATA[<p>一。第九个爬虫，爬腾讯视频<br>import requests<br>import pprint      # pprint 是“pretty printer”的简写，因此它的含义便是：（相当）美观的打印。<br>import re        #正则表达式<br>import json     #json数据<br>from tqdm import tqdm      #显示下载的进度条<br>url = ‘<a href="https://vd.l.qq.com/proxyhttp&#39;">https://vd.l.qq.com/proxyhttp&#39;</a></p>
-<p>data = {“因为是post的所以要有data，每个视频连接的data是不一样的”<br>}<br>headers = {<br>    ‘user-agent’: ‘Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.81 Safari/537.36’<br>}     #请求头<br>response = requests.post(url=url, json=data, headers=headers)    #请求网页，post的方式。<br>html_data = response.json()[‘vinfo’]     #筛选‘vinfo’的内容<br>m3u8_url = re.findall(‘url(.*?),’,html_data)[3].split(‘“‘)[2]   #用正则表达式匹配url（），要的（）里的内容，要的是第四个。要三个字符”后面的内容。<br>#pprint.pprint(html_data)<br>m3u8_data = requests.get(url=m3u8_url).text    #请求网页m3u8_url,获取text<br>m3u8_data = re.sub(‘#EXTM3U’,’’,m3u8_data)     #用re.sub把”#EXTM3U”替换成空白<br>m3u8_data = re.sub(‘#EXT-X-VERSION:\d’,’’,m3u8_data)<br>m3u8_data = re.sub(‘#EXT-X-MEDIA-SEQUENCE:\d’,’’,m3u8_data)<br>m3u8_data = re.sub(‘#EXT-X-TARGETDURATION:\d+’,’’,m3u8_data)<br>m3u8_data = re.sub(‘#EXT-X-PLAYLIST-TYPE:VOD’,’’,m3u8_data)<br>m3u8_data = re.sub(‘#EXTINF:\d+.\d+,’,’’,m3u8_data)<br>m3u8_data = re.sub(‘#EXT-X-ENDLIST’,’’,m3u8_data).split()    #split Python split() 通过指定分隔符对字符串进行切片<br>for ts in tqdm(m3u8_data):<br>    ts_url = ‘<a href="https://apd-6dc457641b263c90dce7c5ab8b7c4718.v.smtcdns.com/moviets.tc.qq.com/ACgoZ1rSyLeXt-5O_1qnlBtM57gJEpfDuwb50lggB0vE/uwMROfz2r5xgoaQXGdGnC2df645GziNP4fCTXzcc9dfItw5M/lgeZDzgYIrLpIdbJgAIVZll_g3QXNnU4vUCCyGTKUr_pbDsLFy5en7WZxqPEGRG_3buVk0iCBSFA6xsoeR4-jv4RShcuya3Q3yWcfIeie2hFrB4yyDa3Kpw4huiEwRt_QztFQiKfp9OG6_TXczD2Qxf0CJKbd0j_R9lTsm1dJ0gXzvYBnBf7lQ/&#39;">https://apd-6dc457641b263c90dce7c5ab8b7c4718.v.smtcdns.com/moviets.tc.qq.com/ACgoZ1rSyLeXt-5O_1qnlBtM57gJEpfDuwb50lggB0vE/uwMROfz2r5xgoaQXGdGnC2df645GziNP4fCTXzcc9dfItw5M/lgeZDzgYIrLpIdbJgAIVZll_g3QXNnU4vUCCyGTKUr_pbDsLFy5en7WZxqPEGRG_3buVk0iCBSFA6xsoeR4-jv4RShcuya3Q3yWcfIeie2hFrB4yyDa3Kpw4huiEwRt_QztFQiKfp9OG6_TXczD2Qxf0CJKbd0j_R9lTsm1dJ0gXzvYBnBf7lQ/&#39;</a> + ts<br>    ts_content = requests.get(url=ts_url).content    #遍历ts ，加上https：// +ts，请求页面，变成content格式，二进制格式<br>    with open(‘wzw\‘+’斗罗大陆.mp4’,mode=’ab+’) as f:     #保存到本地<br>        f.write(ts_content)<br>print(‘下载完成’)</p>
 ]]></content>
   </entry>
   <entry>
@@ -1595,6 +1588,13 @@ with open(&#39;asd\\&#39; + new_title + &#39;.mp4&#39;, mode=&#39;wb&#39;) as f:
 ]]></content>
   </entry>
   <entry>
+    <title>python爬虫实例day06</title>
+    <url>/2022/02/09/python%E7%88%AC%E8%99%AB%E5%AE%9E%E4%BE%8Bday05/</url>
+    <content><![CDATA[<p>一。第九个爬虫，爬腾讯视频<br>import requests<br>import pprint      # pprint 是“pretty printer”的简写，因此它的含义便是：（相当）美观的打印。<br>import re        #正则表达式<br>import json     #json数据<br>from tqdm import tqdm      #显示下载的进度条<br>url = ‘<a href="https://vd.l.qq.com/proxyhttp&#39;">https://vd.l.qq.com/proxyhttp&#39;</a></p>
+<p>data = {“因为是post的所以要有data，每个视频连接的data是不一样的”<br>}<br>headers = {<br>    ‘user-agent’: ‘Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.81 Safari/537.36’<br>}     #请求头<br>response = requests.post(url=url, json=data, headers=headers)    #请求网页，post的方式。<br>html_data = response.json()[‘vinfo’]     #筛选‘vinfo’的内容<br>m3u8_url = re.findall(‘url(.*?),’,html_data)[3].split(‘“‘)[2]   #用正则表达式匹配url（），要的（）里的内容，要的是第四个。要三个字符”后面的内容。<br>#pprint.pprint(html_data)<br>m3u8_data = requests.get(url=m3u8_url).text    #请求网页m3u8_url,获取text<br>m3u8_data = re.sub(‘#EXTM3U’,’’,m3u8_data)     #用re.sub把”#EXTM3U”替换成空白<br>m3u8_data = re.sub(‘#EXT-X-VERSION:\d’,’’,m3u8_data)<br>m3u8_data = re.sub(‘#EXT-X-MEDIA-SEQUENCE:\d’,’’,m3u8_data)<br>m3u8_data = re.sub(‘#EXT-X-TARGETDURATION:\d+’,’’,m3u8_data)<br>m3u8_data = re.sub(‘#EXT-X-PLAYLIST-TYPE:VOD’,’’,m3u8_data)<br>m3u8_data = re.sub(‘#EXTINF:\d+.\d+,’,’’,m3u8_data)<br>m3u8_data = re.sub(‘#EXT-X-ENDLIST’,’’,m3u8_data).split()    #split Python split() 通过指定分隔符对字符串进行切片<br>for ts in tqdm(m3u8_data):<br>    ts_url = ‘<a href="https://apd-6dc457641b263c90dce7c5ab8b7c4718.v.smtcdns.com/moviets.tc.qq.com/ACgoZ1rSyLeXt-5O_1qnlBtM57gJEpfDuwb50lggB0vE/uwMROfz2r5xgoaQXGdGnC2df645GziNP4fCTXzcc9dfItw5M/lgeZDzgYIrLpIdbJgAIVZll_g3QXNnU4vUCCyGTKUr_pbDsLFy5en7WZxqPEGRG_3buVk0iCBSFA6xsoeR4-jv4RShcuya3Q3yWcfIeie2hFrB4yyDa3Kpw4huiEwRt_QztFQiKfp9OG6_TXczD2Qxf0CJKbd0j_R9lTsm1dJ0gXzvYBnBf7lQ/&#39;">https://apd-6dc457641b263c90dce7c5ab8b7c4718.v.smtcdns.com/moviets.tc.qq.com/ACgoZ1rSyLeXt-5O_1qnlBtM57gJEpfDuwb50lggB0vE/uwMROfz2r5xgoaQXGdGnC2df645GziNP4fCTXzcc9dfItw5M/lgeZDzgYIrLpIdbJgAIVZll_g3QXNnU4vUCCyGTKUr_pbDsLFy5en7WZxqPEGRG_3buVk0iCBSFA6xsoeR4-jv4RShcuya3Q3yWcfIeie2hFrB4yyDa3Kpw4huiEwRt_QztFQiKfp9OG6_TXczD2Qxf0CJKbd0j_R9lTsm1dJ0gXzvYBnBf7lQ/&#39;</a> + ts<br>    ts_content = requests.get(url=ts_url).content    #遍历ts ，加上https：// +ts，请求页面，变成content格式，二进制格式<br>    with open(‘wzw\‘+’斗罗大陆.mp4’,mode=’ab+’) as f:     #保存到本地<br>        f.write(ts_content)<br>print(‘下载完成’)</p>
+]]></content>
+  </entry>
+  <entry>
     <title>python爬虫day05</title>
     <url>/2022/02/08/python%E7%88%AC%E8%99%AB%E7%94%A8%E5%88%B0%E7%9A%84%E5%BA%93/</url>
     <content><![CDATA[<p>python爬虫库总结<br>（1）selenium   （用来爬抖音视频，谷歌浏览器） 是动态渲染页面的爬虫<br>用来模拟人工滑动，页面的情况<br>from selenium import webdriver<br>Chrome浏览器驱动：chromedriver , taobao备用地址<br>driver = webdriver.Chrome()    # Chrome浏览器<br>元素定位<br>find_element_by_css_selector() 格式： div.knrjsN15 &gt; div:nth-child(2)&gt;ul li<br>find_element_by_xpath()   格式 //*[@id=”root”]/div/div[2]/div/div/div[4]/div[1]/div[2]/ul/li[1]<br>（2）bs4库 （用来爬小说，爬取音乐）<br>from bs4 import BeautifulSoup </p>
@@ -1602,6 +1602,17 @@ with open(&#39;asd\\&#39; + new_title + &#39;.mp4&#39;, mode=&#39;wb&#39;) as f:
 <p>doc = pq(text)<br>print(doc(‘b’))<br>运行结果：<br><b link="af"/><br><b link="bba"/><br>（5）re 正则表达式<br>(.*?)<br>re.compile(,re.S)<br>re.findall()<br>re.sub(‘’,’’,’’)<br>(6)  parsel<br>selector = parsel.Selector(rea)<br>lis = selector.css(‘.grid_view li’)   #’.grid_view li’ 是在class =grid_view下的li<br>title = ls.css(‘.info .hd span.title:nth-child(1)::text’).get()  #:nth-child(1)查找第一个<br>（7）csv 保存为csv格式<br>import csv<br>f = open(‘豆瓣top250.csv’, mode=’a’, encoding=’utf-8-sig’, newline=’’)<br>csv_writer=csv.DictWriter(f, fieldnames=[     #写的所有的开头<br>    ‘标题’,<br>    ‘导演’,<br>    ‘演员’,<br>    ‘电影年份’,<br>    ‘国家’,<br>    ‘类型’,<br>    ‘电影简介’,<br>    ‘电影评分’,<br>    ‘评价人数’<br>])<br>csv_writer.writeheader()  #在代码开头写是csv是头文件<br>csv_writer.writerow(dit) #在结尾写是写如csv要传入的东西<br>（8）josnpath 数据提取方法，提取josn数据<br> ‘’’<br>import jsonpath<br>import requests<br>import json<br>url = ‘<a href="https://www.lagou.com/lbs/getAllCitySearchLabels.json&#39;">https://www.lagou.com/lbs/getAllCitySearchLabels.json&#39;</a><br>headers = {<br>    ‘user-agent’: ‘Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.81 Safari/537.36’<br>}</p>
 <p>resa =requests.get(url=url,headers=headers)<br>city_data=resa.content.decode()<br>print(city_data)<br>city_data_dict = json.loads(city_data)<br>print(jsonpath.jsonpath(city_data_dict,”$..B..name”) )</p>
 <p>‘’’</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>redis主从服务</title>
+    <url>/2022/03/16/redis%E4%B8%BB%E4%BB%8E%E6%9C%8D%E5%8A%A1/</url>
+    <content><![CDATA[<p>环境配置<br>只配置从库，不配置从库<br>info replication #查看当前库的信息</p>
+<h1 id="Replication"><a href="#Replication" class="headerlink" title="Replication"></a>Replication</h1><p>role:master    角色：主库<br>connected_slaves:0  没有从机<br>复制3个配置文件<br>（1）端口<br>（2）pid名字<br>（3）log文件名字<br>（4）dump.rdb 名字<br>修改配置文件<br>（1）port 6379  #92行<br>（2）pidfile /var/run/redis_6379.pid  #158行<br>（3）logfile “6379.log”   #171行<br>（4）dbfilename dump6379.rdb   #253行<br>一主（79）二从（80,81）<br>认老大：SLAVEOF  127.0.0.1  6379<br>———————————————————————————<br>role:slave<br>master_host:127.0.0.1<br>master_port:6379<br>———————————————————————————<br>role:master<br>connected_slaves:2<br>slave0:ip=127.0.0.1,port=6380,state=online,offset=196,lag=0<br>slave1:ip=127.0.0.1,port=6381,state=online,offset=196,lag=0<br>———————————————————————————<br>主机可以写，从机不能写只能读。<br>测试：主机断开连接，从机依旧连接到主机，但是没有写操作，这个时候，主机如果回来了，从机依然可以直接获取主机写的信息。<br>如果是使用命令行，来配置的主从，这个时候如果重启了，就会变回主机！只要变为从机，立马就会从主机中获取值。</p>
+<p>复 制 原 理<br>Slave 启 动 成 功 连 接 到 master 后 会 发 送 一 个 sync 同 步 命 令<br>Master 接 到 命 令 , 启 动 后 台 的 存 盘 进 程 , 同 时 收 集 所 有 接 收 到 的 用 于 修 改 数 据 集 命 令 , 在 后 台 进 程 执 行 完 毕 之 后 , master 案 传 送<br>整 个 数 据 文 件 到 slave , 并 完 成 一 次 完 全 同 步 .<br>全 量 复 制 : 而 slave 服 务 在 接 收 到 数 据 库 文 件 数 据 后 , 将 其 存 盘 五 加 载 到 内 存 中 .<br>增 量 复 制 : Master 继 续 案 新 的 所 有 收 集 到 的 修 改 命 令 依 次 传 给 slave , 完 成 同 步<br>但 是 只 要 是 重 新 连 接 master , 一 次 完 全 同 步 ( 全 量 复 制 ) 将 被 自 动 执 行</p>
+<p>层层链路<br>m  —s：m —-s</p>
+<p>如果没有老大了，在从机里选一个主机。</p>
+<p>SLAVEOF  no  one</p>
 ]]></content>
   </entry>
   <entry>
@@ -1623,17 +1634,6 @@ with open(&#39;asd\\&#39; + new_title + &#39;.mp4&#39;, mode=&#39;wb&#39;) as f:
 <li>但是这些语句不能在这行开始一个新的代码块</li>
 <li>因为可读对变差，所以不推荐使用<br>简单命令<br>输出（打印）print<br>print（’hello world!’）<br>print (‘hello’+’world!’)<br>print (‘hello’,’world!’)<br>print(‘hello’,’world!’,sep=’***’,end=’’)<br>输入 input<br>num=input（“number：”）<br>进入python 直接输入python<br>运行python文件是列如：python log.py<br>退出exit（）</li>
 </ol>
-]]></content>
-  </entry>
-  <entry>
-    <title>redis主从服务</title>
-    <url>/2022/03/16/redis%E4%B8%BB%E4%BB%8E%E6%9C%8D%E5%8A%A1/</url>
-    <content><![CDATA[<p>环境配置<br>只配置从库，不配置从库<br>info replication #查看当前库的信息</p>
-<h1 id="Replication"><a href="#Replication" class="headerlink" title="Replication"></a>Replication</h1><p>role:master    角色：主库<br>connected_slaves:0  没有从机<br>复制3个配置文件<br>（1）端口<br>（2）pid名字<br>（3）log文件名字<br>（4）dump.rdb 名字<br>修改配置文件<br>（1）port 6379  #92行<br>（2）pidfile /var/run/redis_6379.pid  #158行<br>（3）logfile “6379.log”   #171行<br>（4）dbfilename dump6379.rdb   #253行<br>一主（79）二从（80,81）<br>认老大：SLAVEOF  127.0.0.1  6379<br>———————————————————————————<br>role:slave<br>master_host:127.0.0.1<br>master_port:6379<br>———————————————————————————<br>role:master<br>connected_slaves:2<br>slave0:ip=127.0.0.1,port=6380,state=online,offset=196,lag=0<br>slave1:ip=127.0.0.1,port=6381,state=online,offset=196,lag=0<br>———————————————————————————<br>主机可以写，从机不能写只能读。<br>测试：主机断开连接，从机依旧连接到主机，但是没有写操作，这个时候，主机如果回来了，从机依然可以直接获取主机写的信息。<br>如果是使用命令行，来配置的主从，这个时候如果重启了，就会变回主机！只要变为从机，立马就会从主机中获取值。</p>
-<p>复 制 原 理<br>Slave 启 动 成 功 连 接 到 master 后 会 发 送 一 个 sync 同 步 命 令<br>Master 接 到 命 令 , 启 动 后 台 的 存 盘 进 程 , 同 时 收 集 所 有 接 收 到 的 用 于 修 改 数 据 集 命 令 , 在 后 台 进 程 执 行 完 毕 之 后 , master 案 传 送<br>整 个 数 据 文 件 到 slave , 并 完 成 一 次 完 全 同 步 .<br>全 量 复 制 : 而 slave 服 务 在 接 收 到 数 据 库 文 件 数 据 后 , 将 其 存 盘 五 加 载 到 内 存 中 .<br>增 量 复 制 : Master 继 续 案 新 的 所 有 收 集 到 的 修 改 命 令 依 次 传 给 slave , 完 成 同 步<br>但 是 只 要 是 重 新 连 接 master , 一 次 完 全 同 步 ( 全 量 复 制 ) 将 被 自 动 执 行</p>
-<p>层层链路<br>m  —s：m —-s</p>
-<p>如果没有老大了，在从机里选一个主机。</p>
-<p>SLAVEOF  no  one</p>
 ]]></content>
   </entry>
   <entry>
@@ -2121,6 +2121,115 @@ with open(&#39;asd\\&#39; + new_title + &#39;.mp4&#39;, mode=&#39;wb&#39;) as f:
 ]]></content>
   </entry>
   <entry>
+    <title>shell05 awk和sed</title>
+    <url>/2021/11/13/shell05/</url>
+    <content><![CDATA[<p>1，grep  搜索</p>
+<p>sed   增删改查</p>
+<p>awk   精确搜索<br>2，字符串的替换</p>
+<p>${变量名称/被替换内容/新内容}</p>
+<p>a=1234              //定义素材</p>
+<p>echo ${a/3/6}    //把3换成6</p>
+<p>a=11223344    //定义素材</p>
+<p>echo ${a/3/6}    //把3换成6,默认只换一个</p>
+<p>echo ${a//3/6}   //使用两个/可以实现把所有3换成6</p>
+<p>echo ${a//3/}   //把所有3换成空，相当于删除</p>
+<p> 3，字符串的删除</p>
+<p>${变量名称#被删除的内容}   从左往右删除    掐头</p>
+<p>${变量名称%被删除的内容}   从右往左删除    去尾</p>
+<p>a=abcdefg</p>
+<p>echo ${a#abc} //从左往右删除到c</p>
+<p>echo ${a#*c}             //效果同上，更精简</p>
+<p>echo ${a#abcde}  //从左往右删除到e</p>
+<p>echo ${a#*e}  //效果同上，更精简</p>
+<p>a=abcxyzabcxyz </p>
+<p>echo ${a#*b}   //从左往右删除到第一个b</p>
+<p>echo ${a##*b}   //从左往右删除到最后一个b</p>
+<p>a=abcdef</p>
+<p>echo ${a%def}   //从右往左删除def</p>
+<p>echo ${a%d*}    //效果同上，更精简</p>
+<p>a=abcdefabcdef</p>
+<p>echo ${a%%d*}   //从右往左删除到最后一个d</p>
+<p>sed  流式编辑器，可以对文档进行非交互式增删改查，逐行处理</p>
+<p>使用方式：</p>
+<p>1，前置指令 | sed 选项 定址符 指令</p>
+<p>2，sed 选项 定址符 指令  被处理的文档</p>
+<p>选项： -n 屏蔽默认输出 -r 支持扩展正则  -i 写入文件</p>
+<p>指令：p输出  d删除  s替换<br>sed    s 替换   （）粘贴   p  查看 d 删除  n 屏蔽  </p>
+<p>还有 a行下追加   i行上添加   c替换整行</p>
+<p>sed -n ‘1p’ user         //输出第1行</p>
+<p>sed -n ‘2p’ user    //输出第2行</p>
+<p>sed -n ‘3p’ user    //输出第3行</p>
+<p>sed -n ‘2,4p’ user   //输出第2~4行</p>
+<p>sed -n ‘2,+1p’ user  //输出第2行以及后面1行</p>
+<p>sed -n ‘2p;4p’ user  //输出第2行，第4行</p>
+<p>sed -n ‘/^root/p’ user  //在sed中使用正则表达式输出以root开</p>
+<p>头的行，匹配的内容要写在两个斜杠中间</p>
+<p>grep “^root” user  //效果同上</p>
+<p>egrep “^root|^bin” user  //找root或者bin开头的行 </p>
+<p>sed -nr ‘/^root|^bin/p’ user  //在sed中查找，-r使用扩展正</p>
+<p>则，效果同上</p>
+<p>sed -n ‘=’ user    //查看所有行号</p>
+<p>sed -n ‘$=’ user   //查看最后一行的行号，相当于查看文档</p>
+<p>总共有几行</p>
+<p>sed  ‘1d’ user   //删第1行</p>
+<p>sed  ‘d’ user   //删所有</p>
+<p>sed  ‘3d’ user  //删第3行</p>
+<p>sed  ‘2,5d’ user   //删2~5行</p>
+<p>sed  ‘4,+2d’ user  //删4行以及后面2行</p>
+<p>sed  ‘1d;3d’ user   //删第1行，第3行</p>
+<p>sed  ‘$d’ user   //删除最后一行</p>
+<p>sed -n ‘$p’ user  //查看最后一行</p>
+<p>sed -n ‘1!p’ user   //查看除了第1行以外的行, !代表取反</p>
+<p>sed  ‘/root/d’  user  //删除含有root的行</p>
+<p>sed ‘1!d’ user  //删掉除第1行以外的行</p>
+<p><a href="https://gitee.com/tedu-nsd-linux/nsd2009">https://gitee.com/tedu-nsd-linux/nsd2009</a></p>
+<p>regular.pdf    正则表达式练习题</p>
+<p>regular_express.txt   正则表达式练习素材</p>
+<p>练习：</p>
+<p>1 简述grep工具的-q选项的含义（egrep同样适用）。</p>
+<p>2 正则表达式中的+、？、*分别表示什么含义？</p>
+<p>3 如何编写正则表达式匹配11位的手机号？</p>
+<p>4 简述sed定址符的作用及表示方式。</p>
+<p>参考答案：</p>
+<p>1 简述grep工具的-q选项的含义（egrep同样适用）。</p>
+<p>选项-q的作用是静默、无任何输出，效果类似于正常的grep操作添加了&amp;&gt; /dev/null来屏蔽输出</p>
+<p>2 正则表达式中的+、？、*分别表示什么含义？</p>
+<p>这三个字符用来限制前面的关键词的匹配次数，含义分别如下：</p>
+<p>•       +：最少匹配一次，比如a+可匹配a、aa、aaa等</p>
+<p>•       ？：最多匹配一次，比如a?可匹配零个或一个a</p>
+<p>•       <em>：匹配任意多次，比如a</em>可匹配零个或任意多个连续的a</p>
+<p>3 如何编写正则表达式匹配11位的手机号？</p>
+<p>准备测试文件：</p>
+<p>1.      [root@svr5 ~]# cat tel.txt</p>
+<p>2.      01012315</p>
+<p>3.      137012345678</p>
+<p>4.      13401234567</p>
+<p>5.      10086</p>
+<p>6.      18966677788</p>
+<p>提取包含11位手机号的行：</p>
+<p>1.      [root@svr5 ~]# egrep ‘^1[0-9]{10}$’ tel.txt</p>
+<p>2.      13401234567</p>
+<p>3.      18966677788</p>
+<p>4 简述sed定址符的作用及表示方式。</p>
+<p>作用：定址符（执行指令的条件）控制sed需要处理文本的范围；不加则逐行处理所有行</p>
+<p>表示方式：定址符可以使用行号或正则表达式</p>
+<p>awk 选项 条件 指令 被处理文档</p>
+<p>选项  -F  指定分隔符</p>
+<p>指令  print 输出   </p>
+<p>awk ‘{print}’ nssw.txt    //输出文档所有内容</p>
+<p>awk ‘/the/{print}’ nssw.txt      //输出有the的行</p>
+<p>awk ‘/root/{print}’ /etc/passwd    //输出有root的行</p>
+<p>df -h | awk ‘//$/{print}’   //先使用df指令输出磁盘相关</p>
+<p>信息，然后交给awk输出含有/结尾的行</p>
+<p>$0所有列  $1第1列  $2第2列  $3  …. </p>
+<p>NR行号   NF列号</p>
+<p>awk ‘{print $0,$1}’ nssw.txt  //找所有行的所有列和第1列</p>
+<p>awk ‘{print NR}’ nssw.txt  //输出每行的行号</p>
+<p>awk -F: ‘{print $1 “ 的家目录是 “ $6}’  user  //使用冒号作为分隔符,输出</p>
+<p>第1列，第6列，中间加常量，常量要使用双引号</p>
+]]></content>
+  </entry>
+  <entry>
     <title>shell04循环</title>
     <url>/2021/11/03/shell04/</url>
     <content><![CDATA[<p>如果在for循环中用变量定义循环次数的话</p>
@@ -2356,115 +2465,6 @@ with open(&#39;asd\\&#39; + new_title + &#39;.mp4&#39;, mode=&#39;wb&#39;) as f:
 <p>[ -r /etc/passwd ] &amp;&amp; echo “当前用户对$file 有读权限” || echo “当前用户对$file 没有读权限”</p>
 <p>[ -w /etc/passwd ] &amp;&amp; echo “当前用户对$file 有写权限” || echo “当前用户对$file 没有写权限”</p>
 <p>[ -x /etc/passwd ] &amp;&amp; echo “当前用户对$file 有执行权限” || echo “当前用户对$file 没有执行权限”</p>
-]]></content>
-  </entry>
-  <entry>
-    <title>shell05 awk和sed</title>
-    <url>/2021/11/13/shell05/</url>
-    <content><![CDATA[<p>1，grep  搜索</p>
-<p>sed   增删改查</p>
-<p>awk   精确搜索<br>2，字符串的替换</p>
-<p>${变量名称/被替换内容/新内容}</p>
-<p>a=1234              //定义素材</p>
-<p>echo ${a/3/6}    //把3换成6</p>
-<p>a=11223344    //定义素材</p>
-<p>echo ${a/3/6}    //把3换成6,默认只换一个</p>
-<p>echo ${a//3/6}   //使用两个/可以实现把所有3换成6</p>
-<p>echo ${a//3/}   //把所有3换成空，相当于删除</p>
-<p> 3，字符串的删除</p>
-<p>${变量名称#被删除的内容}   从左往右删除    掐头</p>
-<p>${变量名称%被删除的内容}   从右往左删除    去尾</p>
-<p>a=abcdefg</p>
-<p>echo ${a#abc} //从左往右删除到c</p>
-<p>echo ${a#*c}             //效果同上，更精简</p>
-<p>echo ${a#abcde}  //从左往右删除到e</p>
-<p>echo ${a#*e}  //效果同上，更精简</p>
-<p>a=abcxyzabcxyz </p>
-<p>echo ${a#*b}   //从左往右删除到第一个b</p>
-<p>echo ${a##*b}   //从左往右删除到最后一个b</p>
-<p>a=abcdef</p>
-<p>echo ${a%def}   //从右往左删除def</p>
-<p>echo ${a%d*}    //效果同上，更精简</p>
-<p>a=abcdefabcdef</p>
-<p>echo ${a%%d*}   //从右往左删除到最后一个d</p>
-<p>sed  流式编辑器，可以对文档进行非交互式增删改查，逐行处理</p>
-<p>使用方式：</p>
-<p>1，前置指令 | sed 选项 定址符 指令</p>
-<p>2，sed 选项 定址符 指令  被处理的文档</p>
-<p>选项： -n 屏蔽默认输出 -r 支持扩展正则  -i 写入文件</p>
-<p>指令：p输出  d删除  s替换<br>sed    s 替换   （）粘贴   p  查看 d 删除  n 屏蔽  </p>
-<p>还有 a行下追加   i行上添加   c替换整行</p>
-<p>sed -n ‘1p’ user         //输出第1行</p>
-<p>sed -n ‘2p’ user    //输出第2行</p>
-<p>sed -n ‘3p’ user    //输出第3行</p>
-<p>sed -n ‘2,4p’ user   //输出第2~4行</p>
-<p>sed -n ‘2,+1p’ user  //输出第2行以及后面1行</p>
-<p>sed -n ‘2p;4p’ user  //输出第2行，第4行</p>
-<p>sed -n ‘/^root/p’ user  //在sed中使用正则表达式输出以root开</p>
-<p>头的行，匹配的内容要写在两个斜杠中间</p>
-<p>grep “^root” user  //效果同上</p>
-<p>egrep “^root|^bin” user  //找root或者bin开头的行 </p>
-<p>sed -nr ‘/^root|^bin/p’ user  //在sed中查找，-r使用扩展正</p>
-<p>则，效果同上</p>
-<p>sed -n ‘=’ user    //查看所有行号</p>
-<p>sed -n ‘$=’ user   //查看最后一行的行号，相当于查看文档</p>
-<p>总共有几行</p>
-<p>sed  ‘1d’ user   //删第1行</p>
-<p>sed  ‘d’ user   //删所有</p>
-<p>sed  ‘3d’ user  //删第3行</p>
-<p>sed  ‘2,5d’ user   //删2~5行</p>
-<p>sed  ‘4,+2d’ user  //删4行以及后面2行</p>
-<p>sed  ‘1d;3d’ user   //删第1行，第3行</p>
-<p>sed  ‘$d’ user   //删除最后一行</p>
-<p>sed -n ‘$p’ user  //查看最后一行</p>
-<p>sed -n ‘1!p’ user   //查看除了第1行以外的行, !代表取反</p>
-<p>sed  ‘/root/d’  user  //删除含有root的行</p>
-<p>sed ‘1!d’ user  //删掉除第1行以外的行</p>
-<p><a href="https://gitee.com/tedu-nsd-linux/nsd2009">https://gitee.com/tedu-nsd-linux/nsd2009</a></p>
-<p>regular.pdf    正则表达式练习题</p>
-<p>regular_express.txt   正则表达式练习素材</p>
-<p>练习：</p>
-<p>1 简述grep工具的-q选项的含义（egrep同样适用）。</p>
-<p>2 正则表达式中的+、？、*分别表示什么含义？</p>
-<p>3 如何编写正则表达式匹配11位的手机号？</p>
-<p>4 简述sed定址符的作用及表示方式。</p>
-<p>参考答案：</p>
-<p>1 简述grep工具的-q选项的含义（egrep同样适用）。</p>
-<p>选项-q的作用是静默、无任何输出，效果类似于正常的grep操作添加了&amp;&gt; /dev/null来屏蔽输出</p>
-<p>2 正则表达式中的+、？、*分别表示什么含义？</p>
-<p>这三个字符用来限制前面的关键词的匹配次数，含义分别如下：</p>
-<p>•       +：最少匹配一次，比如a+可匹配a、aa、aaa等</p>
-<p>•       ？：最多匹配一次，比如a?可匹配零个或一个a</p>
-<p>•       <em>：匹配任意多次，比如a</em>可匹配零个或任意多个连续的a</p>
-<p>3 如何编写正则表达式匹配11位的手机号？</p>
-<p>准备测试文件：</p>
-<p>1.      [root@svr5 ~]# cat tel.txt</p>
-<p>2.      01012315</p>
-<p>3.      137012345678</p>
-<p>4.      13401234567</p>
-<p>5.      10086</p>
-<p>6.      18966677788</p>
-<p>提取包含11位手机号的行：</p>
-<p>1.      [root@svr5 ~]# egrep ‘^1[0-9]{10}$’ tel.txt</p>
-<p>2.      13401234567</p>
-<p>3.      18966677788</p>
-<p>4 简述sed定址符的作用及表示方式。</p>
-<p>作用：定址符（执行指令的条件）控制sed需要处理文本的范围；不加则逐行处理所有行</p>
-<p>表示方式：定址符可以使用行号或正则表达式</p>
-<p>awk 选项 条件 指令 被处理文档</p>
-<p>选项  -F  指定分隔符</p>
-<p>指令  print 输出   </p>
-<p>awk ‘{print}’ nssw.txt    //输出文档所有内容</p>
-<p>awk ‘/the/{print}’ nssw.txt      //输出有the的行</p>
-<p>awk ‘/root/{print}’ /etc/passwd    //输出有root的行</p>
-<p>df -h | awk ‘//$/{print}’   //先使用df指令输出磁盘相关</p>
-<p>信息，然后交给awk输出含有/结尾的行</p>
-<p>$0所有列  $1第1列  $2第2列  $3  …. </p>
-<p>NR行号   NF列号</p>
-<p>awk ‘{print $0,$1}’ nssw.txt  //找所有行的所有列和第1列</p>
-<p>awk ‘{print NR}’ nssw.txt  //输出每行的行号</p>
-<p>awk -F: ‘{print $1 “ 的家目录是 “ $6}’  user  //使用冒号作为分隔符,输出</p>
-<p>第1列，第6列，中间加常量，常量要使用双引号</p>
 ]]></content>
   </entry>
   <entry>
