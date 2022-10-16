@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/page/2/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-python爬虫基本知识" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/02/10/python%E7%88%AC%E8%99%AB%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AF%86/" class="article-date">
+  <time class="dt-published" datetime="2022-02-10T10:45:05.000Z" itemprop="datePublished">2022-02-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/02/10/python%E7%88%AC%E8%99%AB%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AF%86/">python爬虫基本知识</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>爬虫基础：<br>pip install 包名 -i <a target="_blank" rel="noopener" href="http://pypi.douban.com/simple/">http://pypi.douban.com/simple/</a> –trusted-host pypi.douban.com<br>1http基本原理<br>（1）url，统一资源标识符<br>客户端向服务器发送一个request（请求）<br>服务器向客户端发送一个respose（响应）<br>（2）请求<br>请求方法 ：get和post<br>请求网址：url<br>请求头：ua和cookie等<br>请求体<br>（3）响应<br>200  成功     400  错误请求  401  未授权    403   禁止访问    404    未找到<br>2web网页基础<br>（1）网页的组成<br>1.html<br>2.css<br>3.JavaScript<br>爬虫的基本原理：<br>（1）获取网页：urllib，requests<br>（2）提取信息：re，bs4（Beautifulsoup),pyueryimport,xpath(etree)，parsel（css）<br>  (3)  保存数据：可以用open 保存到txt，json，csv，还可以保存到数据库MySQL，mongoDB，redis等<br>md5算法信息摘要<br>‘’’<br>import hashlib</p>
+<p>str01 = ‘pyth12345’<br>md5 = hashlib.md5()<br>md5.update(str01.encode())<br>result  = md5.hexdigest()<br>print(result)<br>‘’’</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/02/10/python%E7%88%AC%E8%99%AB%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AF%86/" data-id="cl9bbmgj1000rmwuq2276ej3w" data-title="python爬虫基本知识" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-python爬虫实例day05" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/02/09/python%E7%88%AC%E8%99%AB%E5%AE%9E%E4%BE%8Bday05/" class="article-date">
+  <time class="dt-published" datetime="2022-02-09T10:33:19.000Z" itemprop="datePublished">2022-02-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/02/09/python%E7%88%AC%E8%99%AB%E5%AE%9E%E4%BE%8Bday05/">python爬虫实例day06</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>一。第九个爬虫，爬腾讯视频<br>import requests<br>import pprint      # pprint 是“pretty printer”的简写，因此它的含义便是：（相当）美观的打印。<br>import re        #正则表达式<br>import json     #json数据<br>from tqdm import tqdm      #显示下载的进度条<br>url = ‘<a target="_blank" rel="noopener" href="https://vd.l.qq.com/proxyhttp&#39;">https://vd.l.qq.com/proxyhttp&#39;</a></p>
+<p>data = {“因为是post的所以要有data，每个视频连接的data是不一样的”<br>}<br>headers = {<br>    ‘user-agent’: ‘Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.81 Safari/537.36’<br>}     #请求头<br>response = requests.post(url=url, json=data, headers=headers)    #请求网页，post的方式。<br>html_data = response.json()[‘vinfo’]     #筛选‘vinfo’的内容<br>m3u8_url = re.findall(‘url(.*?),’,html_data)[3].split(‘“‘)[2]   #用正则表达式匹配url（），要的（）里的内容，要的是第四个。要三个字符”后面的内容。<br>#pprint.pprint(html_data)<br>m3u8_data = requests.get(url=m3u8_url).text    #请求网页m3u8_url,获取text<br>m3u8_data = re.sub(‘#EXTM3U’,’’,m3u8_data)     #用re.sub把”#EXTM3U”替换成空白<br>m3u8_data = re.sub(‘#EXT-X-VERSION:\d’,’’,m3u8_data)<br>m3u8_data = re.sub(‘#EXT-X-MEDIA-SEQUENCE:\d’,’’,m3u8_data)<br>m3u8_data = re.sub(‘#EXT-X-TARGETDURATION:\d+’,’’,m3u8_data)<br>m3u8_data = re.sub(‘#EXT-X-PLAYLIST-TYPE:VOD’,’’,m3u8_data)<br>m3u8_data = re.sub(‘#EXTINF:\d+.\d+,’,’’,m3u8_data)<br>m3u8_data = re.sub(‘#EXT-X-ENDLIST’,’’,m3u8_data).split()    #split Python split() 通过指定分隔符对字符串进行切片<br>for ts in tqdm(m3u8_data):<br>    ts_url = ‘<a target="_blank" rel="noopener" href="https://apd-6dc457641b263c90dce7c5ab8b7c4718.v.smtcdns.com/moviets.tc.qq.com/ACgoZ1rSyLeXt-5O_1qnlBtM57gJEpfDuwb50lggB0vE/uwMROfz2r5xgoaQXGdGnC2df645GziNP4fCTXzcc9dfItw5M/lgeZDzgYIrLpIdbJgAIVZll_g3QXNnU4vUCCyGTKUr_pbDsLFy5en7WZxqPEGRG_3buVk0iCBSFA6xsoeR4-jv4RShcuya3Q3yWcfIeie2hFrB4yyDa3Kpw4huiEwRt_QztFQiKfp9OG6_TXczD2Qxf0CJKbd0j_R9lTsm1dJ0gXzvYBnBf7lQ/&#39;">https://apd-6dc457641b263c90dce7c5ab8b7c4718.v.smtcdns.com/moviets.tc.qq.com/ACgoZ1rSyLeXt-5O_1qnlBtM57gJEpfDuwb50lggB0vE/uwMROfz2r5xgoaQXGdGnC2df645GziNP4fCTXzcc9dfItw5M/lgeZDzgYIrLpIdbJgAIVZll_g3QXNnU4vUCCyGTKUr_pbDsLFy5en7WZxqPEGRG_3buVk0iCBSFA6xsoeR4-jv4RShcuya3Q3yWcfIeie2hFrB4yyDa3Kpw4huiEwRt_QztFQiKfp9OG6_TXczD2Qxf0CJKbd0j_R9lTsm1dJ0gXzvYBnBf7lQ/&#39;</a> + ts<br>    ts_content = requests.get(url=ts_url).content    #遍历ts ，加上https：// +ts，请求页面，变成content格式，二进制格式<br>    with open(‘wzw\‘+’斗罗大陆.mp4’,mode=’ab+’) as f:     #保存到本地<br>        f.write(ts_content)<br>print(‘下载完成’)</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/02/09/python%E7%88%AC%E8%99%AB%E5%AE%9E%E4%BE%8Bday05/" data-id="cl9bbmgj4000xmwuq4qlw97zu" data-title="python爬虫实例day06" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-python爬虫用到的库" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/02/08/python%E7%88%AC%E8%99%AB%E7%94%A8%E5%88%B0%E7%9A%84%E5%BA%93/" class="article-date">
+  <time class="dt-published" datetime="2022-02-08T10:43:52.000Z" itemprop="datePublished">2022-02-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/02/08/python%E7%88%AC%E8%99%AB%E7%94%A8%E5%88%B0%E7%9A%84%E5%BA%93/">python爬虫day05</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>python爬虫库总结<br>（1）selenium   （用来爬抖音视频，谷歌浏览器） 是动态渲染页面的爬虫<br>用来模拟人工滑动，页面的情况<br>from selenium import webdriver<br>Chrome浏览器驱动：chromedriver , taobao备用地址<br>driver = webdriver.Chrome()    # Chrome浏览器<br>元素定位<br>find_element_by_css_selector() 格式： div.knrjsN15 &gt; div:nth-child(2)&gt;ul li<br>find_element_by_xpath()   格式 //*[@id=”root”]/div/div[2]/div/div/div[4]/div[1]/div[2]/ul/li[1]<br>（2）bs4库 （用来爬小说，爬取音乐）<br>from bs4 import BeautifulSoup </p>
+<p>BeautifulSoup是将HTML代码当做一个便签树来处理，BeautifulSoup对应一个HTML/XML文档的全部内容 。其中的每一个标签的结构如下：<br>soup = BeautifulSoup(r.text, “html.parser”)<br> data = []<br>    for h2 in soup.find_all(“h2”):   #  找所有的h2<br>        link = h2.find(“a”)               #遍历h2下面的a<br>        if not link:<br>            continue<br>        data.append((“https:%s” % link[‘href’], link[‘title’]))<br>    return data<br>除了find_all()方法，还有find()方法，只不过find()方法返回的是单个的标签，也就是第一个匹配的标签，而find_all()方法返回的是所有匹配的标签组成的列表。<br>（3）xpath库<br>pip install lxml<br>from lxml import etree<br>使用Xpath解析HTML文本<br>html = etree.HTML(text, etree.HTMLParser())<br>result = html.xpath(‘/html/head/title/text()’)<br>print(result)<br>（4）pyquery<br>from pyquery import PyQuery as pq    # 将字符串初始化为pyquery对象<br>doc = pq(response)<br>    figure = doc(‘.  ‘).items()  #查找class里的东西<br>    for i in figure:<br>        video_url = i.attr(‘href’)       遍历figure 找到href里的视频连接</p>
+<p>doc = pq(text)<br>print(doc(‘b’))<br>运行结果：<br><b link="af"/><br><b link="bba"/><br>（5）re 正则表达式<br>(.*?)<br>re.compile(,re.S)<br>re.findall()<br>re.sub(‘’,’’,’’)<br>(6)  parsel<br>selector = parsel.Selector(rea)<br>lis = selector.css(‘.grid_view li’)   #’.grid_view li’ 是在class =grid_view下的li<br>title = ls.css(‘.info .hd span.title:nth-child(1)::text’).get()  #:nth-child(1)查找第一个<br>（7）csv 保存为csv格式<br>import csv<br>f = open(‘豆瓣top250.csv’, mode=’a’, encoding=’utf-8-sig’, newline=’’)<br>csv_writer=csv.DictWriter(f, fieldnames=[     #写的所有的开头<br>    ‘标题’,<br>    ‘导演’,<br>    ‘演员’,<br>    ‘电影年份’,<br>    ‘国家’,<br>    ‘类型’,<br>    ‘电影简介’,<br>    ‘电影评分’,<br>    ‘评价人数’<br>])<br>csv_writer.writeheader()  #在代码开头写是csv是头文件<br>csv_writer.writerow(dit) #在结尾写是写如csv要传入的东西<br>（8）josnpath 数据提取方法，提取josn数据<br> ‘’’<br>import jsonpath<br>import requests<br>import json<br>url = ‘<a target="_blank" rel="noopener" href="https://www.lagou.com/lbs/getAllCitySearchLabels.json&#39;">https://www.lagou.com/lbs/getAllCitySearchLabels.json&#39;</a><br>headers = {<br>    ‘user-agent’: ‘Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.81 Safari/537.36’<br>}</p>
+<p>resa =requests.get(url=url,headers=headers)<br>city_data=resa.content.decode()<br>print(city_data)<br>city_data_dict = json.loads(city_data)<br>print(jsonpath.jsonpath(city_data_dict,”$..B..name”) )</p>
+<p>‘’’</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/02/08/python%E7%88%AC%E8%99%AB%E7%94%A8%E5%88%B0%E7%9A%84%E5%BA%93/" data-id="cl9bbmgj5000ymwuqhhq90bmn" data-title="python爬虫day05" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-python爬虫实例day04" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/02/08/python%E7%88%AC%E8%99%AB%E5%AE%9E%E4%BE%8Bday04/" class="article-date">
+  <time class="dt-published" datetime="2022-02-08T10:20:30.000Z" itemprop="datePublished">2022-02-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/02/08/python%E7%88%AC%E8%99%AB%E5%AE%9E%E4%BE%8Bday04/">python爬虫实例day04</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>一。第7个爬虫，爬取抖音视频<br>import requests<br>import re</p>
+<p>url = ‘<a target="_blank" rel="noopener" href="https://www.douyin.com/video/7059655603584617743&#39;">https://www.douyin.com/video/7059655603584617743&#39;</a></p>
+<p>headers = {<br>    ‘cookie’: ‘  在网页上查找   ‘,<br>    ‘User-Agent’: ‘Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36’<br>}</p>
+<p>response = requests.get(url=url, headers=headers)</p>
+<p>title = re.findall(‘<title data-react-helmet="true">(.<em>?)</title>‘, response.text)[0]    找出标题<br>href = re.findall(‘src(.</em>?)vr%3D%2’, response.text)[1]      找出视频的连接是相当于加密的url<br>video_url = requests.utils.unquote(href).replace(‘“:”‘, ‘https:’)     生成新的播放链接url<br>video_content = requests.get(url=video_url, headers=headers).content<br>with open (‘asd\‘+title + ‘.mp4’, mode=’wb’) as f:<br>    f.write(video_content)<br>二。爬取批量抖音视频，第8个爬虫<br>from selenium import webdriver #导入库<br> 固定格式（1）滑动页面，只有滑动所有的页面，才能获得所有的网址。<br>def drop_down():<br>    for x in range(1,100,4):<br>        time.sleep(1)<br>        j = x / 9<br>        js = ‘document.documentElement.scrollTop = document.documentElement.scrollHeight * %f’ % j<br>        driver.execute_script(js)<br>固定格式（2）用正则表达式把标题里不符合格式的化成”<em>“<br>def chang_title(title):<br>    pattorn = re.compile(r”[/\:*?&quot;&lt;&gt;|]”)<br>    new_tiltle = re.sub(pattorn, “</em>“, title)<br>    return new_tiltle<br> new_title = chang_title(title)  #定义标头</p>
+<p>#Selenium库是一个用电脑模拟人操作浏览器网页，可以实现自动化，测试等！<br>driver = webdriver.Chrome() #爬取的是Google浏览器<br>driver.get(‘要爬取的视频网页’)<br>time.sleep(3)#是间隔3秒。需要手动的滑动验证码<br>#需要下载google对应版本的chromedriver.exe<br>#chromedriver.exe的下载网站是 <a target="_blank" rel="noopener" href="https://chromedriver.chromium.org/downloads">https://chromedriver.chromium.org/downloads</a></p>
+<p>list = driver.find_elements_by_css_selector(‘  div.knrjsN15 &gt; div:nth-child(2)&gt;ul li’)  # (找出每个视频的网址’selector’)<br>for li in list:<br>    li_url = li.find_element_by_css_selector(‘a’).get_attribute(‘href’)    #（遍历list，存入到li_url里 element是一个。elements是多个）  </p>
+<pre><code>headers = &#123;
+    &#39;cookie&#39;: “ 在网页里找  ”
+    &#39;User-Agent&#39;: &#39;Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36&#39;
+&#125;  （请求头cookie和User-Agent ，做伪装。伪装成浏览器）
+
+response = requests.get(url=li_url, headers=headers)  （请求网址li_url）
+
+title = re.findall(&#39;&lt;title data-react-helmet=&quot;true&quot;&gt;(.*?)&lt;/title&gt;&#39;, response.text)[0]
+href = re.findall(&#39;src(.*?)vr%3D%2&#39;, response.text)[1]
+video_url = requests.utils.unquote(href).replace(&#39;&quot;:&quot;&#39;, &#39;https:&#39;)
+video_content = requests.get(url=video_url, headers=headers).content
+new_title = chang_title(title)
+with open(&#39;asd\\&#39; + new_title + &#39;.mp4&#39;, mode=&#39;wb&#39;) as f:
+    f.write(video_content)
+    print(&quot;在下载&quot;,title)
+</code></pre>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/02/08/python%E7%88%AC%E8%99%AB%E5%AE%9E%E4%BE%8Bday04/" data-id="cl9bbmgj4000wmwuq5ww01wv5" data-title="python爬虫实例day04" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-python爬虫实例day03" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/02/07/python%E7%88%AC%E8%99%AB%E5%AE%9E%E4%BE%8Bday03/" class="article-date">
+  <time class="dt-published" datetime="2022-02-07T04:37:52.000Z" itemprop="datePublished">2022-02-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/02/07/python%E7%88%AC%E8%99%AB%E5%AE%9E%E4%BE%8Bday03/">pyhon爬虫实例day03</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>一。批量爬取图片。第5个爬虫<br>import requests<br>import re</p>
+<p>ur1 = ‘<a target="_blank" rel="noopener" href="https://cn.bing.com/images/search?q=%E6%B5%B7%E8%B4%BC%E7%8E%8B%E5%A4%A7%E5%92%8C&amp;form=HDRSC2&amp;first=1&amp;tsc=ImageBasicHover&#39;">https://cn.bing.com/images/search?q=海贼王大和&amp;form=HDRSC2&amp;first=1&amp;tsc=ImageBasicHover&#39;</a><br>response = requests.get(ur1)</p>
+<p>pa = re.compile(‘class=”img_cont hoff”.<em>?src=”(.</em>?)”‘,re.S)<br>re = re.findall(pa,response.text)</p>
+<p>num = 1<br>for img_url in re:<br>    response = requests.get(img_url)<br>    with open(‘img/%d海贼王大和.jsp’%num, ‘wb’) as f:<br>        f.write(response.content)<br>        print(“已经下载%d张”%num)<br>        num = num + 1<br>re.compile()是用来优化正则的，它将正则表达式转化为对象，re.search(pattern, string)的调用方式就转换为 pattern.search(string)的调用方式，多次调用一个正则表达式就重复利用这个正则对象，可以实现更有效率的匹配<br>1).re.I(re.IGNORECASE): 忽略大小写<br>2).re.M(MULTILINE): 多行模式，改变’^’和’$’的行为<br>3).re.S(DOTALL): 点任意匹配模式，改变’.’的行为  (这次用到的模式就是这个)<br>4).re.L(LOCALE): 使预定字符类 \w \W \b \B \s \S 取决于当前区域设定<br>5).re.U(UNICODE): 使预定字符类 \w \W \b \B \s \S \d \D 取决于unicode定义的字符属性<br>6).re.X(VERBOSE): 详细模式。这个模式下正则表达式可以是多行，忽略空白字符，并可以加入注释<br>二。爬起点网小说。第6个爬虫<br>import requests<br>from bs4 import BeautifulSoup</p>
+<p>def get_novel_chopters():<br>    root_url = ‘<a target="_blank" rel="noopener" href="https://book.qidian.com/info/1031954817/#Catalog&#39;">https://book.qidian.com/info/1031954817/#Catalog&#39;</a><br>    r = requests.get(root_url)<br>    r.encoding = “gdk”<br>    soup = BeautifulSoup(r.text, “html.parser”)<br>    data = []                                       （找到整本书里面的title和href。href是url）<br>    for h2 in soup.find_all(“h2”):         （找所有的h2）<br>        link = h2.find(“a”)    （h2.底下的a）<br>        if not link:<br>            continue<br>        data.append((“https:%s” % link[‘href’], link[‘title’]))      （匹配href，和title）<br>    return data</p>
+<p>def get_chopter_content(url):<br>    r = requests.get(url)<br>    r.encoding = ‘gdk’<br>    soup = BeautifulSoup(r.text, “html.parser”)<br>    return soup.find(“div”, class_=”read-content j_readContent”).get_text()        （找div里面的文字）</p>
+<p>nover = get_novel_chopters()<br>total = len(nover)<br>idx = 0<br>for chopter in nover:<br>    idx += 1<br>    print(idx, total)<br>    url, title = chopter<br>    with open(‘wzw\‘ + “%s.txt” % title, “w”) as f:<br>        f.write(title)<br>        f.write(get_chopter_content(url))</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/02/07/python%E7%88%AC%E8%99%AB%E5%AE%9E%E4%BE%8Bday03/" data-id="cl9bbmgj3000vmwuqfx803uvk" data-title="pyhon爬虫实例day03" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-python爬虫实例day02" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/02/05/python%E7%88%AC%E8%99%AB%E5%AE%9E%E4%BE%8Bday02/" class="article-date">
+  <time class="dt-published" datetime="2022-02-05T06:30:11.000Z" itemprop="datePublished">2022-02-05</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/02/05/python%E7%88%AC%E8%99%AB%E5%AE%9E%E4%BE%8Bday02/">python爬虫实例day02</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>一。第三个爬虫，爬一张照片（保存到本地：with open）<br>import requests<br>ur1 = ‘<a target="_blank" rel="noopener" href="https://www.wahaotu.com/uploads/allimg/202010/1603608302633418.jpg&#39;">https://www.wahaotu.com/uploads/allimg/202010/1603608302633418.jpg&#39;</a><br>response = requests.get(ur1)</p>
+<p>print(response.content)</p>
+<p>with open(‘海贼王02.jsp’,’wb’) as f:<br>#命名为海贼王02.jsp  ，wb：二进制文件<br>    f.write(response.content)<br>二。爬贴吧网页，第四个爬虫<br>import requests</p>
+<p>url = “<a target="_blank" rel="noopener" href="https://tieba.baidu.com/f?kw=%7B%7D&amp;pn=%7B%7D&quot;">https://tieba.baidu.com/f?kw={}&amp;pn={}&quot;</a><br>w = input(“请输入你要搜索的贴吧名字:”)</p>
+<p>url_list = [url.format(w,i * 50) for i in range(5)]   遍历url 列表<br>print(url_list)<br>h = {<br>    “User-Agent”: “Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36 Edg/97.0.1072.76”</p>
+<p>}<br>for item_url in url_list :   遍历url列表为 item_url<br>    response =requests.get(item_url,headers=h)</p>
+<pre><code>file_name =&quot;贴吧&quot; + w + &quot;第&#123;&#125;页&quot;.format(url_list.index(item_url) + 1) + &quot;.html&quot;
+with  open(file_name,&quot;w&quot;,encoding=&#39;utf-8&#39;) as f:
+    f.write(response.content.decode())
+</code></pre>
+<p>三。爬贴吧网页（面向对象）有类和对象<br>（1）格式<br>import requests</p>
+<p>class tieba_spider(object):   #  tieba_spider 贴吧名字随便起<br>    def  <strong>init</strong>(self):   # init 初始化的方法逻辑代码<br>        pass<br>    def  run(self):<br>        pass</p>
+<p>if  <strong>name</strong> == ‘<strong>min</strong>‘:<br>    text = input(“请输入贴吧的名字：”)<br>    spider = tieba_spider(text)<br>    spider.run()</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/02/05/python%E7%88%AC%E8%99%AB%E5%AE%9E%E4%BE%8Bday02/" data-id="cl9bbmgj3000umwuqdw55biva" data-title="python爬虫实例day02" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-python爬虫实例day01" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/02/05/python%E7%88%AC%E8%99%AB%E5%AE%9E%E4%BE%8Bday01/" class="article-date">
+  <time class="dt-published" datetime="2022-02-05T03:13:18.000Z" itemprop="datePublished">2022-02-05</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/02/05/python%E7%88%AC%E8%99%AB%E5%AE%9E%E4%BE%8Bday01/">python爬虫实例day01</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>一。爬虫第一步（下载python和pycharm）<br>   （1）  需要到python的官方网站下载python的安装包。python官网的链接地址：<a target="_blank" rel="noopener" href="https://www.python.org/">https://www.python.org</a><br>   （2）  打开官方网站，光标移到Downloads，选择windows<br>   （3）  根据不同的操作系统，选择不同版本的安装包。每一个版本提供了三个下载链接，依次是基于网页的安装程序、可执行的安装程序、程序的压缩文件。通常选择下载可执行的安装程序。32位的操作系统请选择windows x86，64位操作系统请选择windows x86-64。<br>   （4）  打开命令行，输入python 回车，出现python的版本信息并进入编辑页面。输入print(“Hello World”)，打印Hello World。输入exit() 退出编辑页面     。<br>   （5）   下载pycharm，Pycharm的官网下载地址是一个英文网站：<a target="_blank" rel="noopener" href="https://www.jetbrains.com/pycharm/download/#section=windows%EF%BC%8C%E4%B8%8B%E8%BD%BD%E6%97%B6%E6%9C%89%E6%94%B6%E8%B4%B9%E5%92%8C%E5%85%8D%E8%B4%B9%E4%B8%A4%E4%B8%AA%E4%B8%A4%E4%B8%AA%E7%89%88%E6%9C%AC%E5%8F%AF%E4%BB%A5%E9%80%89%E6%8B%A9">https://www.jetbrains.com/pycharm/download/#section=windows，下载时有收费和免费两个两个版本可以选择</a> Professional(专业版，收费)和Community(社区版，免费)，一般来说，我们使用Community版本就够了，除非你需要用 Python 进行 Django等Web开发时才需要用到专业版。这里我们下载免费社区版。<br>二。下载模块<br>（1）在pycharm命令行（terminal）下载  pip  install  requests<br>pip  install  bs4（python专用网页解析器）<br>pip  install  re （正则表达式）系统本身就有的<br>pip install  lxml（html和xml和XPath解析方式）<br>XPath是最常用最高效的解析方式<br>from selenium import webdriver （selenium是Selenium是一个用电脑模拟人操作浏览器网页，可以实现自动化，测试等！）<br>（2）查看pip已经有的模块 pip  list<br>（3）升级pip  python -m pip install –upgrade<br>pip  -i <a target="_blank" rel="noopener" href="http://pypi.douban.com/simple/">http://pypi.douban.com/simple/</a> –trusted-host pypi.douban.com<br>三。简单的实例（爬取<a target="_blank" rel="noopener" href="http://www.baidu.com的网页数据,第一个爬虫)/">www.baidu.com的网页数据，第一个爬虫）</a></p>
+<p>（1）import requests<br>#导入requests 模块<br>、、、<br>u = ‘<a target="_blank" rel="noopener" href="https://www.baidu.com/&#39;">https://www.baidu.com/&#39;</a>   （要爬取的网页）<br> h = {<br>    “User-Agent”: “Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36 Edg/97.0.1072.76”</p>
+<p>}（头文件）<br>response = requests.get(url=u, headers=h)<br>print(response.content.decode())  （打印原代码）</p>
+<p>print(response.request.headers) （查看头文件）<br>、、、<br>（2）import requests<br>#导入requests 模块<br>u = ‘<a target="_blank" rel="noopener" href="https://www.baidu.com/&#39;">https://www.baidu.com/&#39;</a>   （要爬取的网页）<br> h = {<br>    “User-Agent”: “Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36 Edg/97.0.1072.76”<br>}（头文件）<br>response = request.get（url = u，headers = h）.text<br>print(response)<br>四。 requests.get (百度经验，第二个爬虫）<br>import requests</p>
+<p>u = “<a target="_blank" rel="noopener" href="https://jingyan.baidu.com/search?&quot;">https://jingyan.baidu.com/search?&quot;</a><br>m = input(“请输入你要搜索的关键字:”)<br>p = {</p>
+<p> “word” :”w”<br> }</p>
+<p>r = requests.get(url = u,params= p  ).text</p>
+<p>print(r)<br>with open(“wzw\”+m+”.text”,”w”)as f:<br>    f.write(r)</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/02/05/python%E7%88%AC%E8%99%AB%E5%AE%9E%E4%BE%8Bday01/" data-id="cl9bbmgj2000tmwuq9lgfc36t" data-title="python爬虫实例day01" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-linux部署lnmp" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/01/29/linux%E9%83%A8%E7%BD%B2lnmp/" class="article-date">
+  <time class="dt-published" datetime="2022-01-29T13:30:38.000Z" itemprop="datePublished">2022-01-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/01/29/linux%E9%83%A8%E7%BD%B2lnmp/">linux部署lnmp</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>一。部署lnmp<br>目前的网站一般都会有动态和静态数据，默认nginx仅可以处理静态数据，用户访问任何数据都是直接返回对应的文件，如果如果访问的是一个脚本的话，就会导致直接返回一个脚本给用户，而用户没有脚本解释器，也看不懂脚本源代码！网站拓扑如图-1所示。<br>因此需要整合LNMP（Linux、Nginx、MySQL、PHP）实现动态网站效果。<br>LNMP在CentOS系统中，源码安装Nginx，使用RPM包安装MariaDB、PHP、PHP-FPM软件。<br>操作过程中需要安装的软件列表如下：<br>•    nginx<br>•    mariadb、mariadb-server、mariadb-devel<br>•    php、php-fpm、php-mysql<br>备注：mariadb（数据库客户端软件）、mariadb-server（数据库服务器软件）、mariadb-devel（其他客户端软件的依赖包）、php（解释器）、php-fpm（进程管理器服务）、php-mysql（PHP的数据库扩展包）。</p>
+<ol>
+<li>在虚拟机安装nginx依赖包：yum -y install gcc pcre-devel  zlib-devel  openssl-devel</li>
+<li> 解压nginx软件包并且进入软件包目录： tar -xf nginx-1.12.2.tar.gz      cd nginx-1.12.2/    </li>
+<li>源码编译安装： ./configure   –with-http_ssl_module （编译）<br>make  &amp;&amp; make install（安装）  </li>
+<li>安装php和mariadb软件包：  yum -y install php  php-mysql  mariadb   mariadb-devel  mariadb-server    </li>
+<li>安装PHP依赖包：yum -y install php-fpm</li>
+<li>修改nginx配置文件：vim /usr/local/nginx/conf/nginx.conf<br> location / {<pre><code>         root   html;
+         index  index.php  index.html   index.htm;
+</code></pre>
+ #设置默认首页为index.php，当用户在浏览器地址栏中只写域名或IP，不说访问什么页面时，服务器会把默认首页index.php返回给用户<pre><code>     &#125;
+</code></pre>
+</li>
+</ol>
+<p>(1)    取消65~71行注释，删除69行内容。<br>(2)    在下面内容之上添加：<br>①    缓存php生成的页面内容,8个16k：fastcgi_buffers  8  16k；<br>②    缓存php生成的头部信息：fastcgi_buffer_size  32k；<br>③    连接PHP的超时时间：fastcgi_connect_tinmeout  300;<br>④    发送请求的超时时间：fasticgi_send_timeout   300;<br>⑤    读取请求的超时时间：fasticgi_read_timeout  300;<br>      fastcgi_buffers 8 16k;<br>      fastcgi_buffer_size 32k;<br>      fastcgi_connect_timeout 300;<br>      fastcgi_send_timeout 300;<br>      fastcgi_read_timeout 300;<br>location ~ .php$ {<br>  root           html;<br>  fastcgi_pass   127.0.0.1:9000;<br> fastcgi_index  index.php;<br> include        fastcgi.conf;<br>   }<br>7. 启动数据库服务：systemctl start mariadb<br>8. 启动php服务：systemctl start php-fpm<br>9.启动nginx服务： /usr/local/nginx/sbin/nginx   重启nginx服务  /usr/local/nginx/sbin/nginx -s reload<br>9. 关闭防火墙：firewall-cmd  –set-defult-zone=trusted（如果没有安装防火墙就就会提示未找到命令）<br>10. 关闭SElinux：setenforce 0（敲完命令会提示setenforce: SELinux is disabled就证明SElinux已经关闭）<br>11.<br>1）添加php测试页面：vim /usr/local/nginx/html/test.php<br>内容是<br><?php
+$i=33;
+echo $i;
+?><br>2）创建PHP测试页面,连接并查询MariaDB数据库。<br>可以参考lnmp_soft/php_scripts/mysql.php:<br>    [root@proxy ~]# vim /usr/local/nginx/html/mysql.php<br>    <?php
+    $mysqli = new mysqli('localhost','root','123456','mysql');
+    //注意：root为mysql数据库的账户名称，密码需要修改为实际mysql密码，无密码则留空即可
+    //localhost是数据库的域名或IP，mysql是数据库的名称
+    if (mysqli_connect_errno()){
+        die('Unable to connect!'). mysqli_connect_error();
+    }
+    $sql = "select * from user";
+    $result = $mysqli->query($sql);
+    while($row = $result->fetch_array()){
+        printf("Host:%s",$row[0]);
+        printf("</br>");
+        printf("Name:%s",$row[1]);
+        printf("</br>");
+    }
+    ?><br>客户端使用浏览器访问服务器PHP首页文档，检验是否成功：<br>[root@client ~]# firefox <a target="_blank" rel="noopener" href="http://192.168.4.5/test.php">http://192.168.4.5/test.php</a><br>[root@client ~]# firefox <a target="_blank" rel="noopener" href="http://192.168.4.5/mysql.php">http://192.168.4.5/mysql.php</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/01/29/linux%E9%83%A8%E7%BD%B2lnmp/" data-id="cl9bbmgiz000nmwuqehcc4mkt" data-title="linux部署lnmp" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-linux逻辑卷管理" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/01/28/linux%E9%80%BB%E8%BE%91%E5%8D%B7%E7%AE%A1%E7%90%86/" class="article-date">
+  <time class="dt-published" datetime="2022-01-28T12:32:04.000Z" itemprop="datePublished">2022-01-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/01/28/linux%E9%80%BB%E8%BE%91%E5%8D%B7%E7%AE%A1%E7%90%86/">linux逻辑卷管理</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>物理卷——————》卷组——————》逻辑卷<br>一。lvm创建工具基本用法：<br>创建卷组：vgcreate  卷组名  物理设备<br>列如：vgcreate  systemvg  /dev/sdb1<br>查看卷组：vgscan<br>创建逻辑卷：lvcreate  -L 大小  -n 逻辑卷名  卷组名<br>列如： lvcreate  -L  180MiB  -n  vo  systemvg<br>查看逻辑卷：lvscan<br>ACTIVE            ‘/dev/systemvg/vo’      [180.00 MiB] inherit<br>二。扩展逻辑卷的大小<br>对于已经格式化好的逻辑卷，在扩展大小以后，必须通知内核新大小。<br>如果此逻辑卷上的文件系统是EXT3/EXT4类型，需要使用resize2fs工具；<br>如果此逻辑卷上的文件系统是XFS类型，需要使用xfs_growfs。<br>步骤一：确认逻辑卷vo的信息<br>（1）找出逻辑卷所在卷组   lvscan<br>2）查看该卷组的剩余空间是否可满足扩展需要  vgdisplay  systemvg<br> VG Size               196.00 MiB                          //卷组总大小<br> Free  PE / Size       4 / 16.00 MiB                      //剩余空间大小<br>此例中卷组systemvg的总大小都不够300MiB、剩余空间才16MiB，因此必须先扩展卷组。只有剩余空间足够，才可以直接扩展逻辑卷大小<br>步骤二：扩展卷组<br>将提前准备的分区/dev/sdb5添加到卷组systemvg    vgextend  systemvg  /dev/sdb5、<br>确认卷组新的大小  vgdisplay  systemvg<br>VG Size               692.00 MiB                          //总大小已变大<br>Free  PE / Size       128 / 512.00 MiB                  //剩余空间已达512MiB<br>步骤三：扩展逻辑卷大小<br>1）将逻辑卷/dev/systemvg/vo的大小调整为300MiB<br>lvextend  -L 300MiB  /dev/systemvg/vo<br>2）确认调整结果  lvscan<br>3）刷新文件系统大小<br>确认逻辑卷vo上的文件系统类型：</p>
+<ol>
+<li>   [root@server0 ~]# blkid  /dev/systemvg/vo<br>选择合适的工具刷新大小：</li>
+<li>   [root@server0 ~]# resize2fs  /dev/systemvg/vo<br>确认新大小（约等于300MiB）：</li>
+<li>   [root@server0 ~]# mount  /dev/systemvg/vo  /vo/</li>
+<li>   [root@server0 ~]# df  -hT  /vo</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/01/28/linux%E9%80%BB%E8%BE%91%E5%8D%B7%E7%AE%A1%E7%90%86/" data-id="cl9bbmgiz000omwuqfr1m71pv" data-title="linux逻辑卷管理" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-linux磁盘和vim" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/01/26/linux%E7%A3%81%E7%9B%98%E5%92%8Cvim/" class="article-date">
+  <time class="dt-published" datetime="2022-01-26T12:34:41.000Z" itemprop="datePublished">2022-01-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/01/26/linux%E7%A3%81%E7%9B%98%E5%92%8Cvim/">linux磁盘和vim</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>一。磁盘<br>在linux下，需要使用一块硬盘。</p>
+<p>需要进行以下四步：</p>
+<p>识别硬盘—–分区规划—-格式化—-挂载<br>步骤一：分区规划</p>
+<p>MBR模式分区</p>
+<p>要求：a.最多有四个区。一般分为1～4个主分区或者0～3个主分区+1个扩展分区（n个逻辑分区）</p>
+<pre><code>      b.最大支持容量为2.2TB的磁盘
+
+      c.扩展分区不能格式化
+</code></pre>
+<p>1.ext2<br>linux的正统文件系统为ext2<br>blkid   这个命令可以显示出目前系统被格式化的设备。<br>dumpe2fs  查询ext系统超级区块信息的命令</p>
+<p>2.inode<br>（1）文件是存储在硬盘上的，硬盘的最小存储单位叫做扇区sector，每个扇区存储512字节。操作系统读取硬盘的时候，不会一个个扇区地读取，这样效率太低，而是一次性连续读取多个扇区，即一次性读取一个块block。这种由多个扇区组成的块，是文件存取的最小单位。块的大小，最常见的是4KB，即连续八个sector组成一个block。<br>（2）文件数据存储在块中，那么还必须找到一个地方存储文件的元信息，比如文件的创建者、文件的创建日期、文件的大小等等。这种存储文件元信息的区域就叫做inode，中文译名为索引节点，也叫i节点。因此，一个文件必须占用一个inode，但至少占用一个block。<br>（3）inode包含很多的文件元信息，但不包含文件名，例如：字节数、属主UserID、属组GroupID、读写执行权限、时间戳等。</p>
+<p>而文件名存放在目录当中，但Linux系统内部不使用文件名，而是使用inode号码识别文件。对于系统来说文件名只是inode号码便于识别的别称。<br>（4）ls  -i 可以列出文件的inode<br>（5）df -i查看硬盘分区的inode总数和已使用情况<br>3.xfs文件系统<br>（1）从centos 7开始，默认的文件系统从ext4变成了xfs<br>（2）df -T  可以查看挂载点<br>4.磁盘与目录的容量<br>（1）df 列出文件系统的整体磁盘使用量   df -h  df -aT<br>（2）du 查看文件系统的磁盘的使用量<br>5.磁盘分区<br>（1）lsblk  列出系统上所有的磁盘列表<br>       parted  列出磁盘的分区类型和分区信息<br>（2）gdisk/fdisk<br>《1》    采用默认的 msdos 分区模式<br>fdisk分区工具用来建立msdos分区方案，其交互模式中的主要指令如下：<br>•    m：列出指令帮助<br>•    p：查看当前的分区表信息<br>•    n：新建分区<br>•    d：删除分区<br>•    q：放弃分区更改并退出<br>•    w：保存对分区表所做的更改<br>《2》mkfs.ext4   格式化成ext4类型  和 mkfs.xfs  格式化成xfs类型<br>《3》配置开机自动挂载<br>vim  /etc/fstab</p>
+<p>/dev/sdb2       /mnt/part2      ext4    defaults        0 0<br>《4》创建挂载点，并验证挂载配置<br>mkdir  /mnt/part2                 //创建挂载点</p>
+<p> mount  -a                         //挂载fstab中的可用设备</p>
+<p> df  -hT  /mnt/part2/                 //检查文档所在的文件系统及设备</p>
+<p>Filesystem      Type  Size  Used Avail Use% Mounted on<br>/dev/sdb2      ext4  1.9G  5.9M  1.8G   1% /mnt/part2<br>（3）分区扩展swap<br>mkswap  /dev/sdd1  格式化成swap文件系统<br>swapon   -s  未启用之前，查看swap空间组成成员<br>swapon  /dev/sdd1  启用/dev/sdd1交换分区<br>（4）文件扩展swap空间<br>Swap空间来源于硬盘空间，这个思路不变。我们可以换种方式，来扩展Swap空间。就是可以创建一个大的文件，文件占用的是磁盘空间，再将这个文件格式化使用。这个方式是可行的，但难点在于文件怎么生成呢？我们可以用dd这条命令。<br>例如 dd if=/dev/zero of=/opt/swap.db bs=1M count=2048 ，相关说明如下：<br>•    dd：为命令字。<br>•    if：读取数据的来源是哪，而/dev/zero是一个特殊的设备它可以产生无限的数据，常用来与dd命令搭配使用。<br>•    of：将数据写入到哪里去，可以是其他设备，也可以是指定路径下的一个文件名。<br>•    bs：每次读取和写入数据的大小为1M。<br>•    count：为读取和写入的次数为2048次。<br>使用dd命令创建一个大小为2048MB的交换文件，放在/opt/swap.db<br>将swap.db文件格式化成Swap文件系统  mkswap /opt/swap.db<br>启用swap.db文件，查看Swap空间大小 swapon /opt/swap.db   swapon -s<br>停用swap.db文件，查看Swap空间大小  swapoff /opt/swap.db      swapon -s<br>二。vim<br>命令模式常用操作：<br>•    1G 或 gg ，跳转到文件的首行<br>•    G ，跳转到文件的末尾行<br>•    yy、#yy ，复制光标处的一行、#行<br>•    p、P ，粘贴到光标处之后、之前<br>•    x 或 Delete键 ，删除光标处的单个字符<br>•    dd、#dd ，删除光标处的一行、#行<br>•    d^、d$ ，从光标处之前删除至行首/行尾<br>•    /word 向后查找字符串“word”，再按n/N跳至后/前一个结果<br>•    u ，撤销最近的一次操作<br>•    U ，撤销对当前行的所有修改<br>•    Ctrl + r 取消前一次撤销操作<br>•    ZZ 保存修改并退出<br>末行模式常用操作：<br>•    :s/old/new ，替换当前行第一个“old”<br>•    :s/old/new/g ，替换当前行所有的“old”<br>•    :n,m s/old/new/g ，替换第n-m行所有的“old”<br>•    :% s/old/new/g ，替换文件内所有的“old”<br>•    :w /root/newfile ，另存为其它文件<br>•    :r /etc/filesystems ，读入其他文件内容<br>•    :set nu|nonu ，显示/不显示行号<br>•    :set ai|noai ，启用/关闭自动缩进</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/01/26/linux%E7%A3%81%E7%9B%98%E5%92%8Cvim/" data-id="cl9bbmgix000lmwuqbvmn867l" data-title="linux磁盘和vim" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">October 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">February 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">January 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/10/13/k8s%E9%83%A8%E7%BD%B2/">k8s部署</a>
+          </li>
+        
+          <li>
+            <a href="/2022/10/13/docker%E9%83%A8%E7%BD%B2/">docker部署</a>
+          </li>
+        
+          <li>
+            <a href="/2022/10/10/zabbix/">zabbix</a>
+          </li>
+        
+          <li>
+            <a href="/2022/10/08/mysql%E4%B8%BB%E4%BB%8E%E6%9C%8D%E5%8A%A1/">mysql主从服务</a>
+          </li>
+        
+          <li>
+            <a href="/2022/03/17/redis%E7%BC%93%E5%AD%98%E7%A9%BF%E9%80%8F%E4%B8%8E%E9%9B%AA%E5%B4%A9/">redis缓存穿透与雪崩</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2022 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

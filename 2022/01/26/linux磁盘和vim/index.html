@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>linux磁盘和vim | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="一。磁盘在linux下，需要使用一块硬盘。 需要进行以下四步： 识别硬盘—–分区规划—-格式化—-挂载步骤一：分区规划 MBR模式分区 要求：a.最多有四个区。一般分为1～4个主分区或者0～3个主分区+1个扩展分区（n个逻辑分区）       b.最大支持容量为2.2TB的磁盘        c.扩展分区不能格式化  1.ext2linux的正统文件系统为ext2blkid   这个命令可以显示出">
+<meta property="og:type" content="article">
+<meta property="og:title" content="linux磁盘和vim">
+<meta property="og:url" content="http://example.com/2022/01/26/linux%E7%A3%81%E7%9B%98%E5%92%8Cvim/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="一。磁盘在linux下，需要使用一块硬盘。 需要进行以下四步： 识别硬盘—–分区规划—-格式化—-挂载步骤一：分区规划 MBR模式分区 要求：a.最多有四个区。一般分为1～4个主分区或者0～3个主分区+1个扩展分区（n个逻辑分区）       b.最大支持容量为2.2TB的磁盘        c.扩展分区不能格式化  1.ext2linux的正统文件系统为ext2blkid   这个命令可以显示出">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-01-26T12:34:41.000Z">
+<meta property="article:modified_time" content="2022-01-27T12:31:50.503Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-linux磁盘和vim" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/01/26/linux%E7%A3%81%E7%9B%98%E5%92%8Cvim/" class="article-date">
+  <time class="dt-published" datetime="2022-01-26T12:34:41.000Z" itemprop="datePublished">2022-01-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      linux磁盘和vim
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>一。磁盘<br>在linux下，需要使用一块硬盘。</p>
+<p>需要进行以下四步：</p>
+<p>识别硬盘—–分区规划—-格式化—-挂载<br>步骤一：分区规划</p>
+<p>MBR模式分区</p>
+<p>要求：a.最多有四个区。一般分为1～4个主分区或者0～3个主分区+1个扩展分区（n个逻辑分区）</p>
+<pre><code>      b.最大支持容量为2.2TB的磁盘
+
+      c.扩展分区不能格式化
+</code></pre>
+<p>1.ext2<br>linux的正统文件系统为ext2<br>blkid   这个命令可以显示出目前系统被格式化的设备。<br>dumpe2fs  查询ext系统超级区块信息的命令</p>
+<p>2.inode<br>（1）文件是存储在硬盘上的，硬盘的最小存储单位叫做扇区sector，每个扇区存储512字节。操作系统读取硬盘的时候，不会一个个扇区地读取，这样效率太低，而是一次性连续读取多个扇区，即一次性读取一个块block。这种由多个扇区组成的块，是文件存取的最小单位。块的大小，最常见的是4KB，即连续八个sector组成一个block。<br>（2）文件数据存储在块中，那么还必须找到一个地方存储文件的元信息，比如文件的创建者、文件的创建日期、文件的大小等等。这种存储文件元信息的区域就叫做inode，中文译名为索引节点，也叫i节点。因此，一个文件必须占用一个inode，但至少占用一个block。<br>（3）inode包含很多的文件元信息，但不包含文件名，例如：字节数、属主UserID、属组GroupID、读写执行权限、时间戳等。</p>
+<p>而文件名存放在目录当中，但Linux系统内部不使用文件名，而是使用inode号码识别文件。对于系统来说文件名只是inode号码便于识别的别称。<br>（4）ls  -i 可以列出文件的inode<br>（5）df -i查看硬盘分区的inode总数和已使用情况<br>3.xfs文件系统<br>（1）从centos 7开始，默认的文件系统从ext4变成了xfs<br>（2）df -T  可以查看挂载点<br>4.磁盘与目录的容量<br>（1）df 列出文件系统的整体磁盘使用量   df -h  df -aT<br>（2）du 查看文件系统的磁盘的使用量<br>5.磁盘分区<br>（1）lsblk  列出系统上所有的磁盘列表<br>       parted  列出磁盘的分区类型和分区信息<br>（2）gdisk/fdisk<br>《1》    采用默认的 msdos 分区模式<br>fdisk分区工具用来建立msdos分区方案，其交互模式中的主要指令如下：<br>•    m：列出指令帮助<br>•    p：查看当前的分区表信息<br>•    n：新建分区<br>•    d：删除分区<br>•    q：放弃分区更改并退出<br>•    w：保存对分区表所做的更改<br>《2》mkfs.ext4   格式化成ext4类型  和 mkfs.xfs  格式化成xfs类型<br>《3》配置开机自动挂载<br>vim  /etc/fstab</p>
+<p>/dev/sdb2       /mnt/part2      ext4    defaults        0 0<br>《4》创建挂载点，并验证挂载配置<br>mkdir  /mnt/part2                 //创建挂载点</p>
+<p> mount  -a                         //挂载fstab中的可用设备</p>
+<p> df  -hT  /mnt/part2/                 //检查文档所在的文件系统及设备</p>
+<p>Filesystem      Type  Size  Used Avail Use% Mounted on<br>/dev/sdb2      ext4  1.9G  5.9M  1.8G   1% /mnt/part2<br>（3）分区扩展swap<br>mkswap  /dev/sdd1  格式化成swap文件系统<br>swapon   -s  未启用之前，查看swap空间组成成员<br>swapon  /dev/sdd1  启用/dev/sdd1交换分区<br>（4）文件扩展swap空间<br>Swap空间来源于硬盘空间，这个思路不变。我们可以换种方式，来扩展Swap空间。就是可以创建一个大的文件，文件占用的是磁盘空间，再将这个文件格式化使用。这个方式是可行的，但难点在于文件怎么生成呢？我们可以用dd这条命令。<br>例如 dd if=/dev/zero of=/opt/swap.db bs=1M count=2048 ，相关说明如下：<br>•    dd：为命令字。<br>•    if：读取数据的来源是哪，而/dev/zero是一个特殊的设备它可以产生无限的数据，常用来与dd命令搭配使用。<br>•    of：将数据写入到哪里去，可以是其他设备，也可以是指定路径下的一个文件名。<br>•    bs：每次读取和写入数据的大小为1M。<br>•    count：为读取和写入的次数为2048次。<br>使用dd命令创建一个大小为2048MB的交换文件，放在/opt/swap.db<br>将swap.db文件格式化成Swap文件系统  mkswap /opt/swap.db<br>启用swap.db文件，查看Swap空间大小 swapon /opt/swap.db   swapon -s<br>停用swap.db文件，查看Swap空间大小  swapoff /opt/swap.db      swapon -s<br>二。vim<br>命令模式常用操作：<br>•    1G 或 gg ，跳转到文件的首行<br>•    G ，跳转到文件的末尾行<br>•    yy、#yy ，复制光标处的一行、#行<br>•    p、P ，粘贴到光标处之后、之前<br>•    x 或 Delete键 ，删除光标处的单个字符<br>•    dd、#dd ，删除光标处的一行、#行<br>•    d^、d$ ，从光标处之前删除至行首/行尾<br>•    /word 向后查找字符串“word”，再按n/N跳至后/前一个结果<br>•    u ，撤销最近的一次操作<br>•    U ，撤销对当前行的所有修改<br>•    Ctrl + r 取消前一次撤销操作<br>•    ZZ 保存修改并退出<br>末行模式常用操作：<br>•    :s/old/new ，替换当前行第一个“old”<br>•    :s/old/new/g ，替换当前行所有的“old”<br>•    :n,m s/old/new/g ，替换第n-m行所有的“old”<br>•    :% s/old/new/g ，替换文件内所有的“old”<br>•    :w /root/newfile ，另存为其它文件<br>•    :r /etc/filesystems ，读入其他文件内容<br>•    :set nu|nonu ，显示/不显示行号<br>•    :set ai|noai ，启用/关闭自动缩进</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/01/26/linux%E7%A3%81%E7%9B%98%E5%92%8Cvim/" data-id="cl9bbmgix000lmwuqbvmn867l" data-title="linux磁盘和vim" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2022/01/28/linux%E9%80%BB%E8%BE%91%E5%8D%B7%E7%AE%A1%E7%90%86/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          linux逻辑卷管理
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/01/23/python%E7%AC%94%E8%AE%B0day02/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">python笔记day02</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">October 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">February 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">January 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/10/13/k8s%E9%83%A8%E7%BD%B2/">k8s部署</a>
+          </li>
+        
+          <li>
+            <a href="/2022/10/13/docker%E9%83%A8%E7%BD%B2/">docker部署</a>
+          </li>
+        
+          <li>
+            <a href="/2022/10/10/zabbix/">zabbix</a>
+          </li>
+        
+          <li>
+            <a href="/2022/10/08/mysql%E4%B8%BB%E4%BB%8E%E6%9C%8D%E5%8A%A1/">mysql主从服务</a>
+          </li>
+        
+          <li>
+            <a href="/2022/03/17/redis%E7%BC%93%E5%AD%98%E7%A9%BF%E9%80%8F%E4%B8%8E%E9%9B%AA%E5%B4%A9/">redis缓存穿透与雪崩</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2022 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

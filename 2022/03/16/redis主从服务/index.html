@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>redis主从服务 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="环境配置只配置从库，不配置从库info replication #查看当前库的信息 Replicationrole:master    角色：主库connected_slaves:0  没有从机复制3个配置文件（1）端口（2）pid名字（3）log文件名字（4）dump.rdb 名字修改配置文件（1）port 6379  #92行（2）pidfile &#x2F;var&#x2F;run&#x2F;redis_6379.pid">
+<meta property="og:type" content="article">
+<meta property="og:title" content="redis主从服务">
+<meta property="og:url" content="http://example.com/2022/03/16/redis%E4%B8%BB%E4%BB%8E%E6%9C%8D%E5%8A%A1/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="环境配置只配置从库，不配置从库info replication #查看当前库的信息 Replicationrole:master    角色：主库connected_slaves:0  没有从机复制3个配置文件（1）端口（2）pid名字（3）log文件名字（4）dump.rdb 名字修改配置文件（1）port 6379  #92行（2）pidfile &#x2F;var&#x2F;run&#x2F;redis_6379.pid">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-03-16T12:50:01.000Z">
+<meta property="article:modified_time" content="2022-03-17T08:55:17.347Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-redis主从服务" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/03/16/redis%E4%B8%BB%E4%BB%8E%E6%9C%8D%E5%8A%A1/" class="article-date">
+  <time class="dt-published" datetime="2022-03-16T12:50:01.000Z" itemprop="datePublished">2022-03-16</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      redis主从服务
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>环境配置<br>只配置从库，不配置从库<br>info replication #查看当前库的信息</p>
+<h1 id="Replication"><a href="#Replication" class="headerlink" title="Replication"></a>Replication</h1><p>role:master    角色：主库<br>connected_slaves:0  没有从机<br>复制3个配置文件<br>（1）端口<br>（2）pid名字<br>（3）log文件名字<br>（4）dump.rdb 名字<br>修改配置文件<br>（1）port 6379  #92行<br>（2）pidfile /var/run/redis_6379.pid  #158行<br>（3）logfile “6379.log”   #171行<br>（4）dbfilename dump6379.rdb   #253行<br>一主（79）二从（80,81）<br>认老大：SLAVEOF  127.0.0.1  6379<br>———————————————————————————<br>role:slave<br>master_host:127.0.0.1<br>master_port:6379<br>———————————————————————————<br>role:master<br>connected_slaves:2<br>slave0:ip=127.0.0.1,port=6380,state=online,offset=196,lag=0<br>slave1:ip=127.0.0.1,port=6381,state=online,offset=196,lag=0<br>———————————————————————————<br>主机可以写，从机不能写只能读。<br>测试：主机断开连接，从机依旧连接到主机，但是没有写操作，这个时候，主机如果回来了，从机依然可以直接获取主机写的信息。<br>如果是使用命令行，来配置的主从，这个时候如果重启了，就会变回主机！只要变为从机，立马就会从主机中获取值。</p>
+<p>复 制 原 理<br>Slave 启 动 成 功 连 接 到 master 后 会 发 送 一 个 sync 同 步 命 令<br>Master 接 到 命 令 , 启 动 后 台 的 存 盘 进 程 , 同 时 收 集 所 有 接 收 到 的 用 于 修 改 数 据 集 命 令 , 在 后 台 进 程 执 行 完 毕 之 后 , master 案 传 送<br>整 个 数 据 文 件 到 slave , 并 完 成 一 次 完 全 同 步 .<br>全 量 复 制 : 而 slave 服 务 在 接 收 到 数 据 库 文 件 数 据 后 , 将 其 存 盘 五 加 载 到 内 存 中 .<br>增 量 复 制 : Master 继 续 案 新 的 所 有 收 集 到 的 修 改 命 令 依 次 传 给 slave , 完 成 同 步<br>但 是 只 要 是 重 新 连 接 master , 一 次 完 全 同 步 ( 全 量 复 制 ) 将 被 自 动 执 行</p>
+<p>层层链路<br>m  —s：m —-s</p>
+<p>如果没有老大了，在从机里选一个主机。</p>
+<p>SLAVEOF  no  one</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/03/16/redis%E4%B8%BB%E4%BB%8E%E6%9C%8D%E5%8A%A1/" data-id="cl9bbmgj90011mwuqeipk53ac" data-title="redis主从服务" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2022/03/17/redis%E5%93%A8%E5%85%B5%E6%A8%A1%E5%BC%8F/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          redis哨兵模式
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/03/12/redis%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">redis基本操作</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">October 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">February 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">January 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/10/13/k8s%E9%83%A8%E7%BD%B2/">k8s部署</a>
+          </li>
+        
+          <li>
+            <a href="/2022/10/13/docker%E9%83%A8%E7%BD%B2/">docker部署</a>
+          </li>
+        
+          <li>
+            <a href="/2022/10/10/zabbix/">zabbix</a>
+          </li>
+        
+          <li>
+            <a href="/2022/10/08/mysql%E4%B8%BB%E4%BB%8E%E6%9C%8D%E5%8A%A1/">mysql主从服务</a>
+          </li>
+        
+          <li>
+            <a href="/2022/03/17/redis%E7%BC%93%E5%AD%98%E7%A9%BF%E9%80%8F%E4%B8%8E%E9%9B%AA%E5%B4%A9/">redis缓存穿透与雪崩</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2022 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

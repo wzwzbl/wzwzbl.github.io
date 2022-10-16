@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>linuxday9软件安装rpm和yum配置，内核编译和管理 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="软件安装：源代码与tarballyum  -y install  gcc  安装编译工具编译安装列如：下面使用proxy主机配置nginx： 准备工作ip add show  &#x2F;&#x2F;查看ip 安装常用工具： yum -y install bash-completion    &#x2F;&#x2F;安装支持tab键的工具包，安装完 毕之后，要退出终端重新登录才生效 yum -y install vim   &#x2F;&#x2F;安装vi">
+<meta property="og:type" content="article">
+<meta property="og:title" content="linuxday9软件安装rpm和yum配置，内核编译和管理">
+<meta property="og:url" content="http://example.com/2021/11/12/linuxday9/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="软件安装：源代码与tarballyum  -y install  gcc  安装编译工具编译安装列如：下面使用proxy主机配置nginx： 准备工作ip add show  &#x2F;&#x2F;查看ip 安装常用工具： yum -y install bash-completion    &#x2F;&#x2F;安装支持tab键的工具包，安装完 毕之后，要退出终端重新登录才生效 yum -y install vim   &#x2F;&#x2F;安装vi">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-11-12T13:45:38.000Z">
+<meta property="article:modified_time" content="2021-11-13T12:12:30.629Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-linuxday9" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/11/12/linuxday9/" class="article-date">
+  <time class="dt-published" datetime="2021-11-12T13:45:38.000Z" itemprop="datePublished">2021-11-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      linuxday9软件安装rpm和yum配置，内核编译和管理
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>软件安装：源代码与tarball<br>yum  -y install  gcc  安装编译工具<br>编译安装<br>列如：<br>下面使用proxy主机配置nginx：</p>
+<p>准备工作<br>ip add show  //查看ip</p>
+<p>安装常用工具：</p>
+<p>yum -y install bash-completion    //安装支持tab键的工具包，安装完</p>
+<p>毕之后，要退出终端重新登录才生效</p>
+<p>yum -y install vim   //安装vim编辑器</p>
+<p>yum provides ifconfig   //检查ifconfig命令来自于哪个软件包</p>
+<p>yum -y install net-tools   //安装网络相关工具，比如ifconfig查询ip地址</p>
+<p>yum -y install psmisc  //安装支持killall命令软件包</p>
+<p>nmcli connection modify eth0 connection.autoconnect yes   //eth0网卡开机</p>
+<p>自启</p>
+<p>2，Nginx环境搭建：</p>
+<p>找到lnmp_soft.tar.gz，拷贝到虚拟机的root家目录，并释放到原地<br>tar -xf  lnmp_soft.tar.gz</p>
+<p>2，释放lnmp_soft目录中的nginx-1.17.6.tar.gz</p>
+<p>         cd  lnmp_soft</p>
+<p>        tar -xf nginx-1.17.6.tar.gz</p>
+<p>yum -y install gcc   //安装编译工具</p>
+<p>yum -y install pcre-devel   //可以让nginx支持正则</p>
+<p>yum -y install openssl-devel   //支持搭建基于ssl(安全加密)技术的网站</p>
+<p>3，编译安装</p>
+<p>cd  nginx-1.17.6   //进入nginx目录</p>
+<p>./configure –with-http_ssl_module  //配置，添加安全模块</p>
+<p>./configure –help | grep http_ssl  //配置时，使用help与grep</p>
+<p>查询过滤模块部分名，即可找到模块完整名</p>
+<hr>
+<p>非必须操作</p>
+<p>./configure  –prefix=/usr/local/nginx   //指定安装路径</p>
+<p>  –user=nginx   //指定用户</p>
+<p>                –group=nginx   //指定组</p>
+<hr>
+<p>make  //编译</p>
+<p>make install   //安装</p>
+<p>ls /usr/local/nginx   //查看nginx安装目录</p>
+<p>主要目录功能：</p>
+<p>conf  //存放配置文件</p>
+<p>html  //存放网站页面</p>
+<p>logs  //存放日志</p>
+<p>sbin  //主程序目录<br>二。软件安装rpm，srpm与yum<br>1 案例1：查询已安装的软件信息<br>1.1 问题</p>
+<ol>
+<li>   列出当前主机已安装的所有RPM软件</li>
+<li>   查看firefox软件包的安装清单</li>
+<li>   查询ifconfig命令程序是安装哪个软件包后产生的</li>
+<li>   查看firefox软件包的用途</li>
+<li>2 方案<br>查询所有已安装的rpm包，可以利用命令rpm -qa。<br>查询一个软件安装清单，可以利用命令rpm -ql 软件名。<br>查询一个文件是由哪个软件包安装后产生，可以利用命令rpm -qf 文件绝对路径。本题中首先要找到，ifconfig命令的可执行程序在哪里，可以利用which命令。<br>查看软件的用途，可以利用命令rpm -qi 软件名。</li>
+<li>3 步骤<br>实现此案例需要按照如下步骤进行。<br>步骤一：列出当前主机已安装的所有RPM软件<br>命令操作如下所示：</li>
+<li>   [root@localhost ~]# rpm -qa<br>步骤二：查看firefox软件包的安装清单<br>命令操作如下所示：</li>
+<li>   [root@localhost ~]# rpm -ql firefox<br>步骤三：查询ifconfig命令程序是安装哪个软件包后产生的<br>命令操作如下所示：</li>
+<li>   [root@localhost ~]# which ifconfig    #查询命令所对应的程序</li>
+<li>   /sbin/ifconfig</li>
+<li>   [root@localhost ~]# rpm -qf /sbin/ifconfig</li>
+<li>   net-tools-1.60-110.el6_2.x86_64</li>
+<li>   [root@localhost ~]#<br>步骤四：查看firefox软件包的用途<br>命令操作如下所示：</li>
+<li>   [root@localhost ~]# rpm -qi firefox</li>
+<li>   Name        : firefox                      Relocations: (not relocatable)</li>
+<li>   Version     : 17.0.10                           Vendor: Red Hat, Inc.</li>
+<li>   Release     : 1.el6_4                       Build Date: 2013年10月23日 星期三 21时14分43秒</li>
+<li>   Install Date: 2015年01月06日 星期二 20时59分04秒      Build Host: x86-027.build.eng.bos.redhat.com</li>
+<li>   Group       : Applications/Internet         Source RPM: firefox-17.0.10-1.el6_4.src.rpm</li>
+<li>   Size        : 30424459                         License: MPLv1.1 or GPLv2+ or LGPLv2+</li>
+<li>   Signature   : RSA/8, 2013年10月29日 星期二 16时20分45秒, Key ID 199e2f91fd431d51</li>
+<li>   Packager    : Red Hat, Inc. <a target="_blank" rel="noopener" href="http://bugzilla.redhat.com/bugzilla">http://bugzilla.redhat.com/bugzilla</a></li>
+<li>   URL         : <a target="_blank" rel="noopener" href="http://www.mozilla.org/projects/firefox/">http://www.mozilla.org/projects/firefox/</a></li>
+<li>   Summary     : Mozilla Firefox Web browser</li>
+<li>   Description :</li>
+<li>   Mozilla Firefox is an open-source web browser, designed for standards</li>
+<li>   compliance, performance and portability.</li>
+<li>   [root@localhost ~]#<br>2 案例2：查询待安装的.rpm包</li>
+<li>1 问题</li>
+<li>   查询光盘中的 lynx 软件包的用途、安装清单</li>
+<li>   查询光盘中的 wireshark 软件包的用途、安装清单</li>
+<li>2 方案<br>注意在查询未安装的.rpm包信息时，提供的命令参数应该是准确的包文件路径，仅指定软件名是不行的。指定文件路径时，多利用Tab键补全。提前将RHEL6系统光盘挂载到/media目录，以便使用相关包文件。</li>
+<li>3 步骤<br>实现此案例需要按照如下步骤进行。<br>步骤一：查询光盘中的 lynx 软件包的用途、安装清单<br>首先将光盘设备手动挂载到/media目录，进行查询操作。<br>命令操作如下所示：</li>
+<li>   [root@localhost ~]# mount /dev/cdrom /media/</li>
+<li>   mount: block device /dev/sr0 is write-protected, mounting read-only</li>
+<li></li>
+<li>   [root@localhost ~]# mount | tail -1</li>
+<li>   /dev/sr0 on /media type iso9660 (ro)</li>
+<li>   [root@localhost ~]# rpm -qpi /media/Packages/lynx-2.8.8-0.3.dev15.el7.x86_64.rpm </li>
+<li>   ……</li>
+<li>   [root@localhost ~]# rpm -qpl /media/Packages/lynx-2.8.8-0.3.dev15.el7.x86_64.rpm</li>
+<li>   ……<br>步骤二：查询光盘中的 wireshark 软件包的用途、安装清单<br>命令操作如下所示：</li>
+<li>   [root@localhost ~]# rpm -qpi /media/Packages/wireshark-1.10.14-14.el7.x86_64.rpm</li>
+<li>   ……</li>
+<li></li>
+<li>   [root@localhost ~]# rpm -qpl /media/Packages/wireshark-1.10.14-14.el7.x86_64.rpm</li>
+<li>   ……<br>3 案例3：RPM软件的安装和卸载</li>
+<li>1 问题</li>
+<li>   找出vim、vi是由哪两个包产生的</li>
+<li>   删除vim、vi命令程序</li>
+<li>   修复vim、vi</li>
+<li>   安装bind-chroot包,体验Linux依赖关系</li>
+<li>2 方案<br>本题的思路是，首相通过which命令查找到vim、vi命令可执行程序所在位置，在通过“rpm –qf 文件绝对路径”命令查看该可执行程序，是由那个包产生的。删除该可执行程序后，再将软件包安装重新产生即可。但在安装时需注意，系统会提示改程序已经安装，需加上“—force”选项强制安装。</li>
+<li>3 步骤<br>实现此案例需要按照如下步骤进行。<br>步骤一：找出vim、vi是由那两个包产生的<br>命令操作如下所示：</li>
+<li>   [root@localhost ~]# which vi  vim</li>
+<li>   /usr/bin/vi</li>
+<li>   /usr/bin/vim </li>
+<li>   [root@localhost ~]# rpm -qf /usr/bin/vi</li>
+<li>   vim-minimal-7.4.160-4.el7.x86_64 </li>
+<li>   [root@localhost ~]# rpm -qf /usr/bin/vim</li>
+<li>   vim-enhanced-7.4.160-4.el7.x86_64<br>步骤二：删除vim、vi命令程序<br>命令操作如下所示：</li>
+<li>   [root@localhost ~]# rm -rf /usr/bin/vi /usr/bin/vim</li>
+<li>   [root@localhost ~]#<br>步骤三：修复vim、vi<br>首先将光盘设备手动挂载到/media目录，进行修复操作。<br>命令操作如下所示：</li>
+<li>   [root@localhost ~]# mount /dev/cdrom /media/</li>
+<li>   mount: block device /dev/sr0 is write-protected, mounting read-only</li>
+<li>   [root@localhost ~]# rpm -ivh –force /media/Packages/vim-minimal-7.4.160-4.el7.x86_64……</li>
+<li></li>
+<li><pre><code>[root@localhost ~]# rpm -ivh --force /media/Packages/vim-enhanced-7.4.160-4.el7.x86_64
+</code></pre>
+</li>
+<li>   ……</li>
+<li><pre><code>[root@localhost ~]#
+</code></pre>
+步骤四：安装bind-chroot包,体验Linux依赖关系<br>命令操作如下所示：</li>
+<li>   [root@localhost ~]# cd  /media/Packages</li>
+<li>   [root@svr5 Packages]# rpm  -ivh  bind-chroot-9.9.4-61.el7.x86_64.rpm </li>
+<li>   error: Failed dependencies:</li>
+<li>   ……</li>
+<li></li>
+<li><pre><code>[root@svr5 Packages]# rpm  -ivh  bind-9.9.4-61.el7.x86_64.rpm 
+</code></pre>
+</li>
+<li>   Preparing…                ########################################### [100%]</li>
+<li><pre><code>  1:bind                   ########################################### [100%]
+</code></pre>
+</li>
+<li>   [root@svr5 Packages]# rpm  -ivh  bind-chroot-9.9.4-61.el7.x86_64.rpm </li>
+<li>   Preparing…                ########################################### [100%]</li>
+<li><pre><code>  1:bind-chroot            ########################################### [100%]
+</code></pre>
+4 案例4：配置Yum仓库及客户端及验证</li>
+<li>1 问题</li>
+<li>   将光盘挂载到/dvd，搭建本地Yum</li>
+<li>   将本机设置为客户端，进行Yum验证</li>
+<li>   查询Yum库中是否有firefox包</li>
+<li>   使用yum命令安装bind包</li>
+<li>   利用Yum安装bind</li>
+<li>   利用Yum卸载bind</li>
+<li>   利用yum search查询与httpd相关的包</li>
+<li>   利用yum info查询firefox包描述信息</li>
+<li>2 方案<br>YUM服务器配置思路：<br>第一步：确保光驱电源加电，放入Linux光盘的iso镜像<br>第二步：ls -l /dev/cdrom 查看linux系统是否识别光驱设备<br>第三步：创建挂载目录:mkdir /dvd （或也可以使用linux系统提供的挂载目录/media、/mnt）<br>第四步：利用mount命令挂载:mount /dev/cdrom /dvd<br>第五步：查看挂载情况：mount | grep dvd<br>YUM客户端配置思路：<br>第一步：切换路径到客户端配置文件路径下：cd /etc/yum.repos.d/<br>第二步：排除其他文件的干扰<br>[root@localhost ~]# mkdir /etc/yum.repos.d/repo<br>[root@localhost ~]# mv /etc/yum.repos.d/*.repo /etc/yum.repos.d/repo<br>第三步：更改配置文件dvd.repo。<br>必须更改的字段：<br>•    【】”内容要唯一所以要更改，注意不要有空格<br>•    “baseurl”此字段指定软件包目录，注意路径写对。file：后要有三个“/”<br>•    “enabled”此字段要至于“1”，代表启用<br>Yum在使用方面，几乎rpm能够做到的事情，Yum也能够做到。此外Yum还具备自动解决依赖关系的功能。<br>常用的Yum操作：<br>•    yum install 软件名：安装一个软件包<br>•    yum remove 软件名：卸载一个软件包</li>
+<li>3 步骤<br>实现此案例需要按照如下步骤进行。<br>步骤一：搭建一个本地Yum，将光盘手动挂载到/dvd<br>命令操作如下所示：</li>
+<li>   [root@localhost ~]# mkdir /dvd</li>
+<li>   [root@localhost ~]# ls /dvd</li>
+<li>   [root@localhost ~]# mount /dev/cdrom /dvd/</li>
+<li>   mount: /dev/sr0 写保护，将以只读方式挂载</li>
+<li>   [root@localhost ~]# ls /dvd/</li>
+<li>   [root@localhost ~]# ls /dvd/Packages/<br>步骤二：将本地设置为客户端，进行Yum验证<br>Yum客户端需编辑配置文件，命令操作如下所示：</li>
+<li>   [root@localhost ~]# ls /etc/yum.repos.d/</li>
+<li>   [root@localhost ~]# mkdir /etc/yum.repos.d/repo</li>
+<li>   [root@localhost ~]# mv /etc/yum.repos.d/*.repo  /etc/yum.repos.d/repo </li>
+<li>   [root@localhost ~]# ls /etc/yum.repos.d/</li>
+<li>   [root@localhost ~]# vim /etc/yum.repos.d/dvd.repo</li>
+<li>   [centos] #仓库标识,可以任意</li>
+<li>   name=hehe lele CentOS7         #仓库的描述信息，可以任意</li>
+<li>   baseurl=file:///dvd             #指定服务端位置，file://代表本地为服务端</li>
+<li>   enabled=1                     #是否启用本文件</li>
+<li>   gpgcheck=0                     #是否检测红帽签名信息</li>
+<li>   [root@localhost ~]# yum repolist         #列出仓库信息<br>步骤三：查询yum库中是否有firefox包<br>命令操作如下所示：</li>
+<li>   [root@localhost /]# yum list | grep firefox<br>步骤四：利用yum安装bind包<br>命令操作如下所示：</li>
+<li>   [root@localhost /]# yum -y install bind</li>
+<li>   ……<br>步骤二：利用Yum卸载bind<br>命令操作如下所示：</li>
+<li>   [root@localhost /]# yum -y remove bind</li>
+<li>   ……<br>步骤四：利用yum search查询与httpd相关的包<br>命令操作如下所示：</li>
+<li>   [root@localhost /]# yum search httpd</li>
+<li>   ……<br>步骤四：利用yum info查询firefox包描述信息<br>命令操作如下所示：</li>
+<li>   root@localhost /]# yum info firefox</li>
+<li>   ……<br>三。linux内核编译与管理</li>
+<li>内核<br>kernel<br>内核是系统上面的一个文件，这个文件包括了驱动主机各项硬件的检测程序与驱动模块<br>这个内核文件被命名为/boot/Vmlinux-xxx<br>内核模块放在/lib/modules/$(uname -r) 内核版本/kernel<br>更新内核的目的<br>（1）.新功能的需求<br>（2）.原本内核太过臃肿<br>（3）.与硬件搭配的稳定性<br>（4）.其他需求</li>
+<li>内核源代码的解压缩，安装，查看<br><a target="_blank" rel="noopener" href="https://www.linux-mips.org/pub/linux/mips/kernel/v3.x/linux-3.10.89.tar.xz">https://www.linux-mips.org/pub/linux/mips/kernel/v3.x/linux-3.10.89.tar.xz</a><br>tar Jxvf  linux-3.10.89.tar.xz  -C /usr/src/kernelsrf</li>
+<li>保持干净源代码：make  mrproper </li>
+<li>开始选择内核功能<br>cp  /boot/config-3.10.0-862.el7.x86_64   .config</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/11/12/linuxday9/" data-id="cl9bbmgiw000jmwuq34tm52x6" data-title="linuxday9软件安装rpm和yum配置，内核编译和管理" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2021/11/13/linuxday10/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          linuxday10Linux的补充知识
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2021/11/11/linuxday8/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">linuxday8防火墙以及firewalld</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">October 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">February 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">January 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/10/13/k8s%E9%83%A8%E7%BD%B2/">k8s部署</a>
+          </li>
+        
+          <li>
+            <a href="/2022/10/13/docker%E9%83%A8%E7%BD%B2/">docker部署</a>
+          </li>
+        
+          <li>
+            <a href="/2022/10/10/zabbix/">zabbix</a>
+          </li>
+        
+          <li>
+            <a href="/2022/10/08/mysql%E4%B8%BB%E4%BB%8E%E6%9C%8D%E5%8A%A1/">mysql主从服务</a>
+          </li>
+        
+          <li>
+            <a href="/2022/03/17/redis%E7%BC%93%E5%AD%98%E7%A9%BF%E9%80%8F%E4%B8%8E%E9%9B%AA%E5%B4%A9/">redis缓存穿透与雪崩</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2022 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

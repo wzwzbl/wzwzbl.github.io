@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>python爬虫实例day04 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="一。第7个爬虫，爬取抖音视频import requestsimport re url &#x3D; ‘https:&#x2F;&#x2F;www.douyin.com&#x2F;video&#x2F;7059655603584617743&#39; headers &#x3D; {    ‘cookie’: ‘  在网页上查找   ‘,    ‘User-Agent’: ‘Mozilla&#x2F;5.0 (Windows NT 10.0; WOW64) Apple">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python爬虫实例day04">
+<meta property="og:url" content="http://example.com/2022/02/08/python%E7%88%AC%E8%99%AB%E5%AE%9E%E4%BE%8Bday04/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="一。第7个爬虫，爬取抖音视频import requestsimport re url &#x3D; ‘https:&#x2F;&#x2F;www.douyin.com&#x2F;video&#x2F;7059655603584617743&#39; headers &#x3D; {    ‘cookie’: ‘  在网页上查找   ‘,    ‘User-Agent’: ‘Mozilla&#x2F;5.0 (Windows NT 10.0; WOW64) Apple">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-02-08T10:20:30.000Z">
+<meta property="article:modified_time" content="2022-02-09T11:11:42.002Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-python爬虫实例day04" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/02/08/python%E7%88%AC%E8%99%AB%E5%AE%9E%E4%BE%8Bday04/" class="article-date">
+  <time class="dt-published" datetime="2022-02-08T10:20:30.000Z" itemprop="datePublished">2022-02-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      python爬虫实例day04
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>一。第7个爬虫，爬取抖音视频<br>import requests<br>import re</p>
+<p>url = ‘<a target="_blank" rel="noopener" href="https://www.douyin.com/video/7059655603584617743&#39;">https://www.douyin.com/video/7059655603584617743&#39;</a></p>
+<p>headers = {<br>    ‘cookie’: ‘  在网页上查找   ‘,<br>    ‘User-Agent’: ‘Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36’<br>}</p>
+<p>response = requests.get(url=url, headers=headers)</p>
+<p>title = re.findall(‘<title data-react-helmet="true">(.<em>?)</title>‘, response.text)[0]    找出标题<br>href = re.findall(‘src(.</em>?)vr%3D%2’, response.text)[1]      找出视频的连接是相当于加密的url<br>video_url = requests.utils.unquote(href).replace(‘“:”‘, ‘https:’)     生成新的播放链接url<br>video_content = requests.get(url=video_url, headers=headers).content<br>with open (‘asd\‘+title + ‘.mp4’, mode=’wb’) as f:<br>    f.write(video_content)<br>二。爬取批量抖音视频，第8个爬虫<br>from selenium import webdriver #导入库<br> 固定格式（1）滑动页面，只有滑动所有的页面，才能获得所有的网址。<br>def drop_down():<br>    for x in range(1,100,4):<br>        time.sleep(1)<br>        j = x / 9<br>        js = ‘document.documentElement.scrollTop = document.documentElement.scrollHeight * %f’ % j<br>        driver.execute_script(js)<br>固定格式（2）用正则表达式把标题里不符合格式的化成”<em>“<br>def chang_title(title):<br>    pattorn = re.compile(r”[/\:*?&quot;&lt;&gt;|]”)<br>    new_tiltle = re.sub(pattorn, “</em>“, title)<br>    return new_tiltle<br> new_title = chang_title(title)  #定义标头</p>
+<p>#Selenium库是一个用电脑模拟人操作浏览器网页，可以实现自动化，测试等！<br>driver = webdriver.Chrome() #爬取的是Google浏览器<br>driver.get(‘要爬取的视频网页’)<br>time.sleep(3)#是间隔3秒。需要手动的滑动验证码<br>#需要下载google对应版本的chromedriver.exe<br>#chromedriver.exe的下载网站是 <a target="_blank" rel="noopener" href="https://chromedriver.chromium.org/downloads">https://chromedriver.chromium.org/downloads</a></p>
+<p>list = driver.find_elements_by_css_selector(‘  div.knrjsN15 &gt; div:nth-child(2)&gt;ul li’)  # (找出每个视频的网址’selector’)<br>for li in list:<br>    li_url = li.find_element_by_css_selector(‘a’).get_attribute(‘href’)    #（遍历list，存入到li_url里 element是一个。elements是多个）  </p>
+<pre><code>headers = &#123;
+    &#39;cookie&#39;: “ 在网页里找  ”
+    &#39;User-Agent&#39;: &#39;Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36&#39;
+&#125;  （请求头cookie和User-Agent ，做伪装。伪装成浏览器）
+
+response = requests.get(url=li_url, headers=headers)  （请求网址li_url）
+
+title = re.findall(&#39;&lt;title data-react-helmet=&quot;true&quot;&gt;(.*?)&lt;/title&gt;&#39;, response.text)[0]
+href = re.findall(&#39;src(.*?)vr%3D%2&#39;, response.text)[1]
+video_url = requests.utils.unquote(href).replace(&#39;&quot;:&quot;&#39;, &#39;https:&#39;)
+video_content = requests.get(url=video_url, headers=headers).content
+new_title = chang_title(title)
+with open(&#39;asd\\&#39; + new_title + &#39;.mp4&#39;, mode=&#39;wb&#39;) as f:
+    f.write(video_content)
+    print(&quot;在下载&quot;,title)
+</code></pre>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/02/08/python%E7%88%AC%E8%99%AB%E5%AE%9E%E4%BE%8Bday04/" data-id="cl9bbmgj4000wmwuq5ww01wv5" data-title="python爬虫实例day04" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2022/02/08/python%E7%88%AC%E8%99%AB%E7%94%A8%E5%88%B0%E7%9A%84%E5%BA%93/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          python爬虫day05
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/02/07/python%E7%88%AC%E8%99%AB%E5%AE%9E%E4%BE%8Bday03/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">pyhon爬虫实例day03</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">October 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">February 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">January 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/10/13/k8s%E9%83%A8%E7%BD%B2/">k8s部署</a>
+          </li>
+        
+          <li>
+            <a href="/2022/10/13/docker%E9%83%A8%E7%BD%B2/">docker部署</a>
+          </li>
+        
+          <li>
+            <a href="/2022/10/10/zabbix/">zabbix</a>
+          </li>
+        
+          <li>
+            <a href="/2022/10/08/mysql%E4%B8%BB%E4%BB%8E%E6%9C%8D%E5%8A%A1/">mysql主从服务</a>
+          </li>
+        
+          <li>
+            <a href="/2022/03/17/redis%E7%BC%93%E5%AD%98%E7%A9%BF%E9%80%8F%E4%B8%8E%E9%9B%AA%E5%B4%A9/">redis缓存穿透与雪崩</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2022 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

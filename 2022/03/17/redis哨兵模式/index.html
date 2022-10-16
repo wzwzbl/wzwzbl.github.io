@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>redis哨兵模式 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="哨兵模式可以监控主机是否故障，如果故障了根据投票将从库转换成主库。（sentinel）哨兵是一个独立的进程，其原理是哨兵通过发送命令，等待redis服务器响应，从而监控运行多个redis实例。 多哨兵模式，哨兵互相监控。写哨兵配置文件： vim kconfig&#x2F;redis_sentinel.conf 重新写一个                             被监控主机名称      ho">
+<meta property="og:type" content="article">
+<meta property="og:title" content="redis哨兵模式">
+<meta property="og:url" content="http://example.com/2022/03/17/redis%E5%93%A8%E5%85%B5%E6%A8%A1%E5%BC%8F/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="哨兵模式可以监控主机是否故障，如果故障了根据投票将从库转换成主库。（sentinel）哨兵是一个独立的进程，其原理是哨兵通过发送命令，等待redis服务器响应，从而监控运行多个redis实例。 多哨兵模式，哨兵互相监控。写哨兵配置文件： vim kconfig&#x2F;redis_sentinel.conf 重新写一个                             被监控主机名称      ho">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-03-17T08:56:02.000Z">
+<meta property="article:modified_time" content="2022-10-09T12:47:59.991Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-redis哨兵模式" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/03/17/redis%E5%93%A8%E5%85%B5%E6%A8%A1%E5%BC%8F/" class="article-date">
+  <time class="dt-published" datetime="2022-03-17T08:56:02.000Z" itemprop="datePublished">2022-03-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      redis哨兵模式
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>哨兵模式可以监控主机是否故障，如果故障了根据投票将从库转换成主库。（sentinel）<br>哨兵是一个独立的进程，其原理是哨兵通过发送命令，等待redis服务器响应，从而监控运行多个redis实例。</p>
+<p>多哨兵模式，哨兵互相监控。<br>写哨兵配置文件：<br> vim kconfig/redis_sentinel.conf 重新写一个<br>                             被监控主机名称      host            port       1<br>sentinel monitor    myredis             127.0.0.1      6379     1<br>启动服务<br>redis-sentinel   kconfig/sentinel.conf<br>如果主机节点断了，这个时候就会随机选一个从机当主机</p>
+<p>可以查看哨兵日志<br>如果主机回来了，只能当从机</p>
+<p>哨 兵 模 式</p>
+<p>优 点 :</p>
+<p>1、 哨 兵 集 群 , 基 于 主 从 复 制 模 式 , 所 有 的 主 从 配 置 优 点 , 它 全 有</p>
+<p>2、 主 从 可 以 切 换 , 故 障 可 以 转 移 , 系 统 的 可 用 性 就 会 更 好</p>
+<p>3、 哨 兵 模 式 就 是 主 从 模 式 的 升 级 , 手 动 到 自 动 , 更 加 健 壮 !</p>
+<p>缺点 2</p>
+<p>1、Redis 不 好 啊 在 线 扩 容 的 , 集 群 容 量 一 旦 到 达 上 限 , 在 线 扩 容 就 十 分 麻 烦 !<br>2、 实 现 哨 兵 模 式 的 配 置 其 实 是 很 麻 烦 的 , 里 面 有 很 多 选 择 !</p>
+<p>哨兵模式的配置：<br>port  26379<br>哨兵模式sentinel实例运行的端口 默认是26379<br>哨兵模式的工作目录：<br>dir /tmp<br>主要配置（最主要）<br>sentinel monitor  myredis             127.0.0.1      6379     1</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/03/17/redis%E5%93%A8%E5%85%B5%E6%A8%A1%E5%BC%8F/" data-id="cl9bbmgj90012mwuq05nbbv9g" data-title="redis哨兵模式" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2022/03/17/redis%E7%BC%93%E5%AD%98%E7%A9%BF%E9%80%8F%E4%B8%8E%E9%9B%AA%E5%B4%A9/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          redis缓存穿透与雪崩
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/03/16/redis%E4%B8%BB%E4%BB%8E%E6%9C%8D%E5%8A%A1/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">redis主从服务</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">October 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">February 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">January 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/10/13/k8s%E9%83%A8%E7%BD%B2/">k8s部署</a>
+          </li>
+        
+          <li>
+            <a href="/2022/10/13/docker%E9%83%A8%E7%BD%B2/">docker部署</a>
+          </li>
+        
+          <li>
+            <a href="/2022/10/10/zabbix/">zabbix</a>
+          </li>
+        
+          <li>
+            <a href="/2022/10/08/mysql%E4%B8%BB%E4%BB%8E%E6%9C%8D%E5%8A%A1/">mysql主从服务</a>
+          </li>
+        
+          <li>
+            <a href="/2022/03/17/redis%E7%BC%93%E5%AD%98%E7%A9%BF%E9%80%8F%E4%B8%8E%E9%9B%AA%E5%B4%A9/">redis缓存穿透与雪崩</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2022 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
