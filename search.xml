@@ -2554,8 +2554,12 @@ echo $i;
 <p>命令：yum install docker-ce docker-ce-cli <a href="https://link.zhihu.com/?target=http://containerd.io">http://containerd.io</a></p>
 <p>3.<strong>启动Docker。</strong></p>
 <p>命令：systemctl enable docker 设置开机自启</p>
+<blockquote>
 <p>systemctl start docker   启动</p>
+</blockquote>
+<blockquote>
 <p>systemctl restart docker  重启</p>
+</blockquote>
 <p><strong>4.验证Docker Engine-Community是否正确安装。</strong></p>
 <p>命令：docker version 列出docker版本</p>
 <p>docker run hello-world</p>
