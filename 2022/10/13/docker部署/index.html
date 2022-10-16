@@ -14,7 +14,7 @@
 <meta property="og:description" content="一。安装（yum安装） 1.安装gcc依赖。命令：yum -y install gcc gcc-c++ 2.，使用Docker仓库进行安装。 （1）设置仓库，安装所需的软件包。 命令：yum install -y yum-utils device-mapper-persistent-data lvm2 （2）设置稳定的仓库 如阿里云  yum-config-manager –add-repo ht">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-10-13T13:25:57.000Z">
-<meta property="article:modified_time" content="2022-10-16T11:39:41.084Z">
+<meta property="article:modified_time" content="2022-10-16T12:52:40.270Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -106,12 +106,8 @@
 <p>命令：yum install docker-ce docker-ce-cli <a href="https://link.zhihu.com/?target=http://containerd.io">http://containerd.io</a></p>
 <p>3.<strong>启动Docker。</strong></p>
 <p>命令：systemctl enable docker 设置开机自启</p>
-<blockquote>
 <p>systemctl start docker   启动</p>
-</blockquote>
-<blockquote>
 <p>systemctl restart docker  重启</p>
-</blockquote>
 <p><strong>4.验证Docker Engine-Community是否正确安装。</strong></p>
 <p>命令：docker version 列出docker版本</p>
 <p>docker run hello-world</p>

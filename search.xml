@@ -14,12 +14,8 @@
 <p>命令：yum install docker-ce docker-ce-cli <a href="https://link.zhihu.com/?target=http://containerd.io">http://containerd.io</a></p>
 <p>3.<strong>启动Docker。</strong></p>
 <p>命令：systemctl enable docker 设置开机自启</p>
-<blockquote>
 <p>systemctl start docker   启动</p>
-</blockquote>
-<blockquote>
 <p>systemctl restart docker  重启</p>
-</blockquote>
 <p><strong>4.验证Docker Engine-Community是否正确安装。</strong></p>
 <p>命令：docker version 列出docker版本</p>
 <p>docker run hello-world</p>
@@ -1549,11 +1545,9 @@ with open(&#39;asd\\&#39; + new_title + &#39;.mp4&#39;, mode=&#39;wb&#39;) as f:
   <entry>
     <title>python笔记day02</title>
     <url>/2022/01/23/python%E7%AC%94%E8%AE%B0day02/</url>
-    <content><![CDATA[<p>Python变量<br>变量名约定：</p>
+    <content><![CDATA[<p><strong>Python变量</strong><br> 变量名约定：<br>（1）. 第一个字符只能是大小写字母或者下划线<br>（2）. 后续字符只能是大小写字母或者数字或者下划线<br>（3）. 区分大小写</p>
+<p>Python是动态类型语言，既不需要预先声明变量的类型<br><strong>变量的定义：</strong><br>一、推荐采用的全名方法</p>
 <ol>
-<li>第一个字符只能是大小写字母或者下划线</li>
-<li>后续字符只能是大小写字母或者数字或者下划线</li>
-<li>区分大小写<br>Python是动态类型语言，既不需要预先声明变量的类型<br>变量的定义：<br>一、推荐采用的全名方法</li>
 <li>变量名全部采用的小写的字母</li>
 <li>简短、有意义</li>
 <li>多个单词间用下划线分隔</li>
