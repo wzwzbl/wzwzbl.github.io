@@ -71,6 +71,103 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-面试总结1" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/10/17/%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%931/" class="article-date">
+  <time class="dt-published" datetime="2022-10-17T12:32:33.000Z" itemprop="datePublished">2022-10-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/10/17/%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%931/">面试总结1</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>（1）mysql优化</p>
+<ol>
+<li>减少数据访问： 设置合理的字段类型，启用压缩，通过索引访问等减少磁盘IO</li>
+<li>返回更少的数据： 只返回需要的字段和数据分页处理 减少磁盘io及网络io</li>
+<li>减少交互次数： 批量DML操作，函数存储等减少数据连接次数</li>
+<li>减少服务器CPU开销： 尽量减少数据库排序操作以及全表查询，减少cpu 内存占用</li>
+<li>利用更多资源： 使用表分区，可以增加并行操作，更大限度利用cpu资源</li>
+</ol>
+<p>总结到SQL优化中，就三点:</p>
+<ul>
+<li>最大化利用索引；</li>
+<li>尽可能避免全表扫描；（避免不走索引的场景  ）</li>
+<li>减少无效数据的查询；</li>
+</ul>
+<p>具体操作：</p>
+<p>1.用explain查看sql执行计划</p>
+<p>2.sql语句中in包含的值不应该过多。</p>
+<p>3.select语句务必指明字段名称</p>
+<p>4.当只需要一条数据的时候，使用limit 1</p>
+<p>5.如果排序字段没有用到索引时，就尽量少排序</p>
+<p>6.避免在where子句中对字段进行null值判断</p>
+<p>7.不建议使用%前缀模糊查询</p>
+<p>（2）zabbix</p>
+<p>1.Zabbix 可以使用多种方式监视。可以只使用 Simple Check 不需要安装 Client 端，亦可基于 SMTP 或 HTTP … 各种协定做死活监视。</p>
+<p>2.在客户端如 UNIX, Windows 中安装 Zabbix Agent 之后，可监视 CPU Load、网络使用状况、硬盘容量等各种状态。而就算没有安装 Agent 在监视对象中，Zabbix 也可以经由 SNMP、TCP、ICMP、利用 IPMI、SSH、telnet 对目标进行监视。</p>
+<p>3.zabbix 主要由2部分构成 zabbix server和 zabbix agent</p>
+<p>zabbix proxy是用来管理其他的agent，作为代理</p>
+<p>4.zabbix监控范畴</p>
+<p>** ·**硬件监控 ：Zabbix IPMI Interface</p>
+<p> ** ·**系统监控 ：Zabbix Agent Interface</p>
+<p>** ·**Java 监控：ZabbixJMX Interface</p>
+<p>** ·** 网络设备监抟：Zabbix SNMP Interface</p>
+<p>** ·** 应用服务监控：Zabbix Agent UserParameter</p>
+<p>** ·**  MySQL 数据库监控：percona-monitoring-pldlgins</p>
+<p>** ·**URL监控：Zabbix Web监控</p>
+<p>5.安装</p>
+<p>5.1环境检查</p>
+<p>5.2安装nginx ，maeiadb数据库和php</p>
+<p>5.3 创建数据库zabbix并授权</p>
+<p>5.4安装zabbix</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#安装zabbix </span><br><span class="line"> yum install -y zabbix-server-mysql zabbix-web-mysql</span><br><span class="line"> zabbix_server      #启动服务</span><br><span class="line"> echo zabbix_server &gt;&gt; /etc/rc.local        #设置开机自启</span><br><span class="line"> zabbix_agentd    #启动监控agent</span><br><span class="line"> echo zabbix_agentd  &gt;&gt; /etc/rc.local    #设置开机自启</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>把zabbix文件上传到nginx</p>
+<p>cd  lnmp_soft/<strong>zabbix-3.4.4</strong>/frontends/php/</p>
+<p>cp   -r   *   /usr/local/nginx/html/</p>
+<p>（3）网络</p>
+<p>1.交换机工作原理</p>
+<p>2.vlan的作用：分隔广播域</p>
+<p>（4）osi 7层</p>
+<ul>
+<li>应用层 ：<strong>HTTP FTP</strong> SMTP SNMP DNS</li>
+<li>表示层</li>
+<li>会话层</li>
+<li>传输层：<strong>TCP UDP</strong></li>
+<li>网络层：<strong>ICMP IGMP IP</strong> ARP,RARP，代理ARP 路由器</li>
+<li>数据链路层</li>
+<li>物理层</li>
+</ul>
+<p>（5）虚拟化技术</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/10/17/%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%931/" data-id="cl9crcmkd0000d4uqftgddwm5" data-title="面试总结1" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-k8s部署" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2022/10/13/k8s%E9%83%A8%E7%BD%B2/" class="article-date">
@@ -678,45 +775,6 @@ echo $i;
 
 
   
-    <article id="post-javascript动态渲染页面爬取" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2022/02/21/javascript%E5%8A%A8%E6%80%81%E6%B8%B2%E6%9F%93%E9%A1%B5%E9%9D%A2%E7%88%AC%E5%8F%96/" class="article-date">
-  <time class="dt-published" datetime="2022-02-21T05:53:23.000Z" itemprop="datePublished">2022-02-21</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2022/02/21/javascript%E5%8A%A8%E6%80%81%E6%B8%B2%E6%9F%93%E9%A1%B5%E9%9D%A2%E7%88%AC%E5%8F%96/">javascript动态渲染页面爬取</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>一。Splash的使用<br>（1）安装<br>在linux系统上安装docker<br>第一步：关闭selinux和防火墙<br>第二步：wget -qO- <a target="_blank" rel="noopener" href="https://get.docker.com/">https://get.docker.com</a> | sh<br>第三步：用docker version命令查看docker版本<br>第四步：用service docker start命令启动docker服务<br>第五步： docker info查看docker存储位置<br>用docker安装splash<br>docker pull scrapinghub/splash<br>docker run -d -p 8050:8050 scrapinghub/splash<br>#通过浏览器访问8050端口验证安装是否成功：http：//127.0.0.1:8050/<br>(3)Python包Scrapy-Splash安装<br>pip3 install scrapy-splash</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2022/02/21/javascript%E5%8A%A8%E6%80%81%E6%B8%B2%E6%9F%93%E9%A1%B5%E9%9D%A2%E7%88%AC%E5%8F%96/" data-id="cl9bbmgin0007mwuqctcogolx" data-title="javascript动态渲染页面爬取" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
   <nav id="page-nav">
@@ -753,6 +811,10 @@ echo $i;
       <ul>
         
           <li>
+            <a href="/2022/10/17/%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%931/">面试总结1</a>
+          </li>
+        
+          <li>
             <a href="/2022/10/13/k8s%E9%83%A8%E7%BD%B2/">k8s部署</a>
           </li>
         
@@ -766,10 +828,6 @@ echo $i;
         
           <li>
             <a href="/2022/10/08/mysql%E4%B8%BB%E4%BB%8E%E6%9C%8D%E5%8A%A1/">mysql主从服务</a>
-          </li>
-        
-          <li>
-            <a href="/2022/03/17/redis%E7%BC%93%E5%AD%98%E7%A9%BF%E9%80%8F%E4%B8%8E%E9%9B%AA%E5%B4%A9/">redis缓存穿透与雪崩</a>
           </li>
         
       </ul>
