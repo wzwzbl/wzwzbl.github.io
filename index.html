@@ -192,26 +192,31 @@
       
         <p>一。安装</p>
 <p>（1）添加yum</p>
-<p>cat &gt; /etc/yum.repos.d/kubernetes.repo &lt;&lt; EOF[kubernetes]<br>name=Kubernetes<br>baseurl=<a target="_blank" rel="noopener" href="https://mirrors.aliyun.com/kubernetes/yum/repos/kubernetes-el7-x86_64">https://mirrors.aliyun.com/kubernetes/yum/repos/kubernetes-el7-x86_64</a><br>enabled=1<br>gpgcheck=0<br>repo_gpgcheck=0<br>gpgkey=<a target="_blank" rel="noopener" href="https://mirrors.aliyun.com/kubernetes/yum/doc/yum-key.gpg">https://mirrors.aliyun.com/kubernetes/yum/doc/yum-key.gpg</a> <a target="_blank" rel="noopener" href="https://mirrors.aliyun.com/kubernetes/yum/doc/rpm-package-key.gpg">https://mirrors.aliyun.com/kubernetes/yum/doc/rpm-package-key.gpg</a><br>EOF[kubernetes]</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">cat &gt; /etc/yum.repos.d/kubernetes.repo &lt;&lt; EOF[kubernetes]</span><br><span class="line">name=Kubernetes</span><br><span class="line">baseurl=https://mirrors.aliyun.com/kubernetes/yum/repos/kubernetes-el7-x86_64</span><br><span class="line">enabled=1</span><br><span class="line">gpgcheck=0</span><br><span class="line">repo_gpgcheck=0</span><br><span class="line">gpgkey=https://mirrors.aliyun.com/kubernetes/yum/doc/yum-key.gpg https://mirrors.aliyun.com/kubernetes/yum/doc/rpm-package-key.gpg</span><br><span class="line">EOF[kubernetes]</span><br></pre></td></tr></table></figure>
+
 <p>（2）安装kubeadm，kubelet和kubectl</p>
-<p>yum install -y kubelet-1.16.2 kubeadm-1.16.2 kubectl-1.16.2<br>systemctl start kubelet<br>systemctl enable kubelet</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yum install -y kubelet-1.16.2 kubeadm-1.16.2 kubectl-1.16.2</span><br><span class="line">systemctl start kubelet</span><br><span class="line">systemctl enable kubelet</span><br></pre></td></tr></table></figure>
+
 <p>（3）部署master，在master操作</p>
 <p>在 <code>master</code> 节点中执行以下命令，注意将 master 节点 IP 和 kube 版本号修改为自己主机中所对应的。</p>
-<p>kubeadm init –apiserver-advertise-address=192.168.200.132 –image-repository <a target="_blank" rel="noopener" href="http://registry.aliyuncs.com/google_containers">registry.aliyuncs.com/google_containers</a> –kubernetes-version v1.18.0 –service-cidr=10.96.0.0/12 –pod-network-cidr=10.244.0.0/16</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubeadm init --apiserver-advertise-address=192.168.200.132 --image-repository registry.aliyuncs.com/google_containers --kubernetes-version v1.18.0 --service-cidr=10.96.0.0/12 --pod-network-cidr=10.244.0.0/16</span><br></pre></td></tr></table></figure>
+
 <p>验证</p>
 <p>使用命令<code>docker images</code>查看系统中的镜像，可以我们需要的镜像均已安装完成。一共七条</p>
 <p>（4）执行（这个命令会在上个命令里出来）</p>
 <p>开启 kubectl 工具的使用(<code>该命令在master节点中执行</code>)。</p>
-<p>mkdir -p $HOME/.kube</p>
-<p>  sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config</p>
-<p>  sudo chown $(id -u):$(id -g) $HOME/.kube/config</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p $HOME/.kube</span><br><span class="line"></span><br><span class="line">  sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config</span><br><span class="line"></span><br><span class="line">  sudo chown $(id -u):$(id -g) $HOME/.kube/config</span><br></pre></td></tr></table></figure>
+
 <p>（5）部署node （在俩台node执行，这个命令也是命令3生成的）</p>
-<p>kubeadm join 192.168.2.100:6443 –token27vl3h.prktr5awxz19x50l \</p>
-<p>  –discovery-token-ca-cert-hashsha256:f7ed9afbae54b972b9d5372a9bc880bc8f7908f2091e3c9de3c5a7ad807c314f</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">kubeadm join 192.168.2.100:6443 --token27vl3h.prktr5awxz19x50l \</span><br><span class="line"></span><br><span class="line">  --discovery-token-ca-cert-hashsha256:f7ed9afbae54b972b9d5372a9bc880bc8f7908f2091e3c9de3c5a7ad807c314f</span><br></pre></td></tr></table></figure>
+
 <p>(6)安装网络插件</p>
-<p>wget <a target="_blank" rel="noopener" href="https://kuboard.cn/install-script/calico/calico-3.13.1.yaml">https://kuboard.cn/install-script/calico/calico-3.13.1.yaml</a><br>kubectl apply -f calico-3.13.1.yaml</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget https://kuboard.cn/install-script/calico/calico-3.13.1.yaml</span><br><span class="line">kubectl apply -f calico-3.13.1.yaml</span><br></pre></td></tr></table></figure>
+
 <p>（7）验证node</p>
-<p>kubectl  get nodes</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl  get nodes</span><br></pre></td></tr></table></figure>
+
+
 
       
     </div>

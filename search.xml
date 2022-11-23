@@ -81,26 +81,31 @@
     <url>/2022/10/13/k8s%E9%83%A8%E7%BD%B2/</url>
     <content><![CDATA[<p>一。安装</p>
 <p>（1）添加yum</p>
-<p>cat &gt; /etc/yum.repos.d/kubernetes.repo &lt;&lt; EOF[kubernetes]<br>name=Kubernetes<br>baseurl=<a href="https://mirrors.aliyun.com/kubernetes/yum/repos/kubernetes-el7-x86_64">https://mirrors.aliyun.com/kubernetes/yum/repos/kubernetes-el7-x86_64</a><br>enabled=1<br>gpgcheck=0<br>repo_gpgcheck=0<br>gpgkey=<a href="https://mirrors.aliyun.com/kubernetes/yum/doc/yum-key.gpg">https://mirrors.aliyun.com/kubernetes/yum/doc/yum-key.gpg</a> <a href="https://mirrors.aliyun.com/kubernetes/yum/doc/rpm-package-key.gpg">https://mirrors.aliyun.com/kubernetes/yum/doc/rpm-package-key.gpg</a><br>EOF[kubernetes]</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">cat &gt; /etc/yum.repos.d/kubernetes.repo &lt;&lt; EOF[kubernetes]</span><br><span class="line">name=Kubernetes</span><br><span class="line">baseurl=https://mirrors.aliyun.com/kubernetes/yum/repos/kubernetes-el7-x86_64</span><br><span class="line">enabled=1</span><br><span class="line">gpgcheck=0</span><br><span class="line">repo_gpgcheck=0</span><br><span class="line">gpgkey=https://mirrors.aliyun.com/kubernetes/yum/doc/yum-key.gpg https://mirrors.aliyun.com/kubernetes/yum/doc/rpm-package-key.gpg</span><br><span class="line">EOF[kubernetes]</span><br></pre></td></tr></table></figure>
+
 <p>（2）安装kubeadm，kubelet和kubectl</p>
-<p>yum install -y kubelet-1.16.2 kubeadm-1.16.2 kubectl-1.16.2<br>systemctl start kubelet<br>systemctl enable kubelet</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">yum install -y kubelet-1.16.2 kubeadm-1.16.2 kubectl-1.16.2</span><br><span class="line">systemctl start kubelet</span><br><span class="line">systemctl enable kubelet</span><br></pre></td></tr></table></figure>
+
 <p>（3）部署master，在master操作</p>
 <p>在 <code>master</code> 节点中执行以下命令，注意将 master 节点 IP 和 kube 版本号修改为自己主机中所对应的。</p>
-<p>kubeadm init –apiserver-advertise-address=192.168.200.132 –image-repository <a href="http://registry.aliyuncs.com/google_containers">registry.aliyuncs.com/google_containers</a> –kubernetes-version v1.18.0 –service-cidr=10.96.0.0/12 –pod-network-cidr=10.244.0.0/16</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">kubeadm init --apiserver-advertise-address=192.168.200.132 --image-repository registry.aliyuncs.com/google_containers --kubernetes-version v1.18.0 --service-cidr=10.96.0.0/12 --pod-network-cidr=10.244.0.0/16</span><br></pre></td></tr></table></figure>
+
 <p>验证</p>
 <p>使用命令<code>docker images</code>查看系统中的镜像，可以我们需要的镜像均已安装完成。一共七条</p>
 <p>（4）执行（这个命令会在上个命令里出来）</p>
 <p>开启 kubectl 工具的使用(<code>该命令在master节点中执行</code>)。</p>
-<p>mkdir -p $HOME/.kube</p>
-<p>  sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config</p>
-<p>  sudo chown $(id -u):$(id -g) $HOME/.kube/config</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">mkdir -p $HOME/.kube</span><br><span class="line"></span><br><span class="line">  sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config</span><br><span class="line"></span><br><span class="line">  sudo chown $(id -u):$(id -g) $HOME/.kube/config</span><br></pre></td></tr></table></figure>
+
 <p>（5）部署node （在俩台node执行，这个命令也是命令3生成的）</p>
-<p>kubeadm join 192.168.2.100:6443 –token27vl3h.prktr5awxz19x50l \</p>
-<p>  –discovery-token-ca-cert-hashsha256:f7ed9afbae54b972b9d5372a9bc880bc8f7908f2091e3c9de3c5a7ad807c314f</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">kubeadm join 192.168.2.100:6443 --token27vl3h.prktr5awxz19x50l \</span><br><span class="line"></span><br><span class="line">  --discovery-token-ca-cert-hashsha256:f7ed9afbae54b972b9d5372a9bc880bc8f7908f2091e3c9de3c5a7ad807c314f</span><br></pre></td></tr></table></figure>
+
 <p>(6)安装网络插件</p>
-<p>wget <a href="https://kuboard.cn/install-script/calico/calico-3.13.1.yaml">https://kuboard.cn/install-script/calico/calico-3.13.1.yaml</a><br>kubectl apply -f calico-3.13.1.yaml</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">wget https://kuboard.cn/install-script/calico/calico-3.13.1.yaml</span><br><span class="line">kubectl apply -f calico-3.13.1.yaml</span><br></pre></td></tr></table></figure>
+
 <p>（7）验证node</p>
-<p>kubectl  get nodes</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">kubectl  get nodes</span><br></pre></td></tr></table></figure>
+
+
 ]]></content>
   </entry>
   <entry>
@@ -806,13 +811,6 @@
 <li><p>代表着所有可能取到的值，除了直接用 * 外，下面的几个例子也较为常用<br>当指定 */5 在分钟字段，代表每五分钟。<br>当指定 0-10/2 在分钟字段，代表在前十分钟的每两分钟</p>
 </li>
 </ul>
-]]></content>
-  </entry>
-  <entry>
-    <title>linuxday7内核管理和修改ip</title>
-    <url>/2021/11/09/linuxday7/</url>
-    <content><![CDATA[<p>一。内核与内核模块<br>1。内核模块与依赖性<br>内核模板放在：/lib/modules/$(uname -r)/kernel中<br>使用depmod<br>范例一：若我做好一个网卡驱动程序，文件名为a.ko,该跟新内核依赖性<br>cp a.ko /lib/modules/$(uname -r)/kernel/drivers/net<br>depmod<br>2.查看内核模块<br>lsmod<br>列出内核名称。模块大小，此模块是否被其他模块所使用<br>列出模块的相关信息<br>如列出drm的模块信息：modinfo drm<br>3.内核模块的加载与删除<br>加载insmod  删除 rmmod<br>加载：modprobe vfat<br>删除：modprobe  -r vfat<br>4.内核模块的额外参数设置：/etc/modprobe.d/*.conf<br>5.boot loader的俩个stage<br>stage1：执行boot loader 主程序<br>stage2：主程序加载配置文件</p>
-<p>二。基础系统设置与备份策略<br>1.网络设置（手动设置与DHCP自动获取）<br>ipaddr-(ip)<br>netmask子网掩码<br>gateway网关<br>dns主机ip<br>2.命令<br>临时修改本机IP地址ifconfig ens33 192.168.1.200/24<br>永久修改本机IP地址：vim /etc/sysconfig/network-scripts/ifcfg-ens33<br>修改：BOOTPROTO=”static”<br>IPADDR=192.168.1.100<br>NETMASK=255.255.255.0<br>GATEWAY=192.168.1.1<br>修改完后注意重启network服务，使其生效：<br>service network restart<br>nmtui 网络管理器<br>3.nmcli<br>    systemctl restart NetworkManager   启动网络管理器<br>查看网卡信息nmcli connection show   网卡名称<br>        启动：nmcli connection up  网卡名称<br>显示所有设配状态# nmcli device status<br>显示所有活动连接# nmcli connection show –active<br>删除一个网卡连接# nmcli connection delete eth0<br>停用：# nmcli connection down eth0<br>设置：nmcli connection modify eth0\<br>          connection.autoconnect yes\  是否开机时启动这个连接<br>          ipv4.method manual（手动）   自动还是手动设置网络参数  auto（自动）<br>          ipv4.addresses 192.168.1.1/24\   ip地址和子网掩码<br>          ipv4.gateway  192.168.200.254    网关<br>          ipv4.dns<br>4.修改主机名<br>hostnamectl   set-hostname  {姓名}<br>cat  /etc/hostname<br>5.日期与时间设置<br>设置时区：tzselect  （Asia亚洲）<br>查看时间：timedatectl<br>修改：timedatectl  set-timezone “Asia/shanghai”<br>timedatectl  list-timezone<br>timedatectl  set-time  “2021-11-10 23：17”<br>使用ntpdate手动网络校时<br>ntpdate s2m.time.edu.cn<br>hwclock  -w<br>语系设置<br>localectl<br>将locale改成en_us.utf8之后，在转化成图形界面<br>localectl  set-locale LANG=en_US.utf8<br>systemctl  isolate  multi-user.target<br>systemctl  isolate  graphicdl.target</p>
 ]]></content>
   </entry>
   <entry>
@@ -2678,6 +2676,13 @@ echo $i;
 <li>物理层</li>
 </ul>
 <p>（5）虚拟化技术</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>linuxday7内核管理和修改ip</title>
+    <url>/2021/11/09/linuxday7%E4%BF%AE%E6%94%B9ip/</url>
+    <content><![CDATA[<p>一。内核与内核模块<br>1。内核模块与依赖性<br>内核模板放在：/lib/modules/$(uname -r)/kernel中<br>使用depmod<br>范例一：若我做好一个网卡驱动程序，文件名为a.ko,该跟新内核依赖性<br>cp a.ko /lib/modules/$(uname -r)/kernel/drivers/net<br>depmod<br>2.查看内核模块<br>lsmod<br>列出内核名称。模块大小，此模块是否被其他模块所使用<br>列出模块的相关信息<br>如列出drm的模块信息：modinfo drm<br>3.内核模块的加载与删除<br>加载insmod  删除 rmmod<br>加载：modprobe vfat<br>删除：modprobe  -r vfat<br>4.内核模块的额外参数设置：/etc/modprobe.d/*.conf<br>5.boot loader的俩个stage<br>stage1：执行boot loader 主程序<br>stage2：主程序加载配置文件</p>
+<p>二。基础系统设置与备份策略<br>1.网络设置（手动设置与DHCP自动获取）<br>ipaddr-(ip)<br>netmask子网掩码<br>gateway网关<br>dns主机ip<br>2.命令<br>临时修改本机IP地址ifconfig ens33 192.168.1.200/24<br>永久修改本机IP地址：vim /etc/sysconfig/network-scripts/ifcfg-ens33<br>修改：BOOTPROTO=”static”<br>IPADDR=192.168.1.100<br>NETMASK=255.255.255.0<br>GATEWAY=192.168.1.1<br>修改完后注意重启network服务，使其生效：<br>ifup ens33直接启动ens网卡<br>service network restart<br>nmtui 网络管理器<br>3.nmcli<br>    systemctl restart NetworkManager   启动网络管理器<br>查看网卡信息nmcli connection show   网卡名称<br>        启动：nmcli connection up  网卡名称<br>显示所有设配状态# nmcli device status<br>显示所有活动连接# nmcli connection show –active<br>删除一个网卡连接# nmcli connection delete eth0<br>停用：# nmcli connection down eth0<br>设置：nmcli connection modify eth0\<br>          connection.autoconnect yes\  是否开机时启动这个连接<br>          ipv4.method manual（手动）   自动还是手动设置网络参数  auto（自动）<br>          ipv4.addresses 192.168.1.1/24\   ip地址和子网掩码<br>          ipv4.gateway  192.168.200.254    网关<br>          ipv4.dns<br>4.修改主机名<br>hostnamectl   set-hostname  {姓名}<br>cat  /etc/hostname<br>5.日期与时间设置<br>设置时区：tzselect  （Asia亚洲）<br>查看时间：timedatectl<br>修改：timedatectl  set-timezone “Asia/shanghai”<br>timedatectl  list-timezone<br>timedatectl  set-time  “2021-11-10 23：17”<br>使用ntpdate手动网络校时<br>ntpdate s2m.time.edu.cn<br>hwclock  -w<br>语系设置<br>localectl<br>将locale改成en_us.utf8之后，在转化成图形界面<br>localectl  set-locale LANG=en_US.utf8<br>systemctl  isolate  multi-user.target<br>systemctl  isolate  graphicdl.target</p>
 ]]></content>
   </entry>
 </search>
